@@ -1,0 +1,848 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Management - Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- ================= SIDEBAR ================= -->
+            <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="main-content">
+
+        <!-- TOP NAVBAR -->
+        <header class="top-navbar">
+            <div>
+                <h2>Leave Management</h2>
+                <p>Manage employee leave requests and leave balances</p>
+            </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+        <!-- ================= PAGE CONTENT ================= -->
+        <section class="page-content">
+
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+
+                <div>
+                    <h1>Leave Management</h1>
+                    <p>Track, review and manage employee leave requests.</p>
+                </div>
+
+                <div class="page-header-actions">
+
+                    <button class="primary-btn">
+                        âž• Add Leave Request
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= SUMMARY CARDS ================= -->
+            <div class="summary-cards">
+
+                <div class="summary-card">
+                    <div class="summary-icon blue">
+                        📋
+                    </div>
+
+                    <div>
+                        <h3>Total Requests</h3>
+                        <p>48</p>
+                        <span>All leave requests</span>
+                    </div>
+                </div>
+
+
+                <div class="summary-card">
+                    <div class="summary-icon orange">
+                        â³
+                    </div>
+
+                    <div>
+                        <h3>Pending</h3>
+                        <p>8</p>
+                        <span>Awaiting approval</span>
+                    </div>
+                </div>
+
+
+                <div class="summary-card">
+                    <div class="summary-icon green">
+                        âœ…
+                    </div>
+
+                    <div>
+                        <h3>Approved</h3>
+                        <p>35</p>
+                        <span>Approved requests</span>
+                    </div>
+                </div>
+
+
+                <div class="summary-card">
+                    <div class="summary-icon red">
+                        âŒ
+                    </div>
+
+                    <div>
+                        <h3>Rejected</h3>
+                        <p>5</p>
+                        <span>Rejected requests</span>
+                    </div>
+                </div>
+
+
+                <div class="summary-card">
+                    <div class="summary-icon purple">
+                        ðŸ—“ï¸
+                    </div>
+
+                    <div>
+                        <h3>Leave Balance</h3>
+                        <p>86</p>
+                        <span>Total available days</span>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- ================= FILTER SECTION ================= -->
+            <div class="leave-filter-box">
+
+                <div class="leave-filter">
+
+                    <div class="filter-group">
+
+                        <label>Employee</label>
+
+                        <select>
+                            <option>All Employees</option>
+                            <option>Amit Kumar</option>
+                            <option>Priya Sharma</option>
+                            <option>Rahul Singh</option>
+                            <option>Neha Singh</option>
+                            <option>Suresh Kumar</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="filter-group">
+
+                        <label>Leave Type</label>
+
+                        <select>
+                            <option>All Leave Types</option>
+                            <option>Casual Leave</option>
+                            <option>Sick Leave</option>
+                            <option>Paid Leave</option>
+                            <option>Emergency Leave</option>
+                            <option>Unpaid Leave</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="filter-group">
+
+                        <label>Status</label>
+
+                        <select>
+                            <option>All Status</option>
+                            <option>Pending</option>
+                            <option>Approved</option>
+                            <option>Rejected</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="filter-group">
+
+                        <label>From Date</label>
+
+                        <input type="date">
+
+                    </div>
+
+
+                    <div class="filter-group">
+
+                        <label>To Date</label>
+
+                        <input type="date">
+
+                    </div>
+
+
+                    <button class="filter-btn">
+                        🔍 Apply Filter
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= LEAVE REQUESTS ================= -->
+            <div class="content-card leave-requests-card">
+
+                <div class="content-card-header">
+
+                    <div>
+                        <h2>Leave Requests</h2>
+                        <p>Review employee leave applications</p>
+                    </div>
+
+                    <button class="secondary-btn">
+                        📥 Export
+                    </button>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table class="leave-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Request ID</th>
+                                <th>Employee</th>
+                                <th>Leave Type</th>
+                                <th>From</th>
+                                <th>To</th>
+                                <th>Days</th>
+                                <th>Reason</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>LR001</td>
+
+                                <td>
+                                    <div class="employee-name-cell">
+                                        <div class="employee-avatar">
+                                            AK
+                                        </div>
+
+                                        <div>
+                                            <strong>Amit Kumar</strong>
+                                            <small>EMP001</small>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>Casual Leave</td>
+
+                                <td>05 Oct 2026</td>
+
+                                <td>06 Oct 2026</td>
+
+                                <td>2</td>
+
+                                <td>Personal work</td>
+
+                                <td>
+                                    <span class="leave-status approved">
+                                        Approved
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="#" class="leave-action-btn view">
+                                        View
+                                    </a>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>LR002</td>
+
+                                <td>
+                                    <div class="employee-name-cell">
+                                        <div class="employee-avatar">
+                                            PS
+                                        </div>
+
+                                        <div>
+                                            <strong>Priya Sharma</strong>
+                                            <small>EMP002</small>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>Sick Leave</td>
+
+                                <td>07 Oct 2026</td>
+
+                                <td>08 Oct 2026</td>
+
+                                <td>2</td>
+
+                                <td>Health issue</td>
+
+                                <td>
+                                    <span class="leave-status pending">
+                                        Pending
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="#" class="leave-action-btn view">
+                                        View
+                                    </a>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>LR003</td>
+
+                                <td>
+                                    <div class="employee-name-cell">
+                                        <div class="employee-avatar">
+                                            RS
+                                        </div>
+
+                                        <div>
+                                            <strong>Rahul Singh</strong>
+                                            <small>EMP003</small>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>Paid Leave</td>
+
+                                <td>10 Oct 2026</td>
+
+                                <td>12 Oct 2026</td>
+
+                                <td>3</td>
+
+                                <td>Family function</td>
+
+                                <td>
+                                    <span class="leave-status approved">
+                                        Approved
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="#" class="leave-action-btn view">
+                                        View
+                                    </a>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>LR004</td>
+
+                                <td>
+                                    <div class="employee-name-cell">
+                                        <div class="employee-avatar">
+                                            NS
+                                        </div>
+
+                                        <div>
+                                            <strong>Neha Singh</strong>
+                                            <small>EMP004</small>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>Emergency Leave</td>
+
+                                <td>14 Oct 2026</td>
+
+                                <td>14 Oct 2026</td>
+
+                                <td>1</td>
+
+                                <td>Emergency</td>
+
+                                <td>
+                                    <span class="leave-status rejected">
+                                        Rejected
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="#" class="leave-action-btn view">
+                                        View
+                                    </a>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>LR005</td>
+
+                                <td>
+                                    <div class="employee-name-cell">
+                                        <div class="employee-avatar">
+                                            SK
+                                        </div>
+
+                                        <div>
+                                            <strong>Suresh Kumar</strong>
+                                            <small>EMP005</small>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>Casual Leave</td>
+
+                                <td>18 Oct 2026</td>
+
+                                <td>19 Oct 2026</td>
+
+                                <td>2</td>
+
+                                <td>Personal work</td>
+
+                                <td>
+                                    <span class="leave-status pending">
+                                        Pending
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="#" class="leave-action-btn view">
+                                        View
+                                    </a>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- PAGINATION -->
+                <div class="leave-pagination">
+
+                    <span>Showing 1”“5 of 48 requests</span>
+
+                    <div>
+
+                        <button class="pagination-btn">
+                            Previous
+                        </button>
+
+                        <button class="pagination-btn active">
+                            1
+                        </button>
+
+                        <button class="pagination-btn">
+                            2
+                        </button>
+
+                        <button class="pagination-btn">
+                            3
+                        </button>
+
+                        <button class="pagination-btn">
+                            Next
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= LOWER SECTION ================= -->
+            <div class="leave-bottom-grid">
+
+
+                <!-- LEAVE BALANCE -->
+                <div class="content-card">
+
+                    <div class="content-card-header">
+
+                        <div>
+                            <h2>Employee Leave Balance</h2>
+                            <p>Available leave for employees</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="leave-balance-list">
+
+                        <div class="leave-balance-row">
+
+                            <div>
+                                <strong>Amit Kumar</strong>
+                                <span>EMP001</span>
+                            </div>
+
+                            <div class="balance-values">
+                                <span>
+                                    Casual: <strong>8</strong>
+                                </span>
+
+                                <span>
+                                    Sick: <strong>6</strong>
+                                </span>
+
+                                <span>
+                                    Paid: <strong>10</strong>
+                                </span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="leave-balance-row">
+
+                            <div>
+                                <strong>Priya Sharma</strong>
+                                <span>EMP002</span>
+                            </div>
+
+                            <div class="balance-values">
+                                <span>
+                                    Casual: <strong>7</strong>
+                                </span>
+
+                                <span>
+                                    Sick: <strong>5</strong>
+                                </span>
+
+                                <span>
+                                    Paid: <strong>8</strong>
+                                </span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="leave-balance-row">
+
+                            <div>
+                                <strong>Rahul Singh</strong>
+                                <span>EMP003</span>
+                            </div>
+
+                            <div class="balance-values">
+                                <span>
+                                    Casual: <strong>6</strong>
+                                </span>
+
+                                <span>
+                                    Sick: <strong>7</strong>
+                                </span>
+
+                                <span>
+                                    Paid: <strong>9</strong>
+                                </span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="leave-balance-row">
+
+                            <div>
+                                <strong>Neha Singh</strong>
+                                <span>EMP004</span>
+                            </div>
+
+                            <div class="balance-values">
+                                <span>
+                                    Casual: <strong>5</strong>
+                                </span>
+
+                                <span>
+                                    Sick: <strong>4</strong>
+                                </span>
+
+                                <span>
+                                    Paid: <strong>7</strong>
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LEAVE TYPES -->
+                <div class="content-card">
+
+                    <div class="content-card-header">
+
+                        <div>
+                            <h2>Leave Types</h2>
+                            <p>Configured leave categories</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="leave-type-list">
+
+                        <div class="leave-type-item">
+                            <div class="leave-type-icon casual">
+                                ðŸŒ´
+                            </div>
+
+                            <div>
+                                <strong>Casual Leave</strong>
+                                <span>12 days / year</span>
+                            </div>
+                        </div>
+
+
+                        <div class="leave-type-item">
+                            <div class="leave-type-icon sick">
+                                ðŸ¥
+                            </div>
+
+                            <div>
+                                <strong>Sick Leave</strong>
+                                <span>10 days / year</span>
+                            </div>
+                        </div>
+
+
+                        <div class="leave-type-item">
+                            <div class="leave-type-icon paid">
+                                💰
+                            </div>
+
+                            <div>
+                                <strong>Paid Leave</strong>
+                                <span>15 days / year</span>
+                            </div>
+                        </div>
+
+
+                        <div class="leave-type-item">
+                            <div class="leave-type-icon emergency">
+                                ðŸš¨
+                            </div>
+
+                            <div>
+                                <strong>Emergency Leave</strong>
+                                <span>5 days / year</span>
+                            </div>
+                        </div>
+
+
+                        <div class="leave-type-item">
+                            <div class="leave-type-icon unpaid">
+                                📅
+                            </div>
+
+                            <div>
+                                <strong>Unpaid Leave</strong>
+                                <span>As required</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= RECENT ACTIVITY ================= -->
+            <div class="content-card recent-leave-card">
+
+                <div class="content-card-header">
+
+                    <div>
+                        <h2>Recent Leave Activity</h2>
+                        <p>Latest leave-related activities</p>
+                    </div>
+
+                </div>
+
+
+                <div class="leave-activity-list">
+
+                    <div class="leave-activity-item">
+
+                        <div class="activity-icon approved-icon">
+                            ✓
+                        </div>
+
+                        <div>
+                            <strong>Amit Kumar's leave was approved</strong>
+                            <span>Casual Leave • 2 days</span>
+                        </div>
+
+                        <small>
+                            Today, 10:30 AM
+                        </small>
+
+                    </div>
+
+
+                    <div class="leave-activity-item">
+
+                        <div class="activity-icon pending-icon">
+                            â³
+                        </div>
+
+                        <div>
+                            <strong>Priya Sharma submitted a leave request</strong>
+                            <span>Sick Leave • 2 days</span>
+                        </div>
+
+                        <small>
+                            Today, 09:15 AM
+                        </small>
+
+                    </div>
+
+
+                    <div class="leave-activity-item">
+
+                        <div class="activity-icon rejected-icon">
+                            ✕
+                        </div>
+
+                        <div>
+                            <strong>Neha Singh's leave was rejected</strong>
+                            <span>Emergency Leave • 1 day</span>
+                        </div>
+
+                        <small>
+                            Yesterday
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/attendance.js"></script>
+</body>
+</html>

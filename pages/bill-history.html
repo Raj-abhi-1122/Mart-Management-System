@@ -1,0 +1,781 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bill History - Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ==================================================
+         SIDEBAR
+    ================================================== -->
+
+            <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+
+    <!-- ==================================================
+         MAIN CONTENT
+    ================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOP NAVBAR -->
+
+        <header class="top-navbar">
+            <div>
+
+                <h2>Bill History</h2>
+
+            </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+
+        <!-- ==================================================
+             PAGE CONTENT
+        ================================================== -->
+
+        <section class="page-content">
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="page-header">
+
+
+                <div>
+
+                    <h1>Bill History</h1>
+
+                    <p>
+                        View and manage all customer bills.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="new-bill.html"
+                    class="primary-btn"
+                >
+                    + New Bill
+                </a>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 SUMMARY CARDS
+            ================================================== -->
+
+            <div class="dashboard-cards">
+
+
+                <div class="card">
+
+                    <h3>Total Bills</h3>
+
+                    <p>1,248</p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>Total Sales</h3>
+
+                    <p>â‚¹8,45,600</p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>Paid Bills</h3>
+
+                    <p>1,180</p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>Pending Bills</h3>
+
+                    <p>68</p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 FILTER SECTION
+            ================================================== -->
+
+            <div class="history-filter">
+
+
+                <!-- SEARCH -->
+
+                <input
+                    type="text"
+                    class="search-input"
+                    placeholder="🔍 Search Bill ID or Customer..."
+                >
+
+
+
+                <!-- DATE FROM -->
+
+                <div class="date-filter">
+
+                    <label>
+                        From
+                    </label>
+
+                    <input
+                        type="date"
+                    >
+
+                </div>
+
+
+
+                <!-- DATE TO -->
+
+                <div class="date-filter">
+
+                    <label>
+                        To
+                    </label>
+
+                    <input
+                        type="date"
+                    >
+
+                </div>
+
+
+
+                <!-- CUSTOMER -->
+
+                <select class="filter-select">
+
+                    <option>
+                        All Customers
+                    </option>
+
+                    <option>
+                        Walk-in Customer
+                    </option>
+
+                    <option>
+                        Rahul Kumar
+                    </option>
+
+                    <option>
+                        Priya Sharma
+                    </option>
+
+                    <option>
+                        Amit Kumar
+                    </option>
+
+                </select>
+
+
+
+                <!-- PAYMENT STATUS -->
+
+                <select class="filter-select">
+
+                    <option>
+                        All Payment Status
+                    </option>
+
+                    <option>
+                        Paid
+                    </option>
+
+                    <option>
+                        Partial
+                    </option>
+
+                    <option>
+                        Due
+                    </option>
+
+                </select>
+
+
+
+                <button class="filter-btn">
+                    Apply Filter
+                </button>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 BILL HISTORY TABLE
+            ================================================== -->
+
+            <div class="table-container">
+
+
+                <table>
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Bill ID
+                            </th>
+
+                            <th>
+                                Customer
+                            </th>
+
+                            <th>
+                                Date
+                            </th>
+
+                            <th>
+                                Items
+                            </th>
+
+                            <th>
+                                Subtotal
+                            </th>
+
+                            <th>
+                                Discount
+                            </th>
+
+                            <th>
+                                Grand Total
+                            </th>
+
+                            <th>
+                                Paid
+                            </th>
+
+                            <th>
+                                Due
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+
+                    <tbody>
+
+
+                        <!-- BILL 001 -->
+
+                        <tr>
+
+                            <td>
+                                BILL001
+                            </td>
+
+                            <td>
+                                Walk-in Customer
+                            </td>
+
+                            <td>
+                                01 Oct 2026
+                            </td>
+
+                            <td>
+                                5
+                            </td>
+
+                            <td>
+                                â‚¹1,850
+                            </td>
+
+                            <td>
+                                â‚¹0
+                            </td>
+
+                            <td>
+                                â‚¹1,850
+                            </td>
+
+                            <td>
+                                â‚¹1,850
+                            </td>
+
+                            <td>
+                                â‚¹0
+                            </td>
+
+                            <td>
+
+                                <span class="status active">
+                                    Paid
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <a
+                                    href="bill-details.html"
+                                    class="action-btn"
+                                >
+                                    View
+                                </a>
+
+                                <button class="action-btn">
+                                    Print
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- BILL 002 -->
+
+                        <tr>
+
+                            <td>
+                                BILL002
+                            </td>
+
+                            <td>
+                                Rahul Kumar
+                            </td>
+
+                            <td>
+                                01 Oct 2026
+                            </td>
+
+                            <td>
+                                8
+                            </td>
+
+                            <td>
+                                â‚¹2,450
+                            </td>
+
+                            <td>
+                                â‚¹100
+                            </td>
+
+                            <td>
+                                â‚¹2,350
+                            </td>
+
+                            <td>
+                                â‚¹2,000
+                            </td>
+
+                            <td>
+                                â‚¹350
+                            </td>
+
+                            <td>
+
+                                <span class="status partial">
+                                    Partial
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <a
+                                    href="bill-details.html"
+                                    class="action-btn"
+                                >
+                                    View
+                                </a>
+
+                                <button class="action-btn">
+                                    Print
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- BILL 003 -->
+
+                        <tr>
+
+                            <td>
+                                BILL003
+                            </td>
+
+                            <td>
+                                Priya Sharma
+                            </td>
+
+                            <td>
+                                30 Sep 2026
+                            </td>
+
+                            <td>
+                                3
+                            </td>
+
+                            <td>
+                                â‚¹980
+                            </td>
+
+                            <td>
+                                â‚¹0
+                            </td>
+
+                            <td>
+                                â‚¹980
+                            </td>
+
+                            <td>
+                                â‚¹0
+                            </td>
+
+                            <td>
+                                â‚¹980
+                            </td>
+
+                            <td>
+
+                                <span class="status due">
+                                    Due
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <a
+                                    href="bill-details.html"
+                                    class="action-btn"
+                                >
+                                    View
+                                </a>
+
+                                <button class="action-btn">
+                                    Print
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- BILL 004 -->
+
+                        <tr>
+
+                            <td>
+                                BILL004
+                            </td>
+
+                            <td>
+                                Walk-in Customer
+                            </td>
+
+                            <td>
+                                30 Sep 2026
+                            </td>
+
+                            <td>
+                                6
+                            </td>
+
+                            <td>
+                                â‚¹1,250
+                            </td>
+
+                            <td>
+                                â‚¹50
+                            </td>
+
+                            <td>
+                                â‚¹1,200
+                            </td>
+
+                            <td>
+                                â‚¹1,200
+                            </td>
+
+                            <td>
+                                â‚¹0
+                            </td>
+
+                            <td>
+
+                                <span class="status active">
+                                    Paid
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <a
+                                    href="bill-details.html"
+                                    class="action-btn"
+                                >
+                                    View
+                                </a>
+
+                                <button class="action-btn">
+                                    Print
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- BILL 005 -->
+
+                        <tr>
+
+                            <td>
+                                BILL005
+                            </td>
+
+                            <td>
+                                Amit Kumar
+                            </td>
+
+                            <td>
+                                29 Sep 2026
+                            </td>
+
+                            <td>
+                                10
+                            </td>
+
+                            <td>
+                                â‚¹3,500
+                            </td>
+
+                            <td>
+                                â‚¹200
+                            </td>
+
+                            <td>
+                                â‚¹3,300
+                            </td>
+
+                            <td>
+                                â‚¹3,300
+                            </td>
+
+                            <td>
+                                â‚¹0
+                            </td>
+
+                            <td>
+
+                                <span class="status active">
+                                    Paid
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <a
+                                    href="bill-details.html"
+                                    class="action-btn"
+                                >
+                                    View
+                                </a>
+
+                                <button class="action-btn">
+                                    Print
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 PAGINATION
+            ================================================== -->
+
+            <div class="pagination">
+
+
+                <button>
+                    ← Previous
+                </button>
+
+
+                <button class="active-page">
+                    1
+                </button>
+
+
+                <button>
+                    2
+                </button>
+
+
+                <button>
+                    3
+                </button>
+
+
+                <button>
+                    4
+                </button>
+
+
+                <button>
+                    5
+                </button>
+
+
+                <button>
+                    Next →
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/billing.js"></script>
+</body>
+
+</html>

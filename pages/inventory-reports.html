@@ -1,0 +1,1035 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inventory Reports - Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- ================= SIDEBAR ================= -->
+
+            <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+        <!-- TOP NAVBAR -->
+
+        <header class="top-navbar">
+            <div>
+
+                <h2>Inventory Reports</h2>
+
+                <p>
+                    Analyze stock levels and inventory performance
+                </p>
+
+            </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+        <!-- ================= CONTENT ================= -->
+
+        <section class="content">
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="page-header">
+
+                <div>
+
+                    <h1>Inventory Report</h1>
+
+                    <p>
+                        Detailed analysis of stock, inventory value and stock movement.
+                    </p>
+
+                </div>
+
+                <div class="page-actions">
+
+                    <a href="reports.html" class="secondary-btn">
+                        ← Reports
+                    </a>
+
+                    <button class="secondary-btn">
+                        🖨️ Print
+                    </button>
+
+                    <button class="primary-btn">
+                        📥 Export
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= FILTER ================= -->
+
+            <div class="report-filter-card">
+
+                <div class="report-filter-title">
+
+                    <h3>Inventory Report Filters</h3>
+
+                    <p>
+                        Select the inventory category and stock status.
+                    </p>
+
+                </div>
+
+
+                <div class="inventory-filter-grid">
+
+                    <div class="form-group">
+
+                        <label>Report Date</label>
+
+                        <input
+                            type="date"
+                            value="2026-10-05"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Category</label>
+
+                        <select>
+
+                            <option>All Categories</option>
+                            <option>Groceries</option>
+                            <option>Personal Care</option>
+                            <option>Beverages</option>
+                            <option>Household</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Stock Status</label>
+
+                        <select>
+
+                            <option>All Status</option>
+                            <option>In Stock</option>
+                            <option>Low Stock</option>
+                            <option>Out of Stock</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Stock Value Based On</label>
+
+                        <select>
+
+                            <option>Purchase Price</option>
+                            <option>Selling Price</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="inventory-filter-button">
+
+                        <button class="primary-btn">
+                            🔍 Generate Report
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= SUMMARY CARDS ================= -->
+
+            <div class="summary-cards inventory-report-summary">
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon">
+                        📦
+                    </div>
+
+                    <div>
+
+                        <span>Total Products</span>
+
+                        <h2>385</h2>
+
+                        <small>
+                            342 active products
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon">
+                        📊
+                    </div>
+
+                    <div>
+
+                        <span>Total Stock Units</span>
+
+                        <h2>18,450</h2>
+
+                        <small class="report-positive">
+                            ←‘ 6.4% this month
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon">
+                        âš ï¸
+                    </div>
+
+                    <div>
+
+                        <span>Low Stock</span>
+
+                        <h2>18</h2>
+
+                        <small class="report-negative">
+                            Requires attention
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon">
+                        ðŸš«
+                    </div>
+
+                    <div>
+
+                        <span>Out of Stock</span>
+
+                        <h2>7</h2>
+
+                        <small class="report-negative">
+                            Restock required
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= INVENTORY VALUE ================= -->
+
+            <div class="inventory-value-grid">
+
+
+                <div class="details-card">
+
+                    <div class="details-card-header">
+
+                        <div>
+
+                            <h3>Inventory Valuation</h3>
+
+                            <p>
+                                Current estimated inventory value
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="inventory-value-content">
+
+                        <div class="inventory-value-main">
+
+                            <span>Total Inventory Value</span>
+
+                            <strong>â‚¹12,85,450</strong>
+
+                            <small>
+                                Based on purchase price
+                            </small>
+
+                        </div>
+
+
+                        <div class="inventory-value-details">
+
+                            <div>
+
+                                <span>Purchase Value</span>
+
+                                <strong>â‚¹12,85,450</strong>
+
+                            </div>
+
+                            <div>
+
+                                <span>Estimated Selling Value</span>
+
+                                <strong>â‚¹16,42,800</strong>
+
+                            </div>
+
+                            <div>
+
+                                <span>Potential Margin</span>
+
+                                <strong class="inventory-profit">
+                                    â‚¹3,57,350
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- STOCK HEALTH -->
+
+                <div class="details-card">
+
+                    <div class="details-card-header">
+
+                        <div>
+
+                            <h3>Stock Health</h3>
+
+                            <p>
+                                Current stock condition
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stock-health">
+
+                        <div class="stock-health-row">
+
+                            <div>
+
+                                <span class="stock-dot in-stock"></span>
+
+                                <span>In Stock</span>
+
+                            </div>
+
+                            <strong>360</strong>
+
+                        </div>
+
+
+                        <div class="stock-health-row">
+
+                            <div>
+
+                                <span class="stock-dot low-stock"></span>
+
+                                <span>Low Stock</span>
+
+                            </div>
+
+                            <strong>18</strong>
+
+                        </div>
+
+
+                        <div class="stock-health-row">
+
+                            <div>
+
+                                <span class="stock-dot out-stock"></span>
+
+                                <span>Out of Stock</span>
+
+                            </div>
+
+                            <strong>7</strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= STOCK MOVEMENT ================= -->
+
+            <div class="details-card">
+
+                <div class="details-card-header">
+
+                    <div>
+
+                        <h3>Stock Movement</h3>
+
+                        <p>
+                            Recent inventory movement
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="inventory-table-wrapper">
+
+                    <table class="inventory-report-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Date</th>
+                                <th>Product</th>
+                                <th>Movement Type</th>
+                                <th>Quantity</th>
+                                <th>Previous Stock</th>
+                                <th>New Stock</th>
+                                <th>Reference</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>05 Oct 2026</td>
+
+                                <td>
+                                    <strong>Rice</strong>
+                                </td>
+
+                                <td>
+                                    <span class="movement-badge stock-in">
+                                        + Purchase
+                                    </span>
+                                </td>
+
+                                <td class="movement-positive">
+                                    +100
+                                </td>
+
+                                <td>120</td>
+
+                                <td>220</td>
+
+                                <td>PUR156</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>05 Oct 2026</td>
+
+                                <td>
+                                    <strong>Cooking Oil</strong>
+                                </td>
+
+                                <td>
+                                    <span class="movement-badge stock-out">
+                                        - Sale
+                                    </span>
+                                </td>
+
+                                <td class="movement-negative">
+                                    -20
+                                </td>
+
+                                <td>65</td>
+
+                                <td>45</td>
+
+                                <td>BILL1248</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>04 Oct 2026</td>
+
+                                <td>
+                                    <strong>Sugar</strong>
+                                </td>
+
+                                <td>
+                                    <span class="movement-badge stock-out">
+                                        - Sale
+                                    </span>
+                                </td>
+
+                                <td class="movement-negative">
+                                    -15
+                                </td>
+
+                                <td>95</td>
+
+                                <td>80</td>
+
+                                <td>BILL1240</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>04 Oct 2026</td>
+
+                                <td>
+                                    <strong>Bath Soap</strong>
+                                </td>
+
+                                <td>
+                                    <span class="movement-badge stock-adjust">
+                                        Adjustment
+                                    </span>
+                                </td>
+
+                                <td class="movement-negative">
+                                    -5
+                                </td>
+
+                                <td>55</td>
+
+                                <td>50</td>
+
+                                <td>ADJ018</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>03 Oct 2026</td>
+
+                                <td>
+                                    <strong>Toothpaste</strong>
+                                </td>
+
+                                <td>
+                                    <span class="movement-badge stock-in">
+                                        + Purchase
+                                    </span>
+                                </td>
+
+                                <td class="movement-positive">
+                                    +50
+                                </td>
+
+                                <td>110</td>
+
+                                <td>160</td>
+
+                                <td>PUR151</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= TWO COLUMN ================= -->
+
+            <div class="inventory-report-two-column">
+
+
+                <!-- CATEGORY ANALYSIS -->
+
+                <div class="details-card">
+
+                    <div class="details-card-header">
+
+                        <div>
+
+                            <h3>Inventory by Category</h3>
+
+                            <p>
+                                Category-wise stock valuation
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="category-inventory-list">
+
+
+                        <div class="category-inventory-row">
+
+                            <div class="category-name">
+
+                                <span class="category-dot groceries"></span>
+
+                                <span>Groceries</span>
+
+                            </div>
+
+                            <div class="category-inventory-value">
+
+                                <strong>â‚¹6,85,400</strong>
+
+                                <span>53.3%</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="category-inventory-row">
+
+                            <div class="category-name">
+
+                                <span class="category-dot personal"></span>
+
+                                <span>Personal Care</span>
+
+                            </div>
+
+                            <div class="category-inventory-value">
+
+                                <strong>â‚¹2,85,600</strong>
+
+                                <span>22.2%</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="category-inventory-row">
+
+                            <div class="category-name">
+
+                                <span class="category-dot beverages"></span>
+
+                                <span>Beverages</span>
+
+                            </div>
+
+                            <div class="category-inventory-value">
+
+                                <strong>â‚¹1,95,250</strong>
+
+                                <span>15.2%</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="category-inventory-row">
+
+                            <div class="category-name">
+
+                                <span class="category-dot household"></span>
+
+                                <span>Household</span>
+
+                            </div>
+
+                            <div class="category-inventory-value">
+
+                                <strong>â‚¹1,19,200</strong>
+
+                                <span>9.3%</span>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- INVENTORY STATISTICS -->
+
+                <div class="details-card">
+
+                    <div class="details-card-header">
+
+                        <div>
+
+                            <h3>Inventory Statistics</h3>
+
+                            <p>
+                                Important inventory metrics
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="inventory-statistics">
+
+
+                        <div class="inventory-stat-row">
+
+                            <span>Average Stock / Product</span>
+
+                            <strong>48 units</strong>
+
+                        </div>
+
+
+                        <div class="inventory-stat-row">
+
+                            <span>Stock Turnover</span>
+
+                            <strong>4.8x</strong>
+
+                        </div>
+
+
+                        <div class="inventory-stat-row">
+
+                            <span>Low Stock Percentage</span>
+
+                            <strong>4.7%</strong>
+
+                        </div>
+
+
+                        <div class="inventory-stat-row">
+
+                            <span>Out of Stock Percentage</span>
+
+                            <strong>1.8%</strong>
+
+                        </div>
+
+
+                        <div class="inventory-stat-row">
+
+                            <span>Inventory Value</span>
+
+                            <strong>â‚¹12,85,450</strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= LOW STOCK PRODUCTS ================= -->
+
+            <div class="details-card">
+
+                <div class="details-card-header">
+
+                    <div>
+
+                        <h3>Low Stock Products</h3>
+
+                        <p>
+                            Products that require immediate restocking
+                        </p>
+
+                    </div>
+
+                    <a href="inventory.html" class="secondary-btn">
+                        View Inventory
+                    </a>
+
+                </div>
+
+
+                <div class="inventory-table-wrapper">
+
+                    <table class="inventory-report-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Product</th>
+                                <th>Category</th>
+                                <th>Current Stock</th>
+                                <th>Minimum Stock</th>
+                                <th>Shortage</th>
+                                <th>Status</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    <strong>Rice</strong>
+                                </td>
+
+                                <td>Groceries</td>
+
+                                <td>12 kg</td>
+
+                                <td>20 kg</td>
+
+                                <td class="movement-negative">
+                                    8 kg
+                                </td>
+
+                                <td>
+                                    <span class="inventory-alert low">
+                                        Low Stock
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <strong>Cooking Oil</strong>
+                                </td>
+
+                                <td>Groceries</td>
+
+                                <td>8 L</td>
+
+                                <td>15 L</td>
+
+                                <td class="movement-negative">
+                                    7 L
+                                </td>
+
+                                <td>
+                                    <span class="inventory-alert low">
+                                        Low Stock
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <strong>Toothpaste</strong>
+                                </td>
+
+                                <td>Personal Care</td>
+
+                                <td>5 pcs</td>
+
+                                <td>15 pcs</td>
+
+                                <td class="movement-negative">
+                                    10 pcs
+                                </td>
+
+                                <td>
+                                    <span class="inventory-alert critical">
+                                        Critical
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <strong>Shampoo</strong>
+                                </td>
+
+                                <td>Personal Care</td>
+
+                                <td>0 pcs</td>
+
+                                <td>10 pcs</td>
+
+                                <td class="movement-negative">
+                                    10 pcs
+                                </td>
+
+                                <td>
+                                    <span class="inventory-alert out">
+                                        Out of Stock
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= INFORMATION ================= -->
+
+            <div class="report-information">
+
+                <strong>
+                    â„¹ï¸ Report Information
+                </strong>
+
+                <p>
+                    Inventory report values are currently sample data for
+                    frontend development. During the JavaScript phase,
+                    stock quantities will automatically update from
+                    purchases, billing, returns and stock adjustments.
+                    Later, inventory reports will use real database data.
+                </p>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+</div>
+
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/reports.js"></script>
+</body>
+
+</html>

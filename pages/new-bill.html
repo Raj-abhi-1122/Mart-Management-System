@@ -1,0 +1,898 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>New Bill - Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ==================================================
+         SIDEBAR
+    ================================================== -->
+
+            <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+
+    <!-- ==================================================
+         MAIN CONTENT
+    ================================================== -->
+
+    <main class="main-content">
+
+
+
+        <!-- TOP NAVBAR -->
+
+        <header class="top-navbar">
+            <div>
+
+                <h2>New Bill</h2>
+
+            </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+
+        <!-- ==================================================
+             PAGE CONTENT
+        ================================================== -->
+
+        <section class="page-content">
+
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="page-header">
+
+
+                <div>
+
+                    <h1>Create New Bill</h1>
+
+                    <p>
+                        Create a new customer bill and record the sale.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="billing.html"
+                    class="secondary-btn"
+                >
+                    ← Back to Billing
+                </a>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 BILL FORM
+            ================================================== -->
+
+            <div class="bill-form">
+
+
+
+                <!-- ===============================
+                     BILL INFORMATION
+                =============================== -->
+
+                <div class="form-section">
+
+
+                    <h3>Bill Information</h3>
+
+
+                    <div class="form-grid">
+
+
+
+                        <!-- BILL NUMBER -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Bill Number
+                            </label>
+
+                            <input
+                                type="text"
+                                value="BILL005"
+                                readonly
+                            >
+
+                        </div>
+
+
+
+                        <!-- BILL DATE -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Bill Date
+                            </label>
+
+                            <input
+                                type="date"
+                                value="2026-10-01"
+                            >
+
+                        </div>
+
+
+
+                        <!-- CUSTOMER -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Customer
+                            </label>
+
+                            <select>
+
+                                <option>
+                                    Walk-in Customer
+                                </option>
+
+                                <option>
+                                    Rahul Kumar
+                                </option>
+
+                                <option>
+                                    Priya Sharma
+                                </option>
+
+                                <option>
+                                    Amit Kumar
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <!-- PAYMENT METHOD -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Payment Method
+                            </label>
+
+                            <select>
+
+                                <option>
+                                    Cash
+                                </option>
+
+                                <option>
+                                    UPI
+                                </option>
+
+                                <option>
+                                    Debit Card
+                                </option>
+
+                                <option>
+                                    Credit Card
+                                </option>
+
+                                <option>
+                                    Bank Transfer
+                                </option>
+
+                                <option>
+                                    Credit / Due
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ==================================================
+                     BILL ITEMS
+                ================================================== -->
+
+                <div class="form-section">
+
+
+                    <div class="section-title-row">
+
+
+                        <h3>
+                            Bill Items
+                        </h3>
+
+
+                        <button
+                            type="button"
+                            class="primary-btn"
+                        >
+                            + Add Product
+                        </button>
+
+
+                    </div>
+
+
+
+                    <!-- PRODUCT TABLE -->
+
+                    <div class="bill-table-container">
+
+
+                        <table class="bill-table">
+
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Product
+                                    </th>
+
+                                    <th>
+                                        Available
+                                    </th>
+
+                                    <th>
+                                        Quantity
+                                    </th>
+
+                                    <th>
+                                        Selling Price
+                                    </th>
+
+                                    <th>
+                                        Discount
+                                    </th>
+
+                                    <th>
+                                        Total
+                                    </th>
+
+                                    <th>
+                                        Action
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+
+                            <tbody>
+
+
+
+                                <!-- PRODUCT 1 -->
+
+                                <tr>
+
+
+                                    <td>
+
+                                        <select>
+
+                                            <option>
+                                                Select Product
+                                            </option>
+
+                                            <option selected>
+                                                Rice
+                                            </option>
+
+                                            <option>
+                                                Sugar
+                                            </option>
+
+                                            <option>
+                                                Cooking Oil
+                                            </option>
+
+                                            <option>
+                                                Bath Soap
+                                            </option>
+
+                                            <option>
+                                                Toothpaste
+                                            </option>
+
+                                        </select>
+
+                                    </td>
+
+
+
+                                    <td>
+
+                                        <span class="stock-available">
+                                            120
+                                        </span>
+
+                                    </td>
+
+
+
+                                    <td>
+
+                                        <input
+                                            type="number"
+                                            value="2"
+                                            min="1"
+                                        >
+
+                                    </td>
+
+
+
+                                    <td>
+
+                                        <input
+                                            type="number"
+                                            value="60"
+                                            min="0"
+                                        >
+
+                                    </td>
+
+
+
+                                    <td>
+
+                                        <input
+                                            type="number"
+                                            value="0"
+                                            min="0"
+                                        >
+
+                                    </td>
+
+
+
+                                    <td>
+
+                                        â‚¹120
+
+                                    </td>
+
+
+
+                                    <td>
+
+                                        <button
+                                            type="button"
+                                            class="delete-btn"
+                                        >
+                                            🗑️
+                                        </button>
+
+                                    </td>
+
+
+                                </tr>
+
+
+
+                                <!-- PRODUCT 2 -->
+
+                                <tr>
+
+
+                                    <td>
+
+                                        <select>
+
+                                            <option>
+                                                Select Product
+                                            </option>
+
+                                            <option>
+                                                Rice
+                                            </option>
+
+                                            <option selected>
+                                                Sugar
+                                            </option>
+
+                                            <option>
+                                                Cooking Oil
+                                            </option>
+
+                                            <option>
+                                                Bath Soap
+                                            </option>
+
+                                            <option>
+                                                Toothpaste
+                                            </option>
+
+                                        </select>
+
+                                    </td>
+
+
+
+                                    <td>
+
+                                        <span class="stock-available">
+                                            80
+                                        </span>
+
+                                    </td>
+
+
+
+                                    <td>
+
+                                        <input
+                                            type="number"
+                                            value="1"
+                                            min="1"
+                                        >
+
+                                    </td>
+
+
+
+                                    <td>
+
+                                        <input
+                                            type="number"
+                                            value="50"
+                                            min="0"
+                                        >
+
+                                    </td>
+
+
+
+                                    <td>
+
+                                        <input
+                                            type="number"
+                                            value="0"
+                                            min="0"
+                                        >
+
+                                    </td>
+
+
+
+                                    <td>
+
+                                        â‚¹50
+
+                                    </td>
+
+
+
+                                    <td>
+
+                                        <button
+                                            type="button"
+                                            class="delete-btn"
+                                        >
+                                            🗑️
+                                        </button>
+
+                                    </td>
+
+
+                                </tr>
+
+
+
+                                <!-- PRODUCT 3 -->
+
+                                <tr>
+
+
+                                    <td>
+
+                                        <select>
+
+                                            <option>
+                                                Select Product
+                                            </option>
+
+                                            <option>
+                                                Rice
+                                            </option>
+
+                                            <option>
+                                                Sugar
+                                            </option>
+
+                                            <option selected>
+                                                Cooking Oil
+                                            </option>
+
+                                            <option>
+                                                Bath Soap
+                                            </option>
+
+                                            <option>
+                                                Toothpaste
+                                            </option>
+
+                                        </select>
+
+                                    </td>
+
+
+
+                                    <td>
+
+                                        <span class="stock-available">
+                                            45
+                                        </span>
+
+                                    </td>
+
+
+
+                                    <td>
+
+                                        <input
+                                            type="number"
+                                            value="2"
+                                            min="1"
+                                        >
+
+                                    </td>
+
+
+
+                                    <td>
+
+                                        <input
+                                            type="number"
+                                            value="150"
+                                            min="0"
+                                        >
+
+                                    </td>
+
+
+
+                                    <td>
+
+                                        <input
+                                            type="number"
+                                            value="0"
+                                            min="0"
+                                        >
+
+                                    </td>
+
+
+
+                                    <td>
+
+                                        â‚¹300
+
+                                    </td>
+
+
+
+                                    <td>
+
+                                        <button
+                                            type="button"
+                                            class="delete-btn"
+                                        >
+                                            🗑️
+                                        </button>
+
+                                    </td>
+
+
+                                </tr>
+
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ==================================================
+                     BILL SUMMARY
+                ================================================== -->
+
+                <div class="bill-summary">
+
+
+
+                    <!-- LEFT SIDE -->
+
+                    <div class="bill-notes">
+
+
+                        <h3>
+                            Notes
+                        </h3>
+
+
+                        <textarea
+                            rows="5"
+                            placeholder="Add notes about this bill..."
+                        ></textarea>
+
+
+                    </div>
+
+
+
+                    <!-- RIGHT SIDE -->
+
+                    <div class="bill-total-box">
+
+
+                        <div class="bill-summary-row">
+
+                            <span>
+                                Subtotal
+                            </span>
+
+                            <strong>
+                                â‚¹470
+                            </strong>
+
+                        </div>
+
+
+
+                        <div class="bill-summary-row">
+
+                            <span>
+                                Discount
+                            </span>
+
+                            <strong>
+                                â‚¹0
+                            </strong>
+
+                        </div>
+
+
+
+                        <div class="bill-summary-row">
+
+                            <span>
+                                Tax
+                            </span>
+
+                            <strong>
+                                â‚¹0
+                            </strong>
+
+                        </div>
+
+
+
+                        <div class="bill-summary-row grand-total">
+
+                            <span>
+                                Grand Total
+                            </span>
+
+                            <strong>
+                                â‚¹470
+                            </strong>
+
+                        </div>
+
+
+
+                        <div class="bill-summary-row">
+
+
+                            <span>
+                                Paid Amount
+                            </span>
+
+
+                            <input
+                                type="number"
+                                value="500"
+                                min="0"
+                            >
+
+
+                        </div>
+
+
+
+                        <div class="bill-summary-row change-row">
+
+
+                            <span>
+                                Change
+                            </span>
+
+
+                            <strong>
+                                â‚¹30
+                            </strong>
+
+
+                        </div>
+
+
+
+                        <div class="bill-summary-row">
+
+
+                            <span>
+                                Payment Status
+                            </span>
+
+
+                            <span class="status active">
+                                Paid
+                            </span>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ==================================================
+                     ACTION BUTTONS
+                ================================================== -->
+
+                <div class="form-actions">
+
+
+                    <a
+                        href="billing.html"
+                        class="secondary-btn"
+                    >
+                        Cancel
+                    </a>
+
+
+                    <button
+                        type="button"
+                        class="primary-btn"
+                    >
+                        🧾 Generate Bill
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/billing.js"></script>
+</body>
+
+</html>

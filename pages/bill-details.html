@@ -1,0 +1,611 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bill Details - Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ==================================================
+         SIDEBAR
+    ================================================== -->
+
+            <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+
+    <!-- ==================================================
+         MAIN CONTENT
+    ================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOP NAVBAR -->
+
+        <header class="top-navbar">
+            <div>
+
+                <h2>Bill Details</h2>
+
+            </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+
+        <!-- ==================================================
+             PAGE CONTENT
+        ================================================== -->
+
+        <section class="page-content">
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="page-header">
+
+
+                <div>
+
+                    <h1>Bill Details</h1>
+
+                    <p>
+                        View and print customer invoice.
+                    </p>
+
+                </div>
+
+
+                <div class="invoice-actions">
+
+
+                    <a
+                        href="billing.html"
+                        class="secondary-btn"
+                    >
+                        ← Back to Billing
+                    </a>
+
+
+                    <button
+                        onclick="window.print()"
+                        class="primary-btn"
+                    >
+                        🖨️ Print Bill
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 INVOICE
+            ================================================== -->
+
+            <div class="invoice-container" id="printableBill">
+
+
+                <!-- ===============================
+                     INVOICE HEADER
+                =============================== -->
+
+                <div class="invoice-header">
+
+
+                    <div class="shop-info">
+
+
+                        <h1>
+                            🏪 MART MANAGEMENT SYSTEM
+                        </h1>
+
+
+                        <p>
+                            Your Trusted Local Mart
+                        </p>
+
+
+                        <p>
+                            Main Market, India
+                        </p>
+
+
+                        <p>
+                            Phone: +91 98765 43210
+                        </p>
+
+
+                        <p>
+                            Email: martmanagement@gmail.com
+                        </p>
+
+
+                    </div>
+
+
+
+                    <div class="invoice-title">
+
+
+                        <h2>
+                            INVOICE
+                        </h2>
+
+
+                        <p>
+                            <strong>
+                                Bill No:
+                            </strong>
+
+                            BILL005
+                        </p>
+
+
+                        <p>
+                            <strong>
+                                Date:
+                            </strong>
+
+                            01 Oct 2026
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ===============================
+                     CUSTOMER INFORMATION
+                =============================== -->
+
+                <div class="invoice-customer">
+
+
+                    <div>
+
+
+                        <h3>
+                            Bill To
+                        </h3>
+
+
+                        <p>
+                            <strong>
+                                Customer:
+                            </strong>
+
+                            Rahul Kumar
+                        </p>
+
+
+                        <p>
+                            <strong>
+                                Phone:
+                            </strong>
+
+                            9876543210
+                        </p>
+
+
+                    </div>
+
+
+
+                    <div>
+
+
+                        <h3>
+                            Payment Information
+                        </h3>
+
+
+                        <p>
+                            <strong>
+                                Payment:
+                            </strong>
+
+                            Cash
+                        </p>
+
+
+                        <p>
+
+                            <strong>
+                                Status:
+                            </strong>
+
+                            <span class="status active">
+                                Paid
+                            </span>
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ===============================
+                     PRODUCT TABLE
+                =============================== -->
+
+                <div class="invoice-table-container">
+
+
+                    <table class="invoice-table">
+
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    #
+                                </th>
+
+                                <th>
+                                    Product
+                                </th>
+
+                                <th>
+                                    Qty
+                                </th>
+
+                                <th>
+                                    Price
+                                </th>
+
+                                <th>
+                                    Discount
+                                </th>
+
+                                <th>
+                                    Total
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+
+                            <tr>
+
+                                <td>
+                                    1
+                                </td>
+
+                                <td>
+                                    Rice
+                                </td>
+
+                                <td>
+                                    2
+                                </td>
+
+                                <td>
+                                    â‚¹60
+                                </td>
+
+                                <td>
+                                    â‚¹0
+                                </td>
+
+                                <td>
+                                    â‚¹120
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    2
+                                </td>
+
+                                <td>
+                                    Sugar
+                                </td>
+
+                                <td>
+                                    1
+                                </td>
+
+                                <td>
+                                    â‚¹50
+                                </td>
+
+                                <td>
+                                    â‚¹0
+                                </td>
+
+                                <td>
+                                    â‚¹50
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    3
+                                </td>
+
+                                <td>
+                                    Cooking Oil
+                                </td>
+
+                                <td>
+                                    2
+                                </td>
+
+                                <td>
+                                    â‚¹150
+                                </td>
+
+                                <td>
+                                    â‚¹0
+                                </td>
+
+                                <td>
+                                    â‚¹300
+                                </td>
+
+                            </tr>
+
+
+                        </tbody>
+
+
+                    </table>
+
+
+                </div>
+
+
+
+                <!-- ===============================
+                     TOTAL SECTION
+                =============================== -->
+
+                <div class="invoice-bottom">
+
+
+                    <div class="invoice-note">
+
+
+                        <h3>
+                            Thank You!
+                        </h3>
+
+
+                        <p>
+                            Thank you for shopping with us.
+                        </p>
+
+
+                        <p>
+                            Please visit again.
+                        </p>
+
+
+                    </div>
+
+
+
+                    <div class="invoice-totals">
+
+
+                        <div class="invoice-total-row">
+
+                            <span>
+                                Subtotal
+                            </span>
+
+                            <strong>
+                                â‚¹470
+                            </strong>
+
+                        </div>
+
+
+                        <div class="invoice-total-row">
+
+                            <span>
+                                Discount
+                            </span>
+
+                            <strong>
+                                â‚¹0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="invoice-total-row">
+
+                            <span>
+                                Tax
+                            </span>
+
+                            <strong>
+                                â‚¹0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="invoice-total-row grand">
+
+                            <span>
+                                Grand Total
+                            </span>
+
+                            <strong>
+                                â‚¹470
+                            </strong>
+
+                        </div>
+
+
+                        <div class="invoice-total-row">
+
+                            <span>
+                                Amount Paid
+                            </span>
+
+                            <strong>
+                                â‚¹500
+                            </strong>
+
+                        </div>
+
+
+                        <div class="invoice-total-row change">
+
+                            <span>
+                                Change
+                            </span>
+
+                            <strong>
+                                â‚¹30
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ===============================
+                     FOOTER
+                =============================== -->
+
+                <div class="invoice-footer">
+
+                    <p>
+                        This is a computer-generated invoice.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/billing.js"></script>
+</body>
+
+</html>

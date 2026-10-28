@@ -1,0 +1,844 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Activity Log | Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- ================= SIDEBAR ================= -->
+            <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="main-content">
+
+        <!-- TOP NAVBAR -->
+        <header class="top-navbar">
+            <div>
+
+                <h2>Activity Log</h2>
+
+                <p>
+                    Track important actions performed in the system
+                </p>
+
+            </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+        <!-- ================= PAGE CONTENT ================= -->
+        <section class="page-content">
+
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+
+                <div>
+
+                    <h1>📋 Activity Log</h1>
+
+                    <p>
+                        Monitor important activities and changes
+                        made in your mart management system.
+                    </p>
+
+                </div>
+
+                <div class="activity-header-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-btn"
+                    >
+                        📥 Export Log
+                    </button>
+
+                    <button
+                        type="button"
+                        class="danger-btn"
+                    >
+                        🗑️ Clear Log
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= SUMMARY ================= -->
+            <div class="summary-cards activity-summary">
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon">
+                        📋
+                    </div>
+
+                    <div>
+
+                        <span>Total Activities</span>
+
+                        <strong>1,248</strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon">
+                        📅
+                    </div>
+
+                    <div>
+
+                        <span>Today's Activities</span>
+
+                        <strong>48</strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon">
+                        👤
+                    </div>
+
+                    <div>
+
+                        <span>Active Users</span>
+
+                        <strong>4</strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon">
+                        âš ï¸
+                    </div>
+
+                    <div>
+
+                        <span>Important Actions</span>
+
+                        <strong>12</strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= FILTERS ================= -->
+            <div class="filter-section">
+
+                <div class="filter-group">
+
+                    <label for="activitySearch">
+                        Search
+                    </label>
+
+                    <input
+                        type="text"
+                        id="activitySearch"
+                        placeholder="Search activity..."
+                    >
+
+                </div>
+
+
+                <div class="filter-group">
+
+                    <label for="activityType">
+                        Activity Type
+                    </label>
+
+                    <select id="activityType">
+
+                        <option selected>All Activities</option>
+                        <option>Login</option>
+                        <option>Product</option>
+                        <option>Inventory</option>
+                        <option>Purchase</option>
+                        <option>Billing</option>
+                        <option>Customer</option>
+                        <option>Employee</option>
+                        <option>Attendance</option>
+                        <option>Expense</option>
+                        <option>Settings</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="filter-group">
+
+                    <label for="activityUser">
+                        User
+                    </label>
+
+                    <select id="activityUser">
+
+                        <option selected>All Users</option>
+                        <option>Admin</option>
+                        <option>Manager</option>
+                        <option>Cashier</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="filter-group">
+
+                    <label for="activityDate">
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="activityDate"
+                        value="2026-10-05"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= ACTIVITY TABLE ================= -->
+            <div class="activity-panel">
+
+                <div class="activity-panel-header">
+
+                    <div>
+
+                        <h2>Recent Activities</h2>
+
+                        <p>
+                            Latest actions performed in the system
+                        </p>
+
+                    </div>
+
+                    <span class="activity-count">
+                        48 Today
+                    </span>
+
+                </div>
+
+
+                <div class="activity-table-wrapper">
+
+                    <table class="activity-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Time</th>
+
+                                <th>User</th>
+
+                                <th>Activity</th>
+
+                                <th>Module</th>
+
+                                <th>Description</th>
+
+                                <th>Status</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    04:35 PM
+                                </td>
+
+                                <td>
+                                    <strong>Admin</strong>
+                                </td>
+
+                                <td>
+
+                                    <span class="activity-type product">
+                                        📦 Product
+                                    </span>
+
+                                </td>
+
+                                <td>
+                                    Products
+                                </td>
+
+                                <td>
+                                    Added new product "Bath Soap"
+                                </td>
+
+                                <td>
+
+                                    <span class="activity-status success">
+                                        Success
+                                    </span>
+
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    04:20 PM
+                                </td>
+
+                                <td>
+                                    <strong>Admin</strong>
+                                </td>
+
+                                <td>
+
+                                    <span class="activity-type inventory">
+                                        📋 Inventory
+                                    </span>
+
+                                </td>
+
+                                <td>
+                                    Inventory
+                                </td>
+
+                                <td>
+                                    Stock adjusted for Cooking Oil
+                                </td>
+
+                                <td>
+
+                                    <span class="activity-status success">
+                                        Success
+                                    </span>
+
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    04:05 PM
+                                </td>
+
+                                <td>
+                                    <strong>Cashier</strong>
+                                </td>
+
+                                <td>
+
+                                    <span class="activity-type billing">
+                                        🧾 Billing
+                                    </span>
+
+                                </td>
+
+                                <td>
+                                    Billing
+                                </td>
+
+                                <td>
+                                    BILL005 generated for Rahul Kumar
+                                </td>
+
+                                <td>
+
+                                    <span class="activity-status success">
+                                        Success
+                                    </span>
+
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    03:42 PM
+                                </td>
+
+                                <td>
+                                    <strong>Manager</strong>
+                                </td>
+
+                                <td>
+
+                                    <span class="activity-type purchase">
+                                        🛒 Purchase
+                                    </span>
+
+                                </td>
+
+                                <td>
+                                    Purchases
+                                </td>
+
+                                <td>
+                                    Purchase PUR156 created from ABC Distributors
+                                </td>
+
+                                <td>
+
+                                    <span class="activity-status success">
+                                        Success
+                                    </span>
+
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    03:25 PM
+                                </td>
+
+                                <td>
+                                    <strong>Admin</strong>
+                                </td>
+
+                                <td>
+
+                                    <span class="activity-type customer">
+                                        👥 Customer
+                                    </span>
+
+                                </td>
+
+                                <td>
+                                    Customers
+                                </td>
+
+                                <td>
+                                    New customer Priya Sharma added
+                                </td>
+
+                                <td>
+
+                                    <span class="activity-status success">
+                                        Success
+                                    </span>
+
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    02:55 PM
+                                </td>
+
+                                <td>
+                                    <strong>Manager</strong>
+                                </td>
+
+                                <td>
+
+                                    <span class="activity-type attendance">
+                                        🕐 Attendance
+                                    </span>
+
+                                </td>
+
+                                <td>
+                                    Attendance
+                                </td>
+
+                                <td>
+                                    Daily attendance marked for employees
+                                </td>
+
+                                <td>
+
+                                    <span class="activity-status success">
+                                        Success
+                                    </span>
+
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    02:30 PM
+                                </td>
+
+                                <td>
+                                    <strong>Admin</strong>
+                                </td>
+
+                                <td>
+
+                                    <span class="activity-type expense">
+                                        💰 Expense
+                                    </span>
+
+                                </td>
+
+                                <td>
+                                    Expenses
+                                </td>
+
+                                <td>
+                                    Electricity expense EXP001 recorded
+                                </td>
+
+                                <td>
+
+                                    <span class="activity-status success">
+                                        Success
+                                    </span>
+
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    01:45 PM
+                                </td>
+
+                                <td>
+                                    <strong>Admin</strong>
+                                </td>
+
+                                <td>
+
+                                    <span class="activity-type settings">
+                                        ⚙️ Settings
+                                    </span>
+
+                                </td>
+
+                                <td>
+                                    Settings
+                                </td>
+
+                                <td>
+                                    Billing settings updated
+                                </td>
+
+                                <td>
+
+                                    <span class="activity-status success">
+                                        Success
+                                    </span>
+
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    12:20 PM
+                                </td>
+
+                                <td>
+                                    <strong>Cashier</strong>
+                                </td>
+
+                                <td>
+
+                                    <span class="activity-type login">
+                                        🔒 Login
+                                    </span>
+
+                                </td>
+
+                                <td>
+                                    Authentication
+                                </td>
+
+                                <td>
+                                    User logged into the system
+                                </td>
+
+                                <td>
+
+                                    <span class="activity-status success">
+                                        Success
+                                    </span>
+
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    11:45 AM
+                                </td>
+
+                                <td>
+                                    <strong>Admin</strong>
+                                </td>
+
+                                <td>
+
+                                    <span class="activity-type employee">
+                                        👨‍💼 Employee
+                                    </span>
+
+                                </td>
+
+                                <td>
+                                    Employees
+                                </td>
+
+                                <td>
+                                    Employee Amit Kumar details updated
+                                </td>
+
+                                <td>
+
+                                    <span class="activity-status success">
+                                        Success
+                                    </span>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= ACTIVITY TIMELINE ================= -->
+            <div class="activity-timeline-section">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>Today's Activity Timeline</h2>
+
+                        <p>
+                            Overview of today's important system actions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="activity-timeline">
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-dot">
+                            🧾
+                        </div>
+
+                        <div class="timeline-content">
+
+                            <strong>New Bill Created</strong>
+
+                            <p>
+                                BILL005 generated for â‚¹470
+                            </p>
+
+                            <span>
+                                04:05 PM
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-dot">
+                            📦
+                        </div>
+
+                        <div class="timeline-content">
+
+                            <strong>Inventory Updated</strong>
+
+                            <p>
+                                Cooking Oil stock quantity adjusted.
+                            </p>
+
+                            <span>
+                                04:20 PM
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-dot">
+                            📦
+                        </div>
+
+                        <div class="timeline-content">
+
+                            <strong>Product Added</strong>
+
+                            <p>
+                                Bath Soap was added to the product catalog.
+                            </p>
+
+                            <span>
+                                04:35 PM
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= INFO NOTE ================= -->
+            <div class="info-note">
+
+                <strong>â„¹ï¸ Frontend Mode:</strong>
+
+                Activity records are currently static examples.
+                During Phase 2, JavaScript will automatically record
+                actions such as adding products, creating bills,
+                changing stock, recording expenses and updating settings.
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/activity-log.js"></script>
+</body>
+</html>

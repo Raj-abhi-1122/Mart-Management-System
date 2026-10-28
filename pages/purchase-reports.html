@@ -1,0 +1,1006 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Purchase Reports - Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- ================= SIDEBAR ================= -->
+
+            <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+        <!-- TOP NAVBAR -->
+
+        <header class="top-navbar">
+            <div>
+
+                <h2>Purchase Reports</h2>
+
+                <p>
+                    Analyze purchases and supplier payments
+                </p>
+
+            </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+        <!-- ================= CONTENT ================= -->
+
+        <section class="content">
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="page-header">
+
+                <div>
+
+                    <h1>Purchase Report</h1>
+
+                    <p>
+                        Detailed analysis of purchases, suppliers and outstanding payments.
+                    </p>
+
+                </div>
+
+                <div class="page-actions">
+
+                    <a href="reports.html" class="secondary-btn">
+                        ← Reports
+                    </a>
+
+                    <button class="secondary-btn">
+                        🖨️ Print
+                    </button>
+
+                    <button class="primary-btn">
+                        📥 Export
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= FILTER ================= -->
+
+            <div class="report-filter-card">
+
+                <div class="report-filter-title">
+
+                    <h3>Purchase Report Filters</h3>
+
+                    <p>
+                        Select the period, supplier and payment status.
+                    </p>
+
+                </div>
+
+
+                <div class="purchase-filter-grid">
+
+                    <div class="form-group">
+
+                        <label>From Date</label>
+
+                        <input
+                            type="date"
+                            value="2026-10-01"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>To Date</label>
+
+                        <input
+                            type="date"
+                            value="2026-10-05"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Supplier</label>
+
+                        <select>
+
+                            <option>All Suppliers</option>
+                            <option>ABC Distributors</option>
+                            <option>XYZ Traders</option>
+                            <option>Sharma Wholesale</option>
+                            <option>Fresh Foods Ltd.</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Payment Status</label>
+
+                        <select>
+
+                            <option>All Status</option>
+                            <option>Paid</option>
+                            <option>Partial</option>
+                            <option>Due</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="purchase-filter-button">
+
+                        <button class="primary-btn">
+                            🔍 Generate Report
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= SUMMARY CARDS ================= -->
+
+            <div class="summary-cards purchase-report-summary">
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon">
+                        🛒
+                    </div>
+
+                    <div>
+
+                        <span>Total Purchases</span>
+
+                        <h2>â‚¹5,20,400</h2>
+
+                        <small class="report-positive">
+                            ←‘ 8.2% from last month
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon">
+                        📋
+                    </div>
+
+                    <div>
+
+                        <span>Total Orders</span>
+
+                        <h2>156</h2>
+
+                        <small>
+                            Average 31 orders/day
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon">
+                        âœ…
+                    </div>
+
+                    <div>
+
+                        <span>Amount Paid</span>
+
+                        <h2>â‚¹4,70,400</h2>
+
+                        <small class="report-positive">
+                            90.4% paid
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon">
+                        â³
+                    </div>
+
+                    <div>
+
+                        <span>Amount Due</span>
+
+                        <h2>â‚¹50,000</h2>
+
+                        <small class="report-negative">
+                            9.6% pending
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= PURCHASE SUMMARY TABLE ================= -->
+
+            <div class="details-card">
+
+                <div class="details-card-header">
+
+                    <div>
+
+                        <h3>Purchase Summary</h3>
+
+                        <p>
+                            Purchase activity during the selected period
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="sales-table-wrapper">
+
+                    <table class="purchase-report-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Date</th>
+                                <th>Orders</th>
+                                <th>Purchase Amount</th>
+                                <th>Paid</th>
+                                <th>Due</th>
+                                <th>Average Order</th>
+                                <th>Status</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>01 Oct 2026</td>
+                                <td>28</td>
+                                <td>â‚¹92,500</td>
+                                <td>â‚¹84,500</td>
+                                <td>â‚¹8,000</td>
+                                <td>â‚¹3,304</td>
+
+                                <td>
+                                    <span class="purchase-status partial">
+                                        Partial
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>02 Oct 2026</td>
+                                <td>32</td>
+                                <td>â‚¹1,05,800</td>
+                                <td>â‚¹98,800</td>
+                                <td>â‚¹7,000</td>
+                                <td>â‚¹3,306</td>
+
+                                <td>
+                                    <span class="purchase-status partial">
+                                        Partial
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>03 Oct 2026</td>
+                                <td>35</td>
+                                <td>â‚¹1,12,400</td>
+                                <td>â‚¹1,02,400</td>
+                                <td>â‚¹10,000</td>
+                                <td>â‚¹3,211</td>
+
+                                <td>
+                                    <span class="purchase-status partial">
+                                        Partial
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>04 Oct 2026</td>
+                                <td>29</td>
+                                <td>â‚¹96,200</td>
+                                <td>â‚¹89,200</td>
+                                <td>â‚¹7,000</td>
+                                <td>â‚¹3,317</td>
+
+                                <td>
+                                    <span class="purchase-status paid">
+                                        Paid
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>05 Oct 2026</td>
+                                <td>32</td>
+                                <td>â‚¹1,13,500</td>
+                                <td>â‚¹1,05,500</td>
+                                <td>â‚¹8,000</td>
+                                <td>â‚¹3,547</td>
+
+                                <td>
+                                    <span class="purchase-status partial">
+                                        Partial
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr class="table-total">
+
+                                <td>
+                                    <strong>Total</strong>
+                                </td>
+
+                                <td>
+                                    <strong>156</strong>
+                                </td>
+
+                                <td>
+                                    <strong>â‚¹5,20,400</strong>
+                                </td>
+
+                                <td>
+                                    <strong>â‚¹4,70,400</strong>
+                                </td>
+
+                                <td>
+                                    <strong>â‚¹50,000</strong>
+                                </td>
+
+                                <td>
+                                    <strong>â‚¹3,336</strong>
+                                </td>
+
+                                <td>””</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= TWO COLUMNS ================= -->
+
+            <div class="purchase-report-two-column">
+
+
+                <!-- SUPPLIER PURCHASES -->
+
+                <div class="details-card">
+
+                    <div class="details-card-header">
+
+                        <div>
+
+                            <h3>Purchases by Supplier</h3>
+
+                            <p>
+                                Supplier-wise purchase breakdown
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="supplier-purchase-list">
+
+
+                        <div class="supplier-purchase-row">
+
+                            <div class="supplier-info">
+
+                                <div class="supplier-avatar">
+                                    A
+                                </div>
+
+                                <div>
+
+                                    <strong>ABC Distributors</strong>
+
+                                    <span>
+                                        42 orders
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="supplier-amount">
+
+                                <strong>â‚¹1,85,000</strong>
+
+                                <span>35.5%</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="supplier-purchase-row">
+
+                            <div class="supplier-info">
+
+                                <div class="supplier-avatar">
+                                    X
+                                </div>
+
+                                <div>
+
+                                    <strong>XYZ Traders</strong>
+
+                                    <span>
+                                        38 orders
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="supplier-amount">
+
+                                <strong>â‚¹1,45,500</strong>
+
+                                <span>28.0%</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="supplier-purchase-row">
+
+                            <div class="supplier-info">
+
+                                <div class="supplier-avatar">
+                                    S
+                                </div>
+
+                                <div>
+
+                                    <strong>Sharma Wholesale</strong>
+
+                                    <span>
+                                        31 orders
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="supplier-amount">
+
+                                <strong>â‚¹98,900</strong>
+
+                                <span>19.0%</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="supplier-purchase-row">
+
+                            <div class="supplier-info">
+
+                                <div class="supplier-avatar">
+                                    F
+                                </div>
+
+                                <div>
+
+                                    <strong>Fresh Foods Ltd.</strong>
+
+                                    <span>
+                                        25 orders
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="supplier-amount">
+
+                                <strong>â‚¹91,000</strong>
+
+                                <span>17.5%</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="supplier-total">
+
+                            <span>Total</span>
+
+                            <strong>â‚¹5,20,400</strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PURCHASE STATISTICS -->
+
+                <div class="details-card">
+
+                    <div class="details-card-header">
+
+                        <div>
+
+                            <h3>Purchase Statistics</h3>
+
+                            <p>
+                                Important purchase metrics
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="purchase-statistics">
+
+
+                        <div class="purchase-stat-row">
+
+                            <span>Average Order Value</span>
+
+                            <strong>â‚¹3,336</strong>
+
+                        </div>
+
+
+                        <div class="purchase-stat-row">
+
+                            <span>Highest Purchase</span>
+
+                            <strong>â‚¹1,13,500</strong>
+
+                        </div>
+
+
+                        <div class="purchase-stat-row">
+
+                            <span>Lowest Purchase</span>
+
+                            <strong>â‚¹92,500</strong>
+
+                        </div>
+
+
+                        <div class="purchase-stat-row">
+
+                            <span>Average Daily Purchase</span>
+
+                            <strong>â‚¹1,04,080</strong>
+
+                        </div>
+
+
+                        <div class="purchase-stat-row">
+
+                            <span>Outstanding Due</span>
+
+                            <strong class="purchase-due">
+                                â‚¹50,000
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= TOP PURCHASED PRODUCTS ================= -->
+
+            <div class="details-card">
+
+                <div class="details-card-header">
+
+                    <div>
+
+                        <h3>Top Purchased Products</h3>
+
+                        <p>
+                            Products purchased in the highest quantities
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="sales-table-wrapper">
+
+                    <table class="purchase-report-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Rank</th>
+                                <th>Product</th>
+                                <th>Category</th>
+                                <th>Quantity Purchased</th>
+                                <th>Purchase Value</th>
+                                <th>Supplier</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>ðŸ¥‡ 1</td>
+
+                                <td>
+                                    <strong>Rice</strong>
+                                </td>
+
+                                <td>Groceries</td>
+
+                                <td>2,500 kg</td>
+
+                                <td>â‚¹1,25,000</td>
+
+                                <td>ABC Distributors</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>ðŸ¥ˆ 2</td>
+
+                                <td>
+                                    <strong>Sugar</strong>
+                                </td>
+
+                                <td>Groceries</td>
+
+                                <td>1,800 kg</td>
+
+                                <td>â‚¹81,000</td>
+
+                                <td>XYZ Traders</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>ðŸ¥‰ 3</td>
+
+                                <td>
+                                    <strong>Cooking Oil</strong>
+                                </td>
+
+                                <td>Groceries</td>
+
+                                <td>650 L</td>
+
+                                <td>â‚¹97,500</td>
+
+                                <td>Fresh Foods Ltd.</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>4</td>
+
+                                <td>
+                                    <strong>Bath Soap</strong>
+                                </td>
+
+                                <td>Personal Care</td>
+
+                                <td>1,200 pcs</td>
+
+                                <td>â‚¹60,000</td>
+
+                                <td>Sharma Wholesale</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>5</td>
+
+                                <td>
+                                    <strong>Toothpaste</strong>
+                                </td>
+
+                                <td>Personal Care</td>
+
+                                <td>900 pcs</td>
+
+                                <td>â‚¹45,000</td>
+
+                                <td>XYZ Traders</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= PAYMENT STATUS ================= -->
+
+            <div class="details-card">
+
+                <div class="details-card-header">
+
+                    <div>
+
+                        <h3>Purchase Payment Status</h3>
+
+                        <p>
+                            Overview of supplier payment obligations
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="purchase-payment-grid">
+
+
+                    <div class="purchase-payment-box paid">
+
+                        <div class="purchase-payment-icon">
+                            âœ…
+                        </div>
+
+                        <div>
+
+                            <span>Paid</span>
+
+                            <strong>â‚¹4,70,400</strong>
+
+                            <small>
+                                90.4%
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="purchase-payment-box partial">
+
+                        <div class="purchase-payment-icon">
+                            🟡
+                        </div>
+
+                        <div>
+
+                            <span>Partial</span>
+
+                            <strong>â‚¹35,000</strong>
+
+                            <small>
+                                6.7%
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="purchase-payment-box due">
+
+                        <div class="purchase-payment-icon">
+                            🔴
+                        </div>
+
+                        <div>
+
+                            <span>Due</span>
+
+                            <strong>â‚¹15,000</strong>
+
+                            <small>
+                                2.9%
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= INFORMATION ================= -->
+
+            <div class="report-information">
+
+                <strong>
+                    â„¹ï¸ Report Information
+                </strong>
+
+                <p>
+                    Purchase report values are currently sample data for
+                    frontend development. During the JavaScript phase,
+                    purchase totals will be calculated automatically from
+                    the Purchase Management module. Later, supplier,
+                    inventory and database data will be connected to this
+                    report.
+                </p>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+</div>
+
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/reports.js"></script>
+</body>
+
+</html>

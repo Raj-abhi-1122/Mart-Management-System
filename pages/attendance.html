@@ -1,0 +1,977 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Attendance Management - Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+
+</head>
+
+
+<body>
+
+<div class="dashboard-container">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+            <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOP NAVBAR -->
+
+        <header class="top-navbar">
+            <div>
+
+                <h2>Attendance Management</h2>
+
+                <p>
+                    Track employee attendance and working hours
+                </p>
+
+            </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+
+        <!-- =================================================
+             PAGE CONTENT
+        ================================================== -->
+
+        <section class="attendance-page">
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="attendance-page-header">
+
+                <div>
+
+                    <h1>Employee Attendance</h1>
+
+                    <p>
+                        Manage daily attendance, check-in and
+                        check-out records.
+                    </p>
+
+                </div>
+
+
+                <div class="attendance-header-actions">
+
+                    <button
+                        type="button"
+                        class="attendance-secondary-btn"
+                        id="monthlyReportBtn"
+                    >
+                        📊 Monthly Summary
+                    </button>
+
+                    <button
+                        type="button"
+                        class="attendance-primary-btn"
+                        id="markAllPresentBtn"
+                    >
+                        ✓ Mark All Present
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SUMMARY CARDS
+            ================================================== -->
+
+            <div class="attendance-summary-grid">
+
+
+                <div class="attendance-summary-card">
+
+                    <div class="attendance-card-icon blue">
+                        👨‍💼
+                    </div>
+
+                    <div>
+
+                        <span>Total Employees</span>
+
+                        <h2 id="totalEmployees">
+                            12
+                        </h2>
+
+                        <small>
+                            Active employees
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="attendance-summary-card">
+
+                    <div class="attendance-card-icon green">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <span>Present</span>
+
+                        <h2 id="presentCount">
+                            0
+                        </h2>
+
+                        <small>
+                            Present today
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="attendance-summary-card">
+
+                    <div class="attendance-card-icon red">
+                        ✕
+                    </div>
+
+                    <div>
+
+                        <span>Absent</span>
+
+                        <h2 id="absentCount">
+                            0
+                        </h2>
+
+                        <small>
+                            Absent today
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="attendance-summary-card">
+
+                    <div class="attendance-card-icon orange">
+                        🏖️
+                    </div>
+
+                    <div>
+
+                        <span>Leave</span>
+
+                        <h2 id="leaveCount">
+                            0
+                        </h2>
+
+                        <small>
+                            On leave today
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="attendance-summary-card">
+
+                    <div class="attendance-card-icon purple">
+                        â—
+                    </div>
+
+                    <div>
+
+                        <span>Half Day</span>
+
+                        <h2 id="halfDayCount">
+                            0
+                        </h2>
+
+                        <small>
+                            Half day today
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 FILTER / CONTROL BAR
+            ================================================== -->
+
+            <div class="attendance-filter-card">
+
+
+                <div class="attendance-filter-item">
+
+                    <label for="attendanceDate">
+                        Attendance Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="attendanceDate"
+                    >
+
+                </div>
+
+
+
+                <div class="attendance-filter-item search-box">
+
+                    <label for="employeeSearch">
+                        Search Employee
+                    </label>
+
+                    <input
+                        type="text"
+                        id="employeeSearch"
+                        placeholder="Search name or employee ID..."
+                    >
+
+                </div>
+
+
+
+                <div class="attendance-filter-item">
+
+                    <label for="statusFilter">
+                        Attendance Status
+                    </label>
+
+                    <select id="statusFilter">
+
+                        <option value="all">
+                            All Status
+                        </option>
+
+                        <option value="Present">
+                            Present
+                        </option>
+
+                        <option value="Absent">
+                            Absent
+                        </option>
+
+                        <option value="Leave">
+                            Leave
+                        </option>
+
+                        <option value="Half Day">
+                            Half Day
+                        </option>
+
+                        <option value="Unmarked">
+                            Unmarked
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <button
+                    type="button"
+                    class="attendance-reset-btn"
+                    id="resetFilterBtn"
+                >
+                    ←» Reset
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ATTENDANCE TABLE CARD
+            ================================================== -->
+
+            <div class="attendance-table-card">
+
+
+                <div class="attendance-table-header">
+
+                    <div>
+
+                        <h2>
+                            Daily Attendance
+                        </h2>
+
+                        <p id="selectedDateText">
+                            Attendance records
+                        </p>
+
+                    </div>
+
+
+                    <div class="attendance-table-actions">
+
+                        <button
+                            type="button"
+                            class="attendance-outline-btn"
+                            id="exportBtn"
+                        >
+                            📥 Export
+                        </button>
+
+                        <a href="attendance-reports.html" class="secondary-btn">
+                            📊 Attendance Reports
+                        </a>
+
+                        <button class="primary-btn">
+                            âž• Mark Attendance
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="attendance-table-wrapper">
+
+                    <table class="attendance-management-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Employee</th>
+
+                                <th>ID</th>
+
+                                <th>Position</th>
+
+                                <th>Check In</th>
+
+                                <th>Check Out</th>
+
+                                <th>Working Hours</th>
+
+                                <th>Status</th>
+
+                                <th>Action</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="attendanceTableBody">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+
+                <!-- TABLE FOOTER -->
+
+                <div class="attendance-table-footer">
+
+                    <span id="attendanceResultText">
+                        Showing employees
+                    </span>
+
+                    <div
+                        class="attendance-legend"
+                    >
+
+                        <span>
+                            <i class="legend-dot present-dot"></i>
+                            Present
+                        </span>
+
+                        <span>
+                            <i class="legend-dot absent-dot"></i>
+                            Absent
+                        </span>
+
+                        <span>
+                            <i class="legend-dot leave-dot"></i>
+                            Leave
+                        </span>
+
+                        <span>
+                            <i class="legend-dot half-dot"></i>
+                            Half Day
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 LOWER INFORMATION SECTION
+            ================================================== -->
+
+            <div class="attendance-lower-grid">
+
+
+                <!-- MONTHLY SUMMARY -->
+
+                <div class="attendance-info-panel">
+
+                    <div class="attendance-info-panel-header">
+
+                        <div>
+
+                            <h2>
+                                Monthly Attendance
+                            </h2>
+
+                            <p id="monthlySummaryTitle">
+                                Current month summary
+                            </p>
+
+                        </div>
+
+                        <a
+                            href="payroll.html"
+                            class="attendance-small-btn"
+                        >
+                            💰 Payroll
+                        </a>
+
+                    </div>
+
+
+                    <div class="monthly-attendance-content">
+
+                        <div class="monthly-stat">
+
+                            <span>
+                                Working Days
+                            </span>
+
+                            <strong id="monthlyWorkingDays">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="monthly-stat">
+
+                            <span>
+                                Present
+                            </span>
+
+                            <strong id="monthlyPresent">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="monthly-stat">
+
+                            <span>
+                                Absent
+                            </span>
+
+                            <strong id="monthlyAbsent">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="monthly-stat">
+
+                            <span>
+                                Leave
+                            </span>
+
+                            <strong id="monthlyLeave">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="monthly-stat">
+
+                            <span>
+                                Half Day
+                            </span>
+
+                            <strong id="monthlyHalfDay">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="monthly-stat highlight">
+
+                            <span>
+                                Attendance Rate
+                            </span>
+
+                            <strong id="attendanceRate">
+                                0%
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ATTENDANCE RULES -->
+
+                <div class="attendance-info-panel">
+
+                    <div class="attendance-info-panel-header">
+
+                        <div>
+
+                            <h2>
+                                Attendance Rules
+                            </h2>
+
+                            <p>
+                                Current shop attendance settings
+                            </p>
+
+                        </div>
+
+                        <a
+                            href="settings.html"
+                            class="attendance-small-btn"
+                        >
+                            ⚙️ Settings
+                        </a>
+
+                    </div>
+
+
+                    <div class="attendance-rules-list">
+
+                        <div class="attendance-rule">
+
+                            <span>
+                                🕦 Office Start
+                            </span>
+
+                            <strong>
+                                09:00 AM
+                            </strong>
+
+                        </div>
+
+
+                        <div class="attendance-rule">
+
+                            <span>
+                                🕑 Office End
+                            </span>
+
+                            <strong>
+                                06:00 PM
+                            </strong>
+
+                        </div>
+
+
+                        <div class="attendance-rule">
+
+                            <span>
+                                â° Late After
+                            </span>
+
+                            <strong>
+                                09:15 AM
+                            </strong>
+
+                        </div>
+
+
+                        <div class="attendance-rule">
+
+                            <span>
+                                â±ï¸ Full Day
+                            </span>
+
+                            <strong>
+                                8 Hours
+                            </strong>
+
+                        </div>
+
+
+                        <div class="attendance-rule">
+
+                            <span>
+                                â— Half Day
+                            </span>
+
+                            <strong>
+                                4 Hours
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<!-- =========================================================
+     MARK / EDIT ATTENDANCE MODAL
+========================================================= -->
+
+<div
+    class="attendance-modal-overlay"
+    id="attendanceModal"
+>
+
+
+    <div class="attendance-modal">
+
+
+        <div class="attendance-modal-header">
+
+            <div>
+
+                <h2 id="modalTitle">
+                    Mark Attendance
+                </h2>
+
+                <p id="modalEmployeeName">
+                    Employee attendance
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="modal-close-btn"
+                id="closeModalBtn"
+            >
+                Ã—
+            </button>
+
+        </div>
+
+
+
+        <form id="attendanceForm">
+
+
+            <input
+                type="hidden"
+                id="modalEmployeeId"
+            >
+
+
+            <div class="attendance-modal-grid">
+
+
+                <div class="modal-input-group">
+
+                    <label>
+                        Employee
+                    </label>
+
+                    <input
+                        type="text"
+                        id="modalEmployeeDisplay"
+                        readonly
+                    >
+
+                </div>
+
+
+                <div class="modal-input-group">
+
+                    <label for="modalDate">
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="modalDate"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="modal-input-group">
+
+                    <label for="modalStatus">
+                        Attendance Status
+                    </label>
+
+                    <select
+                        id="modalStatus"
+                        required
+                    >
+
+                        <option value="Present">
+                            Present
+                        </option>
+
+                        <option value="Absent">
+                            Absent
+                        </option>
+
+                        <option value="Leave">
+                            Leave
+                        </option>
+
+                        <option value="Half Day">
+                            Half Day
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="modal-input-group">
+
+                    <label for="modalCheckIn">
+                        Check In
+                    </label>
+
+                    <input
+                        type="time"
+                        id="modalCheckIn"
+                    >
+
+                </div>
+
+
+                <div class="modal-input-group">
+
+                    <label for="modalCheckOut">
+                        Check Out
+                    </label>
+
+                    <input
+                        type="time"
+                        id="modalCheckOut"
+                    >
+
+                </div>
+
+
+                <div class="modal-input-group">
+
+                    <label for="modalLeaveType">
+                        Leave Type
+                    </label>
+
+                    <select id="modalLeaveType">
+
+                        <option value="">
+                            Not Applicable
+                        </option>
+
+                        <option value="Casual Leave">
+                            Casual Leave
+                        </option>
+
+                        <option value="Sick Leave">
+                            Sick Leave
+                        </option>
+
+                        <option value="Paid Leave">
+                            Paid Leave
+                        </option>
+
+                        <option value="Emergency Leave">
+                            Emergency Leave
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="modal-input-group">
+
+                <label for="modalNotes">
+                    Notes
+                </label>
+
+                <textarea
+                    id="modalNotes"
+                    rows="3"
+                    placeholder="Add attendance notes..."
+                ></textarea>
+
+            </div>
+
+
+
+            <div class="attendance-modal-footer">
+
+                <button
+                    type="button"
+                    class="attendance-cancel-btn"
+                    id="cancelModalBtn"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="attendance-save-btn"
+                >
+                    💾 Save Attendance
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+
+
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/attendance.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1683 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Employee Attendance Details - Mart Management System</title>
+
+    <link
+        rel="stylesheet"
+        href="../CSS/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="dashboard-container">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+            <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOP NAVBAR -->
+
+        <header class="top-navbar">
+            <div>
+
+                <h2>
+                    Employee Attendance
+                </h2>
+
+                <p>
+                    Attendance / Employee Details
+                </p>
+
+            </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+
+        <!-- =================================================
+             PAGE CONTENT
+        ================================================== -->
+
+        <section class="employee-attendance-page">
+
+
+            <!-- =================================================
+                 PAGE HEADER
+            ================================================== -->
+
+            <div class="employee-attendance-header">
+
+
+                <div>
+
+                    <h1>
+                        Employee Attendance Details
+                    </h1>
+
+                    <p>
+                        View and manage individual employee
+                        attendance records.
+                    </p>
+
+                </div>
+
+
+                <div class="employee-attendance-actions">
+
+
+                    <a
+                        href="attendance.html"
+                        class="attendance-secondary-btn"
+                    >
+                        ← Back to Attendance
+                    </a>
+
+
+                    <a
+                        href="payroll.html"
+                        class="attendance-primary-btn"
+                    >
+                        💰 View Payroll
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 EMPLOYEE PROFILE
+            ================================================== -->
+
+            <div class="employee-attendance-profile">
+
+
+                <!-- PROFILE LEFT -->
+
+                <div class="employee-profile-main">
+
+
+                    <div class="employee-large-avatar">
+                        AK
+                    </div>
+
+
+                    <div class="employee-profile-name">
+
+                        <h2>
+                            Amit Kumar
+                        </h2>
+
+                        <p>
+                            EMP001 • Manager
+                        </p>
+
+
+                        <span class="employee-active-badge">
+                            â— Active
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- PROFILE INFORMATION -->
+
+                <div class="employee-profile-info">
+
+
+                    <div class="profile-info-item">
+
+                        <span>
+                            📞 Phone
+                        </span>
+
+                        <strong>
+                            +91 98765 43210
+                        </strong>
+
+                    </div>
+
+
+                    <div class="profile-info-item">
+
+                        <span>
+                            âœ‰ï¸ Email
+                        </span>
+
+                        <strong>
+                            amit@gmail.com
+                        </strong>
+
+                    </div>
+
+
+                    <div class="profile-info-item">
+
+                        <span>
+                            📅 Joining Date
+                        </span>
+
+                        <strong>
+                            10 January 2025
+                        </strong>
+
+                    </div>
+
+
+                    <div class="profile-info-item">
+
+                        <span>
+                            💰 Monthly Salary
+                        </span>
+
+                        <strong>
+                            â‚¹35,000
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ATTENDANCE SUMMARY
+            ================================================== -->
+
+            <div class="employee-attendance-summary">
+
+
+                <div class="employee-attendance-stat">
+
+
+                    <div class="employee-stat-icon blue">
+                        📅
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Working Days
+                        </span>
+
+                        <h2>
+                            26
+                        </h2>
+
+                        <small>
+                            This month
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="employee-attendance-stat">
+
+
+                    <div class="employee-stat-icon green">
+                        ✓
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Present
+                        </span>
+
+                        <h2>
+                            24
+                        </h2>
+
+                        <small>
+                            Days present
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="employee-attendance-stat">
+
+
+                    <div class="employee-stat-icon red">
+                        ✕
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Absent
+                        </span>
+
+                        <h2>
+                            1
+                        </h2>
+
+                        <small>
+                            Days absent
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="employee-attendance-stat">
+
+
+                    <div class="employee-stat-icon orange">
+                        🏖️
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Leave
+                        </span>
+
+                        <h2>
+                            1
+                        </h2>
+
+                        <small>
+                            Leave taken
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="employee-attendance-stat">
+
+
+                    <div class="employee-stat-icon purple">
+                        📊
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Attendance Rate
+                        </span>
+
+                        <h2>
+                            92.3%
+                        </h2>
+
+                        <small>
+                            Current month
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 MONTH / FILTER BAR
+            ================================================== -->
+
+            <div class="employee-attendance-filter">
+
+
+                <div class="employee-filter-group">
+
+                    <label>
+                        Attendance Month
+                    </label>
+
+                    <select>
+
+                        <option>
+                            October 2026
+                        </option>
+
+                        <option>
+                            September 2026
+                        </option>
+
+                        <option>
+                            August 2026
+                        </option>
+
+                        <option>
+                            July 2026
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="employee-filter-group">
+
+                    <label>
+                        Attendance Status
+                    </label>
+
+                    <select>
+
+                        <option>
+                            All Status
+                        </option>
+
+                        <option>
+                            Present
+                        </option>
+
+                        <option>
+                            Absent
+                        </option>
+
+                        <option>
+                            Leave
+                        </option>
+
+                        <option>
+                            Half Day
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="employee-filter-group">
+
+                    <label>
+                        Search Date
+                    </label>
+
+                    <input
+                        type="date"
+                        value="2026-10-03"
+                    >
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="attendance-filter-button"
+                >
+                    🔍 Apply Filter
+                </button>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 CALENDAR + ATTENDANCE OVERVIEW
+            ================================================== -->
+
+            <div class="employee-attendance-grid">
+
+
+                <!-- CALENDAR -->
+
+                <div class="employee-attendance-card">
+
+
+                    <div class="employee-attendance-card-header">
+
+
+                        <div>
+
+                            <h2>
+                                October 2026
+                            </h2>
+
+                            <p>
+                                Monthly attendance calendar
+                            </p>
+
+                        </div>
+
+
+                        <div class="calendar-navigation">
+
+                            <button>
+                                ←
+                            </button>
+
+                            <button>
+                                →
+                            </button>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="attendance-calendar">
+
+
+                        <!-- DAYS -->
+
+                        <div class="calendar-day-name">
+                            Sun
+                        </div>
+
+                        <div class="calendar-day-name">
+                            Mon
+                        </div>
+
+                        <div class="calendar-day-name">
+                            Tue
+                        </div>
+
+                        <div class="calendar-day-name">
+                            Wed
+                        </div>
+
+                        <div class="calendar-day-name">
+                            Thu
+                        </div>
+
+                        <div class="calendar-day-name">
+                            Fri
+                        </div>
+
+                        <div class="calendar-day-name">
+                            Sat
+                        </div>
+
+
+                        <!-- WEEK 1 -->
+
+                        <div class="calendar-day empty">
+                        </div>
+
+                        <div class="calendar-day empty">
+                        </div>
+
+                        <div class="calendar-day empty">
+                        </div>
+
+                        <div class="calendar-day empty">
+                        </div>
+
+                        <div class="calendar-day">
+
+                            <span>
+                                1
+                            </span>
+
+                            <small class="calendar-present">
+                                P
+                            </small>
+
+                        </div>
+
+
+                        <div class="calendar-day">
+
+                            <span>
+                                2
+                            </span>
+
+                            <small class="calendar-present">
+                                P
+                            </small>
+
+                        </div>
+
+
+                        <div class="calendar-day">
+
+                            <span>
+                                3
+                            </span>
+
+                            <small class="calendar-present">
+                                P
+                            </small>
+
+                        </div>
+
+
+                        <!-- WEEK 2 -->
+
+                        <div class="calendar-day">
+
+                            <span>
+                                4
+                            </span>
+
+                            <small class="calendar-weekend">
+                                -
+                            </small>
+
+                        </div>
+
+
+                        <div class="calendar-day">
+
+                            <span>
+                                5
+                            </span>
+
+                            <small class="calendar-present">
+                                P
+                            </small>
+
+                        </div>
+
+
+                        <div class="calendar-day">
+
+                            <span>
+                                6
+                            </span>
+
+                            <small class="calendar-present">
+                                P
+                            </small>
+
+                        </div>
+
+
+                        <div class="calendar-day">
+
+                            <span>
+                                7
+                            </span>
+
+                            <small class="calendar-present">
+                                P
+                            </small>
+
+                        </div>
+
+
+                        <div class="calendar-day">
+
+                            <span>
+                                8
+                            </span>
+
+                            <small class="calendar-present">
+                                P
+                            </small>
+
+                        </div>
+
+
+                        <div class="calendar-day">
+
+                            <span>
+                                9
+                            </span>
+
+                            <small class="calendar-absent">
+                                A
+                            </small>
+
+                        </div>
+
+
+                        <div class="calendar-day">
+
+                            <span>
+                                10
+                            </span>
+
+                            <small class="calendar-present">
+                                P
+                            </small>
+
+                        </div>
+
+
+                        <!-- WEEK 3 -->
+
+                        <div class="calendar-day">
+
+                            <span>
+                                11
+                            </span>
+
+                            <small class="calendar-weekend">
+                                -
+                            </small>
+
+                        </div>
+
+
+                        <div class="calendar-day">
+
+                            <span>
+                                12
+                            </span>
+
+                            <small class="calendar-present">
+                                P
+                            </small>
+
+                        </div>
+
+
+                        <div class="calendar-day">
+
+                            <span>
+                                13
+                            </span>
+
+                            <small class="calendar-present">
+                                P
+                            </small>
+
+                        </div>
+
+
+                        <div class="calendar-day">
+
+                            <span>
+                                14
+                            </span>
+
+                            <small class="calendar-present">
+                                P
+                            </small>
+
+                        </div>
+
+
+                        <div class="calendar-day">
+
+                            <span>
+                                15
+                            </span>
+
+                            <small class="calendar-present">
+                                P
+                            </small>
+
+                        </div>
+
+
+                        <div class="calendar-day">
+
+                            <span>
+                                16
+                            </span>
+
+                            <small class="calendar-present">
+                                P
+                            </small>
+
+                        </div>
+
+
+                        <div class="calendar-day">
+
+                            <span>
+                                17
+                            </span>
+
+                            <small class="calendar-present">
+                                P
+                            </small>
+
+                        </div>
+
+
+                        <!-- WEEK 4 -->
+
+                        <div class="calendar-day">
+
+                            <span>
+                                18
+                            </span>
+
+                            <small class="calendar-weekend">
+                                -
+                            </small>
+
+                        </div>
+
+
+                        <div class="calendar-day">
+
+                            <span>
+                                19
+                            </span>
+
+                            <small class="calendar-present">
+                                P
+                            </small>
+
+                        </div>
+
+
+                        <div class="calendar-day">
+
+                            <span>
+                                20
+                            </span>
+
+                            <small class="calendar-present">
+                                P
+                            </small>
+
+                        </div>
+
+
+                        <div class="calendar-day">
+
+                            <span>
+                                21
+                            </span>
+
+                            <small class="calendar-present">
+                                P
+                            </small>
+
+                        </div>
+
+
+                        <div class="calendar-day">
+
+                            <span>
+                                22
+                            </span>
+
+                            <small class="calendar-present">
+                                P
+                            </small>
+
+                        </div>
+
+
+                        <div class="calendar-day">
+
+                            <span>
+                                23
+                            </span>
+
+                            <small class="calendar-present">
+                                P
+                            </small>
+
+                        </div>
+
+
+                        <div class="calendar-day">
+
+                            <span>
+                                24
+                            </span>
+
+                            <small class="calendar-present">
+                                P
+                            </small>
+
+                        </div>
+
+
+                        <!-- WEEK 5 -->
+
+                        <div class="calendar-day">
+
+                            <span>
+                                25
+                            </span>
+
+                            <small class="calendar-weekend">
+                                -
+                            </small>
+
+                        </div>
+
+
+                        <div class="calendar-day">
+
+                            <span>
+                                26
+                            </span>
+
+                            <small class="calendar-present">
+                                P
+                            </small>
+
+                        </div>
+
+
+                        <div class="calendar-day">
+
+                            <span>
+                                27
+                            </span>
+
+                            <small class="calendar-present">
+                                P
+                            </small>
+
+                        </div>
+
+
+                        <div class="calendar-day">
+
+                            <span>
+                                28
+                            </span>
+
+                            <small class="calendar-present">
+                                P
+                            </small>
+
+                        </div>
+
+
+                        <div class="calendar-day">
+
+                            <span>
+                                29
+                            </span>
+
+                            <small class="calendar-present">
+                                P
+                            </small>
+
+                        </div>
+
+
+                        <div class="calendar-day">
+
+                            <span>
+                                30
+                            </span>
+
+                            <small class="calendar-present">
+                                P
+                            </small>
+
+                        </div>
+
+
+                        <div class="calendar-day">
+
+                            <span>
+                                31
+                            </span>
+
+                            <small class="calendar-present">
+                                P
+                            </small>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- CALENDAR LEGEND -->
+
+                    <div class="calendar-legend">
+
+
+                        <span>
+
+                            <i class="legend-present"></i>
+
+                            Present
+
+                        </span>
+
+
+                        <span>
+
+                            <i class="legend-absent"></i>
+
+                            Absent
+
+                        </span>
+
+
+                        <span>
+
+                            <i class="legend-leave"></i>
+
+                            Leave
+
+                        </span>
+
+
+                        <span>
+
+                            <i class="legend-half"></i>
+
+                            Half Day
+
+                        </span>
+
+
+                        <span>
+
+                            <i class="legend-weekend"></i>
+
+                            Weekend
+
+                        </span>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ATTENDANCE STATISTICS -->
+
+                <div class="employee-attendance-card">
+
+
+                    <div class="employee-attendance-card-header">
+
+                        <div>
+
+                            <h2>
+                                Attendance Statistics
+                            </h2>
+
+                            <p>
+                                October 2026
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="attendance-statistics">
+
+
+                        <div class="attendance-progress-item">
+
+
+                            <div class="progress-heading">
+
+                                <span>
+                                    Present
+                                </span>
+
+                                <strong>
+                                    24 Days
+                                </strong>
+
+                            </div>
+
+
+                            <div class="progress-bar">
+
+                                <div
+                                    class="progress-fill present-progress"
+                                    style="width: 92%;"
+                                >
+                                </div>
+
+                            </div>
+
+
+                            <small>
+                                92.3% attendance
+                            </small>
+
+
+                        </div>
+
+
+
+                        <div class="attendance-progress-item">
+
+
+                            <div class="progress-heading">
+
+                                <span>
+                                    Absent
+                                </span>
+
+                                <strong>
+                                    1 Day
+                                </strong>
+
+                            </div>
+
+
+                            <div class="progress-bar">
+
+                                <div
+                                    class="progress-fill absent-progress"
+                                    style="width: 4%;"
+                                >
+                                </div>
+
+                            </div>
+
+
+                            <small>
+                                3.8% of working days
+                            </small>
+
+
+                        </div>
+
+
+
+                        <div class="attendance-progress-item">
+
+
+                            <div class="progress-heading">
+
+                                <span>
+                                    Leave
+                                </span>
+
+                                <strong>
+                                    1 Day
+                                </strong>
+
+                            </div>
+
+
+                            <div class="progress-bar">
+
+                                <div
+                                    class="progress-fill leave-progress"
+                                    style="width: 4%;"
+                                >
+                                </div>
+
+                            </div>
+
+
+                            <small>
+                                3.8% of working days
+                            </small>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="attendance-extra-stats">
+
+
+                        <div>
+
+                            <span>
+                                Average Check-In
+                            </span>
+
+                            <strong>
+                                09:07 AM
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Average Check-Out
+                            </span>
+
+                            <strong>
+                                06:02 PM
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Average Working Hours
+                            </span>
+
+                            <strong>
+                                8h 12m
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ATTENDANCE HISTORY
+            ================================================== -->
+
+            <div class="employee-attendance-card attendance-history-card">
+
+
+                <div class="employee-attendance-card-header">
+
+
+                    <div>
+
+                        <h2>
+                            Attendance History
+                        </h2>
+
+                        <p>
+                            Daily attendance records for
+                            October 2026
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="attendance-outline-btn"
+                    >
+                        📥 Export History
+                    </button>
+
+
+                </div>
+
+
+                <div class="attendance-history-wrapper">
+
+
+                    <table class="employee-history-table">
+
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Date
+                                </th>
+
+                                <th>
+                                    Day
+                                </th>
+
+                                <th>
+                                    Check In
+                                </th>
+
+                                <th>
+                                    Check Out
+                                </th>
+
+                                <th>
+                                    Working Hours
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Remarks
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+
+                            <tr>
+
+                                <td>
+                                    03 Oct 2026
+                                </td>
+
+                                <td>
+                                    Saturday
+                                </td>
+
+                                <td>
+                                    09:02 AM
+                                </td>
+
+                                <td>
+                                    06:05 PM
+                                </td>
+
+                                <td>
+                                    8h 03m
+                                </td>
+
+                                <td>
+
+                                    <span
+                                        class="history-status present"
+                                    >
+                                        Present
+                                    </span>
+
+                                </td>
+
+                                <td>
+                                    On time
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    02 Oct 2026
+                                </td>
+
+                                <td>
+                                    Friday
+                                </td>
+
+                                <td>
+                                    09:05 AM
+                                </td>
+
+                                <td>
+                                    06:10 PM
+                                </td>
+
+                                <td>
+                                    8h 05m
+                                </td>
+
+                                <td>
+
+                                    <span
+                                        class="history-status present"
+                                    >
+                                        Present
+                                    </span>
+
+                                </td>
+
+                                <td>
+                                    On time
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    01 Oct 2026
+                                </td>
+
+                                <td>
+                                    Thursday
+                                </td>
+
+                                <td>
+                                    09:12 AM
+                                </td>
+
+                                <td>
+                                    06:00 PM
+                                </td>
+
+                                <td>
+                                    7h 48m
+                                </td>
+
+                                <td>
+
+                                    <span
+                                        class="history-status present"
+                                    >
+                                        Present
+                                    </span>
+
+                                </td>
+
+                                <td>
+                                    Slightly late
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    30 Sep 2026
+                                </td>
+
+                                <td>
+                                    Wednesday
+                                </td>
+
+                                <td>
+                                    ””
+                                </td>
+
+                                <td>
+                                    ””
+                                </td>
+
+                                <td>
+                                    ””
+                                </td>
+
+                                <td>
+
+                                    <span
+                                        class="history-status absent"
+                                    >
+                                        Absent
+                                    </span>
+
+                                </td>
+
+                                <td>
+                                    No attendance
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    29 Sep 2026
+                                </td>
+
+                                <td>
+                                    Tuesday
+                                </td>
+
+                                <td>
+                                    ””
+                                </td>
+
+                                <td>
+                                    ””
+                                </td>
+
+                                <td>
+                                    ””
+                                </td>
+
+                                <td>
+
+                                    <span
+                                        class="history-status leave"
+                                    >
+                                        Leave
+                                    </span>
+
+                                </td>
+
+                                <td>
+                                    Casual Leave
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    28 Sep 2026
+                                </td>
+
+                                <td>
+                                    Monday
+                                </td>
+
+                                <td>
+                                    09:00 AM
+                                </td>
+
+                                <td>
+                                    06:00 PM
+                                </td>
+
+                                <td>
+                                    8h 00m
+                                </td>
+
+                                <td>
+
+                                    <span
+                                        class="history-status present"
+                                    >
+                                        Present
+                                    </span>
+
+                                </td>
+
+                                <td>
+                                    On time
+                                </td>
+
+                            </tr>
+
+
+                        </tbody>
+
+
+                    </table>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ATTENDANCE NOTES
+            ================================================== -->
+
+            <div class="attendance-notes-card">
+
+
+                <div>
+
+                    <h2>
+                        Attendance Notes
+                    </h2>
+
+                    <p>
+                        Employee-specific attendance information
+                    </p>
+
+                </div>
+
+
+                <div class="attendance-note-content">
+
+                    <div class="attendance-note-icon">
+                        📝
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            Good Attendance Record
+                        </strong>
+
+                        <p>
+                            Amit Kumar has maintained a regular
+                            attendance record during the current
+                            month. One absence and one leave have
+                            been recorded.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/attendance.js"></script>
+</body>
+
+</html>

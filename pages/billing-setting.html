@@ -1,0 +1,851 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Billing Settings | Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- ================= SIDEBAR ================= -->
+            <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="main-content">
+
+        <!-- TOP NAVBAR -->
+        <header class="top-navbar">
+            <div>
+                <h2>Billing Settings</h2>
+                <p>Configure billing and invoice preferences</p>
+            </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+        <!-- ================= PAGE CONTENT ================= -->
+        <section class="page-content">
+
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+
+                <div>
+
+                    <h1>🧾 Billing Settings</h1>
+
+                    <p>
+                        Manage invoice numbering, taxes, discounts,
+                        payment methods and billing preferences.
+                    </p>
+
+                </div>
+
+                <a href="settings.html" class="secondary-btn">
+                    ← Back to Settings
+                </a>
+
+            </div>
+
+
+            <!-- ================= INVOICE SETTINGS ================= -->
+            <div class="form-section">
+
+                <div class="form-section-header">
+
+                    <h2>🧾 Invoice Settings</h2>
+
+                    <p>
+                        Configure how invoices are generated and displayed.
+                    </p>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="invoicePrefix">
+                            Invoice Prefix
+                        </label>
+
+                        <input
+                            type="text"
+                            id="invoicePrefix"
+                            value="BILL"
+                            placeholder="Example: BILL"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="startingNumber">
+                            Starting Invoice Number
+                        </label>
+
+                        <input
+                            type="number"
+                            id="startingNumber"
+                            value="1"
+                            min="1"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="invoiceFormat">
+                            Invoice Number Format
+                        </label>
+
+                        <select id="invoiceFormat">
+
+                            <option selected>
+                                BILL001
+                            </option>
+
+                            <option>
+                                BILL-001
+                            </option>
+
+                            <option>
+                                INV001
+                            </option>
+
+                            <option>
+                                INV-2026-001
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="invoiceSize">
+                            Invoice Format
+                        </label>
+
+                        <select id="invoiceSize">
+
+                            <option selected>
+                                A4
+                            </option>
+
+                            <option>
+                                A5
+                            </option>
+
+                            <option>
+                                Thermal Receipt
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= TAX SETTINGS ================= -->
+            <div class="form-section">
+
+                <div class="form-section-header">
+
+                    <h2>💰 Tax Settings</h2>
+
+                    <p>
+                        Configure tax and GST calculation preferences.
+                    </p>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="taxStatus">
+                            Tax Calculation
+                        </label>
+
+                        <select id="taxStatus">
+
+                            <option selected>Enabled</option>
+                            <option>Disabled</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="taxType">
+                            Tax Type
+                        </label>
+
+                        <select id="taxType">
+
+                            <option selected>
+                                GST
+                            </option>
+
+                            <option>
+                                VAT
+                            </option>
+
+                            <option>
+                                No Tax
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="defaultTax">
+                            Default Tax Rate (%)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="defaultTax"
+                            value="18"
+                            min="0"
+                            max="100"
+                            step="0.01"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="taxInclusive">
+                            Product Price Type
+                        </label>
+
+                        <select id="taxInclusive">
+
+                            <option selected>
+                                Tax Inclusive
+                            </option>
+
+                            <option>
+                                Tax Exclusive
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= DISCOUNT SETTINGS ================= -->
+            <div class="form-section">
+
+                <div class="form-section-header">
+
+                    <h2>🏷️ Discount Settings</h2>
+
+                    <p>
+                        Configure discounts available during billing.
+                    </p>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="discountStatus">
+                            Discounts
+                        </label>
+
+                        <select id="discountStatus">
+
+                            <option selected>Enabled</option>
+                            <option>Disabled</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="discountType">
+                            Default Discount Type
+                        </label>
+
+                        <select id="discountType">
+
+                            <option selected>
+                                Percentage (%)
+                            </option>
+
+                            <option>
+                                Fixed Amount (â‚¹)
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="maxDiscount">
+                            Maximum Discount (%)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="maxDiscount"
+                            value="20"
+                            min="0"
+                            max="100"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="discountApproval">
+                            Discount Approval
+                        </label>
+
+                        <select id="discountApproval">
+
+                            <option selected>
+                                Admin Only
+                            </option>
+
+                            <option>
+                                Manager & Admin
+                            </option>
+
+                            <option>
+                                All Employees
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= PAYMENT METHODS ================= -->
+            <div class="form-section">
+
+                <div class="form-section-header">
+
+                    <h2>💳 Payment Methods</h2>
+
+                    <p>
+                        Select the payment methods available at checkout.
+                    </p>
+
+                </div>
+
+
+                <div class="payment-methods-grid">
+
+                    <label class="payment-option">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <span>
+                            💵 Cash
+                        </span>
+
+                    </label>
+
+
+                    <label class="payment-option">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <span>
+                            💳 Card
+                        </span>
+
+                    </label>
+
+
+                    <label class="payment-option">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <span>
+                            📱 UPI
+                        </span>
+
+                    </label>
+
+
+                    <label class="payment-option">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <span>
+                            🏦 Bank Transfer
+                        </span>
+
+                    </label>
+
+
+                    <label class="payment-option">
+
+                        <input
+                            type="checkbox"
+                        >
+
+                        <span>
+                            📝 Credit / Due
+                        </span>
+
+                    </label>
+
+
+                    <label class="payment-option">
+
+                        <input
+                            type="checkbox"
+                        >
+
+                        <span>
+                            🔄 Other
+                        </span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= PAYMENT SETTINGS ================= -->
+            <div class="form-section">
+
+                <div class="form-section-header">
+
+                    <h2>💵 Payment Settings</h2>
+
+                    <p>
+                        Configure payment and outstanding amount rules.
+                    </p>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="duePayment">
+                            Allow Due Payments
+                        </label>
+
+                        <select id="duePayment">
+
+                            <option selected>Yes</option>
+                            <option>No</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="creditLimit">
+                            Default Customer Credit Limit
+                        </label>
+
+                        <input
+                            type="number"
+                            id="creditLimit"
+                            value="5000"
+                            min="0"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="rounding">
+                            Bill Rounding
+                        </label>
+
+                        <select id="rounding">
+
+                            <option selected>
+                                Nearest â‚¹1
+                            </option>
+
+                            <option>
+                                Nearest â‚¹5
+                            </option>
+
+                            <option>
+                                Nearest â‚¹10
+                            </option>
+
+                            <option>
+                                No Rounding
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="changeCalculation">
+                            Calculate Change
+                        </label>
+
+                        <select id="changeCalculation">
+
+                            <option selected>Enabled</option>
+                            <option>Disabled</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= PRINT SETTINGS ================= -->
+            <div class="form-section">
+
+                <div class="form-section-header">
+
+                    <h2>🖨️ Print Settings</h2>
+
+                    <p>
+                        Configure invoice printing preferences.
+                    </p>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="autoPrint">
+                            Automatic Printing
+                        </label>
+
+                        <select id="autoPrint">
+
+                            <option selected>Disabled</option>
+                            <option>Enabled</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="copies">
+                            Number of Copies
+                        </label>
+
+                        <input
+                            type="number"
+                            id="copies"
+                            value="1"
+                            min="1"
+                            max="5"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="showLogo">
+                            Show Store Logo
+                        </label>
+
+                        <select id="showLogo">
+
+                            <option selected>Yes</option>
+                            <option>No</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="showTax">
+                            Show Tax Details
+                        </label>
+
+                        <select id="showTax">
+
+                            <option selected>Yes</option>
+                            <option>No</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= BILLING RULES ================= -->
+            <div class="form-section">
+
+                <div class="form-section-header">
+
+                    <h2>⚙️ Billing Rules</h2>
+
+                    <p>
+                        Configure basic rules applied during billing.
+                    </p>
+
+                </div>
+
+
+                <div class="billing-rules">
+
+                    <label class="rule-option">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <span>
+                            Prevent billing when requested quantity
+                            exceeds available stock.
+                        </span>
+
+                    </label>
+
+
+                    <label class="rule-option">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <span>
+                            Automatically reduce inventory after a successful bill.
+                        </span>
+
+                    </label>
+
+
+                    <label class="rule-option">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <span>
+                            Require customer information for credit sales.
+                        </span>
+
+                    </label>
+
+
+                    <label class="rule-option">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <span>
+                            Show payment status on invoice.
+                        </span>
+
+                    </label>
+
+
+                    <label class="rule-option">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <span>
+                            Show discount information on invoice.
+                        </span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= ACTIONS ================= -->
+            <div class="form-actions">
+
+                <a href="settings.html" class="secondary-btn">
+                    Cancel
+                </a>
+
+                <button
+                    type="button"
+                    class="primary-btn"
+                >
+                    💾 Save Billing Settings
+                </button>
+
+            </div>
+
+
+            <!-- DEVELOPMENT NOTE -->
+            <div class="info-note">
+
+                <strong>â„¹ï¸ Frontend Mode:</strong>
+
+                These billing settings are currently static.
+                Calculations, validation, invoice numbering,
+                stock validation and payment processing will be
+                implemented during the JavaScript phase.
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/settings.js"></script>
+</body>
+</html>

@@ -1,0 +1,712 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>New Purchase - Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+            <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+
+        <!-- TOP NAVBAR -->
+
+        <header class="top-navbar">
+            <div>
+
+                <h2>New Purchase</h2>
+
+            </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+
+        <!-- ================= PAGE CONTENT ================= -->
+
+        <section class="page-content">
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="page-header">
+
+                <div>
+
+                    <h1>Create New Purchase</h1>
+
+                    <p>
+                        Record products purchased from a supplier.
+                    </p>
+
+                </div>
+
+
+                <a href="purchases.html" class="secondary-btn">
+                    ← Back to Purchases
+                </a>
+
+            </div>
+
+
+
+            <!-- ================= PURCHASE INFORMATION ================= -->
+
+            <div class="purchase-form">
+
+
+                <!-- SUPPLIER INFORMATION -->
+
+                <div class="form-section">
+
+                    <h3>Purchase Information</h3>
+
+
+                    <div class="form-grid">
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Supplier *
+                            </label>
+
+                            
+                            <select id="purchaseSupplier" required>
+                                <option value="">Loading suppliers...</option>
+                            </select>
+
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Invoice Number *
+                            </label>
+
+                            
+                            <input
+                                id="purchaseInvoiceNumber"
+                                type="text"
+                                placeholder="Example: INV-1005"
+                                required
+                            >
+
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Purchase Date *
+                            </label>
+
+                           
+                            <input
+                                id="purchaseDate"
+                                type="date"
+                                required
+                            >
+
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Payment Method
+                            </label>
+
+                            
+                            <select id="purchasePaymentMethod">
+
+
+                                <option>
+                                    Cash
+                                </option>
+
+                                <option>
+                                    UPI
+                                </option>
+
+                                <option>
+                                    Bank Transfer
+                                </option>
+
+                                <option>
+                                    Credit
+                                </option>
+
+                                <option>
+                                    Cheque
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ================= PURCHASE ITEMS ================= -->
+
+                <div class="form-section">
+
+                    <div class="section-title-row">
+
+                        <h3>Purchase Items</h3>
+
+                        <button
+                            type="button"
+                            id="addPurchaseProduct"
+                            class="primary-btn"
+                        >
+                            + Add Product
+                        </button>
+
+                    </div>
+
+
+                    <div class="purchase-table-container">
+
+                        <table class="purchase-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Product</th>
+
+                                    <th>Quantity</th>
+
+                                    <th>Purchase Price</th>
+
+                                    <th>Discount</th>
+
+                                    <th>Total</th>
+
+                                    <th>Action</th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+
+                                <tr>
+
+                                    <td>
+
+                                        <select>
+
+                                            <option>
+                                                Select Product
+                                            </option>
+
+                                            <option selected>
+                                                Rice
+                                            </option>
+
+                                            <option>
+                                                Sugar
+                                            </option>
+
+                                            <option>
+                                                Cooking Oil
+                                            </option>
+
+                                            <option>
+                                                Bath Soap
+                                            </option>
+
+                                            <option>
+                                                Toothpaste
+                                            </option>
+
+                                        </select>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <input
+                                            id="purchaseQuantity1"
+                                            type="number"
+                                            value="50"
+                                            min="1"
+                                        >
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <input
+                                            id="purchasePrice1"
+                                            type="number"
+                                            value="50"
+                                            min="0"
+                                        >
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <input
+                                            id="purchaseDiscount1"
+                                            type="number"
+                                            value="0"
+                                            min="0"
+                                        >
+
+                                    </td>
+
+
+                                    <td>
+                                        <strong class="purchase-line-total">â‚¹2,500</strong>
+                                    </td>
+
+
+                                    <td>
+
+                                        <button
+                                            type="button"
+                                            class="delete-btn"
+                                        >
+                                            🗑️
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+
+
+                                <tr>
+
+                                    <td>
+
+                                        <select>
+
+                                            <option>
+                                                Select Product
+                                            </option>
+
+                                            <option>
+                                                Rice
+                                            </option>
+
+                                            <option selected>
+                                                Sugar
+                                            </option>
+
+                                            <option>
+                                                Cooking Oil
+                                            </option>
+
+                                            <option>
+                                                Bath Soap
+                                            </option>
+
+                                            <option>
+                                                Toothpaste
+                                            </option>
+
+                                        </select>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <input
+                                            type="number"
+                                            value="20"
+                                            min="1"
+                                        >
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <input
+                                            type="number"
+                                            value="45"
+                                            min="0"
+                                        >
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <input
+                                            type="number"
+                                            value="0"
+                                            min="0"
+                                        >
+
+                                    </td>
+
+
+                                    <td>
+    <strong class="purchase-line-total">â‚¹900</strong>
+</td>
+
+
+                                    <td>
+
+                                        <button
+                                            type="button"
+                                            class="delete-btn"
+                                        >
+                                            🗑️
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+
+
+                                <tr>
+
+                                    <td>
+
+                                        <select>
+
+                                            <option>
+                                                Select Product
+                                            </option>
+
+                                            <option>
+                                                Rice
+                                            </option>
+
+                                            <option>
+                                                Sugar
+                                            </option>
+
+                                            <option selected>
+                                                Cooking Oil
+                                            </option>
+
+                                            <option>
+                                                Bath Soap
+                                            </option>
+
+                                            <option>
+                                                Toothpaste
+                                            </option>
+
+                                        </select>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <input
+                                            type="number"
+                                            value="10"
+                                            min="1"
+                                        >
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <input
+                                            type="number"
+                                            value="150"
+                                            min="0"
+                                        >
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <input
+                                            type="number"
+                                            value="0"
+                                            min="0"
+                                        >
+
+                                    </td>
+
+
+                                    <td>
+    <strong class="purchase-line-total">â‚¹1,500</strong>
+</td>
+
+                                    <td>
+
+                                        <button
+                                            type="button"
+                                            class="delete-btn"
+                                        >
+                                            🗑️
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ================= PAYMENT SUMMARY ================= -->
+
+                <div class="purchase-summary">
+
+
+                    <div class="summary-left">
+
+                        <h3>Notes</h3>
+
+                        <textarea
+                            rows="5"
+                            placeholder="Add purchase notes..."
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <div class="summary-right">
+
+                        <div class="purchase-summary-row">
+
+                            <span>
+                                Subtotal
+                            </span>
+
+                            <strong id="purchaseSubtotal">
+                                â‚¹4,900
+                            </strong>
+
+                        </div>
+
+
+                        <div class="purchase-summary-row">
+
+                            <span>
+                                Discount
+                            </span>
+
+                            <strong id="purchaseTotalDiscount">
+    â‚¹0
+</strong>
+
+                        </div>
+
+
+                        <div class="purchase-summary-row total">
+
+                            <span>
+                                Grand Total
+                            </span>
+                            <strong id="purchaseGrandTotal">
+                                â‚¹4,900
+                            </strong>
+
+                            
+
+                        </div>
+
+
+                        <div class="purchase-summary-row">
+
+                            <span>
+                                Paid Amount
+                            </span>
+
+                            <input
+                                id="purchasePaidAmount"
+                                type="number"
+                                value="3000"
+                                min="0"
+                            >
+
+                        </div>
+
+
+                        <div class="purchase-summary-row due">
+
+                            <span>
+                                Due Amount
+                            </span>
+
+                            <strong id="purchaseDueAmount">
+    â‚¹1,900
+</strong>
+
+                        </div>
+
+
+                        <div class="purchase-summary-row">
+
+                            <span>
+                                Payment Status
+                            </span>
+
+                            <span class="status partial">
+                                Partial
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ================= ACTION BUTTONS ================= -->
+
+                <div class="form-actions">
+
+                    <a
+                        href="purchases.html"
+                        class="secondary-btn"
+                    >
+                        Cancel
+                    </a>
+
+
+                    <button type="button" id="savePurchaseBtn" class="primary-btn">
+                            Save Purchase
+                        </button>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/purchases.js"></script>
+</body>
+</html>

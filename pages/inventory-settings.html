@@ -1,0 +1,757 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inventory Settings | Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- ================= SIDEBAR ================= -->
+            <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="main-content">
+
+        <!-- TOP NAVBAR -->
+        <header class="top-navbar">
+            <div>
+                <h2>Inventory Settings</h2>
+                <p>Configure stock and inventory management rules</p>
+            </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+        <!-- ================= PAGE CONTENT ================= -->
+        <section class="page-content">
+
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+
+                <div>
+
+                    <h1>📦 Inventory Settings</h1>
+
+                    <p>
+                        Configure stock levels, alerts, expiry tracking,
+                        valuation and inventory management rules.
+                    </p>
+
+                </div>
+
+                <a href="settings.html" class="secondary-btn">
+                    ← Back to Settings
+                </a>
+
+            </div>
+
+
+            <!-- ================= STOCK LEVEL SETTINGS ================= -->
+            <div class="form-section">
+
+                <div class="form-section-header">
+
+                    <h2>📊 Stock Level Settings</h2>
+
+                    <p>
+                        Define default stock thresholds used by the system.
+                    </p>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="defaultMinimum">
+                            Default Minimum Stock
+                        </label>
+
+                        <input
+                            type="number"
+                            id="defaultMinimum"
+                            value="10"
+                            min="0"
+                            placeholder="Enter minimum stock"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="defaultMaximum">
+                            Default Maximum Stock
+                        </label>
+
+                        <input
+                            type="number"
+                            id="defaultMaximum"
+                            value="500"
+                            min="0"
+                            placeholder="Enter maximum stock"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="reorderLevel">
+                            Default Reorder Level
+                        </label>
+
+                        <input
+                            type="number"
+                            id="reorderLevel"
+                            value="20"
+                            min="0"
+                            placeholder="Enter reorder level"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="stockUnit">
+                            Default Stock Unit
+                        </label>
+
+                        <select id="stockUnit">
+
+                            <option selected>Pieces</option>
+                            <option>Kg</option>
+                            <option>Gram</option>
+                            <option>Liter</option>
+                            <option>Meter</option>
+                            <option>Box</option>
+                            <option>Packet</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= STOCK ALERTS ================= -->
+            <div class="form-section">
+
+                <div class="form-section-header">
+
+                    <h2>ðŸš¨ Stock Alerts</h2>
+
+                    <p>
+                        Configure notifications for important stock conditions.
+                    </p>
+
+                </div>
+
+
+                <div class="settings-toggle-list">
+
+                    <label class="inventory-rule">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <div>
+                            <strong>Low Stock Alert</strong>
+
+                            <span>
+                                Show an alert when product quantity
+                                reaches the minimum stock level.
+                            </span>
+                        </div>
+
+                    </label>
+
+
+                    <label class="inventory-rule">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <div>
+                            <strong>Out of Stock Alert</strong>
+
+                            <span>
+                                Alert when the available quantity reaches zero.
+                            </span>
+
+                        </div>
+
+                    </label>
+
+
+                    <label class="inventory-rule">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <div>
+                            <strong>Reorder Alert</strong>
+
+                            <span>
+                                Notify when stock reaches the reorder level.
+                            </span>
+
+                        </div>
+
+                    </label>
+
+
+                    <label class="inventory-rule">
+
+                        <input
+                            type="checkbox"
+                        >
+
+                        <div>
+                            <strong>Overstock Alert</strong>
+
+                            <span>
+                                Alert when stock exceeds the maximum level.
+                            </span>
+
+                        </div>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= EXPIRY SETTINGS ================= -->
+            <div class="form-section">
+
+                <div class="form-section-header">
+
+                    <h2>📅 Expiry Management</h2>
+
+                    <p>
+                        Configure product expiry tracking and alerts.
+                    </p>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="expiryTracking">
+                            Expiry Tracking
+                        </label>
+
+                        <select id="expiryTracking">
+
+                            <option selected>Enabled</option>
+                            <option>Disabled</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="expiryAlert">
+                            Expiry Alert Before
+                        </label>
+
+                        <select id="expiryAlert">
+
+                            <option>7 Days</option>
+                            <option selected>30 Days</option>
+                            <option>60 Days</option>
+                            <option>90 Days</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="expiredSale">
+                            Allow Sale of Expired Products
+                        </label>
+
+                        <select id="expiredSale">
+
+                            <option selected>No</option>
+                            <option>Yes</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="nearExpiry">
+                            Near-Expiry Status
+                        </label>
+
+                        <select id="nearExpiry">
+
+                            <option selected>Warning</option>
+                            <option>Low Stock Style</option>
+                            <option>Critical</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= STOCK VALUATION ================= -->
+            <div class="form-section">
+
+                <div class="form-section-header">
+
+                    <h2>💰 Stock Valuation</h2>
+
+                    <p>
+                        Select how inventory value should be calculated.
+                    </p>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="valuationMethod">
+                            Valuation Method
+                        </label>
+
+                        <select id="valuationMethod">
+
+                            <option selected>Purchase Price</option>
+                            <option>Average Cost</option>
+                            <option>FIFO</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="sellingValue">
+                            Show Estimated Selling Value
+                        </label>
+
+                        <select id="sellingValue">
+
+                            <option selected>Yes</option>
+                            <option>No</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= STOCK MOVEMENT ================= -->
+            <div class="form-section">
+
+                <div class="form-section-header">
+
+                    <h2>🔄 Stock Movement Rules</h2>
+
+                    <p>
+                        Define how different transactions affect inventory.
+                    </p>
+
+                </div>
+
+
+                <div class="settings-toggle-list">
+
+                    <label class="inventory-rule">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <div>
+
+                            <strong>Purchase Adds Stock</strong>
+
+                            <span>
+                                Increase inventory when a purchase is recorded.
+                            </span>
+
+                        </div>
+
+                    </label>
+
+
+                    <label class="inventory-rule">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <div>
+
+                            <strong>Bill Deducts Stock</strong>
+
+                            <span>
+                                Reduce inventory when a customer bill is completed.
+                            </span>
+
+                        </div>
+
+                    </label>
+
+
+                    <label class="inventory-rule">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <div>
+
+                            <strong>Returns Add Stock</strong>
+
+                            <span>
+                                Add returned products back to inventory.
+                            </span>
+
+                        </div>
+
+                    </label>
+
+
+                    <label class="inventory-rule">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <div>
+
+                            <strong>Damage Reduces Stock</strong>
+
+                            <span>
+                                Deduct damaged products through stock adjustment.
+                            </span>
+
+                        </div>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= STOCK ADJUSTMENT ================= -->
+            <div class="form-section">
+
+                <div class="form-section-header">
+
+                    <h2>📝 Stock Adjustment</h2>
+
+                    <p>
+                        Configure permissions for manual inventory corrections.
+                    </p>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="adjustmentPermission">
+                            Adjustment Permission
+                        </label>
+
+                        <select id="adjustmentPermission">
+
+                            <option selected>Admin Only</option>
+                            <option>Admin & Manager</option>
+                            <option>All Employees</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="adjustmentReason">
+                            Require Adjustment Reason
+                        </label>
+
+                        <select id="adjustmentReason">
+
+                            <option selected>Required</option>
+                            <option>Optional</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="negativeStock">
+                            Allow Negative Stock
+                        </label>
+
+                        <select id="negativeStock">
+
+                            <option selected>No</option>
+                            <option>Yes</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="adjustmentHistory">
+                            Keep Adjustment History
+                        </label>
+
+                        <select id="adjustmentHistory">
+
+                            <option selected>Enabled</option>
+                            <option>Disabled</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= INVENTORY DISPLAY ================= -->
+            <div class="form-section">
+
+                <div class="form-section-header">
+
+                    <h2>👁️ Inventory Display</h2>
+
+                    <p>
+                        Choose information displayed on inventory screens.
+                    </p>
+
+                </div>
+
+
+                <div class="settings-toggle-list">
+
+                    <label class="inventory-rule">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <div>
+                            <strong>Show Stock Value</strong>
+
+                            <span>
+                                Display current inventory value.
+                            </span>
+                        </div>
+
+                    </label>
+
+
+                    <label class="inventory-rule">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <div>
+                            <strong>Show Minimum Stock</strong>
+
+                            <span>
+                                Display the minimum stock threshold.
+                            </span>
+                        </div>
+
+                    </label>
+
+
+                    <label class="inventory-rule">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <div>
+                            <strong>Show Last Updated Date</strong>
+
+                            <span>
+                                Display the latest inventory update date.
+                            </span>
+                        </div>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= ACTION BUTTONS ================= -->
+            <div class="form-actions">
+
+                <a href="settings.html" class="secondary-btn">
+                    Cancel
+                </a>
+
+                <button
+                    type="button"
+                    class="primary-btn"
+                >
+                    💾 Save Inventory Settings
+                </button>
+
+            </div>
+
+
+            <!-- DEVELOPMENT NOTE -->
+            <div class="info-note">
+
+                <strong>â„¹ï¸ Frontend Mode:</strong>
+
+                Inventory settings are currently static.
+                Stock alerts, automatic stock updates, expiry validation,
+                valuation and adjustment permissions will become functional
+                during the JavaScript phase.
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/settings.js"></script>
+</body>
+</html>

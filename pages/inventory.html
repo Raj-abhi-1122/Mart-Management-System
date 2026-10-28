@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inventory - Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+
+</head>
+
+
+<body>
+
+    <div class="dashboard-container">
+
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+
+                <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+
+        <main class="main-content">
+
+
+            <!-- TOP NAVBAR -->
+
+            <header class="top-navbar">
+            <div>
+
+                    <h2>Inventory</h2>
+
+                    <p>Manage and monitor your stock</p>
+
+                </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+
+            <!-- =========================
+                 INVENTORY CONTENT
+            ========================== -->
+
+            <section class="page-content">
+
+
+                <!-- PAGE HEADER -->
+
+                <div class="page-header">
+
+                    <div>
+
+                        <h1>Inventory Management</h1>
+
+                        <p>
+                            Monitor your product stock and inventory movement.
+                        </p>
+
+                    </div>
+
+
+                    <a href="stock-adjustment.html" class="primary-btn">
+                         + Stock Adjustment
+                    </a>
+
+                </div>
+
+
+
+                <!-- =========================
+                     INVENTORY SUMMARY
+                ========================== -->
+
+                <div class="inventory-cards">
+
+
+                    <div class="inventory-card">
+
+                        <div class="inventory-icon">
+                            📦
+                        </div>
+
+                        <div>
+
+                            <p>Total Products</p>
+
+                            <h2 id="totalProducts">0</h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="inventory-card">
+
+                        <div class="inventory-icon">
+                            ✅
+                        </div>
+
+                        <div>
+
+                            <p>In Stock</p>
+
+                            <h2 id="inStockCount">0</h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="inventory-card">
+
+                        <div class="inventory-icon">
+                            ⚠️
+                        </div>
+
+                        <div>
+
+                            <p>Low Stock</p>
+
+                            <h2 id="lowStockCount">0</h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="inventory-card">
+
+                        <div class="inventory-icon">
+                            ❌
+                        </div>
+
+                        <div>
+
+                            <p>Out of Stock</p>
+
+                            <h2 id="outOfStockCount">0</h2>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =========================
+                     INVENTORY TOOLS
+                ========================== -->
+
+                <div class="product-tools">
+
+
+                    <div class="search-box">
+
+                        <span>🔍</span>
+
+                        <input
+                            type="text"
+                            id="inventorySearch"
+                            placeholder="Search products..."
+                        >
+                    </div>
+
+
+                    <select id="inventoryCategoryFilter">
+
+                        <option value="All Categories">
+                            All Categories
+                        </option>
+
+                        <option value="Grocery">
+                            Grocery
+                        </option>
+
+                        <option value="Beverages">
+                            Beverages
+                        </option>
+
+                        <option value="Personal Care">
+                            Personal Care
+                        </option>
+
+                        <option value="Household">
+                            Household
+                        </option>
+
+                        <option value="Electronics">
+                            Electronics
+                        </option>
+
+                    </select>
+
+
+                    <select id="inventoryStockFilter">
+
+    <option value="All Stock">
+        All Stock
+    </option>
+
+    <option value="In Stock">
+        In Stock
+    </option>
+
+    <option value="Low Stock">
+        Low Stock
+    </option>
+
+    <option value="Out of Stock">
+        Out of Stock
+    </option>
+
+</select>
+
+
+                </div>
+
+
+
+                <!-- =========================
+                     INVENTORY TABLE
+                ========================== -->
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+
+                                <th>Product</th>
+
+                                <th>Category</th>
+
+                                <th>Current Stock</th>
+
+                                <th>Minimum Stock</th>
+
+                                <th>Status</th>
+
+                                <th>Last Updated</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="inventoryTableBody">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+
+                <!-- =========================
+                     STOCK MOVEMENT
+                ========================== -->
+
+                <div class="inventory-bottom">
+
+
+                    <div class="dashboard-panel">
+
+                        <div class="panel-header">
+
+                            <h2>Recent Stock Movement</h2>
+
+                            <a href="#">
+                                View All
+                            </a>
+
+                        </div>
+
+
+                        <div class="stock-movement">
+
+                            <div id="recentStockMovement">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- LOW STOCK ALERT -->
+
+                    <div class="dashboard-panel">
+
+                        <div class="panel-header">
+
+                            <h2>⚠️ Stock Alerts</h2>
+
+                        </div>
+
+
+                        <div
+                            class="stock-alert-list"
+                            id="lowStockAlertsContainer"
+                        >
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+            </section>
+
+        </main>
+
+    </div>
+    <script src="../JS/storage.js"></script>
+<script src="../JS/utils.js"></script>
+<script src="../JS/database.js"></script>
+<script src="../JS/inventory.js"></script>
+<script src="../JS/main.js"></script>
+
+
+</body>
+
+</html>

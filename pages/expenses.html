@@ -1,0 +1,960 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Expense Management - Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- ================= SIDEBAR ================= -->
+            <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="main-content">
+
+        <!-- TOP NAVBAR -->
+        <header class="top-navbar">
+            <div>
+                <h2>Expense Management</h2>
+                <p>Track and manage all mart business expenses</p>
+            </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+        <!-- ================= PAGE CONTENT ================= -->
+        <section class="page-content">
+
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+
+                <div>
+                    <h1>Expense Management</h1>
+                    <p>Monitor business expenses, payments and spending.</p>
+                </div>
+
+                <div class="page-header-actions">
+
+                    <button class="secondary-btn">
+                        📥 Export
+                    </button>
+
+                    <a href="add-expense.html" class="primary-btn">
+                        âž• Add Expense
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= SUMMARY CARDS ================= -->
+            <div class="summary-cards">
+
+                <div class="summary-card">
+
+                    <div class="summary-icon blue">
+                        💰
+                    </div>
+
+                    <div>
+                        <h3>Total Expenses</h3>
+                        <p>â‚¹4,85,600</p>
+                        <span>All recorded expenses</span>
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon purple">
+                        📅
+                    </div>
+
+                    <div>
+                        <h3>This Month</h3>
+                        <p>â‚¹82,450</p>
+                        <span>October 2026</span>
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon orange">
+                        â³
+                    </div>
+
+                    <div>
+                        <h3>Pending Payments</h3>
+                        <p>â‚¹18,500</p>
+                        <span>Awaiting payment</span>
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon green">
+                        📆
+                    </div>
+
+                    <div>
+                        <h3>Today's Expenses</h3>
+                        <p>â‚¹6,850</p>
+                        <span>05 October 2026</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= FILTER SECTION ================= -->
+            <div class="expense-filter-box">
+
+                <div class="expense-filter">
+
+                    <div class="expense-filter-group">
+
+                        <label>Search</label>
+
+                        <input
+                            type="text"
+                            placeholder="Search expense..."
+                        >
+
+                    </div>
+
+
+                    <div class="expense-filter-group">
+
+                        <label>Category</label>
+
+                        <select>
+
+                            <option>All Categories</option>
+                            <option>Electricity</option>
+                            <option>Rent</option>
+                            <option>Salary</option>
+                            <option>Transport</option>
+                            <option>Maintenance</option>
+                            <option>Supplies</option>
+                            <option>Marketing</option>
+                            <option>Other</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="expense-filter-group">
+
+                        <label>Payment Status</label>
+
+                        <select>
+
+                            <option>All Status</option>
+                            <option>Paid</option>
+                            <option>Pending</option>
+                            <option>Partial</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="expense-filter-group">
+
+                        <label>From Date</label>
+
+                        <input type="date">
+
+                    </div>
+
+
+                    <div class="expense-filter-group">
+
+                        <label>To Date</label>
+
+                        <input type="date">
+
+                    </div>
+
+
+                    <button class="expense-filter-btn">
+                        🔍 Filter
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= EXPENSE TABLE ================= -->
+            <div class="content-card expense-table-card">
+
+                <div class="content-card-header">
+
+                    <div>
+                        <h2>Expense Records</h2>
+                        <p>All recorded business expenses</p>
+                    </div>
+
+                    <span class="expense-count">
+                        128 Records
+                    </span>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table class="expense-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Expense ID</th>
+                                <th>Date</th>
+                                <th>Category</th>
+                                <th>Description</th>
+                                <th>Amount</th>
+                                <th>Payment Method</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <!-- ROW 1 -->
+                            <tr>
+
+                                <td>
+                                    <strong>EXP001</strong>
+                                </td>
+
+                                <td>05 Oct 2026</td>
+
+                                <td>
+
+                                    <span class="expense-category electricity">
+                                        âš¡ Electricity
+                                    </span>
+
+                                </td>
+
+                                <td>
+                                    September electricity bill
+                                </td>
+
+                                <td>
+                                    <strong>â‚¹6,850</strong>
+                                </td>
+
+                                <td>Bank Transfer</td>
+
+                                <td>
+
+                                    <span class="expense-status paid">
+                                        Paid
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                     <a href="expense-details.html" class="action-btn">
+                                            View
+                                        </a>
+
+                                        <a href="add-expense.html" class="action-btn">
+                                            Edit
+                                        </a>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- ROW 2 -->
+                            <tr>
+
+                                <td>
+                                    <strong>EXP002</strong>
+                                </td>
+
+                                <td>04 Oct 2026</td>
+
+                                <td>
+
+                                    <span class="expense-category rent">
+                                        🏢 Rent
+                                    </span>
+
+                                </td>
+
+                                <td>
+                                    Shop rent for October
+                                </td>
+
+                                <td>
+                                    <strong>â‚¹25,000</strong>
+                                </td>
+
+                                <td>Bank Transfer</td>
+
+                                <td>
+
+                                    <span class="expense-status paid">
+                                        Paid
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                     <a href="expense-details.html" class="action-btn">
+                                            View
+                                        </a>
+
+                                        <a href="add-expense.html" class="action-btn">
+                                            Edit
+                                        </a>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- ROW 3 -->
+                            <tr>
+
+                                <td>
+                                    <strong>EXP003</strong>
+                                </td>
+
+                                <td>03 Oct 2026</td>
+
+                                <td>
+
+                                    <span class="expense-category transport">
+                                        ðŸšš Transport
+                                    </span>
+
+                                </td>
+
+                                <td>
+                                    Goods transportation charges
+                                </td>
+
+                                <td>
+                                    <strong>â‚¹4,500</strong>
+                                </td>
+
+                                <td>Cash</td>
+
+                                <td>
+
+                                    <span class="expense-status paid">
+                                        Paid
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                    <a href="expense-details.html" class="action-btn">
+                                        View
+                                    </a>
+
+                                    <a href="add-expense.html" class="action-btn">
+                                        Edit
+                                    </a>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- ROW 4 -->
+                            <tr>
+
+                                <td>
+                                    <strong>EXP004</strong>
+                                </td>
+
+                                <td>02 Oct 2026</td>
+
+                                <td>
+
+                                    <span class="expense-category maintenance">
+                                        ðŸ”§ Maintenance
+                                    </span>
+
+                                </td>
+
+                                <td>
+                                    Refrigerator repair
+                                </td>
+
+                                <td>
+                                    <strong>â‚¹3,200</strong>
+                                </td>
+
+                                <td>Cash</td>
+
+                                <td>
+
+                                    <span class="expense-status pending">
+                                        Pending
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                     <a href="expense-details.html" class="action-btn">
+        View
+    </a>
+
+    <a href="add-expense.html" class="action-btn">
+        Edit
+    </a>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- ROW 5 -->
+                            <tr>
+
+                                <td>
+                                    <strong>EXP005</strong>
+                                </td>
+
+                                <td>01 Oct 2026</td>
+
+                                <td>
+
+                                    <span class="expense-category supplies">
+                                        📦 Supplies
+                                    </span>
+
+                                </td>
+
+                                <td>
+                                    Packaging materials
+                                </td>
+
+                                <td>
+                                    <strong>â‚¹8,900</strong>
+                                </td>
+
+                                <td>UPI</td>
+
+                                <td>
+
+                                    <span class="expense-status paid">
+                                        Paid
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                    <a href="expense-details.html" class="action-btn">
+        View
+    </a>
+
+    <a href="add-expense.html" class="action-btn">
+        Edit
+    </a>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- ROW 6 -->
+                            <tr>
+
+                                <td>
+                                    <strong>EXP006</strong>
+                                </td>
+
+                                <td>30 Sep 2026</td>
+
+                                <td>
+
+                                    <span class="expense-category salary">
+                                        👨‍💼 Salary
+                                    </span>
+
+                                </td>
+
+                                <td>
+                                    Employee salary advance
+                                </td>
+
+                                <td>
+                                    <strong>â‚¹12,000</strong>
+                                </td>
+
+                                <td>Cash</td>
+
+                                <td>
+
+                                    <span class="expense-status partial">
+                                        Partial
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                     <a href="expense-details.html" class="action-btn">
+        View
+    </a>
+
+    <a href="add-expense.html" class="action-btn">
+        Edit
+    </a>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- PAGINATION -->
+                <div class="expense-pagination">
+
+                    <span>
+                        Showing 1”“6 of 128 records
+                    </span>
+
+                    <div>
+
+                        <button class="pagination-btn">
+                            Previous
+                        </button>
+
+                        <button class="pagination-btn active">
+                            1
+                        </button>
+
+                        <button class="pagination-btn">
+                            2
+                        </button>
+
+                        <button class="pagination-btn">
+                            3
+                        </button>
+
+                        <button class="pagination-btn">
+                            4
+                        </button>
+
+                        <button class="pagination-btn">
+                            Next
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= LOWER SECTION ================= -->
+            <div class="expense-dashboard-grid">
+
+
+                <!-- EXPENSE CATEGORIES -->
+                <div class="content-card">
+
+                    <div class="content-card-header">
+
+                        <div>
+                            <h2>Expense Categories</h2>
+                            <p>Monthly spending by category</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="expense-category-list">
+
+                        <div class="expense-category-row">
+
+                            <div class="expense-category-info">
+
+                                <span class="category-dot rent-dot"></span>
+
+                                <span>Rent</span>
+
+                            </div>
+
+                            <strong>â‚¹25,000</strong>
+
+                        </div>
+
+
+                        <div class="expense-category-row">
+
+                            <div class="expense-category-info">
+
+                                <span class="category-dot salary-dot"></span>
+
+                                <span>Salary</span>
+
+                            </div>
+
+                            <strong>â‚¹22,000</strong>
+
+                        </div>
+
+
+                        <div class="expense-category-row">
+
+                            <div class="expense-category-info">
+
+                                <span class="category-dot electricity-dot"></span>
+
+                                <span>Electricity</span>
+
+                            </div>
+
+                            <strong>â‚¹6,850</strong>
+
+                        </div>
+
+
+                        <div class="expense-category-row">
+
+                            <div class="expense-category-info">
+
+                                <span class="category-dot supplies-dot"></span>
+
+                                <span>Supplies</span>
+
+                            </div>
+
+                            <strong>â‚¹8,900</strong>
+
+                        </div>
+
+
+                        <div class="expense-category-row">
+
+                            <div class="expense-category-info">
+
+                                <span class="category-dot transport-dot"></span>
+
+                                <span>Transport</span>
+
+                            </div>
+
+                            <strong>â‚¹4,500</strong>
+
+                        </div>
+
+
+                        <div class="expense-category-row">
+
+                            <div class="expense-category-info">
+
+                                <span class="category-dot maintenance-dot"></span>
+
+                                <span>Maintenance</span>
+
+                            </div>
+
+                            <strong>â‚¹3,200</strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MONTHLY SUMMARY -->
+                <div class="content-card">
+
+                    <div class="content-card-header">
+
+                        <div>
+                            <h2>Monthly Expense Summary</h2>
+                            <p>Recent monthly spending</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="monthly-expense-list">
+
+                        <div class="monthly-expense-row">
+
+                            <div>
+                                <strong>October 2026</strong>
+                                <span>Current Month</span>
+                            </div>
+
+                            <strong>â‚¹82,450</strong>
+
+                        </div>
+
+
+                        <div class="monthly-expense-row">
+
+                            <div>
+                                <strong>September 2026</strong>
+                                <span>Previous Month</span>
+                            </div>
+
+                            <strong>â‚¹76,200</strong>
+
+                        </div>
+
+
+                        <div class="monthly-expense-row">
+
+                            <div>
+                                <strong>August 2026</strong>
+                                <span>2 Months Ago</span>
+                            </div>
+
+                            <strong>â‚¹79,850</strong>
+
+                        </div>
+
+
+                        <div class="monthly-expense-row">
+
+                            <div>
+                                <strong>July 2026</strong>
+                                <span>3 Months Ago</span>
+                            </div>
+
+                            <strong>â‚¹72,400</strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="expense-total-box">
+
+                        <span>Total Last 4 Months</span>
+
+                        <strong>â‚¹3,10,900</strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= RECENT ACTIVITY ================= -->
+            <div class="content-card recent-expense-card">
+
+                <div class="content-card-header">
+
+                    <div>
+                        <h2>Recent Expense Activity</h2>
+                        <p>Latest expense records</p>
+                    </div>
+
+                </div>
+
+
+                <div class="expense-activity-list">
+
+                    <div class="expense-activity-item">
+
+                        <div class="expense-activity-icon paid-icon">
+                            ✓
+                        </div>
+
+                        <div>
+                            <strong>Electricity expense recorded</strong>
+                            <span>EXP001 • â‚¹6,850 • Bank Transfer</span>
+                        </div>
+
+                        <small>
+                            Today, 11:20 AM
+                        </small>
+
+                    </div>
+
+
+                    <div class="expense-activity-item">
+
+                        <div class="expense-activity-icon paid-icon">
+                            ✓
+                        </div>
+
+                        <div>
+                            <strong>Shop rent payment recorded</strong>
+                            <span>EXP002 • â‚¹25,000 • Bank Transfer</span>
+                        </div>
+
+                        <small>
+                            Yesterday
+                        </small>
+
+                    </div>
+
+
+                    <div class="expense-activity-item">
+
+                        <div class="expense-activity-icon pending-icon">
+                            â³
+                        </div>
+
+                        <div>
+                            <strong>Maintenance expense pending</strong>
+                            <span>EXP004 • â‚¹3,200 • Cash</span>
+                        </div>
+
+                        <small>
+                            02 Oct 2026
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= INFORMATION NOTE ================= -->
+            <div class="expense-note">
+
+                <div class="expense-note-icon">
+                    💡
+                </div>
+
+                <div>
+
+                    <strong>Expense Management Information</strong>
+
+                    <p>
+                        This page currently contains sample expense data.
+                        Search, filtering, calculations, adding expenses,
+                        editing records and payment tracking will be connected
+                        during the JavaScript and backend phases.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/expenses.js"></script>
+</body>
+</html>

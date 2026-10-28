@@ -1,0 +1,996 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sales Reports - Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- ================= SIDEBAR ================= -->
+
+            <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+        <!-- TOP NAVBAR -->
+
+        <header class="top-navbar">
+            <div>
+
+                <h2>Sales Reports</h2>
+
+                <p>
+                    Analyze sales and revenue performance
+                </p>
+
+            </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+        <!-- ================= CONTENT ================= -->
+
+        <section class="content">
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="page-header">
+
+                <div>
+
+                    <h1>Sales Report</h1>
+
+                    <p>
+                        Detailed analysis of mart sales and billing activity.
+                    </p>
+
+                </div>
+
+                <div class="page-actions">
+
+                    <a href="reports.html" class="secondary-btn">
+                        ← Reports
+                    </a>
+
+                    <button class="secondary-btn">
+                        🖨️ Print
+                    </button>
+
+                    <button class="primary-btn">
+                        📥 Export
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= FILTER ================= -->
+
+            <div class="report-filter-card">
+
+                <div class="report-filter-title">
+
+                    <h3>Sales Report Filters</h3>
+
+                    <p>
+                        Select the period and sales information you want to analyze.
+                    </p>
+
+                </div>
+
+
+                <div class="sales-filter-grid">
+
+                    <div class="form-group">
+
+                        <label>From Date</label>
+
+                        <input
+                            type="date"
+                            value="2026-10-01"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>To Date</label>
+
+                        <input
+                            type="date"
+                            value="2026-10-05"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Customer</label>
+
+                        <select>
+
+                            <option>All Customers</option>
+                            <option>Rahul Kumar</option>
+                            <option>Priya Sharma</option>
+                            <option>Amit Kumar</option>
+                            <option>Neha Singh</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Payment Method</label>
+
+                        <select>
+
+                            <option>All Methods</option>
+                            <option>Cash</option>
+                            <option>UPI</option>
+                            <option>Card</option>
+                            <option>Credit</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="sales-filter-button">
+
+                        <button class="primary-btn">
+                            🔍 Generate Report
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= SUMMARY ================= -->
+
+            <div class="summary-cards sales-report-summary">
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon">
+                        💰
+                    </div>
+
+                    <div>
+
+                        <span>Total Sales</span>
+
+                        <h2>â‚¹8,45,600</h2>
+
+                        <small class="report-positive">
+                            ←‘ 12.5%
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon">
+                        🧾
+                    </div>
+
+                    <div>
+
+                        <span>Total Bills</span>
+
+                        <h2>1,248</h2>
+
+                        <small>
+                            Average 42 bills/day
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon">
+                        âœ…
+                    </div>
+
+                    <div>
+
+                        <span>Paid Amount</span>
+
+                        <h2>â‚¹7,90,600</h2>
+
+                        <small class="report-positive">
+                            93.5% collected
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon">
+                        â³
+                    </div>
+
+                    <div>
+
+                        <span>Pending Amount</span>
+
+                        <h2>â‚¹55,000</h2>
+
+                        <small class="report-negative">
+                            6.5% pending
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- ================= SALES TREND ================= -->
+
+            <div class="details-card">
+
+                <div class="details-card-header">
+
+                    <div>
+
+                        <h3>Daily Sales Performance</h3>
+
+                        <p>
+                            Sales generated during the selected period
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="sales-table-wrapper">
+
+                    <table class="sales-report-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Date</th>
+
+                                <th>Number of Bills</th>
+
+                                <th>Gross Sales</th>
+
+                                <th>Discount</th>
+
+                                <th>Net Sales</th>
+
+                                <th>Paid</th>
+
+                                <th>Due</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>01 Oct 2026</td>
+
+                                <td>38</td>
+
+                                <td>â‚¹25,800</td>
+
+                                <td>â‚¹450</td>
+
+                                <td><strong>â‚¹25,350</strong></td>
+
+                                <td>â‚¹24,100</td>
+
+                                <td>â‚¹1,250</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>02 Oct 2026</td>
+
+                                <td>42</td>
+
+                                <td>â‚¹29,400</td>
+
+                                <td>â‚¹600</td>
+
+                                <td><strong>â‚¹28,800</strong></td>
+
+                                <td>â‚¹27,900</td>
+
+                                <td>â‚¹900</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>03 Oct 2026</td>
+
+                                <td>45</td>
+
+                                <td>â‚¹32,600</td>
+
+                                <td>â‚¹720</td>
+
+                                <td><strong>â‚¹31,880</strong></td>
+
+                                <td>â‚¹30,500</td>
+
+                                <td>â‚¹1,380</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>04 Oct 2026</td>
+
+                                <td>40</td>
+
+                                <td>â‚¹27,900</td>
+
+                                <td>â‚¹500</td>
+
+                                <td><strong>â‚¹27,400</strong></td>
+
+                                <td>â‚¹26,700</td>
+
+                                <td>â‚¹700</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>05 Oct 2026</td>
+
+                                <td>42</td>
+
+                                <td>â‚¹38,900</td>
+
+                                <td>â‚¹400</td>
+
+                                <td><strong>â‚¹38,500</strong></td>
+
+                                <td>â‚¹36,400</td>
+
+                                <td>â‚¹2,100</td>
+
+                            </tr>
+
+
+                            <tr class="table-total">
+
+                                <td><strong>Total</strong></td>
+
+                                <td><strong>207</strong></td>
+
+                                <td><strong>â‚¹1,54,600</strong></td>
+
+                                <td><strong>â‚¹2,670</strong></td>
+
+                                <td><strong>â‚¹1,51,930</strong></td>
+
+                                <td><strong>â‚¹1,45,600</strong></td>
+
+                                <td><strong>â‚¹6,330</strong></td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= TWO COLUMN REPORTS ================= -->
+
+            <div class="sales-report-two-column">
+
+
+                <!-- PAYMENT METHODS -->
+
+                <div class="details-card">
+
+                    <div class="details-card-header">
+
+                        <div>
+
+                            <h3>Sales by Payment Method</h3>
+
+                            <p>
+                                Payment collection breakdown
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="sales-payment-list">
+
+
+                        <div class="sales-payment-row">
+
+                            <div>
+
+                                <span>💵 Cash</span>
+
+                                <strong>â‚¹3,25,000</strong>
+
+                            </div>
+
+                            <div class="sales-progress">
+
+                                <div
+                                    class="sales-progress-fill cash"
+                                    style="width: 38%;">
+                                </div>
+
+                            </div>
+
+                            <b>38%</b>
+
+                        </div>
+
+
+                        <div class="sales-payment-row">
+
+                            <div>
+
+                                <span>📱 UPI</span>
+
+                                <strong>â‚¹2,85,600</strong>
+
+                            </div>
+
+                            <div class="sales-progress">
+
+                                <div
+                                    class="sales-progress-fill upi"
+                                    style="width: 34%;">
+                                </div>
+
+                            </div>
+
+                            <b>34%</b>
+
+                        </div>
+
+
+                        <div class="sales-payment-row">
+
+                            <div>
+
+                                <span>💳 Card</span>
+
+                                <strong>â‚¹1,80,000</strong>
+
+                            </div>
+
+                            <div class="sales-progress">
+
+                                <div
+                                    class="sales-progress-fill card"
+                                    style="width: 21%;">
+                                </div>
+
+                            </div>
+
+                            <b>21%</b>
+
+                        </div>
+
+
+                        <div class="sales-payment-row">
+
+                            <div>
+
+                                <span>📝 Credit</span>
+
+                                <strong>â‚¹55,000</strong>
+
+                            </div>
+
+                            <div class="sales-progress">
+
+                                <div
+                                    class="sales-progress-fill credit"
+                                    style="width: 7%;">
+                                </div>
+
+                            </div>
+
+                            <b>7%</b>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SALES STATISTICS -->
+
+                <div class="details-card">
+
+                    <div class="details-card-header">
+
+                        <div>
+
+                            <h3>Sales Statistics</h3>
+
+                            <p>
+                                Important sales metrics
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="sales-statistics">
+
+
+                        <div class="sales-stat-row">
+
+                            <span>Average Bill Value</span>
+
+                            <strong>â‚¹677</strong>
+
+                        </div>
+
+
+                        <div class="sales-stat-row">
+
+                            <span>Highest Daily Sales</span>
+
+                            <strong>â‚¹38,500</strong>
+
+                        </div>
+
+
+                        <div class="sales-stat-row">
+
+                            <span>Lowest Daily Sales</span>
+
+                            <strong>â‚¹25,350</strong>
+
+                        </div>
+
+
+                        <div class="sales-stat-row">
+
+                            <span>Average Daily Sales</span>
+
+                            <strong>â‚¹30,386</strong>
+
+                        </div>
+
+
+                        <div class="sales-stat-row">
+
+                            <span>Discount Given</span>
+
+                            <strong>â‚¹2,670</strong>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= TOP PRODUCTS ================= -->
+
+            <div class="details-card">
+
+                <div class="details-card-header">
+
+                    <div>
+
+                        <h3>Top Selling Products</h3>
+
+                        <p>
+                            Products generating the highest sales
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="sales-table-wrapper">
+
+                    <table class="sales-report-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Rank</th>
+
+                                <th>Product</th>
+
+                                <th>Category</th>
+
+                                <th>Quantity Sold</th>
+
+                                <th>Revenue</th>
+
+                                <th>Sales Share</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>ðŸ¥‡ 1</td>
+
+                                <td><strong>Rice</strong></td>
+
+                                <td>Groceries</td>
+
+                                <td>520 kg</td>
+
+                                <td>â‚¹31,200</td>
+
+                                <td>18.4%</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>ðŸ¥ˆ 2</td>
+
+                                <td><strong>Cooking Oil</strong></td>
+
+                                <td>Groceries</td>
+
+                                <td>185 L</td>
+
+                                <td>â‚¹27,750</td>
+
+                                <td>16.3%</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>ðŸ¥‰ 3</td>
+
+                                <td><strong>Sugar</strong></td>
+
+                                <td>Groceries</td>
+
+                                <td>410 kg</td>
+
+                                <td>â‚¹20,500</td>
+
+                                <td>12.1%</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>4</td>
+
+                                <td><strong>Bath Soap</strong></td>
+
+                                <td>Personal Care</td>
+
+                                <td>280 pcs</td>
+
+                                <td>â‚¹14,000</td>
+
+                                <td>8.2%</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>5</td>
+
+                                <td><strong>Toothpaste</strong></td>
+
+                                <td>Personal Care</td>
+
+                                <td>210 pcs</td>
+
+                                <td>â‚¹10,500</td>
+
+                                <td>6.1%</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= TOP CUSTOMERS ================= -->
+
+            <div class="details-card">
+
+                <div class="details-card-header">
+
+                    <div>
+
+                        <h3>Top Customers</h3>
+
+                        <p>
+                            Customers with the highest purchase value
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="sales-table-wrapper">
+
+                    <table class="sales-report-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Rank</th>
+
+                                <th>Customer</th>
+
+                                <th>Total Bills</th>
+
+                                <th>Total Purchases</th>
+
+                                <th>Paid</th>
+
+                                <th>Due</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>ðŸ¥‡ 1</td>
+
+                                <td><strong>Suresh Kumar</strong></td>
+
+                                <td>32</td>
+
+                                <td>â‚¹45,200</td>
+
+                                <td>â‚¹43,100</td>
+
+                                <td>â‚¹2,100</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>ðŸ¥ˆ 2</td>
+
+                                <td><strong>Amit Kumar</strong></td>
+
+                                <td>27</td>
+
+                                <td>â‚¹32,500</td>
+
+                                <td>â‚¹32,500</td>
+
+                                <td>â‚¹0</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>ðŸ¥‰ 3</td>
+
+                                <td><strong>Rahul Kumar</strong></td>
+
+                                <td>18</td>
+
+                                <td>â‚¹25,450</td>
+
+                                <td>â‚¹25,000</td>
+
+                                <td>â‚¹450</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>4</td>
+
+                                <td><strong>Priya Sharma</strong></td>
+
+                                <td>15</td>
+
+                                <td>â‚¹18,750</td>
+
+                                <td>â‚¹17,770</td>
+
+                                <td>â‚¹980</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= INFORMATION ================= -->
+
+            <div class="report-information">
+
+                <strong>
+                    â„¹ï¸ Report Information
+                </strong>
+
+                <p>
+                    The sales information shown above is currently sample
+                    data for frontend development. During the JavaScript
+                    phase, this report will calculate sales automatically
+                    from the billing system. Later, backend and database
+                    integration will provide real-time sales reports.
+                </p>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+</div>
+
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/reports.js"></script>
+</body>
+
+</html>

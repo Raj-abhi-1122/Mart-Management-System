@@ -1,0 +1,919 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Employees | Mart Management System</title>
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../CSS/style.css">
+
+    
+</head>
+
+<body>
+
+    <!-- ==============================
+         SIDEBAR
+    =============================== -->
+
+            <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+    <!-- ==============================
+         MAIN CONTENT
+    =============================== -->
+
+    <main class="main-content">
+
+        <!-- TOP NAVBAR -->
+
+        <header class="top-navbar">
+            <div><h2>Mart Management</h2></div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+        <!-- ==============================
+             PAGE CONTENT
+        =============================== -->
+
+        <section class="content employee-page">
+
+            <!-- PAGE HEADER -->
+
+            <div class="employee-page-header">
+
+                <div class="employee-title">
+
+                    <h1>Employee Management</h1>
+
+                    <p>
+                        Manage employees, positions, salaries and employment status.
+                    </p>
+
+                </div>
+
+                <a href="add-employee.html" class="employee-add-btn">
+                    <span>+</span>
+                    Add Employee
+                </a>
+
+            </div>
+
+
+            <!-- ==============================
+                 SUMMARY CARDS
+            =============================== -->
+
+            <div class="employee-summary">
+
+                <!-- Total Employees -->
+
+                <div class="employee-card">
+
+                    <div class="employee-card-top">
+
+                        <div>
+                            <p>Total Employees</p>
+                            <h2>12</h2>
+                        </div>
+
+                        <div class="employee-card-icon">
+                            👥
+                        </div>
+
+                    </div>
+
+                    <div class="employee-card-footer">
+                        All registered employees
+                    </div>
+
+                </div>
+
+
+                <!-- Active Employees -->
+
+                <div class="employee-card">
+
+                    <div class="employee-card-top">
+
+                        <div>
+                            <p>Active Employees</p>
+                            <h2>10</h2>
+                        </div>
+
+                        <div class="employee-card-icon">
+                            âœ…
+                        </div>
+
+                    </div>
+
+                    <div class="employee-card-footer">
+                        Currently working
+                    </div>
+
+                </div>
+
+
+                <!-- On Leave -->
+
+                <div class="employee-card">
+
+                    <div class="employee-card-top">
+
+                        <div>
+                            <p>On Leave</p>
+                            <h2>2</h2>
+                        </div>
+
+                        <div class="employee-card-icon">
+                            🕐
+                        </div>
+
+                    </div>
+
+                    <div class="employee-card-footer">
+                        Employees currently on leave
+                    </div>
+
+                </div>
+
+
+                <!-- Payroll -->
+
+                <div class="employee-card">
+
+                    <div class="employee-card-top">
+
+                        <div>
+                            <p>Monthly Payroll</p>
+                            <h2>â‚¹2.85L</h2>
+                        </div>
+
+                        <div class="employee-card-icon">
+                            💰
+                        </div>
+
+                    </div>
+
+                    <div class="employee-card-footer">
+                        Current month payroll
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==============================
+                 SEARCH & FILTER
+            =============================== -->
+
+            <div class="employee-filter-box">
+
+                <div class="employee-search">
+
+                    <span>🔍</span>
+
+                    <input
+                        type="text"
+                        placeholder="Search employee by name, ID or phone..."
+                    >
+
+                </div>
+
+
+                <div class="employee-filter">
+
+                    <label>Position</label>
+
+                    <select>
+
+                        <option>All Positions</option>
+                        <option>Manager</option>
+                        <option>Cashier</option>
+                        <option>Sales Executive</option>
+                        <option>Store Keeper</option>
+                        <option>Delivery Staff</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="employee-filter">
+
+                    <label>Status</label>
+
+                    <select>
+
+                        <option>All Status</option>
+                        <option>Active</option>
+                        <option>Inactive</option>
+                        <option>On Leave</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="employee-filter">
+
+                    <label>Sort By</label>
+
+                    <select>
+
+                        <option>Name</option>
+                        <option>Joining Date</option>
+                        <option>Salary</option>
+                        <option>Position</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==============================
+                 EMPLOYEE TABLE
+            =============================== -->
+
+            <div class="employee-table-box">
+
+                <!-- TABLE HEADER -->
+
+                <div class="employee-table-header">
+
+                    <div>
+
+                        <h2>Employee List</h2>
+
+                        <p>
+                            Manage all employees registered in the mart.
+                        </p>
+
+                    </div>
+
+                    <span class="employee-count">
+                        12 Employees
+                    </span>
+
+                </div>
+
+
+                <!-- TABLE -->
+
+                <div class="employee-table-wrapper">
+
+                    <table class="employee-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Employee</th>
+
+                                <th>Contact</th>
+
+                                <th>Position</th>
+
+                                <th>Salary</th>
+
+                                <th>Joining Date</th>
+
+                                <th>Status</th>
+
+                                <th>Action</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <!-- EMPLOYEE 1 -->
+
+                            <tr>
+
+                                <td>
+
+                                    <div class="employee-name-cell">
+
+                                        <div class="employee-avatar">
+                                            AK
+                                        </div>
+
+                                        <div>
+
+                                            <strong>Amit Kumar</strong>
+
+                                            <span>
+                                                EMP001
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="contact-cell">
+
+                                        <span>9876543210</span>
+
+                                        <small>
+                                            amit@gmail.com
+                                        </small>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <span class="position-badge">
+                                        Manager
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <strong class="salary-value">
+                                        â‚¹35,000
+                                    </strong>
+
+                                </td>
+
+
+                                <td>
+                                    10 Jan 2025
+                                </td>
+
+
+                                <td>
+
+                                    <span class="employee-status active">
+                                        Active
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="employee-actions">
+
+                                        <a
+                                            href="employee-details.html"
+                                            class="action-view"
+                                        >
+                                            View
+                                        </a>
+
+                                        <a
+                                            href="add-employee.html"
+                                            class="action-edit"
+                                        >
+                                            Edit
+                                        </a>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- EMPLOYEE 2 -->
+
+                            <tr>
+
+                                <td>
+
+                                    <div class="employee-name-cell">
+
+                                        <div class="employee-avatar">
+                                            RS
+                                        </div>
+
+                                        <div>
+
+                                            <strong>Ravi Sharma</strong>
+
+                                            <span>
+                                                EMP002
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="contact-cell">
+
+                                        <span>9123456780</span>
+
+                                        <small>
+                                            ravi@gmail.com
+                                        </small>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <span class="position-badge">
+                                        Cashier
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <strong class="salary-value">
+                                        â‚¹22,000
+                                    </strong>
+
+                                </td>
+
+
+                                <td>
+                                    15 Mar 2025
+                                </td>
+
+
+                                <td>
+
+                                    <span class="employee-status active">
+                                        Active
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="employee-actions">
+
+                                        <a
+                                            href="employee-details.html"
+                                            class="action-view"
+                                        >
+                                            View
+                                        </a>
+
+                                        <a
+                                            href="add-employee.html"
+                                            class="action-edit"
+                                        >
+                                            Edit
+                                        </a>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- EMPLOYEE 3 -->
+
+                            <tr>
+
+                                <td>
+
+                                    <div class="employee-name-cell">
+
+                                        <div class="employee-avatar">
+                                            PS
+                                        </div>
+
+                                        <div>
+
+                                            <strong>Priya Singh</strong>
+
+                                            <span>
+                                                EMP003
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="contact-cell">
+
+                                        <span>9988776655</span>
+
+                                        <small>
+                                            priya@gmail.com
+                                        </small>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <span class="position-badge">
+                                        Sales Executive
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <strong class="salary-value">
+                                        â‚¹20,000
+                                    </strong>
+
+                                </td>
+
+
+                                <td>
+                                    20 Apr 2025
+                                </td>
+
+
+                                <td>
+
+                                    <span class="employee-status active">
+                                        Active
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="employee-actions">
+
+                                        <a
+                                            href="employee-details.html"
+                                            class="action-view"
+                                        >
+                                            View
+                                        </a>
+
+                                        <a
+                                            href="add-employee.html"
+                                            class="action-edit"
+                                        >
+                                            Edit
+                                        </a>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- EMPLOYEE 4 -->
+
+                            <tr>
+
+                                <td>
+
+                                    <div class="employee-name-cell">
+
+                                        <div class="employee-avatar">
+                                            SK
+                                        </div>
+
+                                        <div>
+
+                                            <strong>Suresh Kumar</strong>
+
+                                            <span>
+                                                EMP004
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="contact-cell">
+
+                                        <span>9090909090</span>
+
+                                        <small>
+                                            suresh@gmail.com
+                                        </small>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <span class="position-badge">
+                                        Store Keeper
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <strong class="salary-value">
+                                        â‚¹24,000
+                                    </strong>
+
+                                </td>
+
+
+                                <td>
+                                    05 Jun 2025
+                                </td>
+
+
+                                <td>
+
+                                    <span class="employee-status active">
+                                        Active
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="employee-actions">
+
+                                        <a
+                                            href="employee-details.html"
+                                            class="action-view"
+                                        >
+                                            View
+                                        </a>
+
+                                        <a
+                                            href="add-employee.html"
+                                            class="action-edit"
+                                        >
+                                            Edit
+                                        </a>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- EMPLOYEE 5 -->
+
+                            <tr>
+
+                                <td>
+
+                                    <div class="employee-name-cell">
+
+                                        <div class="employee-avatar">
+                                            NV
+                                        </div>
+
+                                        <div>
+
+                                            <strong>Neha Verma</strong>
+
+                                            <span>
+                                                EMP005
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="contact-cell">
+
+                                        <span>9012345678</span>
+
+                                        <small>
+                                            neha@gmail.com
+                                        </small>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <span class="position-badge">
+                                        Cashier
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <strong class="salary-value">
+                                        â‚¹21,000
+                                    </strong>
+
+                                </td>
+
+
+                                <td>
+                                    12 Aug 2025
+                                </td>
+
+
+                                <td>
+
+                                    <span class="employee-status inactive">
+                                        Inactive
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="employee-actions">
+
+                                        <a
+                                            href="employee-details.html"
+                                            class="action-view"
+                                        >
+                                            View
+                                        </a>
+
+                                        <a
+                                            href="add-employee.html"
+                                            class="action-edit"
+                                        >
+                                            Edit
+                                        </a>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- PAGINATION -->
+
+                <div class="employee-pagination">
+
+                    <span>
+                        Showing 1”“5 of 12 employees
+                    </span>
+
+                    <div class="pagination-buttons">
+
+                        <button disabled>
+                            ← Previous
+                        </button>
+
+                        <button class="current-page">
+                            1
+                        </button>
+
+                        <button>
+                            2
+                        </button>
+
+                        <button>
+                            3
+                        </button>
+
+                        <button>
+                            Next →
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/employees.js"></script>
+</body>
+
+</html>

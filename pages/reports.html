@@ -1,0 +1,854 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reports - Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- ================= SIDEBAR ================= -->
+
+            <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+        <!-- TOP NAVBAR -->
+
+        <header class="top-navbar">
+            <div>
+                <h2>Reports</h2>
+
+                <p>
+                    Analyze your mart business performance
+                </p>
+            </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+        <!-- ================= CONTENT ================= -->
+
+        <section class="content">
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="page-header">
+
+                <div>
+
+                    <h1>Reports Dashboard</h1>
+
+                    <p>
+                        View sales, purchases, inventory, expenses and profit reports.
+                    </p>
+
+                </div>
+
+                <div class="page-actions">
+
+                    <button class="secondary-btn">
+                        🖨️ Print
+                    </button>
+
+                    <button class="primary-btn">
+                        📥 Export Report
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= REPORT FILTER ================= -->
+
+            <div class="report-filter-card">
+
+                <div class="report-filter-title">
+
+                    <h3>Report Period</h3>
+
+                    <p>
+                        Select the period for your business reports.
+                    </p>
+
+                </div>
+
+
+                <div class="report-filter-grid">
+
+                    <div class="form-group">
+
+                        <label>From Date</label>
+
+                        <input
+                            type="date"
+                            value="2026-10-01"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>To Date</label>
+
+                        <input
+                            type="date"
+                            value="2026-10-05"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Report Type</label>
+
+                        <select>
+
+                            <option>All Reports</option>
+                            <option>Sales Report</option>
+                            <option>Purchase Report</option>
+                            <option>Inventory Report</option>
+                            <option>Expense Report</option>
+                            <option>Profit & Loss</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="report-filter-action">
+
+                        <button class="primary-btn">
+                            🔍 Generate Report
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= SUMMARY CARDS ================= -->
+
+            <div class="summary-cards report-summary-cards">
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon">
+                        💰
+                    </div>
+
+                    <div>
+
+                        <span>Total Sales</span>
+
+                        <h2>â‚¹8,45,600</h2>
+
+                        <small class="report-positive">
+                            ←‘ 12.5% from last month
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon">
+                        🛒
+                    </div>
+
+                    <div>
+
+                        <span>Total Purchases</span>
+
+                        <h2>â‚¹5,20,400</h2>
+
+                        <small class="report-positive">
+                            ←‘ 8.2% from last month
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon">
+                        💸
+                    </div>
+
+                    <div>
+
+                        <span>Total Expenses</span>
+
+                        <h2>â‚¹82,450</h2>
+
+                        <small class="report-negative">
+                            ←‘ 4.8% from last month
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon">
+                        📈
+                    </div>
+
+                    <div>
+
+                        <span>Net Profit</span>
+
+                        <h2>â‚¹2,42,750</h2>
+
+                        <small class="report-positive">
+                            ←‘ 15.3% from last month
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- ================= REPORT MODULES ================= -->
+
+            <div class="section-title">
+
+                <div>
+
+                    <h2>Available Reports</h2>
+
+                    <p>
+                        Select a report to view detailed information.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="report-module-grid">
+
+
+                <!-- SALES -->
+
+                <div class="report-module-card">
+
+                    <div class="report-module-icon sales">
+                        💰
+                    </div>
+
+                    <div class="report-module-content">
+
+                        <h3>Sales Report</h3>
+
+                        <p>
+                            Analyze daily, monthly and yearly sales,
+                            bills, revenue and payment collection.
+                        </p>
+
+                        <div class="report-module-stats">
+
+                            <span>
+                                Total Sales
+                                <strong>â‚¹8,45,600</strong>
+                            </span>
+
+                            <span>
+                                Bills
+                                <strong>1,248</strong>
+                            </span>
+
+                        </div>
+
+                        <a
+                            href="sales-reports.html"
+                            class="report-view-btn"
+                        >
+                            View Sales Report →
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PURCHASE -->
+
+                <div class="report-module-card">
+
+                    <div class="report-module-icon purchase">
+                        🛒
+                    </div>
+
+                    <div class="report-module-content">
+
+                        <h3>Purchase Report</h3>
+
+                        <p>
+                            Track supplier purchases, purchase amounts,
+                            payments and outstanding dues.
+                        </p>
+
+                        <div class="report-module-stats">
+
+                            <span>
+                                Purchases
+                                <strong>â‚¹5,20,400</strong>
+                            </span>
+
+                            <span>
+                                Orders
+                                <strong>156</strong>
+                            </span>
+
+                        </div>
+
+                        <a
+                            href="purchase-reports.html"
+                            class="report-view-btn"
+                        >
+                            View Purchase Report →
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- INVENTORY -->
+
+                <div class="report-module-card">
+
+                    <div class="report-module-icon inventory">
+                        📦
+                    </div>
+
+                    <div class="report-module-content">
+
+                        <h3>Inventory Report</h3>
+
+                        <p>
+                            View stock levels, low-stock products,
+                            stock movement and inventory valuation.
+                        </p>
+
+                        <div class="report-module-stats">
+
+                            <span>
+                                Products
+                                <strong>385</strong>
+                            </span>
+
+                            <span>
+                                Low Stock
+                                <strong>18</strong>
+                            </span>
+
+                        </div>
+
+                        <a
+                            href="inventory-reports.html"
+                            class="report-view-btn"
+                        >
+                            View Inventory Report →
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EXPENSE -->
+
+                <div class="report-module-card">
+
+                    <div class="report-module-icon expense">
+                        💸
+                    </div>
+
+                    <div class="report-module-content">
+
+                        <h3>Expense Report</h3>
+
+                        <p>
+                            Analyze expenses by category, date,
+                            payment status and vendor.
+                        </p>
+
+                        <div class="report-module-stats">
+
+                            <span>
+                                Expenses
+                                <strong>â‚¹82,450</strong>
+                            </span>
+
+                            <span>
+                                Records
+                                <strong>86</strong>
+                            </span>
+
+                        </div>
+
+                        <a
+                            href="expense-reports.html"
+                            class="report-view-btn"
+                        >
+                            View Expense Report →
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROFIT & LOSS -->
+
+                <div class="report-module-card">
+
+                    <div class="report-module-icon profit">
+                        📊
+                    </div>
+
+                    <div class="report-module-content">
+
+                        <h3>Profit & Loss</h3>
+
+                        <p>
+                            Compare revenue, purchase costs and expenses
+                            to understand the overall business profit.
+                        </p>
+
+                        <div class="report-module-stats">
+
+                            <span>
+                                Revenue
+                                <strong>â‚¹8,45,600</strong>
+                            </span>
+
+                            <span>
+                                Profit
+                                <strong>â‚¹2,42,750</strong>
+                            </span>
+
+                        </div>
+
+                        <a
+                            href="profit-loss.html"
+                            class="report-view-btn"
+                        >
+                            View Profit & Loss →
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CUSTOMER REPORT -->
+
+                <div class="report-module-card">
+
+                    <div class="report-module-icon customer">
+                        👥
+                    </div>
+
+                    <div class="report-module-content">
+
+                        <h3>Customer Report</h3>
+
+                        <p>
+                            Analyze customer purchases, outstanding
+                            payments and customer activity.
+                        </p>
+
+                        <div class="report-module-stats">
+
+                            <span>
+                                Customers
+                                <strong>385</strong>
+                            </span>
+
+                            <span>
+                                Due Amount
+                                <strong>â‚¹18,450</strong>
+                            </span>
+
+                        </div>
+
+                        <a
+                            href="customers.html"
+                            class="report-view-btn"
+                        >
+                            View Customer Data →
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- ================= BUSINESS PERFORMANCE ================= -->
+
+            <div class="report-performance-grid">
+
+
+                <!-- SALES OVERVIEW -->
+
+                <div class="details-card">
+
+                    <div class="details-card-header">
+
+                        <div>
+
+                            <h3>Business Performance</h3>
+
+                            <p>
+                                Current period performance overview
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="performance-list">
+
+                        <div class="performance-row">
+
+                            <div>
+
+                                <span>Sales</span>
+
+                                <strong>â‚¹8,45,600</strong>
+
+                            </div>
+
+                            <div class="performance-bar">
+
+                                <div
+                                    class="performance-fill sales-fill"
+                                    style="width: 85%;">
+                                </div>
+
+                            </div>
+
+                            <span class="performance-percent">
+                                85%
+                            </span>
+
+                        </div>
+
+
+                        <div class="performance-row">
+
+                            <div>
+
+                                <span>Purchases</span>
+
+                                <strong>â‚¹5,20,400</strong>
+
+                            </div>
+
+                            <div class="performance-bar">
+
+                                <div
+                                    class="performance-fill purchase-fill"
+                                    style="width: 62%;">
+                                </div>
+
+                            </div>
+
+                            <span class="performance-percent">
+                                62%
+                            </span>
+
+                        </div>
+
+
+                        <div class="performance-row">
+
+                            <div>
+
+                                <span>Expenses</span>
+
+                                <strong>â‚¹82,450</strong>
+
+                            </div>
+
+                            <div class="performance-bar">
+
+                                <div
+                                    class="performance-fill expense-fill"
+                                    style="width: 32%;">
+                                </div>
+
+                            </div>
+
+                            <span class="performance-percent">
+                                32%
+                            </span>
+
+                        </div>
+
+
+                        <div class="performance-row">
+
+                            <div>
+
+                                <span>Profit</span>
+
+                                <strong>â‚¹2,42,750</strong>
+
+                            </div>
+
+                            <div class="performance-bar">
+
+                                <div
+                                    class="performance-fill profit-fill"
+                                    style="width: 72%;">
+                                </div>
+
+                            </div>
+
+                            <span class="performance-percent">
+                                72%
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PAYMENT SUMMARY -->
+
+                <div class="details-card">
+
+                    <div class="details-card-header">
+
+                        <div>
+
+                            <h3>Payment Summary</h3>
+
+                            <p>
+                                Current payment status
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="payment-report-list">
+
+
+                        <div class="payment-report-item">
+
+                            <div>
+
+                                <span>Cash Payments</span>
+
+                                <strong>â‚¹3,25,000</strong>
+
+                            </div>
+
+                            <span class="payment-percentage">
+                                38%
+                            </span>
+
+                        </div>
+
+
+                        <div class="payment-report-item">
+
+                            <div>
+
+                                <span>UPI Payments</span>
+
+                                <strong>â‚¹2,85,600</strong>
+
+                            </div>
+
+                            <span class="payment-percentage">
+                                34%
+                            </span>
+
+                        </div>
+
+
+                        <div class="payment-report-item">
+
+                            <div>
+
+                                <span>Card Payments</span>
+
+                                <strong>â‚¹1,80,000</strong>
+
+                            </div>
+
+                            <span class="payment-percentage">
+                                21%
+                            </span>
+
+                        </div>
+
+
+                        <div class="payment-report-item">
+
+                            <div>
+
+                                <span>Credit / Due</span>
+
+                                <strong>â‚¹55,000</strong>
+
+                            </div>
+
+                            <span class="payment-percentage">
+                                7%
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= INFORMATION ================= -->
+
+            <div class="report-information">
+
+                <strong>
+                    â„¹ï¸ Report Information
+                </strong>
+
+                <p>
+                    Reports are currently displayed using sample data.
+                    Once JavaScript functionality is added, these reports
+                    will automatically calculate data from bills, purchases,
+                    inventory and expenses. Later, the backend and database
+                    will provide real-time business reports.
+                </p>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+</div>
+
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/reports.js"></script>
+</body>
+
+</html>

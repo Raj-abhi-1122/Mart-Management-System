@@ -1,0 +1,464 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Expense Details - Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- ================= SIDEBAR ================= -->
+            <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="main-content">
+
+        <!-- TOP NAVBAR -->
+        <header class="top-navbar">
+            <div>
+                <h2>Expense Details</h2>
+                <p>View complete information about this expense</p>
+            </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+        <!-- PAGE CONTENT -->
+        <section class="content">
+
+
+            <!-- ================= PAGE HEADER ================= -->
+            <div class="page-header">
+
+                <div>
+                    <h1>Expense Details</h1>
+
+                    <p>
+                        Expense ID: <strong>EXP001</strong>
+                    </p>
+                </div>
+
+                <div class="page-actions">
+
+                    <a href="expenses.html" class="secondary-btn">
+                        ← Back to Expenses
+                    </a>
+
+                    <a href="add-expense.html" class="primary-btn">
+                        âœï¸ Edit Expense
+                    </a>
+
+                    <button class="secondary-btn">
+                        🖨️ Print Expense
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= EXPENSE OVERVIEW ================= -->
+            <div class="expense-details-grid">
+
+
+                <!-- EXPENSE PROFILE -->
+                <div class="details-card expense-profile-card">
+
+                    <div class="details-card-header">
+
+                        <div>
+                            <h3>Expense Overview</h3>
+                            <p>Basic expense information</p>
+                        </div>
+
+                        <span class="expense-status paid">
+                            Paid
+                        </span>
+
+                    </div>
+
+
+                    <div class="expense-profile">
+
+                        <div class="expense-icon">
+                            💡
+                        </div>
+
+                        <div>
+                            <h2>Electricity Bill</h2>
+
+                            <p>
+                                EXP001
+                            </p>
+
+                            <span class="expense-category electricity">
+                                Electricity
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="detail-info-grid">
+
+                        <div class="detail-item">
+                            <span>Expense Date</span>
+                            <strong>05 Oct 2026</strong>
+                        </div>
+
+                        <div class="detail-item">
+                            <span>Category</span>
+                            <strong>Electricity</strong>
+                        </div>
+
+                        <div class="detail-item">
+                            <span>Vendor / Payee</span>
+                            <strong>Punjab Power Corporation</strong>
+                        </div>
+
+                        <div class="detail-item">
+                            <span>Reference Number</span>
+                            <strong>ELEC-2026-1005</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- AMOUNT SUMMARY -->
+                <div class="details-card amount-summary-card">
+
+                    <div class="details-card-header">
+
+                        <div>
+                            <h3>Amount Summary</h3>
+                            <p>Payment information</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="amount-detail">
+
+                        <div>
+                            <span>Total Amount</span>
+                            <strong class="amount-total">
+                                â‚¹6,850
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>Paid Amount</span>
+                            <strong class="amount-paid">
+                                â‚¹6,850
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>Due Amount</span>
+                            <strong class="amount-due">
+                                â‚¹0
+                            </strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="payment-detail">
+
+                        <div class="detail-item">
+                            <span>Payment Method</span>
+                            <strong>Bank Transfer</strong>
+                        </div>
+
+                        <div class="detail-item">
+                            <span>Payment Status</span>
+                            <strong class="text-paid">
+                                Paid
+                            </strong>
+                        </div>
+
+                        <div class="detail-item">
+                            <span>Payment Reference</span>
+                            <strong>TXN984521</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= DESCRIPTION ================= -->
+            <div class="details-card">
+
+                <div class="details-card-header">
+
+                    <div>
+                        <h3>Expense Description</h3>
+                        <p>Details about the expense</p>
+                    </div>
+
+                </div>
+
+                <div class="description-box">
+
+                    <p>
+                        Monthly electricity bill for the mart premises.
+                        The bill covers electricity consumption for the
+                        previous billing cycle.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= NOTES ================= -->
+            <div class="details-card">
+
+                <div class="details-card-header">
+
+                    <div>
+                        <h3>Additional Notes</h3>
+                        <p>Additional information related to this expense</p>
+                    </div>
+
+                </div>
+
+                <div class="notes-box">
+
+                    <p>
+                        Electricity bill was paid on time through bank
+                        transfer. Payment confirmation has been received.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= RECEIPT / ATTACHMENT ================= -->
+            <div class="details-card">
+
+                <div class="details-card-header">
+
+                    <div>
+                        <h3>Receipt / Attachment</h3>
+                        <p>Supporting document for this expense</p>
+                    </div>
+
+                </div>
+
+
+                <div class="attachment-box">
+
+                    <div class="attachment-icon">
+                        📄
+                    </div>
+
+                    <div class="attachment-info">
+
+                        <h4>electricity_bill_october_2026.pdf</h4>
+
+                        <p>
+                            PDF Document • 245 KB
+                        </p>
+
+                    </div>
+
+                    <button class="secondary-btn">
+                        👁️ View
+                    </button>
+
+                    <button class="secondary-btn">
+                        â¬‡ï¸ Download
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= ACTIVITY HISTORY ================= -->
+            <div class="details-card">
+
+                <div class="details-card-header">
+
+                    <div>
+                        <h3>Expense Activity</h3>
+                        <p>History of actions related to this expense</p>
+                    </div>
+
+                </div>
+
+
+                <div class="activity-timeline">
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-dot">
+                            ✓
+                        </div>
+
+                        <div class="activity-content">
+
+                            <strong>
+                                Expense Paid
+                            </strong>
+
+                            <p>
+                                Payment of â‚¹6,850 was completed through
+                                bank transfer.
+                            </p>
+
+                            <span>
+                                05 Oct 2026 • 11:35 AM
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-dot">
+                            +
+                        </div>
+
+                        <div class="activity-content">
+
+                            <strong>
+                                Expense Created
+                            </strong>
+
+                            <p>
+                                Electricity expense EXP001 was added
+                                to the system.
+                            </p>
+
+                            <span>
+                                05 Oct 2026 • 10:20 AM
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= INFORMATION NOTE ================= -->
+            <div class="expense-details-note">
+
+                <strong>â„¹ï¸ Information</strong>
+
+                <p>
+                    This page currently displays static expense information.
+                    Expense calculations, editing, receipt uploads,
+                    payment updates and activity tracking will be connected
+                    during the JavaScript functionality phase.
+                </p>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+</div>
+
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/expenses.js"></script>
+</body>
+</html>

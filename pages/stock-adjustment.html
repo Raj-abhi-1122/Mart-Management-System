@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Stock Adjustment - Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+
+</head>
+
+
+<body>
+
+    <div class="dashboard-container">
+
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+
+                <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+
+        <main class="main-content">
+
+
+            <!-- TOP NAVBAR -->
+
+            <header class="top-navbar">
+            <div>
+
+                    <h2>Stock Adjustment</h2>
+
+                    <p>Inventory / Stock Adjustment</p>
+
+                </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+
+            <!-- =========================
+                 PAGE CONTENT
+            ========================== -->
+
+            <section class="page-content">
+
+
+                <!-- PAGE HEADER -->
+
+                <div class="page-header">
+
+                    <div>
+
+                        <h1>Stock Adjustment</h1>
+
+                        <p>
+                            Manually increase or decrease product stock.
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        href="inventory.html"
+                        class="secondary-btn"
+                    >
+                        ← Back to Inventory
+                    </a>
+
+                </div>
+
+
+
+                <!-- =========================
+                     ADJUSTMENT FORM
+                ========================== -->
+
+                <div class="form-container">
+
+
+                    <form id="stockAdjustmentForm">
+
+
+                        <!-- PRODUCT INFORMATION -->
+
+                        <div class="form-section">
+
+                            <h2>Product Information</h2>
+
+                            <p class="section-description">
+                                Select the product whose stock you want
+                                to adjust.
+                            </p>
+
+
+                            <div class="form-grid">
+
+
+                                <!-- PRODUCT -->
+
+                                <div class="form-group">
+
+                                    <label for="product">
+                                        Product *
+                                    </label>
+
+                                    <select id="product">
+
+                                         <option value="">
+                                                Select Product
+                                            </option>
+
+                                    </select>
+
+                                </div>
+
+
+
+                                <!-- CURRENT STOCK -->
+
+                                <div class="form-group">
+
+                                    <label for="currentStock">
+                                        Current System Stock
+                                    </label>
+
+                                    <input
+                                        type="number"
+                                        id="currentStock"
+                                        value="0"
+                                        readonly
+                                    >
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =========================
+                             ADJUSTMENT DETAILS
+                        ========================== -->
+
+                        <div class="form-section">
+
+                            <h2>Adjustment Details</h2>
+
+                            <p class="section-description">
+                                Specify how the stock should be adjusted.
+                            </p>
+
+
+                            <div class="form-grid">
+
+
+                                <!-- ADJUSTMENT TYPE -->
+
+                                <div class="form-group">
+
+                                    <label for="adjustmentType">
+                                        Adjustment Type *
+                                    </label>
+
+                                    <select id="adjustmentType">
+
+                                        <option value="">
+                                            Select Adjustment Type
+                                        </option>
+
+                                        <option>
+                                            Increase
+                                        </option>
+
+                                        <option>
+                                            Decrease
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+
+                                <!-- QUANTITY -->
+
+                                <div class="form-group">
+
+                                    <label for="adjustmentQuantity">
+                                        Adjustment Quantity *
+                                    </label>
+
+                                    <input
+                                        type="number"
+                                        id="adjustmentQuantity"
+                                        placeholder="Enter quantity"
+                                        min="1"
+                                    >
+
+                                </div>
+
+
+
+                                <!-- NEW STOCK -->
+
+                                <div class="form-group">
+
+                                    <label for="newStock">
+                                        New Stock
+                                    </label>
+
+                                    <input
+    type="number"
+    id="newStock"
+    value="0"
+    readonly
+>
+
+                                </div>
+
+
+
+                                <!-- DATE -->
+
+                                <div class="form-group">
+
+                                    <label for="adjustmentDate">
+                                        Adjustment Date *
+                                    </label>
+
+                                    <input
+                                        type="date"
+                                        id="adjustmentDate"
+                                    >
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =========================
+                             REASON
+                        ========================== -->
+
+                        <div class="form-section">
+
+                            <h2>Reason for Adjustment</h2>
+
+                            <p class="section-description">
+                                Select why this stock adjustment is being made.
+                            </p>
+
+
+                            <div class="form-grid">
+
+
+                                <!-- REASON -->
+
+                                <div class="form-group">
+
+                                    <label for="reason">
+                                        Reason *
+                                    </label>
+
+                                    <select id="reason">
+
+                                        <option value="">
+                                            Select Reason
+                                        </option>
+
+                                        <option>
+                                            Damaged
+                                        </option>
+
+                                        <option>
+                                            Expired
+                                        </option>
+
+                                        <option>
+                                            Lost
+                                        </option>
+
+                                        <option>
+                                            Found
+                                        </option>
+
+                                        <option>
+                                            Stock Count Correction
+                                        </option>
+
+                                        <option>
+                                            Manual Correction
+                                        </option>
+
+                                        <option>
+                                            Other
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+                            </div>
+
+
+                            <!-- NOTES -->
+
+                            <div class="form-group adjustment-notes">
+
+                                <label for="notes">
+                                    Notes
+                                </label>
+
+                                <textarea
+                                    id="notes"
+                                    rows="5"
+                                    placeholder="Enter additional information..."
+                                ></textarea>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =========================
+                             ADJUSTMENT SUMMARY
+                        ========================== -->
+
+                        <div class="adjustment-summary">
+
+                            <h2>Adjustment Summary</h2>
+
+
+                            <div class="summary-row">
+
+                                <span>
+                                    Current Stock
+                                </span>
+
+                                <strong id="summaryCurrentStock">
+    0
+</strong>
+
+                            </div>
+
+
+                            <div class="summary-row">
+
+                                <span>
+                                    Adjustment
+                                </span>
+
+                                <strong
+    id="summaryAdjustment"
+    class="summary-decrease"
+>
+    0
+</strong>
+
+                            </div>
+
+
+                            <div class="summary-row total-row">
+
+                                <span>
+                                    New Stock
+                                </span>
+
+                                <strong id="summaryNewStock">
+                                    0
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =========================
+                             FORM ACTIONS
+                        ========================== -->
+
+                        <div class="form-actions">
+
+                            <a
+                                href="inventory.html"
+                                class="secondary-btn"
+                            >
+                                Cancel
+                            </a>
+
+
+                            <button
+                                type="submit"
+                                class="primary-btn"
+                            >
+                                Save Adjustment
+                            </button>
+
+                        </div>
+
+
+                    </form>
+
+                </div>
+
+
+
+                <!-- =========================
+                     ADJUSTMENT HISTORY
+                ========================== -->
+
+                <div class="adjustment-history">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h2>Recent Adjustments</h2>
+
+                            <p>
+                                Latest manual stock changes
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="table-container">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Date</th>
+
+                                    <th>Product</th>
+
+                                    <th>Type</th>
+
+                                    <th>Quantity</th>
+
+                                    <th>Reason</th>
+
+                                    <th>Adjusted By</th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="adjustmentHistoryBody">
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+        </main>
+
+    </div>
+    <script src="../JS/storage.js"></script>
+<script src="../JS/utils.js"></script>
+<script src="../JS/database.js"></script>
+<script src="../JS/inventory.js"></script>
+<script src="../JS/main.js"></script>
+
+
+</body>
+
+</html>

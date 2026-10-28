@@ -1,0 +1,699 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Employee | Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body>
+
+    <!-- ==============================
+         SIDEBAR
+    =============================== -->
+
+            <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+    <!-- ==============================
+         MAIN CONTENT
+    =============================== -->
+
+    <main class="main-content">
+
+        <!-- TOP NAVBAR -->
+
+        <header class="top-navbar">
+            <div><h2>Mart Management</h2></div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+        <!-- PAGE CONTENT -->
+
+        <section class="content add-employee-page">
+
+            <!-- PAGE HEADER -->
+
+            <div class="employee-form-header">
+
+                <div>
+
+                    <h1>Add New Employee</h1>
+
+                    <p>
+                        Add a new employee to your mart management system.
+                    </p>
+
+                </div>
+
+                <a href="employees.html" class="secondary-btn">
+                    ← Back to Employees
+                </a>
+
+            </div>
+
+
+            <!-- ==============================
+                 FORM
+            =============================== -->
+
+            <form>
+
+                <!-- ==============================
+                     PERSONAL INFORMATION
+                =============================== -->
+
+                <div class="form-section">
+
+                    <div class="form-section-title">
+
+                        <div class="form-section-icon">
+                            👤
+                        </div>
+
+                        <div>
+                            <h2>Personal Information</h2>
+
+                            <p>
+                                Basic information about the employee.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label for="employeeId">
+                                Employee ID
+                            </label>
+
+                            <input
+                                type="text"
+                                id="employeeId"
+                                value="EMP006"
+                                placeholder="Enter employee ID"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="employeeName">
+                                Full Name
+                                <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="employeeName"
+                                placeholder="Enter full name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="dob">
+                                Date of Birth
+                            </label>
+
+                            <input
+                                type="date"
+                                id="dob"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="gender">
+                                Gender
+                            </label>
+
+                            <select id="gender">
+
+                                <option value="">
+                                    Select Gender
+                                </option>
+
+                                <option>
+                                    Male
+                                </option>
+
+                                <option>
+                                    Female
+                                </option>
+
+                                <option>
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==============================
+                     CONTACT INFORMATION
+                =============================== -->
+
+                <div class="form-section">
+
+                    <div class="form-section-title">
+
+                        <div class="form-section-icon">
+                            📞
+                        </div>
+
+                        <div>
+                            <h2>Contact Information</h2>
+
+                            <p>
+                                Employee phone and email details.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label for="phone">
+                                Phone Number
+                                <span>*</span>
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                placeholder="Enter phone number"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Enter email address"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group form-full">
+
+                            <label for="address">
+                                Address
+                            </label>
+
+                            <textarea
+                                id="address"
+                                rows="3"
+                                placeholder="Enter complete address"
+                            ></textarea>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="city">
+                                City
+                            </label>
+
+                            <input
+                                type="text"
+                                id="city"
+                                placeholder="Enter city"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="state">
+                                State
+                            </label>
+
+                            <input
+                                type="text"
+                                id="state"
+                                placeholder="Enter state"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="pin">
+                                PIN Code
+                            </label>
+
+                            <input
+                                type="text"
+                                id="pin"
+                                placeholder="Enter PIN code"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==============================
+                     JOB INFORMATION
+                =============================== -->
+
+                <div class="form-section">
+
+                    <div class="form-section-title">
+
+                        <div class="form-section-icon">
+                            💼
+                        </div>
+
+                        <div>
+                            <h2>Job Information</h2>
+
+                            <p>
+                                Employee position and employment details.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label for="position">
+                                Position
+                                <span>*</span>
+                            </label>
+
+                            <select id="position" required>
+
+                                <option value="">
+                                    Select Position
+                                </option>
+
+                                <option>
+                                    Manager
+                                </option>
+
+                                <option>
+                                    Cashier
+                                </option>
+
+                                <option>
+                                    Sales Executive
+                                </option>
+
+                                <option>
+                                    Store Keeper
+                                </option>
+
+                                <option>
+                                    Delivery Staff
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="joiningDate">
+                                Joining Date
+                                <span>*</span>
+                            </label>
+
+                            <input
+                                type="date"
+                                id="joiningDate"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="employeeStatus">
+                                Employment Status
+                            </label>
+
+                            <select id="employeeStatus">
+
+                                <option>
+                                    Active
+                                </option>
+
+                                <option>
+                                    Inactive
+                                </option>
+
+                                <option>
+                                    On Leave
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="employeeType">
+                                Employment Type
+                            </label>
+
+                            <select id="employeeType">
+
+                                <option>
+                                    Full Time
+                                </option>
+
+                                <option>
+                                    Part Time
+                                </option>
+
+                                <option>
+                                    Contract
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==============================
+                     SALARY INFORMATION
+                =============================== -->
+
+                <div class="form-section">
+
+                    <div class="form-section-title">
+
+                        <div class="form-section-icon">
+                            💰
+                        </div>
+
+                        <div>
+                            <h2>Salary Information</h2>
+
+                            <p>
+                                Salary and payment details.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label for="salary">
+                                Monthly Salary
+                                <span>*</span>
+                            </label>
+
+                            <div class="input-prefix">
+
+                                <span>â‚¹</span>
+
+                                <input
+                                    type="number"
+                                    id="salary"
+                                    placeholder="Enter monthly salary"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="paymentMethod">
+                                Salary Payment Method
+                            </label>
+
+                            <select id="paymentMethod">
+
+                                <option>
+                                    Bank Transfer
+                                </option>
+
+                                <option>
+                                    Cash
+                                </option>
+
+                                <option>
+                                    UPI
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="bankName">
+                                Bank Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="bankName"
+                                placeholder="Enter bank name"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="accountNumber">
+                                Account Number
+                            </label>
+
+                            <input
+                                type="text"
+                                id="accountNumber"
+                                placeholder="Enter account number"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="ifsc">
+                                IFSC Code
+                            </label>
+
+                            <input
+                                type="text"
+                                id="ifsc"
+                                placeholder="Enter IFSC code"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==============================
+                     ADDITIONAL INFORMATION
+                =============================== -->
+
+                <div class="form-section">
+
+                    <div class="form-section-title">
+
+                        <div class="form-section-icon">
+                            📝
+                        </div>
+
+                        <div>
+                            <h2>Additional Information</h2>
+
+                            <p>
+                                Add any additional notes about this employee.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-grid">
+
+                        <div class="form-group form-full">
+
+                            <label for="notes">
+                                Notes
+                            </label>
+
+                            <textarea
+                                id="notes"
+                                rows="4"
+                                placeholder="Enter additional notes..."
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==============================
+                     FORM ACTIONS
+                =============================== -->
+
+                <div class="form-actions">
+
+                    <a
+                        href="employees.html"
+                        class="cancel-btn"
+                    >
+                        Cancel
+                    </a>
+
+                    <button
+                        type="submit"
+                        class="save-btn"
+                    >
+                        ✓ Save Employee
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/employees.js"></script>
+</body>
+
+</html>

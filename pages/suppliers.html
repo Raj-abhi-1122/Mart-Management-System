@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Suppliers - Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+
+            <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+        <!-- TOP NAVBAR -->
+
+        <header class="top-navbar">
+            <div>
+                <h2>Suppliers</h2>
+            </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+        <!-- PAGE CONTENT -->
+
+        <section class="page-content">
+
+            <!-- PAGE HEADER -->
+
+            <div class="page-header">
+
+                <div>
+                    <h1>Supplier Management</h1>
+
+                    <p>
+                        Manage your suppliers and their contact information.
+                    </p>
+                </div>
+
+                <a href="add-supplier.html" class="primary-btn">
+                    + Add Supplier
+                </a>
+
+            </div>
+
+
+            <!-- SUPPLIER SUMMARY -->
+
+            <!-- SUPPLIER SUMMARY -->
+                <div class="dashboard-cards">
+
+                    <div class="card">
+                        <h3>Total Suppliers</h3>
+                        <p id="totalSuppliers">0</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Active Suppliers</h3>
+                        <p id="activeSuppliers">0</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Pending Payments</h3>
+                        <p id="pendingSupplierPayments">₹0.00</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Total Purchases</h3>
+                        <p id="totalSupplierPurchases">₹0.00</p>
+                    </div>
+
+                </div>
+
+
+            <!-- SEARCH AND FILTER -->
+
+            <div class="filter-section">
+
+                <input
+                    type="text"
+                    id="supplierSearch"
+                    placeholder="🔍 Search supplier..."
+                    class="search-input"
+                >
+
+                <select id="supplierStatusFilter" class="filter-select">
+                    <option value="">All Status</option>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                </select>
+
+            </div>
+
+            <!-- SUPPLIER TABLE -->
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Supplier ID</th>
+
+                            <th>Supplier Name</th>
+
+                            <th>Phone</th>
+
+                            <th>Email</th>
+
+                            <th>Products Supplied</th>
+
+                            <th>Amount Due</th>
+
+                            <th>Status</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="suppliersTableBody">
+                        <tr>
+                            <td colspan="8">Loading suppliers...</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- PAGINATION -->
+
+            <div class="pagination">
+
+                <button>← Previous</button>
+
+                <button class="active-page">1</button>
+
+                <button>2</button>
+
+                <button>3</button>
+
+                <button>Next →</button>
+
+            </div>
+
+        </section>
+
+    </main>
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/suppliers.js"></script>
+    <script src="../JS/main.js"></script>
+
+</body>
+</html>

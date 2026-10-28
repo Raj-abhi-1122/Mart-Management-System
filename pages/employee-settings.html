@@ -1,0 +1,967 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Employee Settings | Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- ================= SIDEBAR ================= -->
+            <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="main-content">
+
+        <!-- TOP NAVBAR -->
+        <header class="top-navbar">
+            <div>
+                <h2>Employee Settings</h2>
+                <p>Configure employee, attendance and payroll rules</p>
+            </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+        <!-- ================= PAGE CONTENT ================= -->
+        <section class="page-content">
+
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+
+                <div>
+
+                    <h1>👨‍💼 Employee Settings</h1>
+
+                    <p>
+                        Manage employee permissions, attendance,
+                        leave, salary and payroll preferences.
+                    </p>
+
+                </div>
+
+                <a href="settings.html" class="secondary-btn">
+                    ← Back to Settings
+                </a>
+
+            </div>
+
+
+            <!-- ================= EMPLOYEE GENERAL SETTINGS ================= -->
+            <div class="form-section">
+
+                <div class="form-section-header">
+
+                    <h2>👥 Employee Management</h2>
+
+                    <p>
+                        Configure general employee management preferences.
+                    </p>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="employeeIdFormat">
+                            Employee ID Format
+                        </label>
+
+                        <select id="employeeIdFormat">
+
+                            <option selected>EMP001</option>
+                            <option>EMP-001</option>
+                            <option>EMP-2026-001</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="defaultStatus">
+                            Default Employee Status
+                        </label>
+
+                        <select id="defaultStatus">
+
+                            <option selected>Active</option>
+                            <option>Inactive</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="employeeType">
+                            Default Employment Type
+                        </label>
+
+                        <select id="employeeType">
+
+                            <option selected>Full Time</option>
+                            <option>Part Time</option>
+                            <option>Contract</option>
+                            <option>Temporary</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="salaryFrequency">
+                            Salary Frequency
+                        </label>
+
+                        <select id="salaryFrequency">
+
+                            <option selected>Monthly</option>
+                            <option>Weekly</option>
+                            <option>Daily</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= ACCESS CONTROL ================= -->
+            <div class="form-section">
+
+                <div class="form-section-header">
+
+                    <h2>🔒 Employee Access & Permissions</h2>
+
+                    <p>
+                        Define which employees can access different modules.
+                    </p>
+
+                </div>
+
+
+                <div class="employee-permission-table">
+
+                    <div class="permission-header">
+
+                        <span>Module</span>
+                        <span>Admin</span>
+                        <span>Manager</span>
+                        <span>Employee</span>
+
+                    </div>
+
+
+                    <div class="permission-row">
+
+                        <span>Dashboard</span>
+
+                        <input type="checkbox" checked>
+
+                        <input type="checkbox" checked>
+
+                        <input type="checkbox" checked>
+
+                    </div>
+
+
+                    <div class="permission-row">
+
+                        <span>Products</span>
+
+                        <input type="checkbox" checked>
+
+                        <input type="checkbox" checked>
+
+                        <input type="checkbox" checked>
+
+                    </div>
+
+
+                    <div class="permission-row">
+
+                        <span>Inventory</span>
+
+                        <input type="checkbox" checked>
+
+                        <input type="checkbox" checked>
+
+                        <input type="checkbox">
+
+                    </div>
+
+
+                    <div class="permission-row">
+
+                        <span>Purchases</span>
+
+                        <input type="checkbox" checked>
+
+                        <input type="checkbox" checked>
+
+                        <input type="checkbox">
+
+                    </div>
+
+
+                    <div class="permission-row">
+
+                        <span>Billing</span>
+
+                        <input type="checkbox" checked>
+
+                        <input type="checkbox" checked>
+
+                        <input type="checkbox" checked>
+
+                    </div>
+
+
+                    <div class="permission-row">
+
+                        <span>Customers</span>
+
+                        <input type="checkbox" checked>
+
+                        <input type="checkbox" checked>
+
+                        <input type="checkbox" checked>
+
+                    </div>
+
+
+                    <div class="permission-row">
+
+                        <span>Employees</span>
+
+                        <input type="checkbox" checked>
+
+                        <input type="checkbox" checked>
+
+                        <input type="checkbox">
+
+                    </div>
+
+
+                    <div class="permission-row">
+
+                        <span>Attendance</span>
+
+                        <input type="checkbox" checked>
+
+                        <input type="checkbox" checked>
+
+                        <input type="checkbox" checked>
+
+                    </div>
+
+
+                    <div class="permission-row">
+
+                        <span>Expenses</span>
+
+                        <input type="checkbox" checked>
+
+                        <input type="checkbox" checked>
+
+                        <input type="checkbox">
+
+                    </div>
+
+
+                    <div class="permission-row">
+
+                        <span>Reports</span>
+
+                        <input type="checkbox" checked>
+
+                        <input type="checkbox" checked>
+
+                        <input type="checkbox">
+
+                    </div>
+
+
+                    <div class="permission-row">
+
+                        <span>Settings</span>
+
+                        <input type="checkbox" checked>
+
+                        <input type="checkbox">
+
+                        <input type="checkbox">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= ATTENDANCE SETTINGS ================= -->
+            <div class="form-section">
+
+                <div class="form-section-header">
+
+                    <h2>🕐 Attendance Settings</h2>
+
+                    <p>
+                        Configure employee attendance and working-hour rules.
+                    </p>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="workStart">
+                            Work Start Time
+                        </label>
+
+                        <input
+                            type="time"
+                            id="workStart"
+                            value="09:00"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="workEnd">
+                            Work End Time
+                        </label>
+
+                        <input
+                            type="time"
+                            id="workEnd"
+                            value="18:00"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="workingHours">
+                            Standard Working Hours
+                        </label>
+
+                        <input
+                            type="number"
+                            id="workingHours"
+                            value="8"
+                            min="1"
+                            max="24"
+                            step="0.5"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="lateGrace">
+                            Late Arrival Grace Period
+                        </label>
+
+                        <select id="lateGrace">
+
+                            <option>5 Minutes</option>
+                            <option selected>10 Minutes</option>
+                            <option>15 Minutes</option>
+                            <option>30 Minutes</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="settings-toggle-list">
+
+                    <label class="inventory-rule">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <div>
+
+                            <strong>Enable Check-In / Check-Out</strong>
+
+                            <span>
+                                Record employee arrival and departure times.
+                            </span>
+
+                        </div>
+
+                    </label>
+
+
+                    <label class="inventory-rule">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <div>
+
+                            <strong>Track Late Arrivals</strong>
+
+                            <span>
+                                Automatically identify employees arriving late.
+                            </span>
+
+                        </div>
+
+                    </label>
+
+
+                    <label class="inventory-rule">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <div>
+
+                            <strong>Track Early Departure</strong>
+
+                            <span>
+                                Record employees leaving before working hours end.
+                            </span>
+
+                        </div>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= OVERTIME ================= -->
+            <div class="form-section">
+
+                <div class="form-section-header">
+
+                    <h2>â±ï¸ Overtime Settings</h2>
+
+                    <p>
+                        Configure overtime calculation and payment rules.
+                    </p>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="overtimeStatus">
+                            Overtime
+                        </label>
+
+                        <select id="overtimeStatus">
+
+                            <option selected>Enabled</option>
+                            <option>Disabled</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="overtimeRate">
+                            Overtime Rate per Hour (â‚¹)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="overtimeRate"
+                            value="150"
+                            min="0"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="overtimeApproval">
+                            Overtime Approval
+                        </label>
+
+                        <select id="overtimeApproval">
+
+                            <option selected>Manager / Admin</option>
+                            <option>Admin Only</option>
+                            <option>Automatic</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="overtimeMinimum">
+                            Minimum Overtime
+                        </label>
+
+                        <select id="overtimeMinimum">
+
+                            <option selected>30 Minutes</option>
+                            <option>1 Hour</option>
+                            <option>2 Hours</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= LEAVE SETTINGS ================= -->
+            <div class="form-section">
+
+                <div class="form-section-header">
+
+                    <h2>🏖️ Leave Settings</h2>
+
+                    <p>
+                        Configure employee leave types and approval rules.
+                    </p>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="annualLeave">
+                            Annual Leave Days
+                        </label>
+
+                        <input
+                            type="number"
+                            id="annualLeave"
+                            value="18"
+                            min="0"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="sickLeave">
+                            Sick Leave Days
+                        </label>
+
+                        <input
+                            type="number"
+                            id="sickLeave"
+                            value="12"
+                            min="0"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="casualLeave">
+                            Casual Leave Days
+                        </label>
+
+                        <input
+                            type="number"
+                            id="casualLeave"
+                            value="10"
+                            min="0"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="leaveApproval">
+                            Leave Approval
+                        </label>
+
+                        <select id="leaveApproval">
+
+                            <option selected>Manager / Admin</option>
+                            <option>Admin Only</option>
+                            <option>Automatic</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="settings-toggle-list">
+
+                    <label class="inventory-rule">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <div>
+
+                            <strong>Allow Half-Day Leave</strong>
+
+                            <span>
+                                Employees can apply for half-day leave.
+                            </span>
+
+                        </div>
+
+                    </label>
+
+
+                    <label class="inventory-rule">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <div>
+
+                            <strong>Require Leave Reason</strong>
+
+                            <span>
+                                Employees must provide a reason when applying.
+                            </span>
+
+                        </div>
+
+                    </label>
+
+
+                    <label class="inventory-rule">
+
+                        <input
+                            type="checkbox"
+                        >
+
+                        <div>
+
+                            <strong>Allow Leave Carry Forward</strong>
+
+                            <span>
+                                Unused leave can be carried into the next period.
+                            </span>
+
+                        </div>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= PAYROLL SETTINGS ================= -->
+            <div class="form-section">
+
+                <div class="form-section-header">
+
+                    <h2>💰 Payroll Settings</h2>
+
+                    <p>
+                        Configure salary processing and payroll rules.
+                    </p>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="payrollDate">
+                            Monthly Payroll Date
+                        </label>
+
+                        <input
+                            type="number"
+                            id="payrollDate"
+                            value="1"
+                            min="1"
+                            max="28"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="salaryCalculation">
+                            Salary Calculation
+                        </label>
+
+                        <select id="salaryCalculation">
+
+                            <option selected>Working Days Based</option>
+                            <option>Calendar Days Based</option>
+                            <option>Fixed Monthly</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="absentDeduction">
+                            Absent Salary Deduction
+                        </label>
+
+                        <select id="absentDeduction">
+
+                            <option selected>Enabled</option>
+                            <option>Disabled</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="salaryPayment">
+                            Salary Payment Method
+                        </label>
+
+                        <select id="salaryPayment">
+
+                            <option selected>Bank Transfer</option>
+                            <option>Cash</option>
+                            <option>UPI</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="settings-toggle-list">
+
+                    <label class="inventory-rule">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <div>
+
+                            <strong>Include Overtime in Payroll</strong>
+
+                            <span>
+                                Add approved overtime earnings to employee salary.
+                            </span>
+
+                        </div>
+
+                    </label>
+
+
+                    <label class="inventory-rule">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <div>
+
+                            <strong>Include Bonuses</strong>
+
+                            <span>
+                                Allow bonuses to be added during payroll processing.
+                            </span>
+
+                        </div>
+
+                    </label>
+
+
+                    <label class="inventory-rule">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <div>
+
+                            <strong>Track Salary Payment Status</strong>
+
+                            <span>
+                                Maintain paid, pending and partial salary records.
+                            </span>
+
+                        </div>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= ACTION BUTTONS ================= -->
+            <div class="form-actions">
+
+                <a href="settings.html" class="secondary-btn">
+                    Cancel
+                </a>
+
+                <button
+                    type="button"
+                    class="primary-btn"
+                >
+                    💾 Save Employee Settings
+                </button>
+
+            </div>
+
+
+            <!-- DEVELOPMENT NOTE -->
+            <div class="info-note">
+
+                <strong>â„¹ï¸ Frontend Mode:</strong>
+
+                Employee settings are currently static.
+                Permissions, attendance calculations, leave balances,
+                overtime and payroll calculations will become functional
+                during the JavaScript phase.
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/employees.js"></script>
+</body>
+</html>

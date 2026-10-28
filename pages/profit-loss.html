@@ -1,0 +1,1176 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profit & Loss - Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+
+</head>
+
+
+<body>
+
+<div class="layout">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+            <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+
+        <!-- TOP NAVBAR -->
+
+        <header class="top-navbar">
+            <div>
+
+                <h2>Profit & Loss</h2>
+
+                <p>
+                    Analyze business revenue, costs and profitability
+                </p>
+
+            </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+
+        <!-- ================= CONTENT ================= -->
+
+        <section class="content">
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="page-header">
+
+                <div>
+
+                    <h1>Profit & Loss Report</h1>
+
+                    <p>
+                        Complete financial performance of your mart.
+                    </p>
+
+                </div>
+
+
+                <div class="page-actions">
+
+                    <a href="reports.html" class="secondary-btn">
+                        ← Reports
+                    </a>
+
+                    <button class="secondary-btn">
+                        🖨️ Print
+                    </button>
+
+                    <button class="primary-btn">
+                        📥 Export
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= FILTER ================= -->
+
+            <div class="report-filter-card">
+
+                <div class="report-filter-title">
+
+                    <h3>Profit & Loss Period</h3>
+
+                    <p>
+                        Select the period for calculating business profitability.
+                    </p>
+
+                </div>
+
+
+                <div class="profit-filter-grid">
+
+
+                    <div class="form-group">
+
+                        <label>From Date</label>
+
+                        <input
+                            type="date"
+                            value="2026-10-01"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>To Date</label>
+
+                        <input
+                            type="date"
+                            value="2026-10-05"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Report Period</label>
+
+                        <select>
+
+                            <option>Custom Period</option>
+                            <option>Today</option>
+                            <option>This Week</option>
+                            <option>This Month</option>
+                            <option>This Year</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="profit-filter-button">
+
+                        <button class="primary-btn">
+                            🔍 Generate Report
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= PROFIT SUMMARY ================= -->
+
+            <div class="summary-cards profit-summary-cards">
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon">
+                        💰
+                    </div>
+
+                    <div>
+
+                        <span>Total Revenue</span>
+
+                        <h2>â‚¹8,45,600</h2>
+
+                        <small class="report-positive">
+                            ←‘ 12.5%
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon">
+                        🛒
+                    </div>
+
+                    <div>
+
+                        <span>Cost of Goods</span>
+
+                        <h2>â‚¹5,20,400</h2>
+
+                        <small>
+                            61.5% of revenue
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon">
+                        💸
+                    </div>
+
+                    <div>
+
+                        <span>Total Expenses</span>
+
+                        <h2>â‚¹82,450</h2>
+
+                        <small class="report-negative">
+                            9.8% of revenue
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card profit-highlight">
+
+                    <div class="summary-card-icon">
+                        📈
+                    </div>
+
+                    <div>
+
+                        <span>Net Profit</span>
+
+                        <h2>â‚¹2,42,750</h2>
+
+                        <small class="report-positive">
+                            28.7% profit margin
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= PROFIT & LOSS STATEMENT ================= -->
+
+            <div class="details-card profit-loss-card">
+
+                <div class="details-card-header">
+
+                    <div>
+
+                        <h3>Profit & Loss Statement</h3>
+
+                        <p>
+                            Financial summary for the selected period
+                        </p>
+
+                    </div>
+
+                    <span class="profit-status">
+                        PROFITABLE
+                    </span>
+
+                </div>
+
+
+
+                <div class="profit-loss-statement">
+
+
+                    <!-- REVENUE -->
+
+                    <div class="profit-section">
+
+                        <div class="profit-section-title">
+
+                            <span>
+                                Revenue
+                            </span>
+
+                            <strong>
+                                â‚¹8,45,600
+                            </strong>
+
+                        </div>
+
+
+                        <div class="profit-line">
+
+                            <span>
+                                Gross Sales
+                            </span>
+
+                            <span>
+                                â‚¹8,48,270
+                            </span>
+
+                        </div>
+
+
+                        <div class="profit-line">
+
+                            <span>
+                                Discounts
+                            </span>
+
+                            <span class="profit-negative">
+                                - â‚¹2,670
+                            </span>
+
+                        </div>
+
+
+                        <div class="profit-total revenue-total">
+
+                            <span>
+                                Net Revenue
+                            </span>
+
+                            <strong>
+                                â‚¹8,45,600
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- COST OF GOODS -->
+
+                    <div class="profit-section">
+
+                        <div class="profit-section-title">
+
+                            <span>
+                                Cost of Goods Sold
+                            </span>
+
+                            <strong>
+                                â‚¹5,20,400
+                            </strong>
+
+                        </div>
+
+
+                        <div class="profit-line">
+
+                            <span>
+                                Product Purchase Cost
+                            </span>
+
+                            <span>
+                                â‚¹5,20,400
+                            </span>
+
+                        </div>
+
+
+                        <div class="profit-total">
+
+                            <span>
+                                Total Cost of Goods
+                            </span>
+
+                            <strong>
+                                â‚¹5,20,400
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- GROSS PROFIT -->
+
+                    <div class="profit-gross">
+
+                        <span>
+                            Gross Profit
+                        </span>
+
+                        <strong>
+                            â‚¹3,25,200
+                        </strong>
+
+                        <small>
+                            38.5% Gross Margin
+                        </small>
+
+                    </div>
+
+
+
+                    <!-- OPERATING EXPENSES -->
+
+                    <div class="profit-section">
+
+                        <div class="profit-section-title">
+
+                            <span>
+                                Operating Expenses
+                            </span>
+
+                            <strong>
+                                â‚¹82,450
+                            </strong>
+
+                        </div>
+
+
+                        <div class="profit-line">
+
+                            <span>
+                                Electricity
+                            </span>
+
+                            <span>
+                                â‚¹18,500
+                            </span>
+
+                        </div>
+
+
+                        <div class="profit-line">
+
+                            <span>
+                                Rent
+                            </span>
+
+                            <span>
+                                â‚¹15,000
+                            </span>
+
+                        </div>
+
+
+                        <div class="profit-line">
+
+                            <span>
+                                Salary
+                            </span>
+
+                            <span>
+                                â‚¹12,000
+                            </span>
+
+                        </div>
+
+
+                        <div class="profit-line">
+
+                            <span>
+                                Supplies
+                            </span>
+
+                            <span>
+                                â‚¹10,950
+                            </span>
+
+                        </div>
+
+
+                        <div class="profit-line">
+
+                            <span>
+                                Transport
+                            </span>
+
+                            <span>
+                                â‚¹8,500
+                            </span>
+
+                        </div>
+
+
+                        <div class="profit-line">
+
+                            <span>
+                                Maintenance & Other
+                            </span>
+
+                            <span>
+                                â‚¹17,500
+                            </span>
+
+                        </div>
+
+
+                        <div class="profit-total">
+
+                            <span>
+                                Total Operating Expenses
+                            </span>
+
+                            <strong>
+                                â‚¹82,450
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- NET PROFIT -->
+
+                    <div class="net-profit-box">
+
+                        <div>
+
+                            <span>
+                                Net Profit
+                            </span>
+
+                            <small>
+                                Revenue âˆ’ Cost of Goods âˆ’ Operating Expenses
+                            </small>
+
+                        </div>
+
+                        <strong>
+                            â‚¹2,42,750
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= TWO COLUMN ================= -->
+
+            <div class="profit-report-two-column">
+
+
+                <!-- PROFIT MARGINS -->
+
+                <div class="details-card">
+
+                    <div class="details-card-header">
+
+                        <div>
+
+                            <h3>Profit Margins</h3>
+
+                            <p>
+                                Business profitability indicators
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="margin-list">
+
+
+                        <div class="margin-row">
+
+                            <div>
+
+                                <span>Gross Margin</span>
+
+                                <strong>38.5%</strong>
+
+                            </div>
+
+                            <div class="margin-bar">
+
+                                <div
+                                    class="margin-fill gross"
+                                    style="width: 38.5%;">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="margin-row">
+
+                            <div>
+
+                                <span>Operating Margin</span>
+
+                                <strong>28.7%</strong>
+
+                            </div>
+
+                            <div class="margin-bar">
+
+                                <div
+                                    class="margin-fill operating"
+                                    style="width: 28.7%;">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="margin-row">
+
+                            <div>
+
+                                <span>Net Profit Margin</span>
+
+                                <strong>28.7%</strong>
+
+                            </div>
+
+                            <div class="margin-bar">
+
+                                <div
+                                    class="margin-fill net"
+                                    style="width: 28.7%;">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FINANCIAL STATISTICS -->
+
+                <div class="details-card">
+
+                    <div class="details-card-header">
+
+                        <div>
+
+                            <h3>Financial Statistics</h3>
+
+                            <p>
+                                Key financial indicators
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="financial-statistics">
+
+
+                        <div class="financial-stat-row">
+
+                            <span>Total Revenue</span>
+
+                            <strong>
+                                â‚¹8,45,600
+                            </strong>
+
+                        </div>
+
+
+                        <div class="financial-stat-row">
+
+                            <span>Total Costs</span>
+
+                            <strong>
+                                â‚¹6,02,850
+                            </strong>
+
+                        </div>
+
+
+                        <div class="financial-stat-row">
+
+                            <span>Gross Profit</span>
+
+                            <strong class="financial-positive">
+                                â‚¹3,25,200
+                            </strong>
+
+                        </div>
+
+
+                        <div class="financial-stat-row">
+
+                            <span>Net Profit</span>
+
+                            <strong class="financial-positive">
+                                â‚¹2,42,750
+                            </strong>
+
+                        </div>
+
+
+                        <div class="financial-stat-row">
+
+                            <span>Profit Margin</span>
+
+                            <strong class="financial-positive">
+                                28.7%
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= MONTHLY PERFORMANCE ================= -->
+
+            <div class="details-card">
+
+                <div class="details-card-header">
+
+                    <div>
+
+                        <h3>Monthly Profit & Loss</h3>
+
+                        <p>
+                            Month-wise financial performance
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profit-table-wrapper">
+
+                    <table class="profit-report-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Month</th>
+
+                                <th>Revenue</th>
+
+                                <th>Cost of Goods</th>
+
+                                <th>Expenses</th>
+
+                                <th>Gross Profit</th>
+
+                                <th>Net Profit</th>
+
+                                <th>Margin</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>June 2026</td>
+
+                                <td>â‚¹7,20,500</td>
+
+                                <td>â‚¹4,65,000</td>
+
+                                <td>â‚¹76,500</td>
+
+                                <td>â‚¹2,55,500</td>
+
+                                <td>
+                                    <strong>â‚¹1,79,000</strong>
+                                </td>
+
+                                <td>24.8%</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>July 2026</td>
+
+                                <td>â‚¹7,65,800</td>
+
+                                <td>â‚¹4,82,600</td>
+
+                                <td>â‚¹79,200</td>
+
+                                <td>â‚¹2,83,200</td>
+
+                                <td>
+                                    <strong>â‚¹2,04,000</strong>
+                                </td>
+
+                                <td>26.6%</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>August 2026</td>
+
+                                <td>â‚¹7,92,400</td>
+
+                                <td>â‚¹4,95,800</td>
+
+                                <td>â‚¹80,700</td>
+
+                                <td>â‚¹2,96,600</td>
+
+                                <td>
+                                    <strong>â‚¹2,15,900</strong>
+                                </td>
+
+                                <td>27.3%</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>September 2026</td>
+
+                                <td>â‚¹8,10,300</td>
+
+                                <td>â‚¹5,02,700</td>
+
+                                <td>â‚¹81,250</td>
+
+                                <td>â‚¹3,07,600</td>
+
+                                <td>
+                                    <strong>â‚¹2,26,350</strong>
+                                </td>
+
+                                <td>27.9%</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>October 2026</td>
+
+                                <td>â‚¹8,45,600</td>
+
+                                <td>â‚¹5,20,400</td>
+
+                                <td>â‚¹82,450</td>
+
+                                <td>â‚¹3,25,200</td>
+
+                                <td>
+                                    <strong>â‚¹2,42,750</strong>
+                                </td>
+
+                                <td>28.7%</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= PROFIT ANALYSIS ================= -->
+
+            <div class="profit-analysis-grid">
+
+
+                <div class="details-card">
+
+                    <div class="details-card-header">
+
+                        <div>
+
+                            <h3>Revenue vs Cost</h3>
+
+                            <p>
+                                Financial comparison
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="revenue-cost-list">
+
+
+                        <div class="revenue-cost-row">
+
+                            <div>
+
+                                <span>Revenue</span>
+
+                                <strong>â‚¹8,45,600</strong>
+
+                            </div>
+
+                            <div class="revenue-cost-bar">
+
+                                <div
+                                    class="revenue-bar"
+                                    style="width: 100%;">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="revenue-cost-row">
+
+                            <div>
+
+                                <span>Cost of Goods</span>
+
+                                <strong>â‚¹5,20,400</strong>
+
+                            </div>
+
+                            <div class="revenue-cost-bar">
+
+                                <div
+                                    class="cost-bar"
+                                    style="width: 61.5%;">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="revenue-cost-row">
+
+                            <div>
+
+                                <span>Expenses</span>
+
+                                <strong>â‚¹82,450</strong>
+
+                            </div>
+
+                            <div class="revenue-cost-bar">
+
+                                <div
+                                    class="expense-bar"
+                                    style="width: 9.8%;">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PROFIT TREND -->
+
+                <div class="details-card">
+
+                    <div class="details-card-header">
+
+                        <div>
+
+                            <h3>Profit Trend</h3>
+
+                            <p>
+                                Recent monthly growth
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="profit-trend-list">
+
+
+                        <div class="profit-trend-row">
+
+                            <span>June</span>
+
+                            <strong>â‚¹1.79L</strong>
+
+                            <b>24.8%</b>
+
+                        </div>
+
+
+                        <div class="profit-trend-row">
+
+                            <span>July</span>
+
+                            <strong>â‚¹2.04L</strong>
+
+                            <b>26.6%</b>
+
+                        </div>
+
+
+                        <div class="profit-trend-row">
+
+                            <span>August</span>
+
+                            <strong>â‚¹2.15L</strong>
+
+                            <b>27.3%</b>
+
+                        </div>
+
+
+                        <div class="profit-trend-row">
+
+                            <span>September</span>
+
+                            <strong>â‚¹2.26L</strong>
+
+                            <b>27.9%</b>
+
+                        </div>
+
+
+                        <div class="profit-trend-row">
+
+                            <span>October</span>
+
+                            <strong>â‚¹2.42L</strong>
+
+                            <b>28.7%</b>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= INFORMATION ================= -->
+
+            <div class="report-information">
+
+                <strong>
+                    â„¹ï¸ Report Information
+                </strong>
+
+                <p>
+                    Profit and loss values are currently sample data for
+                    frontend development. During the JavaScript phase,
+                    revenue will come from billing, product costs from
+                    purchases and operating expenses from the Expenses
+                    module. The final report will then calculate profit
+                    automatically.
+                </p>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+</div>
+
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/reports.js"></script>
+</body>
+
+</html>

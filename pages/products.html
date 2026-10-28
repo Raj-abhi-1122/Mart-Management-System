@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Products - Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+
+</head>
+
+
+<body>
+
+    <div class="dashboard-container">
+
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+
+                <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+
+        <main class="main-content">
+
+
+            <!-- TOP NAVBAR -->
+
+            <header class="top-navbar">
+            <div>
+
+                    <h2>Products</h2>
+
+                    <p>Manage your mart products</p>
+
+                </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+
+            <!-- PAGE CONTENT -->
+
+            <section class="page-content">
+
+
+                <!-- PAGE HEADER -->
+
+                <div class="page-header">
+
+                    <div>
+
+                        <h1>Products</h1>
+
+                        <p>
+                            View and manage all products in your mart.
+                        </p>
+
+                    </div>
+
+                    <a href="add-product.html" class="primary-btn">
+
+                        + Add Product
+
+                    </a>
+                    
+
+                </div>
+
+
+
+                <!-- SEARCH AND FILTER -->
+
+                <div class="product-tools">
+
+
+                    <div class="search-box">
+
+                        <span>🔍</span>
+
+                        <input
+                            type="text"
+                            id="productSearch"
+                            placeholder="Search products..."
+                        >
+
+                    </div>
+
+
+                <select id="categoryFilter">
+
+                    <option value="All Categories">
+                        All Categories
+                    </option>
+
+                    <option value="Grocery">
+                        Grocery
+                    </option>
+
+                    <option value="Beverages">
+                        Beverages
+                    </option>
+
+                    <option value="Personal Care">
+                        Personal Care
+                    </option>
+
+                    <option value="Household">
+                        Household
+                    </option>
+
+                    <option value="Electronics">
+                        Electronics
+                    </option>
+
+                 </select>
+
+
+                   <select id="stockFilter">
+
+                        <option value="All Stock">
+                            All Stock
+                        </option>
+
+                        <option value="In Stock">
+                            In Stock
+                        </option>
+
+                        <option value="Low Stock">
+                            Low Stock
+                        </option>
+
+                        <option value="Out of Stock">
+                            Out of Stock
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- PRODUCT TABLE -->
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+
+                                <th>Product Name</th>
+
+                                <th>Category</th>
+
+                                <th>Price</th>
+
+                                <th>Stock</th>
+
+                                <th>Status</th>
+
+                                <th>Action</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="productTableBody">
+
+                            
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+
+                <!-- PAGINATION -->
+
+                <div class="pagination">
+
+                    <button>
+                        ← Previous
+                    </button>
+
+                    <button class="page-active">
+                        1
+                    </button>
+
+                    <button>
+                        2
+                    </button>
+
+                    <button>
+                        3
+                    </button>
+
+                    <button>
+                        4
+                    </button>
+
+                    <button>
+                        Next →
+                    </button>
+
+                </div>
+
+
+            </section>
+
+        </main>
+
+    </div>
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/products.js"></script>
+    <script src="../JS/main.js"></script>
+
+</body>
+
+</html>

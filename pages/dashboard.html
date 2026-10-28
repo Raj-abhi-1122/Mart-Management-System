@@ -1,0 +1,375 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard - Mart Management System</title>
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../CSS/style.css">
+
+</head>
+
+
+<body>
+
+    <!-- ============================= -->
+    <!-- MAIN DASHBOARD CONTAINER -->
+    <!-- ============================= -->
+
+    <div class="dashboard-container">
+
+
+        <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+
+                <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+        <!-- ============================= -->
+        <!-- MAIN CONTENT -->
+        <!-- ============================= -->
+
+        <main class="main-content">
+
+
+            <!-- ============================= -->
+            <!-- TOP NAVBAR -->
+            <!-- ============================= -->
+
+            <header class="top-navbar">
+            <div>
+
+                    <h2>Dashboard</h2>
+
+                    <p>Mart Management System</p>
+
+                </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+            <!-- ============================= -->
+            <!-- PAGE CONTENT -->
+            <!-- ============================= -->
+
+            <section class="dashboard-content">
+
+
+                <div class="welcome-section">
+
+                    <h1>Welcome back, Owner! 👋</h1>
+
+                    <p>
+                        Here's what's happening in your shop today.
+                    </p>
+
+                </div>
+
+
+                <!-- ============================= -->
+                <!-- DASHBOARD CARDS -->
+                <!-- ============================= -->
+
+                <div class="dashboard-cards">
+
+
+                    <div class="dashboard-card">
+
+                        <div class="card-icon">
+                            💰
+                        </div>
+
+                        <div class="card-details">
+
+                            <p>Today's Sales</p>
+
+                            <h2>â‚¹25,450</h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="dashboard-card">
+
+                        <div class="card-icon">
+                            📦
+                        </div>
+
+                        <div class="card-details">
+
+                            <p>Total Products</p>
+
+                            <h2>245</h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="dashboard-card">
+
+                        <div class="card-icon">
+                            👨‍💼
+                        </div>
+
+                        <div class="card-details">
+
+                            <p>Employees</p>
+
+                            <h2>12</h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="dashboard-card">
+
+                        <div class="card-icon">
+                            🧾
+                        </div>
+
+                        <div class="card-details">
+
+                            <p>Today's Bills</p>
+
+                            <h2>45</h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="dashboard-card">
+
+                        <div class="card-icon">
+                            âš ï¸
+                        </div>
+
+                        <div class="card-details">
+
+                            <p>Low Stock</p>
+
+                            <h2>8</h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="dashboard-card">
+
+                        <div class="card-icon">
+                            📈
+                        </div>
+
+                        <div class="card-details">
+
+                            <p>Monthly Revenue</p>
+
+                            <h2>â‚¹5.42L</h2>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- ============================= -->
+                <!-- BOTTOM SECTION -->
+                <!-- ============================= -->
+
+                <div class="dashboard-bottom">
+
+
+                    <!-- Sales Overview -->
+
+                    <div class="dashboard-panel">
+
+                        <div class="panel-header">
+
+                            <h2>Sales Overview</h2>
+
+                            <select>
+
+                                <option>Last 7 Days</option>
+
+                                <option>Last 30 Days</option>
+
+                                <option>This Year</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="chart-placeholder">
+
+                            <p>📈 Sales Chart</p>
+
+                            <span>
+                                Chart will be added later
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Low Stock -->
+
+                    <div class="dashboard-panel">
+
+                        <div class="panel-header">
+
+                            <h2>Low Stock Products</h2>
+
+                            <a href="#">View All</a>
+
+                        </div>
+
+
+                        <div class="stock-list">
+
+                            <div class="stock-item">
+
+                                <span>Rice</span>
+
+                                <strong>5 left</strong>
+
+                            </div>
+
+
+                            <div class="stock-item">
+
+                                <span>Sugar</span>
+
+                                <strong>7 left</strong>
+
+                            </div>
+
+
+                            <div class="stock-item">
+
+                                <span>Cooking Oil</span>
+
+                                <strong>3 left</strong>
+
+                            </div>
+
+
+                            <div class="stock-item">
+
+                                <span>Soap</span>
+
+                                <strong>4 left</strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/dashboard.js"></script>
+</body>
+
+</html>

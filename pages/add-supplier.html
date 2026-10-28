@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Supplier - Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+            <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+
+        <!-- TOP NAVBAR -->
+
+        <header class="top-navbar">
+            <div>
+
+                <h2>Add Supplier</h2>
+
+            </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+
+        <!-- ================= PAGE CONTENT ================= -->
+
+        <section class="page-content">
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="page-header">
+
+                <div>
+
+                    <h1>Add New Supplier</h1>
+
+                    <p>
+                        Enter supplier information below.
+                    </p>
+
+                </div>
+
+
+                <a href="suppliers.html" class="secondary-btn">
+                    ← Back to Suppliers
+                </a>
+
+            </div>
+
+
+
+            <!-- ================= SUPPLIER FORM ================= -->
+
+            <form class="product-form" id="supplierForm">
+
+
+                <!-- BASIC INFORMATION -->
+
+                <div class="form-section">
+
+                    <h3>Basic Information</h3>
+
+
+                    <div class="form-grid">
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Supplier ID
+                            </label>
+
+                            <input
+                                        type="text"
+                                        id="supplierId"
+                                        placeholder="Generated automatically"
+                                        readonly
+                                    >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Supplier Name *
+                            </label>
+
+                            <input
+                                type="text"
+                                id="supplierName"
+                                placeholder="Enter supplier name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Company Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="supplierCompany"
+                                placeholder="Enter company name"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                GST Number
+                            </label>
+
+                            <input
+                                type="text"
+                                id="supplierGST"
+                                placeholder="Enter GST number"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CONTACT INFORMATION -->
+
+                <div class="form-section">
+
+                    <h3>Contact Information</h3>
+
+
+                    <div class="form-grid">
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Phone Number *
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="supplierPhone"
+                                placeholder="Enter phone number"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="supplierEmail"
+                                placeholder="Enter email address"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Contact Person
+                            </label>
+
+                            <input
+                                type="text"
+                                id="supplierContactPerson"
+                                placeholder="Contact person name"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Alternate Phone
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="supplierAlternatePhone"
+                                placeholder="Alternate phone number"
+                            >   
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ADDRESS -->
+
+                <div class="form-section">
+
+                    <h3>Address</h3>
+
+
+                    <div class="form-grid">
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Address
+                            </label>
+
+                            <input
+                                type="text"
+                                id="supplierAddress"
+                                placeholder="Enter full address"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                City
+                            </label>
+
+                           <input
+                                type="text"
+                                id="supplierCity"
+                                placeholder="Enter city"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                State
+                            </label>
+
+                            <input
+                                type="text"
+                                id="supplierState"
+                                placeholder="Enter state"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                PIN Code
+                            </label>
+
+                            <input
+                                type="text"
+                                id="supplierPinCode"
+                                placeholder="Enter PIN code"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- BUSINESS INFORMATION -->
+
+                <div class="form-section">
+
+                    <h3>Business Information</h3>
+
+
+                    <div class="form-grid">
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Products Supplied
+                            </label>
+
+                            <input
+                                type="text"
+                                id="supplierProducts"
+                                placeholder="Example: Rice, Sugar, Oil"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Payment Terms
+                            </label>
+
+                            <select id="supplierPaymentTerms">
+                                <option value="Immediate">Immediate</option>
+                                <option value="Cash">Cash</option>
+                                <option value="7 Days Credit">7 Days Credit</option>
+                                <option value="15 Days Credit">15 Days Credit</option>
+                                <option value="30 Days Credit">30 Days Credit</option>
+                                <option value="60 Days Credit">60 Days Credit</option>
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Opening Balance
+                            </label>
+
+                            <input
+                                type="number"
+                                id="supplierOpeningBalance"
+                                placeholder="₹0.00"
+                                min="0"
+                                step="0.01"
+                                value="0"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Supplier Status
+                            </label>
+
+                           <select id="supplierStatus">
+                                <option value="Active">Active</option>
+                                <option value="Inactive">Inactive</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- NOTES -->
+
+                <div class="form-section">
+
+                    <h3>Additional Information</h3>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Notes
+                        </label>
+
+                        <textarea
+                            id="supplierNotes"
+                            rows="5"
+                            placeholder="Enter any additional information about the supplier..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FORM BUTTONS -->
+
+                <div class="form-actions">
+
+                    <a
+                        href="suppliers.html"
+                        class="secondary-btn"
+                    >
+                        Cancel
+                    </a>
+
+
+                    <button
+                        type="submit"
+                        class="primary-btn"
+                    >
+                        Save Supplier
+                    </button>
+
+                </div>
+
+
+            </form>
+
+
+        </section>
+
+    </main>
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/suppliers.js"></script>
+    <script src="../JS/main.js"></script>
+
+
+</body>
+
+</html>

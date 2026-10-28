@@ -1,0 +1,514 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Expense - Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- ================= SIDEBAR ================= -->
+            <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="main-content">
+
+        <!-- TOP NAVBAR -->
+        <header class="top-navbar">
+            <div>
+                <h2>Add Expense</h2>
+                <p>Record a new business expense</p>
+            </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+        <!-- ================= PAGE CONTENT ================= -->
+        <section class="page-content">
+
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+
+                <div>
+                    <h1>Add New Expense</h1>
+                    <p>Enter the details of the business expense.</p>
+                </div>
+
+                <div class="page-header-actions">
+
+                    <a href="expenses.html" class="secondary-btn">
+                        ← Back to Expenses
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= FORM ================= -->
+            <form class="expense-form">
+
+
+                <!-- ================= EXPENSE INFORMATION ================= -->
+                <div class="form-section">
+
+                    <div class="form-section-header">
+
+                        <div>
+                            <h2>Expense Information</h2>
+                            <p>Basic information about this expense</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-grid-3">
+
+                        <div class="form-group">
+
+                            <label>
+                                Expense ID
+                            </label>
+
+                            <input
+                                type="text"
+                                value="EXP007"
+                                readonly
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Expense Date
+                                <span>*</span>
+                            </label>
+
+                            <input
+                                type="date"
+                                value="2026-10-05"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Category
+                                <span>*</span>
+                            </label>
+
+                            <select>
+
+                                <option>Select Category</option>
+                                <option>Electricity</option>
+                                <option>Rent</option>
+                                <option>Salary</option>
+                                <option>Transport</option>
+                                <option>Maintenance</option>
+                                <option>Supplies</option>
+                                <option>Marketing</option>
+                                <option>Other</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Expense Description
+                                <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                placeholder="e.g. Electricity bill"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Vendor / Payee
+                            </label>
+
+                            <input
+                                type="text"
+                                placeholder="Enter vendor or payee name"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Reference Number
+                            </label>
+
+                            <input
+                                type="text"
+                                placeholder="Invoice / receipt number"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= PAYMENT INFORMATION ================= -->
+                <div class="form-section">
+
+                    <div class="form-section-header">
+
+                        <div>
+                            <h2>Payment Information</h2>
+                            <p>Enter payment and amount details</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-grid-3">
+
+                        <div class="form-group">
+
+                            <label>
+                                Total Amount
+                                <span>*</span>
+                            </label>
+
+                            <div class="input-with-symbol">
+                                <span>â‚¹</span>
+
+                                <input
+                                    type="number"
+                                    placeholder="0.00"
+                                >
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Paid Amount
+                            </label>
+
+                            <div class="input-with-symbol">
+                                <span>â‚¹</span>
+
+                                <input
+                                    type="number"
+                                    placeholder="0.00"
+                                >
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Due Amount
+                            </label>
+
+                            <div class="input-with-symbol">
+                                <span>â‚¹</span>
+
+                                <input
+                                    type="number"
+                                    placeholder="0.00"
+                                    readonly
+                                >
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Payment Method
+                                <span>*</span>
+                            </label>
+
+                            <select>
+
+                                <option>Select Payment Method</option>
+                                <option>Cash</option>
+                                <option>UPI</option>
+                                <option>Debit Card</option>
+                                <option>Credit Card</option>
+                                <option>Bank Transfer</option>
+                                <option>Cheque</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Payment Status
+                                <span>*</span>
+                            </label>
+
+                            <select>
+
+                                <option>Paid</option>
+                                <option>Pending</option>
+                                <option>Partial</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Payment Reference
+                            </label>
+
+                            <input
+                                type="text"
+                                placeholder="Transaction / UPI reference"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= ADDITIONAL INFORMATION ================= -->
+                <div class="form-section">
+
+                    <div class="form-section-header">
+
+                        <div>
+                            <h2>Additional Information</h2>
+                            <p>Add notes or supporting information</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-grid-1">
+
+                        <div class="form-group">
+
+                            <label>
+                                Notes
+                            </label>
+
+                            <textarea
+                                rows="5"
+                                placeholder="Enter any additional information about this expense..."
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= EXPENSE SUMMARY ================= -->
+                <div class="expense-form-summary">
+
+                    <div class="form-summary-header">
+
+                        <h2>Expense Summary</h2>
+
+                    </div>
+
+
+                    <div class="expense-summary-grid">
+
+                        <div class="expense-summary-item">
+
+                            <span>Total Amount</span>
+
+                            <strong>â‚¹0.00</strong>
+
+                        </div>
+
+
+                        <div class="expense-summary-item">
+
+                            <span>Paid Amount</span>
+
+                            <strong>â‚¹0.00</strong>
+
+                        </div>
+
+
+                        <div class="expense-summary-item">
+
+                            <span>Due Amount</span>
+
+                            <strong>â‚¹0.00</strong>
+
+                        </div>
+
+
+                        <div class="expense-summary-item status-summary">
+
+                            <span>Status</span>
+
+                            <strong>Pending</strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= FORM ACTIONS ================= -->
+                <div class="form-actions">
+
+                    <a href="expenses.html" class="cancel-btn">
+                        Cancel
+                    </a>
+
+                    <button
+                        type="submit"
+                        class="primary-btn"
+                    >
+                        💾 Save Expense
+                    </button>
+
+                </div>
+
+
+            </form>
+
+
+            <!-- ================= INFORMATION NOTE ================= -->
+            <div class="expense-form-note">
+
+                <div class="expense-note-icon">
+                    💡
+                </div>
+
+                <div>
+
+                    <strong>Note</strong>
+
+                    <p>
+                        Expense calculations and form validation will be
+                        connected during the JavaScript phase. For now,
+                        this page is only the frontend interface.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/expenses.js"></script>
+</body>
+</html>

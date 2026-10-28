@@ -1,0 +1,835 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Billing Settings | Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- ================= SIDEBAR ================= -->
+            <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="main-content">
+
+        <!-- TOP NAVBAR -->
+        <header class="top-navbar">
+            <div>
+                <h1>Billing Settings</h1>
+                <p>Configure billing, invoice and payment preferences</p>
+            </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+        <!-- ================= PAGE CONTENT ================= -->
+        <section class="page-content">
+
+            <!-- BACK BUTTON -->
+            <div class="settings-back">
+
+                <a href="settings.html" class="back-link">
+                    ← Back to Settings
+                </a>
+
+            </div>
+
+
+            <!-- ================= INVOICE SETTINGS ================= -->
+            <div class="settings-section">
+
+                <div class="settings-section-header">
+
+                    <div>
+                        <h2>🧾 Invoice Settings</h2>
+                        <p>Configure how invoices are generated.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>Invoice Prefix</label>
+
+                        <input
+                            type="text"
+                            value="BILL"
+                            placeholder="Example: BILL"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Starting Invoice Number</label>
+
+                        <input
+                            type="number"
+                            value="1001"
+                            min="1"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Invoice Format</label>
+
+                        <select>
+
+                            <option selected>
+                                BILL-1001
+                            </option>
+
+                            <option>
+                                BILL/2026/1001
+                            </option>
+
+                            <option>
+                                2026-BILL-1001
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Invoice Size</label>
+
+                        <select>
+
+                            <option selected>
+                                A4
+                            </option>
+
+                            <option>
+                                A5
+                            </option>
+
+                            <option>
+                                Thermal 80mm
+                            </option>
+
+                            <option>
+                                Thermal 58mm
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= TAX SETTINGS ================= -->
+            <div class="settings-section">
+
+                <div class="settings-section-header">
+
+                    <div>
+                        <h2>💰 Tax & GST</h2>
+                        <p>Configure tax and GST settings for billing.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>GST Billing</label>
+
+                        <select>
+
+                            <option selected>
+                                Enabled
+                            </option>
+
+                            <option>
+                                Disabled
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>GST Percentage</label>
+
+                        <select>
+
+                            <option>
+                                0%
+                            </option>
+
+                            <option>
+                                5%
+                            </option>
+
+                            <option selected>
+                                12%
+                            </option>
+
+                            <option>
+                                18%
+                            </option>
+
+                            <option>
+                                28%
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Tax Type</label>
+
+                        <select>
+
+                            <option selected>
+                                CGST + SGST
+                            </option>
+
+                            <option>
+                                IGST
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Product Price Includes Tax</label>
+
+                        <select>
+
+                            <option selected>
+                                No
+                            </option>
+
+                            <option>
+                                Yes
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= DISCOUNT SETTINGS ================= -->
+            <div class="settings-section">
+
+                <div class="settings-section-header">
+
+                    <div>
+                        <h2>🏷️ Discount Settings</h2>
+                        <p>Configure discounts allowed during billing.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>Discount</label>
+
+                        <select>
+
+                            <option selected>
+                                Enabled
+                            </option>
+
+                            <option>
+                                Disabled
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Discount Type</label>
+
+                        <select>
+
+                            <option selected>
+                                Percentage
+                            </option>
+
+                            <option>
+                                Fixed Amount
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Maximum Discount (%)</label>
+
+                        <input
+                            type="number"
+                            value="20"
+                            min="0"
+                            max="100"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= PAYMENT SETTINGS ================= -->
+            <div class="settings-section">
+
+                <div class="settings-section-header">
+
+                    <div>
+                        <h2>💳 Payment Settings</h2>
+                        <p>Select payment methods available at checkout.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="checkbox-grid">
+
+                    <label class="checkbox-item">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <span>💵 Cash</span>
+
+                    </label>
+
+
+                    <label class="checkbox-item">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <span>📱 UPI</span>
+
+                    </label>
+
+
+                    <label class="checkbox-item">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <span>💳 Card</span>
+
+                    </label>
+
+
+                    <label class="checkbox-item">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <span>🏦 Bank Transfer</span>
+
+                    </label>
+
+
+                    <label class="checkbox-item">
+
+                        <input
+                            type="checkbox"
+                        >
+
+                        <span>📝 Credit / Due</span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= CREDIT SETTINGS ================= -->
+            <div class="settings-section">
+
+                <div class="settings-section-header">
+
+                    <div>
+                        <h2>📝 Credit & Due Settings</h2>
+                        <p>Control credit sales and customer outstanding amounts.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>Allow Credit Sales</label>
+
+                        <select>
+
+                            <option selected>
+                                Yes
+                            </option>
+
+                            <option>
+                                No
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Default Credit Limit</label>
+
+                        <div class="input-with-prefix">
+                            <span>â‚¹</span>
+
+                            <input
+                                type="number"
+                                value="10000"
+                                min="0"
+                            >
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Due Payment Reminder</label>
+
+                        <select>
+
+                            <option selected>
+                                Enabled
+                            </option>
+
+                            <option>
+                                Disabled
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= ROUNDING SETTINGS ================= -->
+            <div class="settings-section">
+
+                <div class="settings-section-header">
+
+                    <div>
+                        <h2>🔢 Rounding & Change</h2>
+                        <p>Configure bill rounding and change calculation.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>Bill Rounding</label>
+
+                        <select>
+
+                            <option selected>
+                                Enabled
+                            </option>
+
+                            <option>
+                                Disabled
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Rounding Method</label>
+
+                        <select>
+
+                            <option selected>
+                                Nearest Rupee
+                            </option>
+
+                            <option>
+                                Round Up
+                            </option>
+
+                            <option>
+                                Round Down
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Allow Change Amount</label>
+
+                        <select>
+
+                            <option selected>
+                                Yes
+                            </option>
+
+                            <option>
+                                No
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= PRINT SETTINGS ================= -->
+            <div class="settings-section">
+
+                <div class="settings-section-header">
+
+                    <div>
+                        <h2>🖨️ Print Settings</h2>
+                        <p>Configure invoice printing preferences.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>Auto Print Invoice</label>
+
+                        <select>
+
+                            <option>
+                                Enabled
+                            </option>
+
+                            <option selected>
+                                Disabled
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Print After Billing</label>
+
+                        <select>
+
+                            <option selected>
+                                Yes
+                            </option>
+
+                            <option>
+                                No
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Paper Size</label>
+
+                        <select>
+
+                            <option selected>
+                                A4
+                            </option>
+
+                            <option>
+                                A5
+                            </option>
+
+                            <option>
+                                Thermal 80mm
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= BILLING RULES ================= -->
+            <div class="settings-section">
+
+                <div class="settings-section-header">
+
+                    <div>
+                        <h2>⚙️ Billing Rules</h2>
+                        <p>Control important billing restrictions.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="checkbox-list">
+
+                    <label class="checkbox-row">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <div>
+
+                            <strong>
+                                Prevent Billing When Stock Is Insufficient
+                            </strong>
+
+                            <span>
+                                Do not allow billing when requested quantity
+                                is greater than available stock.
+                            </span>
+
+                        </div>
+
+                    </label>
+
+
+                    <label class="checkbox-row">
+
+                        <input
+                            type="checkbox"
+                        >
+
+                        <div>
+
+                            <strong>
+                                Allow Negative Stock
+                            </strong>
+
+                            <span>
+                                Allow products to be billed even when
+                                available stock reaches zero.
+                            </span>
+
+                        </div>
+
+                    </label>
+
+
+                    <label class="checkbox-row">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <div>
+
+                            <strong>
+                                Allow Bill Cancellation
+                            </strong>
+
+                            <span>
+                                Allow authorized users to cancel generated bills.
+                            </span>
+
+                        </div>
+
+                    </label>
+
+
+                    <label class="checkbox-row">
+
+                        <input
+                            type="checkbox"
+                        >
+
+                        <div>
+
+                            <strong>
+                                Allow Bill Editing
+                            </strong>
+
+                            <span>
+                                Allow previously generated bills to be edited.
+                            </span>
+
+                        </div>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= BUTTONS ================= -->
+            <div class="settings-actions">
+
+                <a href="settings.html" class="btn btn-secondary">
+                    Cancel
+                </a>
+
+                <button class="btn btn-primary">
+                    💾 Save Billing Settings
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/settings.js"></script>
+</body>
+</html>

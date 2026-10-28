@@ -1,0 +1,1022 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Expense Reports - Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- ================= SIDEBAR ================= -->
+
+            <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+        <!-- TOP NAVBAR -->
+
+        <header class="top-navbar">
+            <div>
+
+                <h2>Expense Reports</h2>
+
+                <p>
+                    Analyze business expenses and payments
+                </p>
+
+            </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+        <!-- ================= CONTENT ================= -->
+
+        <section class="content">
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="page-header">
+
+                <div>
+
+                    <h1>Expense Report</h1>
+
+                    <p>
+                        Detailed analysis of expenses, categories and payments.
+                    </p>
+
+                </div>
+
+                <div class="page-actions">
+
+                    <a href="reports.html" class="secondary-btn">
+                        ← Reports
+                    </a>
+
+                    <button class="secondary-btn">
+                        🖨️ Print
+                    </button>
+
+                    <button class="primary-btn">
+                        📥 Export
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= FILTER ================= -->
+
+            <div class="report-filter-card">
+
+                <div class="report-filter-title">
+
+                    <h3>Expense Report Filters</h3>
+
+                    <p>
+                        Select the period, category and payment status.
+                    </p>
+
+                </div>
+
+
+                <div class="expense-report-filter-grid">
+
+                    <div class="form-group">
+
+                        <label>From Date</label>
+
+                        <input
+                            type="date"
+                            value="2026-10-01"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>To Date</label>
+
+                        <input
+                            type="date"
+                            value="2026-10-05"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Expense Category</label>
+
+                        <select>
+
+                            <option>All Categories</option>
+                            <option>Electricity</option>
+                            <option>Rent</option>
+                            <option>Transport</option>
+                            <option>Maintenance</option>
+                            <option>Supplies</option>
+                            <option>Salary</option>
+                            <option>Other</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Payment Status</label>
+
+                        <select>
+
+                            <option>All Status</option>
+                            <option>Paid</option>
+                            <option>Partial</option>
+                            <option>Pending</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="expense-report-filter-button">
+
+                        <button class="primary-btn">
+                            🔍 Generate Report
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= SUMMARY ================= -->
+
+            <div class="summary-cards expense-report-summary">
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon">
+                        💸
+                    </div>
+
+                    <div>
+
+                        <span>Total Expenses</span>
+
+                        <h2>â‚¹82,450</h2>
+
+                        <small class="report-negative">
+                            ←‘ 4.8% from last month
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon">
+                        📋
+                    </div>
+
+                    <div>
+
+                        <span>Total Records</span>
+
+                        <h2>86</h2>
+
+                        <small>
+                            Average â‚¹959 / record
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon">
+                        âœ…
+                    </div>
+
+                    <div>
+
+                        <span>Amount Paid</span>
+
+                        <h2>â‚¹63,950</h2>
+
+                        <small class="report-positive">
+                            77.6% paid
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon">
+                        â³
+                    </div>
+
+                    <div>
+
+                        <span>Pending Amount</span>
+
+                        <h2>â‚¹18,500</h2>
+
+                        <small class="report-negative">
+                            Requires attention
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= DAILY EXPENSE SUMMARY ================= -->
+
+            <div class="details-card">
+
+                <div class="details-card-header">
+
+                    <div>
+
+                        <h3>Daily Expense Summary</h3>
+
+                        <p>
+                            Expense activity during the selected period
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="expense-report-table-wrapper">
+
+                    <table class="expense-report-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Date</th>
+                                <th>Records</th>
+                                <th>Total Expense</th>
+                                <th>Paid</th>
+                                <th>Pending</th>
+                                <th>Average Expense</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>01 Oct 2026</td>
+                                <td>16</td>
+                                <td>â‚¹14,250</td>
+                                <td>â‚¹11,250</td>
+                                <td>â‚¹3,000</td>
+                                <td>â‚¹891</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>02 Oct 2026</td>
+                                <td>18</td>
+                                <td>â‚¹16,800</td>
+                                <td>â‚¹14,800</td>
+                                <td>â‚¹2,000</td>
+                                <td>â‚¹933</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>03 Oct 2026</td>
+                                <td>15</td>
+                                <td>â‚¹13,950</td>
+                                <td>â‚¹11,950</td>
+                                <td>â‚¹2,000</td>
+                                <td>â‚¹930</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>04 Oct 2026</td>
+                                <td>17</td>
+                                <td>â‚¹15,600</td>
+                                <td>â‚¹12,600</td>
+                                <td>â‚¹3,000</td>
+                                <td>â‚¹918</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>05 Oct 2026</td>
+                                <td>20</td>
+                                <td>â‚¹21,850</td>
+                                <td>â‚¹13,350</td>
+                                <td>â‚¹8,500</td>
+                                <td>â‚¹1,093</td>
+
+                            </tr>
+
+
+                            <tr class="table-total">
+
+                                <td>
+                                    <strong>Total</strong>
+                                </td>
+
+                                <td>
+                                    <strong>86</strong>
+                                </td>
+
+                                <td>
+                                    <strong>â‚¹82,450</strong>
+                                </td>
+
+                                <td>
+                                    <strong>â‚¹63,950</strong>
+                                </td>
+
+                                <td>
+                                    <strong>â‚¹18,500</strong>
+                                </td>
+
+                                <td>
+                                    <strong>â‚¹959</strong>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= TWO COLUMN ================= -->
+
+            <div class="expense-report-two-column">
+
+
+                <!-- CATEGORY BREAKDOWN -->
+
+                <div class="details-card">
+
+                    <div class="details-card-header">
+
+                        <div>
+
+                            <h3>Expenses by Category</h3>
+
+                            <p>
+                                Category-wise expense breakdown
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="expense-category-list">
+
+
+                        <div class="expense-category-row">
+
+                            <div class="expense-category-info">
+
+                                <span class="expense-category-dot electricity"></span>
+
+                                <div>
+
+                                    <strong>Electricity</strong>
+
+                                    <span>18 records</span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="expense-category-amount">
+
+                                <strong>â‚¹18,500</strong>
+
+                                <span>22.4%</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="expense-category-row">
+
+                            <div class="expense-category-info">
+
+                                <span class="expense-category-dot rent"></span>
+
+                                <div>
+
+                                    <strong>Rent</strong>
+
+                                    <span>1 record</span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="expense-category-amount">
+
+                                <strong>â‚¹15,000</strong>
+
+                                <span>18.2%</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="expense-category-row">
+
+                            <div class="expense-category-info">
+
+                                <span class="expense-category-dot salary"></span>
+
+                                <div>
+
+                                    <strong>Salary</strong>
+
+                                    <span>12 records</span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="expense-category-amount">
+
+                                <strong>â‚¹12,000</strong>
+
+                                <span>14.6%</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="expense-category-row">
+
+                            <div class="expense-category-info">
+
+                                <span class="expense-category-dot supplies"></span>
+
+                                <div>
+
+                                    <strong>Supplies</strong>
+
+                                    <span>21 records</span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="expense-category-amount">
+
+                                <strong>â‚¹10,950</strong>
+
+                                <span>13.3%</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="expense-category-row">
+
+                            <div class="expense-category-info">
+
+                                <span class="expense-category-dot transport"></span>
+
+                                <div>
+
+                                    <strong>Transport</strong>
+
+                                    <span>14 records</span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="expense-category-amount">
+
+                                <strong>â‚¹8,500</strong>
+
+                                <span>10.3%</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="expense-category-row">
+
+                            <div class="expense-category-info">
+
+                                <span class="expense-category-dot maintenance"></span>
+
+                                <div>
+
+                                    <strong>Maintenance</strong>
+
+                                    <span>8 records</span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="expense-category-amount">
+
+                                <strong>â‚¹7,500</strong>
+
+                                <span>9.1%</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="expense-category-total">
+
+                            <span>Total Expenses</span>
+
+                            <strong>â‚¹82,450</strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EXPENSE STATISTICS -->
+
+                <div class="details-card">
+
+                    <div class="details-card-header">
+
+                        <div>
+
+                            <h3>Expense Statistics</h3>
+
+                            <p>
+                                Important expense metrics
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="expense-statistics">
+
+
+                        <div class="expense-stat-row">
+
+                            <span>Average Expense</span>
+
+                            <strong>â‚¹959</strong>
+
+                        </div>
+
+
+                        <div class="expense-stat-row">
+
+                            <span>Highest Expense</span>
+
+                            <strong>â‚¹25,000</strong>
+
+                        </div>
+
+
+                        <div class="expense-stat-row">
+
+                            <span>Lowest Expense</span>
+
+                            <strong>â‚¹350</strong>
+
+                        </div>
+
+
+                        <div class="expense-stat-row">
+
+                            <span>Average Daily Expense</span>
+
+                            <strong>â‚¹16,490</strong>
+
+                        </div>
+
+
+                        <div class="expense-stat-row">
+
+                            <span>Pending Percentage</span>
+
+                            <strong class="expense-due">
+                                22.4%
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= PAYMENT STATUS ================= -->
+
+            <div class="details-card">
+
+                <div class="details-card-header">
+
+                    <div>
+
+                        <h3>Expense Payment Status</h3>
+
+                        <p>
+                            Payment status of recorded expenses
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="expense-payment-grid">
+
+
+                    <div class="expense-payment-box paid">
+
+                        <div class="expense-payment-icon">
+                            âœ…
+                        </div>
+
+                        <div>
+
+                            <span>Paid</span>
+
+                            <strong>â‚¹63,950</strong>
+
+                            <small>77.6%</small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="expense-payment-box partial">
+
+                        <div class="expense-payment-icon">
+                            🟡
+                        </div>
+
+                        <div>
+
+                            <span>Partial</span>
+
+                            <strong>â‚¹7,500</strong>
+
+                            <small>9.1%</small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="expense-payment-box pending">
+
+                        <div class="expense-payment-icon">
+                            🔴
+                        </div>
+
+                        <div>
+
+                            <span>Pending</span>
+
+                            <strong>â‚¹11,000</strong>
+
+                            <small>13.3%</small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= LARGEST EXPENSES ================= -->
+
+            <div class="details-card">
+
+                <div class="details-card-header">
+
+                    <div>
+
+                        <h3>Largest Expenses</h3>
+
+                        <p>
+                            Highest-value expense records
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="expense-report-table-wrapper">
+
+                    <table class="expense-report-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Expense ID</th>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Category</th>
+                                <th>Vendor / Payee</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    <strong>EXP002</strong>
+                                </td>
+
+                                <td>01 Oct 2026</td>
+
+                                <td>Monthly Shop Rent</td>
+
+                                <td>Rent</td>
+
+                                <td>Property Owner</td>
+
+                                <td>
+                                    <strong>â‚¹25,000</strong>
+                                </td>
+
+                                <td>
+                                    <span class="expense-status paid">
+                                        Paid
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <strong>EXP001</strong>
+                                </td>
+
+                                <td>05 Oct 2026</td>
+
+                                <td>Electricity Bill</td>
+
+                                <td>Electricity</td>
+
+                                <td>Punjab Power Corporation</td>
+
+                                <td>
+                                    <strong>â‚¹6,850</strong>
+                                </td>
+
+                                <td>
+                                    <span class="expense-status paid">
+                                        Paid
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <strong>EXP005</strong>
+                                </td>
+
+                                <td>03 Oct 2026</td>
+
+                                <td>Shop Supplies</td>
+
+                                <td>Supplies</td>
+
+                                <td>Office Supplier</td>
+
+                                <td>
+                                    <strong>â‚¹8,900</strong>
+                                </td>
+
+                                <td>
+                                    <span class="expense-status paid">
+                                        Paid
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <strong>EXP003</strong>
+                                </td>
+
+                                <td>02 Oct 2026</td>
+
+                                <td>Transportation Charges</td>
+
+                                <td>Transport</td>
+
+                                <td>Local Transport</td>
+
+                                <td>
+                                    <strong>â‚¹4,500</strong>
+                                </td>
+
+                                <td>
+                                    <span class="expense-status partial">
+                                        Partial
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= INFORMATION ================= -->
+
+            <div class="report-information">
+
+                <strong>
+                    â„¹ï¸ Report Information
+                </strong>
+
+                <p>
+                    Expense report values are currently sample data for
+                    frontend development. During the JavaScript phase,
+                    totals will be calculated automatically from the
+                    Expense Management module. Later, backend and database
+                    integration will provide real-time expense reports.
+                </p>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+</div>
+
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/expenses.js"></script>
+</body>
+
+</html>

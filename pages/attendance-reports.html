@@ -1,0 +1,920 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Attendance Reports - Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- ================= SIDEBAR ================= -->
+            <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="main-content">
+
+        <!-- TOP NAVBAR -->
+        <header class="top-navbar">
+            <div>
+                <h2>Attendance Reports</h2>
+                <p>Analyze employee attendance and working patterns</p>
+            </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+        <!-- ================= PAGE CONTENT ================= -->
+        <section class="page-content">
+
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+
+                <div>
+                    <h1>Attendance Reports</h1>
+                    <p>View employee attendance performance and monthly statistics.</p>
+                </div>
+
+                <div class="page-header-actions">
+
+                    <button class="secondary-btn">
+                        📥 Export Report
+                    </button>
+
+                    <button class="primary-btn">
+                        🖨️ Print Report
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= FILTERS ================= -->
+            <div class="attendance-report-filter">
+
+                <div class="report-filter-group">
+
+                    <label>Report Month</label>
+
+                    <select>
+                        <option>October 2026</option>
+                        <option>September 2026</option>
+                        <option>August 2026</option>
+                        <option>July 2026</option>
+                    </select>
+
+                </div>
+
+
+                <div class="report-filter-group">
+
+                    <label>Employee</label>
+
+                    <select>
+                        <option>All Employees</option>
+                        <option>Amit Kumar</option>
+                        <option>Priya Sharma</option>
+                        <option>Rahul Singh</option>
+                        <option>Neha Singh</option>
+                        <option>Suresh Kumar</option>
+                    </select>
+
+                </div>
+
+
+                <div class="report-filter-group">
+
+                    <label>Position</label>
+
+                    <select>
+                        <option>All Positions</option>
+                        <option>Manager</option>
+                        <option>Cashier</option>
+                        <option>Sales Executive</option>
+                        <option>Stock Manager</option>
+                        <option>Accountant</option>
+                    </select>
+
+                </div>
+
+
+                <div class="report-filter-group">
+
+                    <label>Status</label>
+
+                    <select>
+                        <option>All Status</option>
+                        <option>Present</option>
+                        <option>Absent</option>
+                        <option>Leave</option>
+                        <option>Half Day</option>
+                    </select>
+
+                </div>
+
+
+                <button class="report-filter-btn">
+                    🔍 Generate Report
+                </button>
+
+            </div>
+
+
+            <!-- ================= SUMMARY CARDS ================= -->
+            <div class="summary-cards attendance-report-summary">
+
+                <div class="summary-card">
+
+                    <div class="summary-icon blue">
+                        👨‍💼
+                    </div>
+
+                    <div>
+                        <h3>Total Employees</h3>
+                        <p>12</p>
+                        <span>Employees included</span>
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon green">
+                        âœ…
+                    </div>
+
+                    <div>
+                        <h3>Present Days</h3>
+                        <p>286</p>
+                        <span>This month</span>
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon red">
+                        âŒ
+                    </div>
+
+                    <div>
+                        <h3>Absent Days</h3>
+                        <p>18</p>
+                        <span>This month</span>
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon orange">
+                        📝
+                    </div>
+
+                    <div>
+                        <h3>Leave Days</h3>
+                        <p>24</p>
+                        <span>Approved leaves</span>
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon purple">
+                        📈
+                    </div>
+
+                    <div>
+                        <h3>Attendance Rate</h3>
+                        <p>92.3%</p>
+                        <span>Overall attendance</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= EMPLOYEE ATTENDANCE REPORT ================= -->
+            <div class="content-card attendance-report-card">
+
+                <div class="content-card-header">
+
+                    <div>
+                        <h2>Employee Attendance Report</h2>
+                        <p>Monthly attendance summary for October 2026</p>
+                    </div>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table class="attendance-report-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Employee</th>
+                                <th>ID</th>
+                                <th>Position</th>
+                                <th>Working Days</th>
+                                <th>Present</th>
+                                <th>Absent</th>
+                                <th>Leave</th>
+                                <th>Half Day</th>
+                                <th>Late</th>
+                                <th>Attendance</th>
+                                <th>Action</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    <div class="report-employee">
+
+                                        <div class="report-avatar">
+                                            AK
+                                        </div>
+
+                                        <div>
+                                            <strong>Amit Kumar</strong>
+                                            <small>Manager</small>
+                                        </div>
+
+                                    </div>
+                                </td>
+
+                                <td>EMP001</td>
+                                <td>Manager</td>
+                                <td>26</td>
+                                <td>24</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>2</td>
+
+                                <td>
+                                    <div class="attendance-percentage">
+                                        <div class="percentage-bar">
+                                            <span style="width: 92.3%;"></span>
+                                        </div>
+
+                                        <strong>92.3%</strong>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <a href="employee-attendance.html"
+                                       class="report-view-btn">
+                                        View
+                                    </a>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <div class="report-employee">
+
+                                        <div class="report-avatar">
+                                            PS
+                                        </div>
+
+                                        <div>
+                                            <strong>Priya Sharma</strong>
+                                            <small>Cashier</small>
+                                        </div>
+
+                                    </div>
+                                </td>
+
+                                <td>EMP002</td>
+                                <td>Cashier</td>
+                                <td>26</td>
+                                <td>23</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>0</td>
+                                <td>3</td>
+
+                                <td>
+                                    <div class="attendance-percentage">
+
+                                        <div class="percentage-bar">
+                                            <span style="width: 88.5%;"></span>
+                                        </div>
+
+                                        <strong>88.5%</strong>
+
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <a href="employee-attendance.html"
+                                       class="report-view-btn">
+                                        View
+                                    </a>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <div class="report-employee">
+
+                                        <div class="report-avatar">
+                                            RS
+                                        </div>
+
+                                        <div>
+                                            <strong>Rahul Singh</strong>
+                                            <small>Sales Executive</small>
+                                        </div>
+
+                                    </div>
+                                </td>
+
+                                <td>EMP003</td>
+                                <td>Sales Executive</td>
+                                <td>26</td>
+                                <td>25</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>1</td>
+
+                                <td>
+                                    <div class="attendance-percentage">
+
+                                        <div class="percentage-bar">
+                                            <span style="width: 96.2%;"></span>
+                                        </div>
+
+                                        <strong>96.2%</strong>
+
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <a href="employee-attendance.html"
+                                       class="report-view-btn">
+                                        View
+                                    </a>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <div class="report-employee">
+
+                                        <div class="report-avatar">
+                                            NS
+                                        </div>
+
+                                        <div>
+                                            <strong>Neha Singh</strong>
+                                            <small>Accountant</small>
+                                        </div>
+
+                                    </div>
+                                </td>
+
+                                <td>EMP004</td>
+                                <td>Accountant</td>
+                                <td>26</td>
+                                <td>22</td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>0</td>
+                                <td>4</td>
+
+                                <td>
+                                    <div class="attendance-percentage">
+
+                                        <div class="percentage-bar">
+                                            <span style="width: 84.6%;"></span>
+                                        </div>
+
+                                        <strong>84.6%</strong>
+
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <a href="employee-attendance.html"
+                                       class="report-view-btn">
+                                        View
+                                    </a>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <div class="report-employee">
+
+                                        <div class="report-avatar">
+                                            SK
+                                        </div>
+
+                                        <div>
+                                            <strong>Suresh Kumar</strong>
+                                            <small>Stock Manager</small>
+                                        </div>
+
+                                    </div>
+                                </td>
+
+                                <td>EMP005</td>
+                                <td>Stock Manager</td>
+                                <td>26</td>
+                                <td>24</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>2</td>
+
+                                <td>
+                                    <div class="attendance-percentage">
+
+                                        <div class="percentage-bar">
+                                            <span style="width: 92.3%;"></span>
+                                        </div>
+
+                                        <strong>92.3%</strong>
+
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <a href="employee-attendance.html"
+                                       class="report-view-btn">
+                                        View
+                                    </a>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= LOWER GRID ================= -->
+            <div class="attendance-report-grid">
+
+
+                <!-- MONTHLY OVERVIEW -->
+                <div class="content-card">
+
+                    <div class="content-card-header">
+
+                        <div>
+                            <h2>Monthly Attendance Overview</h2>
+                            <p>Attendance distribution for October 2026</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="attendance-overview">
+
+                        <div class="overview-item">
+
+                            <div class="overview-top">
+
+                                <span>Present</span>
+
+                                <strong>286 Days</strong>
+
+                            </div>
+
+                            <div class="overview-progress">
+
+                                <span class="present-progress"
+                                      style="width: 82%;"></span>
+
+                            </div>
+
+                            <small>82% of total working days</small>
+
+                        </div>
+
+
+                        <div class="overview-item">
+
+                            <div class="overview-top">
+
+                                <span>Absent</span>
+
+                                <strong>18 Days</strong>
+
+                            </div>
+
+                            <div class="overview-progress">
+
+                                <span class="absent-progress"
+                                      style="width: 5%;"></span>
+
+                            </div>
+
+                            <small>5% of total working days</small>
+
+                        </div>
+
+
+                        <div class="overview-item">
+
+                            <div class="overview-top">
+
+                                <span>Leave</span>
+
+                                <strong>24 Days</strong>
+
+                            </div>
+
+                            <div class="overview-progress">
+
+                                <span class="leave-progress"
+                                      style="width: 7%;"></span>
+
+                            </div>
+
+                            <small>7% of total working days</small>
+
+                        </div>
+
+
+                        <div class="overview-item">
+
+                            <div class="overview-top">
+
+                                <span>Half Day</span>
+
+                                <strong>8 Days</strong>
+
+                            </div>
+
+                            <div class="overview-progress">
+
+                                <span class="halfday-progress"
+                                      style="width: 2%;"></span>
+
+                            </div>
+
+                            <small>2% of total working days</small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ATTENDANCE STATUS -->
+                <div class="content-card">
+
+                    <div class="content-card-header">
+
+                        <div>
+                            <h2>Attendance Status</h2>
+                            <p>Overall employee status</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="status-report-list">
+
+                        <div class="status-report-item">
+
+                            <div class="status-report-left">
+
+                                <span class="status-dot present-dot"></span>
+
+                                <span>Present</span>
+
+                            </div>
+
+                            <strong>286</strong>
+
+                        </div>
+
+
+                        <div class="status-report-item">
+
+                            <div class="status-report-left">
+
+                                <span class="status-dot absent-dot"></span>
+
+                                <span>Absent</span>
+
+                            </div>
+
+                            <strong>18</strong>
+
+                        </div>
+
+
+                        <div class="status-report-item">
+
+                            <div class="status-report-left">
+
+                                <span class="status-dot leave-dot"></span>
+
+                                <span>Leave</span>
+
+                            </div>
+
+                            <strong>24</strong>
+
+                        </div>
+
+
+                        <div class="status-report-item">
+
+                            <div class="status-report-left">
+
+                                <span class="status-dot halfday-dot"></span>
+
+                                <span>Half Day</span>
+
+                            </div>
+
+                            <strong>8</strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= LATE ARRIVAL REPORT ================= -->
+            <div class="content-card late-arrival-card">
+
+                <div class="content-card-header">
+
+                    <div>
+                        <h2>Late Arrival Report</h2>
+                        <p>Employees with late check-ins this month</p>
+                    </div>
+
+                    <span class="report-info-badge">
+                        October 2026
+                    </span>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table class="late-arrival-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Employee</th>
+                                <th>ID</th>
+                                <th>Position</th>
+                                <th>Late Days</th>
+                                <th>Average Check In</th>
+                                <th>Expected Time</th>
+                                <th>Average Delay</th>
+                                <th>Status</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    <strong>Amit Kumar</strong>
+                                </td>
+
+                                <td>EMP001</td>
+
+                                <td>Manager</td>
+
+                                <td>2</td>
+
+                                <td>09:12 AM</td>
+
+                                <td>09:00 AM</td>
+
+                                <td>12 Minutes</td>
+
+                                <td>
+                                    <span class="late-status normal">
+                                        Normal
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <strong>Priya Sharma</strong>
+                                </td>
+
+                                <td>EMP002</td>
+
+                                <td>Cashier</td>
+
+                                <td>3</td>
+
+                                <td>09:20 AM</td>
+
+                                <td>09:00 AM</td>
+
+                                <td>20 Minutes</td>
+
+                                <td>
+                                    <span class="late-status warning">
+                                        Watch
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <strong>Neha Singh</strong>
+                                </td>
+
+                                <td>EMP004</td>
+
+                                <td>Accountant</td>
+
+                                <td>4</td>
+
+                                <td>09:28 AM</td>
+
+                                <td>09:00 AM</td>
+
+                                <td>28 Minutes</td>
+
+                                <td>
+                                    <span class="late-status attention">
+                                        Attention
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= REPORT NOTES ================= -->
+            <div class="report-note">
+
+                <div class="report-note-icon">
+                    💡
+                </div>
+
+                <div>
+
+                    <strong>Report Information</strong>
+
+                    <p>
+                        Attendance reports are currently displayed using
+                        sample data. Filtering, calculations, exporting and
+                        database integration will be implemented during the
+                        JavaScript and backend phases.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/attendance.js"></script>
+</body>
+</html>

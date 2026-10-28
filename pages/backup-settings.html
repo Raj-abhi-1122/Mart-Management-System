@@ -1,0 +1,672 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Backup & Data | Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- ================= SIDEBAR ================= -->
+            <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="main-content">
+
+        <!-- TOP NAVBAR -->
+        <header class="top-navbar">
+            <div>
+                <h2>Backup & Data</h2>
+                <p>Manage your mart data and backup preferences</p>
+            </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+        <!-- ================= PAGE CONTENT ================= -->
+        <section class="page-content">
+
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+
+                <div>
+
+                    <h1>💾 Backup & Data</h1>
+
+                    <p>
+                        Manage data backup, export, restore and
+                        system data preferences.
+                    </p>
+
+                </div>
+
+                <a href="settings.html" class="secondary-btn">
+                    ← Back to Settings
+                </a>
+
+            </div>
+
+
+            <!-- ================= BACKUP STATUS ================= -->
+            <div class="backup-status-card">
+
+                <div class="backup-status-icon">
+                    💾
+                </div>
+
+                <div class="backup-status-content">
+
+                    <h2>Backup Status</h2>
+
+                    <p>
+                        Your mart data is currently stored locally.
+                    </p>
+
+                    <div class="backup-details">
+
+                        <div>
+                            <span>Last Backup</span>
+                            <strong>Not Available</strong>
+                        </div>
+
+                        <div>
+                            <span>Backup Size</span>
+                            <strong>0 MB</strong>
+                        </div>
+
+                        <div>
+                            <span>Database</span>
+                            <strong>Not Connected</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="primary-btn"
+                >
+                    💾 Backup Now
+                </button>
+
+            </div>
+
+
+            <!-- ================= AUTOMATIC BACKUP ================= -->
+            <div class="form-section">
+
+                <div class="form-section-header">
+
+                    <h2>🔄 Automatic Backup</h2>
+
+                    <p>
+                        Configure automatic data backup preferences.
+                    </p>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="backupStatus">
+                            Automatic Backup
+                        </label>
+
+                        <select id="backupStatus">
+
+                            <option selected>Disabled</option>
+                            <option>Enabled</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="backupFrequency">
+                            Backup Frequency
+                        </label>
+
+                        <select id="backupFrequency">
+
+                            <option>Every Day</option>
+                            <option selected>Every Week</option>
+                            <option>Every Month</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="backupTime">
+                            Backup Time
+                        </label>
+
+                        <input
+                            type="time"
+                            id="backupTime"
+                            value="23:00"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="retention">
+                            Backup Retention
+                        </label>
+
+                        <select id="retention">
+
+                            <option>7 Days</option>
+                            <option selected>30 Days</option>
+                            <option>90 Days</option>
+                            <option>1 Year</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= DATA EXPORT ================= -->
+            <div class="form-section">
+
+                <div class="form-section-header">
+
+                    <h2>📤 Data Export</h2>
+
+                    <p>
+                        Select the data you want to export from the system.
+                    </p>
+
+                </div>
+
+
+                <div class="data-export-grid">
+
+                    <label class="data-option">
+
+                        <input type="checkbox" checked>
+
+                        <div>
+
+                            <strong>Products</strong>
+
+                            <span>
+                                Product information and pricing.
+                            </span>
+
+                        </div>
+
+                    </label>
+
+
+                    <label class="data-option">
+
+                        <input type="checkbox" checked>
+
+                        <div>
+
+                            <strong>Inventory</strong>
+
+                            <span>
+                                Current stock and inventory records.
+                            </span>
+
+                        </div>
+
+                    </label>
+
+
+                    <label class="data-option">
+
+                        <input type="checkbox" checked>
+
+                        <div>
+
+                            <strong>Suppliers</strong>
+
+                            <span>
+                                Supplier details and purchase records.
+                            </span>
+
+                        </div>
+
+                    </label>
+
+
+                    <label class="data-option">
+
+                        <input type="checkbox" checked>
+
+                        <div>
+
+                            <strong>Customers</strong>
+
+                            <span>
+                                Customer information and purchase history.
+                            </span>
+
+                        </div>
+
+                    </label>
+
+
+                    <label class="data-option">
+
+                        <input type="checkbox" checked>
+
+                        <div>
+
+                            <strong>Employees</strong>
+
+                            <span>
+                                Employee information and records.
+                            </span>
+
+                        </div>
+
+                    </label>
+
+
+                    <label class="data-option">
+
+                        <input type="checkbox" checked>
+
+                        <div>
+
+                            <strong>Attendance</strong>
+
+                            <span>
+                                Attendance and leave records.
+                            </span>
+
+                        </div>
+
+                    </label>
+
+
+                    <label class="data-option">
+
+                        <input type="checkbox" checked>
+
+                        <div>
+
+                            <strong>Billing</strong>
+
+                            <span>
+                                Bills, payments and sales history.
+                            </span>
+
+                        </div>
+
+                    </label>
+
+
+                    <label class="data-option">
+
+                        <input type="checkbox" checked>
+
+                        <div>
+
+                            <strong>Expenses</strong>
+
+                            <span>
+                                Expense records and payment details.
+                            </span>
+
+                        </div>
+
+                    </label>
+
+                </div>
+
+
+                <div class="data-export-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-btn"
+                    >
+                        📄 Export CSV
+                    </button>
+
+                    <button
+                        type="button"
+                        class="secondary-btn"
+                    >
+                        📊 Export Excel
+                    </button>
+
+                    <button
+                        type="button"
+                        class="primary-btn"
+                    >
+                        📦 Export All Data
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= DATA RESTORE ================= -->
+            <div class="form-section">
+
+                <div class="form-section-header">
+
+                    <h2>📥 Restore Data</h2>
+
+                    <p>
+                        Restore previously exported or backed-up data.
+                    </p>
+
+                </div>
+
+
+                <div class="restore-area">
+
+                    <div class="restore-icon">
+                        📥
+                    </div>
+
+                    <h3>Import Backup File</h3>
+
+                    <p>
+                        Select a supported backup file to restore
+                        your mart data.
+                    </p>
+
+                    <input
+                        type="file"
+                        id="backupFile"
+                        accept=".json,.csv,.xlsx,.zip"
+                    >
+
+                    <button
+                        type="button"
+                        class="secondary-btn"
+                    >
+                        📥 Restore Data
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= DATA MANAGEMENT ================= -->
+            <div class="form-section">
+
+                <div class="form-section-header">
+
+                    <h2>🗄️ Data Management</h2>
+
+                    <p>
+                        Manage existing application data.
+                    </p>
+
+                </div>
+
+
+                <div class="data-management-list">
+
+                    <div class="data-management-item">
+
+                        <div>
+
+                            <strong>Clear Temporary Data</strong>
+
+                            <span>
+                                Remove temporary application data and cached information.
+                            </span>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            class="secondary-btn"
+                        >
+                            Clear
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="data-management-item">
+
+                        <div>
+
+                            <strong>Reset Application Settings</strong>
+
+                            <span>
+                                Restore settings to their default values.
+                            </span>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            class="secondary-btn"
+                        >
+                            Reset
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="data-management-item danger-item">
+
+                        <div>
+
+                            <strong>Delete All Application Data</strong>
+
+                            <span>
+                                Permanently remove all locally stored application data.
+                            </span>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            class="danger-btn"
+                        >
+                            Delete Data
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= DATABASE STATUS ================= -->
+            <div class="form-section">
+
+                <div class="form-section-header">
+
+                    <h2>🗃️ Database Status</h2>
+
+                    <p>
+                        Current database connection information.
+                    </p>
+
+                </div>
+
+
+                <div class="database-status">
+
+                    <div class="database-status-row">
+
+                        <span>Connection Status</span>
+
+                        <strong class="database-offline">
+                            â— Not Connected
+                        </strong>
+
+                    </div>
+
+
+                    <div class="database-status-row">
+
+                        <span>Database Type</span>
+
+                        <strong>
+                            Not Configured
+                        </strong>
+
+                    </div>
+
+
+                    <div class="database-status-row">
+
+                        <span>Last Synchronization</span>
+
+                        <strong>
+                            Not Available
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= ACTION BUTTONS ================= -->
+            <div class="form-actions">
+
+                <a href="settings.html" class="secondary-btn">
+                    Cancel
+                </a>
+
+                <button
+                    type="button"
+                    class="primary-btn"
+                >
+                    💾 Save Backup Settings
+                </button>
+
+            </div>
+
+
+            <!-- DEVELOPMENT NOTE -->
+            <div class="info-note">
+
+                <strong>â„¹ï¸ Frontend Mode:</strong>
+
+                Backup, restore, export and database operations are
+                currently UI placeholders. Actual data storage,
+                backup files, database connection and restore functionality
+                will be implemented in later phases.
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/settings.js"></script>
+</body>
+</html>

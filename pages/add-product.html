@@ -1,0 +1,511 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Add Product - Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+
+</head>
+
+
+<body>
+
+    <!-- MAIN CONTAINER -->
+
+    <div class="dashboard-container">
+
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+
+                <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+
+        <main class="main-content">
+
+
+            <!-- TOP NAVBAR -->
+
+            <header class="top-navbar">
+            <div>
+
+                    <h2>Add Product</h2>
+
+                    <p>Products / Add Product</p>
+
+                </div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+
+            <!-- =========================
+                 PAGE CONTENT
+            ========================== -->
+
+            <section class="page-content">
+
+
+                <!-- PAGE HEADER -->
+
+                <div class="page-header">
+
+                    <div>
+
+                        <h1>Add New Product</h1>
+
+                        <p>
+                            Enter the product information below.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================
+                     PRODUCT FORM
+                ========================== -->
+
+                <div class="form-container">
+
+
+                    <form id="productForm">
+
+
+                        <!-- BASIC INFORMATION -->
+
+                        <div class="form-section">
+
+                            <h2>Basic Information</h2>
+
+                            <p class="section-description">
+                                Enter the basic details of the product.
+                            </p>
+
+
+                            <div class="form-grid">
+
+
+                                <!-- PRODUCT NAME -->
+
+                                <div class="form-group">
+
+                                    <label for="productName">
+                                        Product Name *
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="productName"
+                                        placeholder="Enter product name"
+                                    >
+
+                                </div>
+
+
+
+                                <!-- PRODUCT ID -->
+
+                                <div class="form-group">
+
+                                    <label for="productId">
+                                        Product ID *
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="productId"
+                                        placeholder="Example: PRD001"
+                                    >
+
+                                </div>
+
+
+
+                                <!-- CATEGORY -->
+
+                                <div class="form-group">
+
+                                    <label for="category">
+                                        Category *
+                                    </label>
+
+                                    <select id="category">
+
+                                        <option value="">
+                                            Select Category
+                                        </option>
+
+                                        <option>
+                                            Grocery
+                                        </option>
+
+                                        <option>
+                                            Beverages
+                                        </option>
+
+                                        <option>
+                                            Personal Care
+                                        </option>
+
+                                        <option>
+                                            Household
+                                        </option>
+
+                                        <option>
+                                            Electronics
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+
+                                <!-- BRAND -->
+
+                                <div class="form-group">
+
+                                    <label for="brand">
+                                        Brand
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="brand"
+                                        placeholder="Enter brand name"
+                                    >
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =========================
+                             PRICE & STOCK
+                        ========================== -->
+
+                        <div class="form-section">
+
+                            <h2>Price & Stock</h2>
+
+                            <p class="section-description">
+                                Enter pricing and inventory information.
+                            </p>
+
+
+                            <div class="form-grid">
+
+
+                                <!-- PURCHASE PRICE -->
+
+                                <div class="form-group">
+
+                                    <label for="purchasePrice">
+                                        Purchase Price *
+                                    </label>
+
+                                    <input
+                                        type="number"
+                                        id="purchasePrice"
+                                        placeholder="â‚¹ 0.00"
+                                    >
+
+                                </div>
+
+
+
+                                <!-- SELLING PRICE -->
+
+                                <div class="form-group">
+
+                                    <label for="sellingPrice">
+                                        Selling Price *
+                                    </label>
+
+                                    <input
+                                        type="number"
+                                        id="sellingPrice"
+                                        placeholder="â‚¹ 0.00"
+                                    >
+
+                                </div>
+
+
+
+                                <!-- QUANTITY -->
+
+                                <div class="form-group">
+
+                                    <label for="quantity">
+                                        Current Quantity *
+                                    </label>
+
+                                    <input
+                                        type="number"
+                                        id="quantity"
+                                        placeholder="Enter quantity"
+                                    >
+
+                                </div>
+
+
+
+                                <!-- MINIMUM STOCK -->
+
+                                <div class="form-group">
+
+                                    <label for="minimumStock">
+                                        Minimum Stock Level
+                                    </label>
+
+                                    <input
+                                        type="number"
+                                        id="minimumStock"
+                                        placeholder="Example: 10"
+                                    >
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =========================
+                             SUPPLIER & EXPIRY
+                        ========================== -->
+
+                        <div class="form-section">
+
+                            <h2>Supplier & Expiry</h2>
+
+                            <p class="section-description">
+                                Add supplier and expiry information.
+                            </p>
+
+
+                            <div class="form-grid">
+
+
+                                <!-- SUPPLIER -->
+
+                                <div class="form-group">
+
+                                    <label for="supplier">
+                                        Supplier
+                                    </label>
+
+                                    <select id="supplier">
+
+                                        <option value="">
+                                            Select Supplier
+                                        </option>
+
+                                        <option>
+                                            ABC Distributors
+                                        </option>
+
+                                        <option>
+                                            XYZ Traders
+                                        </option>
+
+                                        <option>
+                                            Sharma Wholesale
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+
+                                <!-- EXPIRY DATE -->
+
+                                <div class="form-group">
+
+                                    <label for="expiryDate">
+                                        Expiry Date
+                                    </label>
+
+                                    <input
+                                        type="date"
+                                        id="expiryDate"
+                                    >
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =========================
+                             DESCRIPTION
+                        ========================== -->
+
+                        <div class="form-section">
+
+                            <h2>Additional Information</h2>
+
+
+                            <div class="form-group">
+
+                                <label for="description">
+                                    Description
+                                </label>
+
+                                <textarea
+                                    id="description"
+                                    rows="5"
+                                    placeholder="Enter product description..."
+                                ></textarea>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- =========================
+                             FORM BUTTONS
+                        ========================== -->
+
+                        <div class="form-actions">
+
+                            <a
+                                href="products.html"
+                                class="secondary-btn"
+                            >
+                                Cancel
+                            </a>
+
+
+                            <button
+                                type="submit"
+                                class="primary-btn"
+                            >
+                                Save Product
+                            </button>
+
+                        </div>
+
+
+                    </form>
+
+                </div>
+
+
+            </section>
+
+        </main>
+
+    </div>
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/products.js"></script>
+    <script src="../JS/main.js"></script>
+
+
+</body>
+
+</html>

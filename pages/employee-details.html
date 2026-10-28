@@ -1,0 +1,665 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Employee Details | Mart Management System</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+
+    
+</head>
+
+<body>
+
+    <!-- ==============================
+         SIDEBAR
+    =============================== -->
+
+            <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-icon">🏪</div>
+                <div class="logo-text">
+                    <h2>Mart System</h2>
+                    <p>Owner Panel</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    📊 Dashboard
+                </a>
+                <a href="products.html" class="menu-item">
+                    📦 Products
+                </a>
+                <a href="inventory.html" class="menu-item">
+                    📋 Inventory
+                </a>
+                <a href="suppliers.html" class="menu-item">
+                    🏭 Suppliers
+                </a>
+                <a href="purchases.html" class="menu-item">
+                    🛒 Purchases
+                </a>
+                <a href="billing.html" class="menu-item">
+                    🧾 Billing
+                </a>
+                <a href="customers.html" class="menu-item">
+                    👥 Customers
+                </a>
+                <a href="employees.html" class="menu-item">
+                    👨‍💼 Employees
+                </a>
+                <a href="attendance.html" class="menu-item">
+                    🕐 Attendance
+                </a>
+                <a href="expenses.html" class="menu-item">
+                    💰 Expenses
+                </a>
+                <a href="reports.html" class="menu-item">
+                    📈 Reports
+                </a>
+                <a href="settings.html" class="menu-item">
+                    ⚙️ Settings
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    🔔 Notifications
+                </a>
+                <a href="activity-log.html" class="menu-item">
+                    📋 Activity Log
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="../index.html" class="menu-item logout">
+                    🚪 Logout
+                </a>
+            </div>
+
+        </aside>
+
+
+    <!-- ==============================
+         MAIN CONTENT
+    =============================== -->
+
+    <main class="main-content">
+
+        <!-- TOP NAVBAR -->
+
+        <header class="top-navbar">
+            <div><h2>Mart Management</h2></div>
+
+            <div class="nav-right">
+                <a href="notifications.html" class="nav-notif-btn">
+                    🔔 Notifications
+                </a>
+                <div class="admin-info">
+                    👤 Admin Owner
+                </div>
+            </div>
+        </header>
+
+
+        <!-- ==============================
+             PAGE CONTENT
+        =============================== -->
+
+        <section class="content employee-details-page">
+
+            <!-- PAGE HEADER -->
+
+            <div class="employee-details-header">
+
+                <div>
+
+                    <h1>Employee Details</h1>
+
+                    <p>
+                        View employee profile, employment information and salary details.
+                    </p>
+
+                </div>
+
+                <div class="employee-details-actions">
+
+                    <a
+                        href="employees.html"
+                        class="secondary-btn"
+                    >
+                        ← Back
+                    </a>
+
+                    <a
+                        href="add-employee.html"
+                        class="secondary-btn"
+                    >
+                        âœŽ Edit Employee
+                    </a>
+
+                    <a
+                        href="payroll.html"
+                        class="primary-btn"
+                    >
+                        💰 Payroll
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==============================
+                 EMPLOYEE PROFILE
+            =============================== -->
+
+            <div class="employee-profile-card">
+
+                <div class="employee-profile-left">
+
+                    <div class="large-employee-avatar">
+                        AK
+                    </div>
+
+                    <div class="employee-profile-info">
+
+                        <h2>Amit Kumar</h2>
+
+                        <p class="employee-profile-id">
+                            Employee ID: <strong>EMP001</strong>
+                        </p>
+
+                        <p>
+                            💼 Manager
+                        </p>
+
+                        <p>
+                            📅 Joined 10 January 2025
+                        </p>
+
+                        <span class="employee-detail-status">
+                            â— Active
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="employee-profile-right">
+
+                    <span class="profile-label">
+                        Monthly Salary
+                    </span>
+
+                    <strong class="profile-salary">
+                        â‚¹35,000
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==============================
+                 SUMMARY CARDS
+            =============================== -->
+
+            <div class="employee-detail-summary">
+
+                <div class="employee-detail-card">
+
+                    <div class="detail-card-icon">
+                        📅
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Working Days
+                        </span>
+
+                        <strong>
+                            26
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="employee-detail-card">
+
+                    <div class="detail-card-icon">
+                        âœ…
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Present Days
+                        </span>
+
+                        <strong>
+                            24
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="employee-detail-card">
+
+                    <div class="detail-card-icon">
+                        🕐
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Leave Days
+                        </span>
+
+                        <strong>
+                            2
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="employee-detail-card">
+
+                    <div class="detail-card-icon">
+                        💰
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Current Salary
+                        </span>
+
+                        <strong>
+                            â‚¹35,000
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==============================
+                 TWO COLUMN INFORMATION
+            =============================== -->
+
+            <div class="employee-details-grid">
+
+                <!-- PERSONAL INFORMATION -->
+
+                <div class="employee-information-card">
+
+                    <div class="information-card-header">
+
+                        <div>
+                            <h2>Personal Information</h2>
+                            <p>Basic employee information</p>
+                        </div>
+
+                        <span class="information-icon">
+                            👤
+                        </span>
+
+                    </div>
+
+
+                    <div class="employee-info-list">
+
+                        <div class="employee-info-row">
+
+                            <span>Full Name</span>
+
+                            <strong>Amit Kumar</strong>
+
+                        </div>
+
+
+                        <div class="employee-info-row">
+
+                            <span>Employee ID</span>
+
+                            <strong>EMP001</strong>
+
+                        </div>
+
+
+                        <div class="employee-info-row">
+
+                            <span>Date of Birth</span>
+
+                            <strong>15 May 2000</strong>
+
+                        </div>
+
+
+                        <div class="employee-info-row">
+
+                            <span>Gender</span>
+
+                            <strong>Male</strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONTACT INFORMATION -->
+
+                <div class="employee-information-card">
+
+                    <div class="information-card-header">
+
+                        <div>
+                            <h2>Contact Information</h2>
+                            <p>Employee contact details</p>
+                        </div>
+
+                        <span class="information-icon">
+                            📞
+                        </span>
+
+                    </div>
+
+
+                    <div class="employee-info-list">
+
+                        <div class="employee-info-row">
+
+                            <span>Phone</span>
+
+                            <strong>9876543210</strong>
+
+                        </div>
+
+
+                        <div class="employee-info-row">
+
+                            <span>Email</span>
+
+                            <strong>amit@gmail.com</strong>
+
+                        </div>
+
+
+                        <div class="employee-info-row">
+
+                            <span>City</span>
+
+                            <strong>Jalandhar</strong>
+
+                        </div>
+
+
+                        <div class="employee-info-row">
+
+                            <span>State</span>
+
+                            <strong>Punjab</strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- JOB INFORMATION -->
+
+                <div class="employee-information-card">
+
+                    <div class="information-card-header">
+
+                        <div>
+                            <h2>Job Information</h2>
+                            <p>Employment details</p>
+                        </div>
+
+                        <span class="information-icon">
+                            💼
+                        </span>
+
+                    </div>
+
+
+                    <div class="employee-info-list">
+
+                        <div class="employee-info-row">
+
+                            <span>Position</span>
+
+                            <strong>Manager</strong>
+
+                        </div>
+
+
+                        <div class="employee-info-row">
+
+                            <span>Employment Type</span>
+
+                            <strong>Full Time</strong>
+
+                        </div>
+
+
+                        <div class="employee-info-row">
+
+                            <span>Joining Date</span>
+
+                            <strong>10 Jan 2025</strong>
+
+                        </div>
+
+
+                        <div class="employee-info-row">
+
+                            <span>Status</span>
+
+                            <strong class="text-active">
+                                Active
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SALARY INFORMATION -->
+
+                <div class="employee-information-card">
+
+                    <div class="information-card-header">
+
+                        <div>
+                            <h2>Salary Information</h2>
+                            <p>Current salary details</p>
+                        </div>
+
+                        <span class="information-icon">
+                            💰
+                        </span>
+
+                    </div>
+
+
+                    <div class="employee-info-list">
+
+                        <div class="employee-info-row">
+
+                            <span>Monthly Salary</span>
+
+                            <strong>â‚¹35,000</strong>
+
+                        </div>
+
+
+                        <div class="employee-info-row">
+
+                            <span>Annual Salary</span>
+
+                            <strong>â‚¹4,20,000</strong>
+
+                        </div>
+
+
+                        <div class="employee-info-row">
+
+                            <span>Payment Method</span>
+
+                            <strong>Bank Transfer</strong>
+
+                        </div>
+
+
+                        <div class="employee-info-row">
+
+                            <span>Bank</span>
+
+                            <strong>State Bank of India</strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==============================
+                 ATTENDANCE SUMMARY
+            =============================== -->
+
+            <div class="employee-attendance-card">
+
+                <div class="information-card-header">
+
+                    <div>
+
+                        <h2>Attendance Summary</h2>
+
+                        <p>
+                            Current month attendance overview
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="attendance.html"
+                        class="small-action-btn"
+                    >
+                        View Attendance
+                    </a>
+
+                </div>
+
+
+                <div class="attendance-progress-area">
+
+                    <div class="attendance-stat">
+
+                        <span>Present</span>
+
+                        <strong>24 Days</strong>
+
+                        <div class="attendance-progress">
+
+                            <div
+                                class="attendance-progress-fill present"
+                                style="width: 92%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="attendance-stat">
+
+                        <span>Leave</span>
+
+                        <strong>2 Days</strong>
+
+                        <div class="attendance-progress">
+
+                            <div
+                                class="attendance-progress-fill leave"
+                                style="width: 8%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="attendance-stat">
+
+                        <span>Absent</span>
+
+                        <strong>0 Days</strong>
+
+                        <div class="attendance-progress">
+
+                            <div
+                                class="attendance-progress-fill absent"
+                                style="width: 0%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==============================
+                 NOTES
+            =============================== -->
+
+            <div class="employee-notes-card">
+
+                <h2>Notes</h2>
+
+                <p>
+                    Employee is responsible for daily store operations,
+                    staff coordination and inventory supervision.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/utils.js"></script>
+    <script src="../JS/database.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/employees.js"></script>
+</body>
+
+</html>
