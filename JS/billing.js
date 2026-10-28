@@ -369,6 +369,9 @@ function initializeNewBillPage() {
     const generateBtn = document.querySelector(".form-actions .primary-btn");
     if (generateBtn) {
         generateBtn.addEventListener("click", function () {
+            // Prevent accidental duplicate submission
+            if (generateBtn.disabled) return;
+
             const rows = tableBody.querySelectorAll("tr");
             const billItems = [];
 
@@ -396,7 +399,7 @@ function initializeNewBillPage() {
 
                 const product = products.find(p => p.id === prodId);
                 if (settings?.billing?.preventInsufficientStock && product && product.stock < qty) {
-                    alert(`Insufficient stock for ${product.name}! Available: ${product.stock}, requested: ${qty}.`);
+                    alert(`Insufficient stock for ${escapeHtml(product.name)}! Available: ${product.stock}, requested: ${qty}.`);
                     return;
                 }
 
@@ -490,6 +493,10 @@ function initializeNewBillPage() {
                 logActivity("Bill Generated", "Billing", `Generated bill ${generatedBillId} for ${customerName} total ₹${grandTotal.toFixed(2)}.`);
             }
 
+            // Disable button to prevent double-save
+            generateBtn.disabled = true;
+            generateBtn.textContent = "Bill Saved ✓";
+
             alert(`✓ Bill ${generatedBillId} generated successfully!`);
             window.location.href = `bill-details.html?id=${generatedBillId}`;
         });
@@ -558,7 +565,7 @@ function initializeBillDetailsPage() {
             const tr = document.createElement("tr");
             tr.innerHTML = `
                 <td>${idx + 1}</td>
-                <td>${item.productName}</td>
+                <td>${escapeHtml(item.productName)}</td>
                 <td>${item.quantity}</td>
                 <td>₹${Number(item.price).toFixed(2)}</td>
                 <td>₹${(Number(item.discount) || 0).toFixed(2)}</td>

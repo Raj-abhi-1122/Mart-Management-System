@@ -123,10 +123,10 @@ function initializeDashboard() {
                     const formattedTotal = typeof formatCurrency === "function" ? formatCurrency(b.grandTotal) : "₹" + b.grandTotal;
                     html += `
                         <tr style="border-bottom: 1px solid #f3f4f6;">
-                            <td style="padding: 10px 8px; font-weight: 600;">${b.id || b.billNumber}</td>
-                            <td style="padding: 10px 8px;">${b.customerName || "Walk-in"}</td>
+                            <td style="padding: 10px 8px; font-weight: 600;">${escapeHtml(b.id || b.billNumber || "")}</td>
+                            <td style="padding: 10px 8px;">${escapeHtml(b.customerName || "Walk-in")}</td>
                             <td style="padding: 10px 8px; font-weight: 600;">${formattedTotal}</td>
-                            <td style="padding: 10px 8px;"><span class="status ${statusClass}">${b.paymentStatus || "Paid"}</span></td>
+                            <td style="padding: 10px 8px;"><span class="status ${statusClass}">${escapeHtml(b.paymentStatus || "Paid")}</span></td>
                             <td style="padding: 10px 8px;">
                                 <a href="bill-details.html?id=${b.id}" style="color: #2563eb; font-weight: 500;">View</a>
                             </td>

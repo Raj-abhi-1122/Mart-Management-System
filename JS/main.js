@@ -128,18 +128,58 @@ function handleLogout(event) {
 }
 
 /**
+ * Maps sub-pages to their parent sidebar menu item
+ */
+const SIDEBAR_PARENT_MAP = {
+    "add-product.html":           "products.html",
+    "add-customer.html":          "customers.html",
+    "add-employee.html":          "employees.html",
+    "add-expense.html":           "expenses.html",
+    "add-supplier.html":          "suppliers.html",
+    "add-purchases.html":         "purchases.html",
+    "new-bill.html":              "billing.html",
+    "bill-details.html":          "billing.html",
+    "bill-history.html":          "billing.html",
+    "customer-details.html":      "customers.html",
+    "employee-details.html":      "employees.html",
+    "employee-attendance.html":   "attendance.html",
+    "supplier-details.html":      "suppliers.html",
+    "stock-adjustment.html":      "inventory.html",
+    "leave-management.html":      "attendance.html",
+    "payroll.html":               "employees.html",
+    "expense-details.html":       "expenses.html",
+    "profit-loss.html":           "reports.html",
+    "sales-reports.html":         "reports.html",
+    "purchase-reports.html":      "reports.html",
+    "inventory-reports.html":     "reports.html",
+    "attendance-reports.html":    "attendance.html",
+    "expense-reports.html":       "expenses.html",
+    "store-settings.html":        "settings.html",
+    "billing-settings.html":      "settings.html",
+    "billing-setting.html":       "settings.html",
+    "inventory-settings.html":    "settings.html",
+    "employee-settings.html":     "settings.html",
+    "notification-settings.html": "settings.html",
+    "backup-settings.html":       "settings.html",
+    "activity-log.html":          "settings.html",
+    "notifications.html":         "notifications.html",
+};
+
+/**
  * Highlight active menu in sidebar based on current page URL
  */
 function highlightActiveSidebarMenu() {
     const currentPath = window.location.pathname;
-    const currentFile = currentPath.substring(currentPath.lastIndexOf("/") + 1) || "dashboard.html";
+    const rawFile = currentPath.substring(currentPath.lastIndexOf("/") + 1) || "dashboard.html";
+    // Resolve to the page that should be highlighted (parent or self)
+    const targetFile = SIDEBAR_PARENT_MAP[rawFile] || rawFile;
 
     const menuItems = document.querySelectorAll(".sidebar-menu .menu-item");
     menuItems.forEach(item => {
         const href = item.getAttribute("href");
         if (href) {
             const linkFile = href.substring(href.lastIndexOf("/") + 1);
-            if (linkFile === currentFile) {
+            if (linkFile === targetFile || linkFile === rawFile) {
                 item.classList.add("active");
             } else {
                 item.classList.remove("active");

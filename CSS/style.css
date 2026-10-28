@@ -73,9 +73,11 @@ select {
 /* Logo */
 
 .sidebar-logo {
-    padding: 25px 20px;
-
+    padding: 20px 16px;
     border-bottom: 1px solid #374151;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 
@@ -91,6 +93,79 @@ select {
 
     color: #9ca3af;
 }
+
+/* Logo icon and text */
+.logo-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.logo-text h2 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 2px;
+    color: #fff;
+}
+
+.logo-text p {
+    font-size: 11px;
+    color: #9ca3af;
+    margin: 0;
+}
+
+/* Navbar right section */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav-notif-btn {
+    color: #374151;
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.nav-notif-btn:hover {
+    background: #f3f4f6;
+    color: #111;
+}
+
+.notif-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ef4444;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 10px;
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    top: 2px;
+    right: 4px;
+    font-weight: 700;
+}
+
+.admin-info {
+    font-size: 13px;
+    color: #374151;
+    font-weight: 500;
+    background: #f9fafb;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid #e5e7eb;
+    white-space: nowrap;
+}
+
+
 
 
 /* Sidebar menu */

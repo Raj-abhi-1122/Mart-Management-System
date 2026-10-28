@@ -205,6 +205,112 @@ function initializeBackupSettingsPage() {
     }
 }
 
+
+
+/* =========================================================
+   4. INVENTORY SETTINGS PAGE (inventory-settings.html)
+   ========================================================= */
+function initializeInventorySettingsPage() {
+    var form = document.querySelector('form');
+    if (!form) return;
+
+    var settings = getSettings();
+    var inv = settings.inventory || {};
+
+    var lowStockInp    = document.getElementById('lowStockThreshold');
+    var criticalInp    = document.getElementById('criticalThreshold');
+    var autoReorderChk = document.getElementById('autoReorder');
+    var defaultUnitSel = document.getElementById('defaultUnit');
+
+    if (lowStockInp)    lowStockInp.value     = inv.lowStockThreshold !== undefined ? inv.lowStockThreshold : 10;
+    if (criticalInp)    criticalInp.value     = inv.criticalThreshold  !== undefined ? inv.criticalThreshold : 5;
+    if (autoReorderChk) autoReorderChk.checked = !!inv.autoReorder;
+    if (defaultUnitSel) defaultUnitSel.value  = inv.defaultUnit || 'Pcs';
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        settings.inventory = {
+            lowStockThreshold : lowStockInp    ? Number(lowStockInp.value)    : 10,
+            criticalThreshold : criticalInp    ? Number(criticalInp.value)    : 5,
+            autoReorder       : autoReorderChk ? autoReorderChk.checked       : false,
+            defaultUnit       : defaultUnitSel ? defaultUnitSel.value         : 'Pcs'
+        };
+        saveSettings(settings);
+        if (typeof logActivity === 'function') logActivity('Settings Updated', 'Settings', 'Inventory thresholds updated.');
+        if (typeof showToast === 'function') showToast('Inventory settings saved.', 'success');
+        else alert('Inventory settings saved.');
+    });
+}
+
+
+/* =========================================================
+   5. EMPLOYEE SETTINGS PAGE (employee-settings.html)
+   ========================================================= */
+function initializeEmployeeSettingsPage() {
+    var form = document.querySelector('form');
+    if (!form) return;
+
+    var settings = getSettings();
+    var emp = settings.employee || {};
+
+    var workHoursInp    = document.getElementById('workHoursPerDay');
+    var workDaysInp     = document.getElementById('workDaysPerMonth');
+    var overtimeRateInp = document.getElementById('overtimeRate');
+    var payDayInp       = document.getElementById('salaryPayDay');
+
+    if (workHoursInp)    workHoursInp.value    = emp.workHoursPerDay  !== undefined ? emp.workHoursPerDay  : 8;
+    if (workDaysInp)     workDaysInp.value     = emp.workDaysPerMonth  !== undefined ? emp.workDaysPerMonth : 26;
+    if (overtimeRateInp) overtimeRateInp.value = emp.overtimeRate      !== undefined ? emp.overtimeRate     : 1.5;
+    if (payDayInp)       payDayInp.value       = emp.salaryPayDay      !== undefined ? emp.salaryPayDay     : 1;
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        settings.employee = {
+            workHoursPerDay  : workHoursInp    ? Number(workHoursInp.value)    : 8,
+            workDaysPerMonth : workDaysInp     ? Number(workDaysInp.value)     : 26,
+            overtimeRate     : overtimeRateInp ? Number(overtimeRateInp.value) : 1.5,
+            salaryPayDay     : payDayInp       ? Number(payDayInp.value)       : 1
+        };
+        saveSettings(settings);
+        if (typeof logActivity === 'function') logActivity('Settings Updated', 'Settings', 'Employee payroll defaults updated.');
+        if (typeof showToast === 'function') showToast('Employee settings saved.', 'success');
+        else alert('Employee settings saved.');
+    });
+}
+
+
+/* =========================================================
+   6. NOTIFICATION SETTINGS PAGE (notification-settings.html)
+   ========================================================= */
+function initializeNotificationSettingsPage() {
+    var form = document.querySelector('form');
+    if (!form) return;
+
+    var settings = getSettings();
+    var notif = settings.notifications || {};
+
+    // Restore all checkboxes from saved state
+    var allChecks = form.querySelectorAll('input[type="checkbox"]');
+    allChecks.forEach(function(chk) {
+        var key = chk.id || chk.name;
+        if (key && notif[key] !== undefined) chk.checked = notif[key];
+    });
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var updated = {};
+        allChecks.forEach(function(chk) {
+            var key = chk.id || chk.name;
+            if (key) updated[key] = chk.checked;
+        });
+        settings.notifications = updated;
+        saveSettings(settings);
+        if (typeof logActivity === 'function') logActivity('Settings Updated', 'Settings', 'Notification preferences updated.');
+        if (typeof showToast === 'function') showToast('Notification settings saved.', 'success');
+        else alert('Notification settings saved.');
+    });
+}
+
 /* =========================================================
    ROUTER INITIALIZATION
    ========================================================= */
@@ -217,5 +323,11 @@ document.addEventListener("DOMContentLoaded", function () {
         initializeBillingSettingsPage();
     } else if (path.includes("backup-settings.html")) {
         initializeBackupSettingsPage();
+    } else if (path.includes("inventory-settings.html")) {
+        initializeInventorySettingsPage();
+    } else if (path.includes("employee-settings.html")) {
+        initializeEmployeeSettingsPage();
+    } else if (path.includes("notification-settings.html")) {
+        initializeNotificationSettingsPage();
     }
 });

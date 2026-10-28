@@ -121,11 +121,11 @@ function displayProducts(products = null) {
 
         row.innerHTML = `
 
-            <td>${product.id}</td>
+            <td>${escapeHtml(product.id)}</td>
 
-            <td>${product.name}</td>
+            <td>${escapeHtml(product.name)}</td>
 
-            <td>${product.category}</td>
+            <td>${escapeHtml(product.category)}</td>
 
             <td>
                 ${formatCurrency(product.sellingPrice)}
@@ -143,14 +143,14 @@ function displayProducts(products = null) {
 
                 <button
                     class="edit-btn"
-                    onclick="editProduct('${product.id}')"
+                    onclick="editProduct('${escapeHtml(product.id)}')"
                 >
                     Edit
                 </button>
 
                 <button
                     class="delete-btn"
-                    onclick="deleteProduct('${product.id}')"
+                    onclick="deleteProduct('${escapeHtml(product.id)}')"
                 >
                     Delete
                 </button>

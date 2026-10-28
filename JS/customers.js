@@ -309,7 +309,7 @@ function initializeCustomerDetailsPage() {
 
     const profilePList = profileSection.querySelectorAll(".profile-info p");
     if (profilePList.length >= 3) {
-        profilePList[0].innerHTML = `Customer ID: <strong>${customer.id}</strong>`;
+        profilePList[0].innerHTML = `Customer ID: <strong>${escapeHtml(customer.id)}</strong>`;
         profilePList[1].innerHTML = `📞 ${customer.phone || "N/A"}`;
         profilePList[2].innerHTML = `✉️ ${customer.email || "N/A"}`;
     }

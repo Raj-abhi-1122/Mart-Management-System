@@ -139,3 +139,38 @@ function isRequired(value) {
         String(value).trim() !== ""
     );
 }
+
+
+/*
+    Escape HTML special characters to prevent XSS.
+    Use whenever inserting user-supplied data via innerHTML.
+
+    Example:
+    escapeHtml('<script>alert(1)</script>')
+    -> '&lt;script&gt;alert(1)&lt;/script&gt;'
+*/
+
+function escapeHtml(str) {
+    var map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+    return String(str === null || str === undefined ? '' : str).replace(/[&<>"']/g, function(c) { return map[c]; });
+}
+
+
+/*
+    Truncate a string to maxLen characters, appending '...' if truncated.
+*/
+
+function truncate(str, maxLen) {
+    maxLen = maxLen || 50;
+    var s = String(str === null || str === undefined ? '' : str);
+    return s.length > maxLen ? s.slice(0, maxLen) + '...' : s;
+}
+
+
+/*
+    Deep-clone a plain object safely via JSON.
+*/
+
+function deepClone(obj) {
+    try { return JSON.parse(JSON.stringify(obj)); } catch (e) { return obj; }
+}
