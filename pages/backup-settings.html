@@ -471,7 +471,7 @@
                     <input
                         type="file"
                         id="backupFile"
-                        accept=".json,.csv,.xlsx,.zip"
+                        accept=".json,application/json"
                     >
 
                     <button
@@ -650,10 +650,8 @@
 
                 <strong>ℹ️ Frontend Mode:</strong>
 
-                Backup, restore, export and database operations are
-                currently UI placeholders. Actual data storage,
-                backup files, database connection and restore functionality
-                will be implemented in later phases.
+                Backup, restore and export use this browser's LocalStorage.
+                They do not connect to an external database or cloud backup service.
 
             </div>
 

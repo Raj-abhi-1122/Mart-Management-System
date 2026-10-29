@@ -27,17 +27,22 @@ function initializeNotificationsPage() {
     const prioritySelect = document.getElementById("notificationPriority");
 
     // "Mark All as Read" button
-    const headerActions = document.querySelector(".page-header");
-    if (headerActions && !document.getElementById("markAllReadBtn")) {
-        const markAllBtn = document.createElement("button");
+    const headerActions = document.querySelector(".notification-header-actions") || document.querySelector(".page-header");
+    let markAllBtn = document.getElementById("markAllReadBtn");
+    if (headerActions && !markAllBtn) {
+        markAllBtn = document.createElement("button");
         markAllBtn.id = "markAllReadBtn";
+        markAllBtn.type = "button";
         markAllBtn.className = "primary-btn";
         markAllBtn.textContent = "✓ Mark All as Read";
-        headerActions.appendChild(markAllBtn);
-
+        headerActions.prepend(markAllBtn);
+    }
+    if (markAllBtn && !markAllBtn.dataset.handlerAttached) {
+        markAllBtn.dataset.handlerAttached = "true";
         markAllBtn.addEventListener("click", function () {
-            notifications.forEach(n => n.read = true);
-            saveNotifications(notifications);
+            const updated = getNotifications().map(n => ({ ...n, read: true }));
+            if (!saveNotifications(updated)) { if (typeof showToast === "function") showToast("Notifications could not be updated.", "error"); return; }
+            notifications = updated;
             renderNotifications();
             if (typeof showToast === "function") showToast("All notifications marked as read.");
         });
@@ -63,6 +68,21 @@ function initializeNotificationsPage() {
         const countSpan = document.querySelector(".notification-count");
         const unreadCount = notifications.filter(n => !n.read).length;
         if (countSpan) countSpan.textContent = `${unreadCount} Unread`;
+
+        const categoryCounts = { "Inventory Alerts": 0, "Payment Alerts": 0, "Employee Alerts": 0, "System Alerts": 0 };
+        notifications.forEach(notif => {
+            if (notif.type === "Inventory") categoryCounts["Inventory Alerts"]++;
+            else if (["Billing", "Purchase"].includes(notif.type)) categoryCounts["Payment Alerts"]++;
+            else if (["Employee", "Attendance", "Leave", "Payroll"].includes(notif.type)) categoryCounts["Employee Alerts"]++;
+            else categoryCounts["System Alerts"]++;
+        });
+        document.querySelectorAll(".notification-category-card").forEach(card => {
+            const heading = card.querySelector("h3")?.textContent.trim();
+            const count = card.querySelector("strong");
+            if (count && categoryCounts[heading] !== undefined) count.textContent = `${categoryCounts[heading]} Notifications`;
+        });
+        const infoNote = document.querySelector(".notification-center .info-note, .page-content .info-note");
+        if (infoNote) infoNote.textContent = "Notifications are stored in this browser and generated from current inventory and payment conditions, plus actions recorded in the system.";
 
         // Clear existing items in panel (except header)
         const items = notifPanel.querySelectorAll(".notification-item");
@@ -99,28 +119,68 @@ function initializeNotificationsPage() {
                 icon = "🛒";
                 link = "purchases.html";
                 linkText = "View Purchases";
+            } else if (notif.type === "Expense") {
+                icon = "💸";
+                link = "expenses.html";
+                linkText = "View Expenses";
+            } else if (["Employee", "Attendance", "Leave", "Payroll"].includes(notif.type)) {
+                icon = "👥";
+                link = notif.type === "Leave" ? "leave-management.html" : notif.type === "Payroll" ? "payroll.html" : "attendance.html";
+                linkText = "View Staff";
             }
 
-            div.innerHTML = `
-                <div class="notification-item-icon">${icon}</div>
-                <div class="notification-item-content">
-                    <div class="notification-item-title">
-                        <h3>${notif.title}</h3>
-                        <span class="notification-badge ${priorityLower}-badge" style="text-transform: capitalize;">
-                            ${notif.priority || "Normal"}
-                        </span>
-                    </div>
-                    <p>${notif.message}</p>
-                    <span class="notification-time">${notif.date || "Today"}</span>
-                </div>
-                <div class="notification-item-action" style="display:flex; align-items:center; gap:8px;">
-                    <a href="${link}" class="action-btn" style="text-decoration:none;">${linkText}</a>
-                    ${!notif.read ? `
-                        <button class="action-btn mark-read-btn" data-id="${notif.id}" style="color:#10b981; border-color:#10b981;">✓ Read</button>
-                    ` : ""}
-                    <button class="action-btn del-notif-btn" data-id="${notif.id}" style="color:#ef4444; border-color:#ef4444;">🗑</button>
-                </div>
-            `;
+            const iconNode = document.createElement("div");
+            iconNode.className = "notification-item-icon";
+            iconNode.textContent = icon;
+
+            const content = document.createElement("div");
+            content.className = "notification-item-content";
+            const titleRow = document.createElement("div");
+            titleRow.className = "notification-item-title";
+            const title = document.createElement("h3");
+            title.textContent = String(notif.title || "Notification");
+            const priority = document.createElement("span");
+            priority.className = `notification-badge ${["low", "medium", "high", "critical"].includes(priorityLower) ? priorityLower : "medium"}-badge`;
+            priority.style.textTransform = "capitalize";
+            priority.textContent = String(notif.priority || "Normal");
+            titleRow.append(title, priority);
+            const message = document.createElement("p");
+            message.textContent = String(notif.message || "");
+            const time = document.createElement("span");
+            time.className = "notification-time";
+            const timestamp = notif.createdAt ? new Date(notif.createdAt) : null;
+            time.textContent = timestamp && !Number.isNaN(timestamp.valueOf())
+                ? `${notif.date || ""} ${timestamp.toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" })}`.trim()
+                : String(notif.date || "Today");
+            content.append(titleRow, message, time);
+
+            const actions = document.createElement("div");
+            actions.className = "notification-item-action";
+            actions.style.cssText = "display:flex; align-items:center; gap:8px;";
+            const viewLink = document.createElement("a");
+            viewLink.href = link;
+            viewLink.className = "action-btn";
+            viewLink.style.textDecoration = "none";
+            viewLink.textContent = linkText;
+            actions.appendChild(viewLink);
+            if (!notif.read) {
+                const readButton = document.createElement("button");
+                readButton.type = "button";
+                readButton.className = "action-btn mark-read-btn";
+                readButton.dataset.id = String(notif.id || "");
+                readButton.style.cssText = "color:#10b981; border-color:#10b981;";
+                readButton.textContent = "✓ Read";
+                actions.appendChild(readButton);
+            }
+            const deleteButton = document.createElement("button");
+            deleteButton.type = "button";
+            deleteButton.className = "action-btn del-notif-btn";
+            deleteButton.dataset.id = String(notif.id || "");
+            deleteButton.style.cssText = "color:#ef4444; border-color:#ef4444;";
+            deleteButton.setAttribute("aria-label", "Delete notification");
+            deleteButton.textContent = "🗑";
+            actions.appendChild(deleteButton);
+            div.append(iconNode, content, actions);
             notifPanel.appendChild(div);
         });
 
@@ -128,21 +188,28 @@ function initializeNotificationsPage() {
         notifPanel.querySelectorAll(".mark-read-btn").forEach(btn => {
             btn.addEventListener("click", function () {
                 const id = this.getAttribute("data-id");
-                const item = notifications.find(n => n.id === id);
-                if (item) {
-                    item.read = true;
-                    saveNotifications(notifications);
-                    renderNotifications();
-                }
+                const updated = notifications.map(n => String(n.id) === id ? { ...n, read: true } : n);
+                if (!saveNotifications(updated)) { if (typeof showToast === "function") showToast("Notification could not be marked as read.", "error"); return; }
+                notifications = updated;
+                applyFilters();
             });
         });
 
         notifPanel.querySelectorAll(".del-notif-btn").forEach(btn => {
             btn.addEventListener("click", function () {
                 const id = this.getAttribute("data-id");
-                notifications = notifications.filter(n => n.id !== id);
-                saveNotifications(notifications);
-                renderNotifications();
+                if (!window.confirm("Delete this notification?")) return;
+                const current = notifications.find(n => String(n.id) === id);
+                const updated = notifications.filter(n => String(n.id) !== id);
+                if (current?.conditionKey) {
+                    const settings = Storage.get(STORAGE_KEYS.SETTINGS, DEFAULT_SETTINGS);
+                    settings.notifications = settings.notifications || {};
+                    settings.notifications.dismissedConditions = Array.from(new Set([...(settings.notifications.dismissedConditions || []), current.conditionKey]));
+                    if (!Storage.setMany([[STORAGE_KEYS.SETTINGS, settings], [STORAGE_KEYS.NOTIFICATIONS, updated]])) { if (typeof showToast === "function") showToast("Notification could not be deleted.", "error"); return; }
+                    if (typeof updateNavbarNotifications === "function") updateNavbarNotifications();
+                } else if (!saveNotifications(updated)) { if (typeof showToast === "function") showToast("Notification could not be deleted.", "error"); return; }
+                notifications = updated;
+                applyFilters();
             });
         });
     }

@@ -93,9 +93,15 @@ function initializeCustomersListPage() {
         tableBody.querySelectorAll(".delete-cust-btn").forEach(btn => {
             btn.addEventListener("click", function() {
                 const id = this.getAttribute("data-id");
+                const customer = customers.find(item => item.id === id);
+                const referenced = Storage.get(STORAGE_KEYS.BILLS, []).some(bill => bill.customerId === id);
+                if (referenced || (Number(customer?.amountDue) || 0) > 0) {
+                    alert("This customer has bill history or an outstanding balance and cannot be deleted. Keep the record to preserve account history.");
+                    return;
+                }
                 if (confirm("Are you sure you want to delete this customer?")) {
                     const updated = customers.filter(c => c.id !== id);
-                    saveCustomers(updated);
+                    if (!saveCustomers(updated)) { alert("Customer could not be deleted because storage did not complete the update."); return; }
                     if (typeof logActivity === "function") {
                         logActivity("Customer Deleted", "Customers", `Deleted customer ID: ${id}`);
                     }
@@ -184,6 +190,11 @@ function initializeAddCustomerPage() {
 
     if (editId) {
         editingCustomer = customers.find(c => c.id === editId);
+        if (!editingCustomer) {
+            alert("Customer record not found. No new customer was created.");
+            window.location.href = "customers.html";
+            return;
+        }
         if (editingCustomer) {
             const headerH1 = document.querySelector(".page-header h1");
             if (headerH1) headerH1.textContent = "Edit Customer";
@@ -210,7 +221,8 @@ function initializeAddCustomerPage() {
     } else {
         // Auto-generate customer ID
         if (idInput) {
-            const nextIdNum = 101 + customers.length;
+            let nextIdNum = 101;
+            while (customers.some(customer => customer.id === `CUS-${nextIdNum}`)) nextIdNum++;
             idInput.value = `CUS-${nextIdNum}`;
         }
     }
@@ -236,13 +248,22 @@ function initializeAddCustomerPage() {
         const id = idInput ? idInput.value.trim() : `CUS-${Date.now()}`;
 
         // Check duplicate phone if new
-        if (!editingCustomer && customers.some(c => c.phone === phone)) {
-            if (!confirm(`A customer with phone number ${phone} already exists. Do you still want to proceed?`)) {
-                return;
-            }
+        const duplicatePhone = customers.find(c => String(c.phone || "").trim() === phone && c.id !== editingCustomer?.id);
+        if (duplicatePhone) {
+            alert("A customer with this phone number already exists.");
+            if (phoneInput) phoneInput.focus();
+            return;
+        }
+
+        const amountDue = openingDueInput ? Number(openingDueInput.value) : 0;
+        const creditLimit = creditLimitInput ? Number(creditLimitInput.value) : 0;
+        if (!Number.isFinite(amountDue) || amountDue < 0 || !Number.isFinite(creditLimit) || creditLimit < 0) {
+            alert("Customer balance and credit limit must be valid non-negative amounts.");
+            return;
         }
 
         const customerData = {
+            ...(editingCustomer || {}),
             id: id,
             name: name,
             phone: phone,
@@ -253,8 +274,8 @@ function initializeAddCustomerPage() {
             city: cityInput ? cityInput.value.trim() : "",
             state: stateInput ? stateInput.value.trim() : "",
             pinCode: pinInput ? pinInput.value.trim() : "",
-            amountDue: openingDueInput ? (Number(openingDueInput.value) || 0) : 0,
-            creditLimit: creditLimitInput ? (Number(creditLimitInput.value) || 0) : 0,
+            amountDue: editingCustomer ? (Number(editingCustomer.amountDue) || 0) : amountDue,
+            creditLimit,
             paymentTerms: paymentTermsSelect ? paymentTermsSelect.value : "Cash Only",
             customerType: customerTypeSelect ? customerTypeSelect.value : "Regular Customer",
             notes: notesInput ? notesInput.value.trim() : "",
@@ -272,7 +293,10 @@ function initializeAddCustomerPage() {
             customers.push(customerData);
         }
 
-        saveCustomers(customers);
+        if (!saveCustomers(customers)) {
+            alert("Customer could not be saved. Please check browser storage and try again.");
+            return;
+        }
 
         if (typeof logActivity === "function") {
             logActivity(editingCustomer ? "Customer Updated" : "Customer Added", "Customers", `${editingCustomer ? "Updated" : "Added"} customer ${name} (${id}).`);
@@ -296,12 +320,15 @@ function initializeCustomerDetailsPage() {
     const customers = getCustomers();
     const bills = Storage.get(STORAGE_KEYS.BILLS, []);
 
-    const customer = customers.find(c => c.id === customerId) || customers[0];
+    const customer = customers.find(c => c.id === customerId);
 
     if (!customer) {
-        profileSection.innerHTML = `<div style="padding: 30px; text-align: center;">No customer found.</div>`;
+        window.location.replace("customers.html");
         return;
     }
+
+    const newBillLink = document.getElementById("customerNewBillLink");
+    if (newBillLink) newBillLink.href = `new-bill.html?customerId=${encodeURIComponent(customer.id)}`;
 
     // 1. Profile header
     const nameH2 = profileSection.querySelector(".profile-info h2");

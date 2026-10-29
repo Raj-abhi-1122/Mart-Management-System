@@ -52,8 +52,8 @@ function initializePurchasesListPage() {
 
         list.slice().reverse().forEach(purchase => {
             const tr = document.createElement("tr");
-            const status = purchase.paymentStatus || (Number(purchase.dueAmount) <= 0 ? "Paid" : "Partial");
-            const statusClass = status.toLowerCase() === "paid" ? "active" : status.toLowerCase() === "partial" ? "partial" : "due";
+            const status = purchase.cancelled ? "Cancelled" : (purchase.paymentStatus || (Number(purchase.dueAmount) <= 0 ? "Paid" : "Partial"));
+            const statusClass = status.toLowerCase() === "paid" ? "active" : status.toLowerCase() === "partial" ? "partial" : status.toLowerCase() === "cancelled" ? "inactive" : "due";
             const itemCount = Array.isArray(purchase.items) ? purchase.items.reduce((sum, i) => sum + (Number(i.quantity) || 1), 0) : 1;
             const formattedTotal = typeof formatCurrency === "function" ? formatCurrency(purchase.grandTotal) : "₹" + purchase.grandTotal;
             const formattedPaid = typeof formatCurrency === "function" ? formatCurrency(purchase.paidAmount) : "₹" + (purchase.paidAmount || 0);
@@ -70,25 +70,54 @@ function initializePurchasesListPage() {
                 <td style="color: ${Number(purchase.dueAmount) > 0 ? '#ef4444' : '#6b7280'}; font-weight: 600;">${formattedDue}</td>
                 <td><span class="status ${statusClass}">${status}</span></td>
                 <td>
-                    <button class="action-btn delete-purch-btn" data-id="${purchase.id}" style="color: #ef4444; border-color: #ef4444;">
-                        Delete
+                    <button class="action-btn cancel-purch-btn" data-id="${purchase.id}" ${purchase.cancelled ? "disabled" : ""} style="color: #ef4444; border-color: #ef4444;">
+                        ${purchase.cancelled ? "Cancelled" : "Cancel Purchase"}
                     </button>
                 </td>
             `;
             tableBody.appendChild(tr);
         });
 
-        tableBody.querySelectorAll(".delete-purch-btn").forEach(btn => {
+        tableBody.querySelectorAll(".cancel-purch-btn").forEach(btn => {
             btn.addEventListener("click", function () {
                 const id = this.getAttribute("data-id");
-                if (confirm("Are you sure you want to delete this purchase record?")) {
-                    const updated = purchases.filter(p => p.id !== id);
-                    savePurchases(updated);
-                    if (typeof logActivity === "function") {
-                        logActivity("Purchase Deleted", "Purchases", `Deleted purchase record ID ${id}`);
+                const currentPurchases = getPurchases();
+                const purchase = currentPurchases.find(p => String(p.id) === String(id));
+                if (!purchase || purchase.cancelled) return;
+                const due = Number(purchase.dueAmount) || 0;
+                if (due > 0) { alert("Settle or remove the outstanding supplier balance before cancelling this purchase."); return; }
+                if (!confirm(`Cancel purchase ${purchase.invoiceNumber || id}? Its quantities will be removed from stock and the record retained for audit.`)) return;
+
+                const currentProducts = Storage.get(STORAGE_KEYS.PRODUCTS, []);
+                const inventory = Storage.get(STORAGE_KEYS.INVENTORY, []);
+                const adjustments = Storage.get(STORAGE_KEYS.STOCK_ADJUSTMENTS, []);
+                const suppliersNow = Storage.get(STORAGE_KEYS.SUPPLIERS, []);
+                const supplier = suppliersNow.find(s => String(s.id) === String(purchase.supplierId));
+                if (due > 0 && !supplier) { alert("Supplier record is missing; cancellation cannot safely update the balance."); return; }
+                const productUpdates = currentProducts.map(p => ({ ...p }));
+                const inventoryUpdates = inventory.map(i => ({ ...i }));
+                const newAdjustments = adjustments.slice();
+                for (const item of (purchase.items || [])) {
+                    const product = productUpdates.find(p => String(p.id) === String(item.productId));
+                    const inv = inventoryUpdates.find(i => String(i.productId) === String(item.productId));
+                    const quantity = Number(item.quantity);
+                    if (!product || !Number.isFinite(quantity) || quantity <= 0 || Number(product.stock) < quantity || (inv && Number(inv.currentStock) < quantity)) {
+                        alert(`Stock for ${item.productName || item.productId} has changed and cannot be safely reversed. Adjust stock first.`);
+                        return;
                     }
-                    initializePurchasesListPage();
+                    product.stock = Number(product.stock) - quantity;
+                    if (inv) {
+                        inv.currentStock = Number(inv.currentStock) - quantity;
+                        inv.stockStatus = inv.currentStock <= 0 ? "Out of Stock" : inv.currentStock <= Number(inv.minimumStock || 0) ? "Low Stock" : "In Stock";
+                    }
+                    newAdjustments.push({ id: `ADJ-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`, productId: product.id, productName: product.name, adjustmentType: "Decrease", quantity, previousStock: Number(product.stock) + quantity, newStock: Number(product.stock), reason: `Purchase Cancellation (${purchase.invoiceNumber || id})`, notes: "Stock reversed when the purchase was cancelled.", date: new Date().toISOString().slice(0, 10), adjustedBy: "Owner", createdAt: new Date().toISOString() });
                 }
+                const updatedPurchases = currentPurchases.map(p => String(p.id) === String(id) ? { ...p, cancelled: true, cancelledAt: new Date().toISOString(), paymentStatus: "Cancelled" } : p);
+                const entries = [[STORAGE_KEYS.PURCHASES, updatedPurchases], [STORAGE_KEYS.PRODUCTS, productUpdates], [STORAGE_KEYS.INVENTORY, inventoryUpdates], [STORAGE_KEYS.STOCK_ADJUSTMENTS, newAdjustments]];
+                if (due > 0) { supplier.openingBalance = Math.max(0, (Number(supplier.openingBalance) || 0) - due); entries.push([STORAGE_KEYS.SUPPLIERS, suppliersNow]); }
+                if (!Storage.setMany(entries)) { alert("Purchase cancellation failed; no changes were saved."); return; }
+                if (typeof logActivity === "function") logActivity("Purchase Cancelled", "Purchases", `Cancelled purchase ${purchase.invoiceNumber || id} and reversed its stock.`);
+                window.location.reload();
             });
         });
     }
@@ -112,7 +141,7 @@ function initializePurchasesListPage() {
 
             let matchesStatus = true;
             if (selectedStatus && selectedStatus !== "All Status") {
-                matchesStatus = (p.paymentStatus || "").toLowerCase() === selectedStatus.toLowerCase();
+                matchesStatus = (p.cancelled ? "cancelled" : (p.paymentStatus || "")).toLowerCase() === selectedStatus.toLowerCase();
             }
 
             return matchesSearch && matchesSupplier && matchesStatus;
@@ -321,12 +350,15 @@ function initializeAddPurchasePage() {
             }
 
             const supplier = suppliers.find(s => s.id === supplierId);
+            if (!supplier || supplier.status === "Inactive") { alert("Select an active supplier."); return; }
             const invoiceNumber = invoiceInput ? invoiceInput.value.trim() : "";
             if (!invoiceNumber) {
                 alert("Please enter an invoice number.");
                 invoiceInput?.focus();
                 return;
             }
+            const currentPurchases = getPurchases();
+            if (currentPurchases.some(p => String(p.invoiceNumber || "").toLowerCase() === invoiceNumber.toLowerCase())) { alert("That supplier invoice number is already recorded."); invoiceInput?.focus(); return; }
 
             const paymentMethodSelect = document.getElementById("purchasePaymentMethod");
             const paymentMethod = paymentMethodSelect ? paymentMethodSelect.value : "Bank Transfer";
@@ -353,12 +385,13 @@ function initializeAddPurchasePage() {
                     return;
                 }
 
-                if (qty <= 0) {
-                    alert(`Quantity must be greater than zero in row ${i + 1}.`);
+                if (!Number.isFinite(qty) || qty <= 0 || !Number.isFinite(cost) || cost < 0 || !Number.isFinite(discount) || discount < 0 || discount > qty * cost) {
+                    alert(`Enter a valid quantity, cost, and discount in row ${i + 1}.`);
                     return;
                 }
 
                 const product = products.find(p => p.id === prodId);
+                if (!product) { alert(`The selected product in row ${i + 1} no longer exists.`); return; }
                 items.push({
                     productId: prodId,
                     productName: product ? product.name : "Product",
@@ -379,6 +412,7 @@ function initializeAddPurchasePage() {
             const totalDiscount = items.reduce((sum, item) => sum + item.discount, 0);
             const grandTotal = Math.max(0, subtotal - totalDiscount);
             const paid = Number(paidInput ? paidInput.value : grandTotal) || 0;
+            if (!Number.isFinite(paid) || paid < 0 || paid > grandTotal) { alert("Paid amount must be between zero and the purchase total."); paidInput?.focus(); return; }
             const due = Math.max(0, grandTotal - paid);
 
             const newPurchase = {
@@ -401,39 +435,39 @@ function initializeAddPurchasePage() {
 
             // 1. Save purchase
             const purchases = getPurchases();
+            if (purchases.some(p => String(p.invoiceNumber || "").toLowerCase() === invoiceNumber.toLowerCase())) { alert("That supplier invoice number was just recorded. Reload and try again."); return; }
             purchases.push(newPurchase);
-            savePurchases(purchases);
 
             // 2. Increase stock in products and inventory
-            const inventory = Storage.get(STORAGE_KEYS.INVENTORY, []);
+            const productUpdates = products.map(p => ({ ...p }));
+            const inventory = Storage.get(STORAGE_KEYS.INVENTORY, []).map(i => ({ ...i }));
             items.forEach(item => {
-                const prod = products.find(p => p.id === item.productId);
+                const prod = productUpdates.find(p => p.id === item.productId);
                 if (prod) {
-                    prod.stock = Number(prod.stock) + item.quantity;
+                    prod.stock = (Number(prod.stock) || 0) + item.quantity;
                     prod.purchasePrice = item.purchasePrice; // update cost
                 }
-                const inv = inventory.find(i => i.productId === item.productId);
-                if (inv) {
-                    inv.currentStock = Number(inv.currentStock) + item.quantity;
-                    inv.unitCost = item.purchasePrice;
-                    if (inv.currentStock <= 0) inv.stockStatus = "Out of Stock";
-                    else if (inv.currentStock <= inv.minimumStock) inv.stockStatus = "Low Stock";
-                    else inv.stockStatus = "In Stock";
-                }
+                let inv = inventory.find(i => i.productId === item.productId);
+                if (!inv) { inv = { id: `INV-${item.productId}`, productId: item.productId, productName: item.productName, currentStock: 0, minimumStock: Number(prod?.minimumStock) || 0, unitCost: item.purchasePrice }; inventory.push(inv); }
+                inv.currentStock = (Number(inv.currentStock) || 0) + item.quantity;
+                inv.unitCost = item.purchasePrice;
+                inv.productName = item.productName;
+                inv.stockStatus = inv.currentStock <= 0 ? "Out of Stock" : inv.currentStock <= Number(inv.minimumStock || 0) ? "Low Stock" : "In Stock";
             });
-            Storage.set(STORAGE_KEYS.PRODUCTS, products);
-            Storage.set(STORAGE_KEYS.INVENTORY, inventory);
 
             // 3. Update supplier dues if any
             if (supplier && due > 0) {
                 supplier.openingBalance = (Number(supplier.openingBalance) || 0) + due;
-                Storage.set(STORAGE_KEYS.SUPPLIERS, suppliers);
             }
+            const entries = [[STORAGE_KEYS.PURCHASES, purchases], [STORAGE_KEYS.PRODUCTS, productUpdates], [STORAGE_KEYS.INVENTORY, inventory]];
+            if (supplier && due > 0) entries.push([STORAGE_KEYS.SUPPLIERS, suppliers]);
+            if (!Storage.setMany(entries)) { alert("Purchase could not be saved. No changes were applied; please try again."); return; }
 
             // 4. Log activity
             if (typeof logActivity === "function") {
                 logActivity("Purchase Created", "Purchases", `Recorded purchase ${invoiceNumber} from ${supplier ? supplier.name : "Supplier"} for ₹${grandTotal.toFixed(2)}.`);
             }
+            if (typeof refreshConditionNotifications === "function") refreshConditionNotifications();
 
             alert(`✓ Purchase ${invoiceNumber} saved and stock successfully restocked!`);
             window.location.href = "purchases.html";

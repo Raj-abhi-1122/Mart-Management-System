@@ -304,6 +304,17 @@ function deleteProduct(productId) {
 
     }
 
+    const bills = Storage.get(STORAGE_KEYS.BILLS, []);
+    const purchases = Storage.get(STORAGE_KEYS.PURCHASES, []);
+    const adjustments = Storage.get(STORAGE_KEYS.STOCK_ADJUSTMENTS, []);
+    const hasHistory = bills.some(bill => (bill.items || []).some(item => item.productId === productId))
+        || purchases.some(purchase => (purchase.items || []).some(item => item.productId === productId))
+        || adjustments.some(adjustment => adjustment.productId === productId);
+    if (hasHistory) {
+        alert("This product has bill, purchase, or stock adjustment history and cannot be deleted. Keep it to preserve those records.");
+        return;
+    }
+
 
     const confirmation =
         confirm(
@@ -326,9 +337,15 @@ function deleteProduct(productId) {
         });
 
 
-    saveProducts(
-        updatedProducts
-    );
+    const inventory = Storage.get(STORAGE_KEYS.INVENTORY, []);
+    const updatedInventory = inventory.filter(item => item.productId !== productId);
+    if (!Storage.setMany([
+        [STORAGE_KEYS.PRODUCTS, updatedProducts],
+        [STORAGE_KEYS.INVENTORY, updatedInventory]
+    ])) {
+        alert("Product could not be deleted because storage did not complete the update.");
+        return;
+    }
 
 
     alert(
@@ -368,14 +385,7 @@ function editProduct(productId) {
     }
 
 
-    localStorage.setItem(
-        "mms_edit_product_id",
-        productId
-    );
-
-
-    window.location.href =
-        "add-product.html";
+    window.location.href = `add-product.html?id=${encodeURIComponent(productId)}`;
 
 }
 
@@ -483,10 +493,8 @@ function initializeProductForm() {
     }
 
 
-    const editProductId =
-        localStorage.getItem(
-            "mms_edit_product_id"
-        );
+    const editProductId = new URLSearchParams(window.location.search).get("id");
+    localStorage.removeItem("mms_edit_product_id");
 
 
     /*
@@ -752,6 +760,11 @@ function saveProductFromForm() {
 
     }
 
+    if (minimumStock < 0 || !Number.isFinite(purchasePrice) || !Number.isFinite(sellingPrice) || !Number.isFinite(quantity)) {
+        alert("Prices and stock values must be valid non-negative numbers.");
+        return;
+    }
+
 
     /*
         GET EXISTING PRODUCTS
@@ -761,10 +774,7 @@ function saveProductFromForm() {
         getProducts();
 
 
-    const editProductId =
-        localStorage.getItem(
-            "mms_edit_product_id"
-        );
+    const editProductId = new URLSearchParams(window.location.search).get("id");
 
 
     /*
@@ -797,7 +807,21 @@ function saveProductFromForm() {
         PRODUCT OBJECT
     */
 
+    const editingProduct = editProductId ? products.find(product => product.id === editProductId) : null;
+    if (editProductId && !editingProduct) {
+        alert("Product record not found. No product was created.");
+        window.location.href = "products.html";
+        return;
+    }
+
+    const suppliers = Storage.get(STORAGE_KEYS.SUPPLIERS, []);
+    if (supplier && !suppliers.some(item => item.id === supplier)) {
+        alert("The selected supplier no longer exists. Choose a valid supplier or leave it blank.");
+        return;
+    }
+
     const productData = {
+        ...(editingProduct || {}),
 
         id: productId,
 
@@ -821,9 +845,9 @@ function saveProductFromForm() {
 
         description: description,
 
-        status: "Active",
-
-        createdAt: getToday()
+        status: editingProduct?.status || "Active",
+        createdAt: editingProduct?.createdAt || getToday(),
+        updatedAt: getToday()
 
     };
 
@@ -831,6 +855,40 @@ function saveProductFromForm() {
     /*
         EDIT EXISTING PRODUCT
     */
+
+    const inventory = Storage.get(STORAGE_KEYS.INVENTORY, []);
+    const adjustments = Storage.get(STORAGE_KEYS.STOCK_ADJUSTMENTS, []);
+    const existingInventory = inventory.find(item => item.productId === productId);
+    const stockStatus = quantity <= 0 ? "Out of Stock" : quantity <= minimumStock ? "Low Stock" : "In Stock";
+    const inventoryData = {
+        ...(existingInventory || {}),
+        id: existingInventory?.id || generateId("INV"),
+        productId,
+        productName: name,
+        category,
+        currentStock: quantity,
+        minimumStock,
+        unitCost: purchasePrice,
+        sellingPrice,
+        stockStatus,
+        status: stockStatus,
+        lastUpdated: getToday()
+    };
+    if (existingInventory) {
+        inventory[inventory.findIndex(item => item.productId === productId)] = inventoryData;
+    } else {
+        inventory.push(inventoryData);
+    }
+
+    if (editingProduct && Number(editingProduct.stock) !== quantity) {
+        const delta = quantity - (Number(editingProduct.stock) || 0);
+        adjustments.unshift({
+            id: generateId("ADJ"), productId, adjustmentType: delta > 0 ? "Increase" : "Decrease",
+            quantity: Math.abs(delta), previousStock: Number(editingProduct.stock) || 0, newStock: quantity,
+            reason: "Stock changed while editing product details", notes: "Recorded automatically from the product form.",
+            date: getToday(), adjustedBy: "Owner", createdAt: getToday()
+        });
+    }
 
     if (editProductId) {
 
@@ -862,14 +920,14 @@ function saveProductFromForm() {
                 productData;
 
 
-            saveProducts(
-                products
-            );
-
-
-            localStorage.removeItem(
-                "mms_edit_product_id"
-            );
+            if (!Storage.setMany([
+                [STORAGE_KEYS.PRODUCTS, products],
+                [STORAGE_KEYS.INVENTORY, inventory],
+                [STORAGE_KEYS.STOCK_ADJUSTMENTS, adjustments]
+            ])) {
+                alert("Product update could not be saved. Existing data was preserved where possible.");
+                return;
+            }
 
 
             alert(
@@ -895,11 +953,13 @@ function saveProductFromForm() {
     products.push(
         productData
     );
-
-
-    saveProducts(
-        products
-    );
+    if (!Storage.setMany([
+        [STORAGE_KEYS.PRODUCTS, products],
+        [STORAGE_KEYS.INVENTORY, inventory]
+    ])) {
+        alert("Product could not be saved. Please try again.");
+        return;
+    }
 
 
     /*

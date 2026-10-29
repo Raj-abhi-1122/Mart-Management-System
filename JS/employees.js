@@ -19,6 +19,8 @@ function initializeEmployeesListPage() {
     if (!tableBody) return;
 
     const employees = getEmployees();
+    const employeeCount = document.querySelector(".employee-count");
+    if (employeeCount) employeeCount.textContent = `${employees.length} Employees`;
 
     // Summary Cards
     const cards = document.querySelectorAll(".employee-summary-grid .employee-card, .dashboard-cards .card, .dashboard-cards .employee-card");
@@ -116,9 +118,16 @@ function initializeEmployeesListPage() {
         tableBody.querySelectorAll(".delete-emp-btn").forEach(btn => {
             btn.addEventListener("click", function () {
                 const id = this.getAttribute("data-id");
+                const referenced = Storage.get(STORAGE_KEYS.ATTENDANCE, []).some(record => record.employeeId === id)
+                    || Storage.get(STORAGE_KEYS.LEAVES, []).some(record => record.employeeId === id)
+                    || Storage.get(STORAGE_KEYS.PAYROLL, []).some(record => record.employeeId === id);
+                if (referenced) {
+                    alert("This employee has attendance, leave, or payroll history and cannot be deleted. Change the employee status to Inactive instead.");
+                    return;
+                }
                 if (confirm("Are you sure you want to remove this employee record?")) {
                     const updated = employees.filter(e => e.id !== id);
-                    saveEmployees(updated);
+                    if (!saveEmployees(updated)) { alert("Employee could not be deleted because storage did not complete the update."); return; }
                     if (typeof logActivity === "function") {
                         logActivity("Employee Removed", "Employees", `Removed employee record ID ${id}`);
                     }
@@ -199,6 +208,11 @@ function initializeAddEmployeePage() {
 
     if (editId) {
         editingEmployee = employees.find(e => e.id === editId);
+        if (!editingEmployee) {
+            alert("Employee record not found. No new employee was created.");
+            window.location.href = "employees.html";
+            return;
+        }
         if (editingEmployee) {
             const headerH1 = document.querySelector(".page-header h1");
             if (headerH1) headerH1.textContent = "Edit Employee";
@@ -225,7 +239,8 @@ function initializeAddEmployeePage() {
         }
     } else {
         if (idInput) {
-            const nextNum = employees.length + 1;
+            let nextNum = employees.length + 1;
+            while (employees.some(employee => employee.id === `EMP-${String(nextNum).padStart(3, "0")}`)) nextNum++;
             idInput.value = `EMP-${String(nextNum).padStart(3, "0")}`;
         }
         if (joiningDateInput && !joiningDateInput.value) {
@@ -252,9 +267,27 @@ function initializeAddEmployeePage() {
             return;
         }
 
+        if (!Number.isFinite(salary) || salary < 0) {
+            alert("Salary must be a valid non-negative amount.");
+            salaryInput?.focus();
+            return;
+        }
+
+        if (employees.some(employee => String(employee.phone || "").trim() === phone && employee.id !== editingEmployee?.id)) {
+            alert("An employee with this phone number already exists.");
+            phoneInput?.focus();
+            return;
+        }
+
         const id = idInput ? idInput.value.trim() : `EMP-${Date.now()}`;
+        if (employees.some(employee => employee.id === id && employee.id !== editingEmployee?.id)) {
+            alert("An employee with this ID already exists.");
+            idInput?.focus();
+            return;
+        }
 
         const empData = {
+            ...(editingEmployee || {}),
             id: id,
             name: name,
             dob: dobInput ? dobInput.value : "",
@@ -271,7 +304,11 @@ function initializeAddEmployeePage() {
             status: employeeStatusSelect ? employeeStatusSelect.value : "Active",
             type: employeeTypeSelect ? employeeTypeSelect.value : "Full Time",
             salary: salary,
-            paymentMethod: paymentMethodSelect ? paymentMethodSelect.value : "Bank Transfer"
+            paymentMethod: paymentMethodSelect ? paymentMethodSelect.value : "Bank Transfer",
+            bankName: document.getElementById("bankName")?.value.trim() || editingEmployee?.bankName || "",
+            accountNumber: document.getElementById("accountNumber")?.value.trim() || editingEmployee?.accountNumber || "",
+            ifsc: document.getElementById("ifsc")?.value.trim() || editingEmployee?.ifsc || "",
+            notes: form.querySelector("textarea:last-of-type")?.value.trim() || editingEmployee?.notes || ""
         };
 
         if (editingEmployee) {
@@ -283,7 +320,10 @@ function initializeAddEmployeePage() {
             employees.push(empData);
         }
 
-        saveEmployees(employees);
+        if (!saveEmployees(employees)) {
+            alert("Employee could not be saved. Please check browser storage and try again.");
+            return;
+        }
 
         if (typeof logActivity === "function") {
             logActivity(editingEmployee ? "Employee Updated" : "Employee Added", "Employees", `${editingEmployee ? "Updated" : "Added"} employee ${name} (${id}).`);
@@ -302,9 +342,17 @@ function initializeEmployeeDetailsPage() {
     const empId = urlParams.get("id");
 
     const employees = getEmployees();
-    const emp = employees.find(e => e.id === empId) || employees[0];
+    const emp = employees.find(e => e.id === empId);
 
-    if (!emp) return;
+    if (!emp) {
+        window.location.replace("employees.html");
+        return;
+    }
+
+    const editLink = document.getElementById("editEmployeeLink");
+    if (editLink) editLink.href = `add-employee.html?id=${encodeURIComponent(emp.id)}`;
+    const attendanceLink = document.querySelector(".small-action-btn[href='attendance.html']");
+    if (attendanceLink) attendanceLink.href = `attendance.html?employeeId=${encodeURIComponent(emp.id)}`;
 
     // Header info
     const nameEl = document.querySelector(".employee-profile h2") || document.querySelector(".profile-info h2");
@@ -341,40 +389,63 @@ function initializePayrollPage() {
     const tableBody = document.querySelector(".payroll-table tbody") || document.querySelector(".table-container table tbody");
     if (!tableBody) return;
 
-    const employees = getEmployees();
-    const totalPayroll = employees.reduce((sum, e) => sum + (Number(e.salary) || 0), 0);
-
-    const sumCards = document.querySelectorAll(".summary-card, .dashboard-cards .card");
-    if (sumCards.length >= 3) {
-        const h2 = sumCards[0].querySelector("h2, p");
-        if (h2) h2.textContent = typeof formatCurrency === "function" ? formatCurrency(totalPayroll) : "₹" + totalPayroll;
+    // The former payroll calculator contained fixed sample salaries and no save action.
+    // Remove that mock workflow so it cannot be mistaken for processed payments.
+    document.querySelector(".payroll-processing-card")?.remove();
+    document.querySelector(".salary-calculation-grid")?.remove();
+    document.querySelector(".net-salary-card")?.remove();
+    const headerActions = document.querySelector(".payroll-header-actions");
+    if (headerActions) {
+        const note = document.createElement("p");
+        note.className = "payroll-data-note";
+        note.textContent = "Payments are shown only when payroll records have been saved. The employee list below shows expected salary and payment status.";
+        headerActions.replaceChildren(note);
     }
 
-    tableBody.innerHTML = "";
+    const employees = getEmployees();
+    const totalPayroll = employees.reduce((sum, e) => sum + (Number(e.salary) || 0), 0);
+    const payroll = Storage.get(STORAGE_KEYS.PAYROLL, []);
+    const today = typeof getToday === "function" ? getToday() : new Date().toISOString().slice(0, 10);
+    const month = today.slice(0, 7);
+    const currentMonthRecords = payroll.filter(record => String(record.month || record.payMonth || record.date || "").startsWith(month));
+    const paidRecords = currentMonthRecords.filter(record => String(record.status || "").toLowerCase() === "paid");
+    const paidByEmployee = new Map(paidRecords.map(record => [record.employeeId, record]));
+    const paidAmount = paidRecords.reduce((sum, record) => sum + (Number(record.netSalary ?? record.netAmount ?? record.amount ?? record.salary) || 0), 0);
+    const pendingEmployees = employees.filter(employee => !paidByEmployee.has(employee.id));
+    const pendingAmount = pendingEmployees.reduce((sum, employee) => sum + (Number(employee.salary) || 0), 0);
+
+    const summaryCards = document.querySelectorAll(".payroll-summary-card");
+    const monthLabel = new Date(`${month}-01T00:00:00`).toLocaleDateString("en-IN", { month: "long", year: "numeric" });
+    const summary = [[totalPayroll, `${monthLabel} • expected salaries`], [paidAmount, `${paidRecords.length} employees paid`], [pendingAmount, `${pendingEmployees.length} employees pending`]];
+    summaryCards.forEach((card, index) => {
+        const value = card.querySelector("strong"); const small = card.querySelector("small");
+        if (value) value.textContent = typeof formatCurrency === "function" ? formatCurrency(summary[index]?.[0] || 0) : `₹${(summary[index]?.[0] || 0).toFixed(2)}`;
+        if (small) small.textContent = summary[index]?.[1] || monthLabel;
+    });
+
+    tableBody.replaceChildren();
+    if (!employees.length) {
+        const row = document.createElement("tr"); const cell = document.createElement("td"); cell.colSpan = 8; cell.textContent = "No employees are available for payroll."; row.appendChild(cell); tableBody.appendChild(row); return;
+    }
     employees.forEach(emp => {
         const tr = document.createElement("tr");
-        const basic = Number(emp.salary) || 0;
-        const allowances = 0;
-        const deductions = 0;
-        const net = basic + allowances - deductions;
-
-        tr.innerHTML = `
-            <td style="font-weight:600;">${emp.id}</td>
-            <td>${emp.name}</td>
-            <td>${emp.position || "Staff"}</td>
-            <td>₹${basic.toFixed(2)}</td>
-            <td>₹0.00</td>
-            <td>₹0.00</td>
-            <td style="font-weight:600; color:#10b981;">₹${net.toFixed(2)}</td>
-            <td><span class="status active">Paid</span></td>
-            <td>
-                <button class="action-btn pay-slip-btn" onclick="window.print()">
-                    Payslip
-                </button>
-            </td>
-        `;
-        tableBody.appendChild(tr);
+        const record = paidByEmployee.get(emp.id);
+        const basic = Number(record?.basicSalary ?? record?.basic ?? emp.salary) || 0;
+        const allowances = Number(record?.allowances) || 0;
+        const deductions = Number(record?.deductions) || 0;
+        const net = Number(record?.netSalary ?? record?.netAmount ?? record?.amount) || basic + allowances - deductions;
+        const values = [`${emp.name || "Employee"} (${emp.id})`, monthLabel, moneyValue(basic), moneyValue(allowances), moneyValue(deductions), moneyValue(net)];
+        values.forEach((value, index) => { const cell = document.createElement("td"); cell.textContent = String(value); if (index === 0 || index === 5) cell.style.fontWeight = "600"; if (index === 5 && record) cell.style.color = "#10b981"; tr.appendChild(cell); });
+        const statusCell = document.createElement("td"); const badge = document.createElement("span"); badge.className = `status ${record ? "active" : "due"}`; badge.textContent = record ? "Paid" : "Pending"; statusCell.appendChild(badge); tr.appendChild(statusCell);
+        const actionCell = document.createElement("td");
+        if (record) { const print = document.createElement("button"); print.type = "button"; print.className = "action-btn pay-slip-btn"; print.textContent = "Payslip"; print.addEventListener("click", () => window.print()); actionCell.appendChild(print); }
+        else actionCell.textContent = "Not processed";
+        tr.appendChild(actionCell); tableBody.appendChild(tr);
     });
+}
+
+function moneyValue(amount) {
+    return typeof formatCurrency === "function" ? formatCurrency(Number(amount) || 0) : `₹${(Number(amount) || 0).toFixed(2)}`;
 }
 
 /* =========================================================

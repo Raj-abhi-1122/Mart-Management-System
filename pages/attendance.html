@@ -151,13 +151,13 @@
 
                 <div class="attendance-header-actions">
 
-                    <button
-                        type="button"
+                    <a
                         class="attendance-secondary-btn"
                         id="monthlyReportBtn"
+                        href="attendance-reports.html"
                     >
                         📊 Monthly Summary
-                    </button>
+                    </a>
 
                     <button
                         type="button"
@@ -426,7 +426,7 @@
                             📊 Attendance Reports
                         </a>
 
-                        <button class="primary-btn">
+                        <button class="primary-btn" type="button" id="openAttendanceModalBtn">
                             ➕ Mark Attendance
                         </button>
 
@@ -787,26 +787,19 @@
         <form id="attendanceForm">
 
 
-            <input
-                type="hidden"
-                id="modalEmployeeId"
-            >
-
-
             <div class="attendance-modal-grid">
 
 
                 <div class="modal-input-group">
 
-                    <label>
+                    <label for="modalEmployeeId">
                         Employee
                     </label>
 
-                    <input
-                        type="text"
-                        id="modalEmployeeDisplay"
-                        readonly
-                    >
+                    <select
+                        id="modalEmployeeId"
+                        required
+                    ></select>
 
                 </div>
 

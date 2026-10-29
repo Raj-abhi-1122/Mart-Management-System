@@ -23,6 +23,8 @@ function initializeActivityLogPage() {
     const userSelect = document.getElementById("activityUser");
     const dateInput = document.getElementById("activityDate");
     const clearBtn = document.querySelector(".danger-btn");
+    const exportBtn = document.querySelector(".activity-header-actions .secondary-btn");
+    let visibleLogs = logs;
 
     if (dateInput) dateInput.value = today;
 
@@ -38,15 +40,34 @@ function initializeActivityLogPage() {
         });
     }
 
+    if (exportBtn) {
+        exportBtn.addEventListener("click", function () {
+            const columns = ["Date", "Time", "User", "Action", "Module", "Details"];
+            const quote = value => `"${String(value ?? "").replace(/"/g, '""')}"`;
+            const rows = visibleLogs.map(log => [log.date, log.timestamp, log.user, log.action, log.module, log.details]);
+            const csv = "\uFEFF" + [columns, ...rows].map(row => row.map(quote).join(",")).join("\r\n");
+            const url = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = `mms_activity_log_${today}.csv`;
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+            URL.revokeObjectURL(url);
+            if (typeof showToast === "function") showToast(`Exported ${visibleLogs.length} activity records.`);
+        });
+    }
+
     function renderLogs(filterList = null) {
         const list = filterList !== null ? filterList : logs;
+        visibleLogs = list;
 
         // Update cards
         const cards = document.querySelectorAll(".activity-summary .summary-card");
         if (cards.length >= 4) {
             cards[0].querySelector("strong").textContent = logs.length;
             cards[1].querySelector("strong").textContent = logs.filter(l => l.date === today).length;
-            cards[2].querySelector("strong").textContent = "1";
+            cards[2].querySelector("strong").textContent = new Set(logs.map(log => log.user).filter(Boolean)).size;
             cards[3].querySelector("strong").textContent = logs.filter(l => (l.action || "").includes("Generated") || (l.action || "").includes("Deleted")).length;
         }
 
@@ -91,6 +112,8 @@ function initializeActivityLogPage() {
     function applyFilters() {
         const query = searchInput ? searchInput.value.toLowerCase().trim() : "";
         const moduleFilter = typeSelect ? typeSelect.value : "All Activities";
+        const userFilter = userSelect ? userSelect.value : "All Users";
+        const dateFilter = dateInput ? dateInput.value : "";
 
         const filtered = logs.filter(l => {
             const act = String(l.action || "").toLowerCase();
@@ -102,7 +125,10 @@ function initializeActivityLogPage() {
                 matchesModule = (l.module || "").toLowerCase().includes(moduleFilter.toLowerCase());
             }
 
-            return matchesSearch && matchesModule;
+            const matchesUser = !userFilter || userFilter === "All Users" || (l.user || "") === userFilter;
+            const matchesDate = !dateFilter || l.date === dateFilter;
+
+            return matchesSearch && matchesModule && matchesUser && matchesDate;
         });
 
         renderLogs(filtered);

@@ -687,7 +687,9 @@ function initializeDatabase() {
     ];
 
     keyDataMap.forEach(function (item) {
-        if (!Storage.exists(item.key) || Storage.get(item.key, []).length === 0) {
+        // An empty collection is valid user data. Seed only keys that have never
+        // been initialized so intentionally empty tables stay empty on refresh.
+        if (!Storage.exists(item.key)) {
             Storage.set(item.key, item.data);
         }
     });

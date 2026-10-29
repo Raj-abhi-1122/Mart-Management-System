@@ -32,6 +32,37 @@ const Storage = {
         }
     },
 
+    // Commit related collections together and restore their previous values
+    // if any write fails. This is best-effort because browser storage itself
+    // does not provide a true multi-key transaction.
+    setMany: function (entries) {
+        if (!Array.isArray(entries) || entries.length === 0) return false;
+        const staged = [];
+        const previous = new Map();
+        try {
+            for (const entry of entries) {
+                if (!Array.isArray(entry) || entry.length !== 2 || typeof entry[0] !== "string" || !entry[0].trim()) return false;
+                const serialized = JSON.stringify(entry[1]);
+                if (serialized === undefined) return false;
+                staged.push([entry[0], serialized]);
+                if (!previous.has(entry[0])) previous.set(entry[0], localStorage.getItem(entry[0]));
+            }
+            for (const [key, serialized] of staged) localStorage.setItem(key, serialized);
+            return true;
+        } catch (error) {
+            Array.from(previous.entries()).reverse().forEach(([key, oldValue]) => {
+                try {
+                    if (oldValue === null) localStorage.removeItem(key);
+                    else localStorage.setItem(key, oldValue);
+                } catch (rollbackError) {
+                    console.error("Storage rollback error:", rollbackError);
+                }
+            });
+            console.error("Storage transaction error:", error);
+            return false;
+        }
+    },
+
     // Read data from Local Storage.
     get: function (key, defaultValue = null) {
         try {

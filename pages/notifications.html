@@ -125,6 +125,7 @@
                     <button
                         type="button"
                         class="secondary-btn"
+                        id="markAllReadBtn"
                     >
                         ✓ Mark All as Read
                     </button>
@@ -307,362 +308,42 @@
                     </div>
 
                     <span class="notification-count">
-                        8 Unread
+                        Loading unread count…
                     </span>
 
                 </div>
 
 
                 <!-- CRITICAL -->
-                <div class="notification-item unread critical">
 
-                    <div class="notification-item-icon">
-                        🚨
-                    </div>
-
-                    <div class="notification-item-content">
-
-                        <div class="notification-item-title">
-
-                            <h3>Critical Stock Alert</h3>
-
-                            <span class="notification-badge critical-badge">
-                                Critical
-                            </span>
-
-                        </div>
-
-                        <p>
-                            Cooking Oil is out of stock.
-                            Immediate restocking is recommended.
-                        </p>
-
-                        <span class="notification-time">
-                            10 minutes ago
-                        </span>
-
-                    </div>
-
-                    <div class="notification-item-action">
-
-                        <a
-                            href="inventory.html"
-                            class="action-btn"
-                        >
-                            View Inventory
-                        </a>
-
-                    </div>
-
-                </div>
 
 
                 <!-- LOW STOCK -->
-                <div class="notification-item unread high">
 
-                    <div class="notification-item-icon">
-                        📦
-                    </div>
-
-                    <div class="notification-item-content">
-
-                        <div class="notification-item-title">
-
-                            <h3>Low Stock Alert</h3>
-
-                            <span class="notification-badge high-badge">
-                                High
-                            </span>
-
-                        </div>
-
-                        <p>
-                            Rice stock has reached the minimum
-                            stock level of 20 units.
-                        </p>
-
-                        <span class="notification-time">
-                            35 minutes ago
-                        </span>
-
-                    </div>
-
-                    <div class="notification-item-action">
-
-                        <a
-                            href="inventory.html"
-                            class="action-btn"
-                        >
-                            View Inventory
-                        </a>
-
-                    </div>
-
-                </div>
 
 
                 <!-- PAYMENT -->
-                <div class="notification-item unread high">
 
-                    <div class="notification-item-icon">
-                        💰
-                    </div>
-
-                    <div class="notification-item-content">
-
-                        <div class="notification-item-title">
-
-                            <h3>Pending Customer Payment</h3>
-
-                            <span class="notification-badge high-badge">
-                                High
-                            </span>
-
-                        </div>
-
-                        <p>
-                            Customer Rahul Kumar has an outstanding
-                            payment of ₹450.
-                        </p>
-
-                        <span class="notification-time">
-                            1 hour ago
-                        </span>
-
-                    </div>
-
-                    <div class="notification-item-action">
-
-                        <a
-                            href="customer-details.html"
-                            class="action-btn"
-                        >
-                            View Customer
-                        </a>
-
-                    </div>
-
-                </div>
 
 
                 <!-- EXPIRY -->
-                <div class="notification-item unread medium">
 
-                    <div class="notification-item-icon">
-                        📅
-                    </div>
-
-                    <div class="notification-item-content">
-
-                        <div class="notification-item-title">
-
-                            <h3>Product Expiry Warning</h3>
-
-                            <span class="notification-badge medium-badge">
-                                Medium
-                            </span>
-
-                        </div>
-
-                        <p>
-                            5 products are approaching their
-                            expiry date within 30 days.
-                        </p>
-
-                        <span class="notification-time">
-                            2 hours ago
-                        </span>
-
-                    </div>
-
-                    <div class="notification-item-action">
-
-                        <a
-                            href="inventory.html"
-                            class="action-btn"
-                        >
-                            View Products
-                        </a>
-
-                    </div>
-
-                </div>
 
 
                 <!-- LEAVE -->
-                <div class="notification-item unread medium">
 
-                    <div class="notification-item-icon">
-                        🏖️
-                    </div>
-
-                    <div class="notification-item-content">
-
-                        <div class="notification-item-title">
-
-                            <h3>New Leave Request</h3>
-
-                            <span class="notification-badge medium-badge">
-                                Medium
-                            </span>
-
-                        </div>
-
-                        <p>
-                            Amit Kumar has submitted a new
-                            leave request for approval.
-                        </p>
-
-                        <span class="notification-time">
-                            3 hours ago
-                        </span>
-
-                    </div>
-
-                    <div class="notification-item-action">
-
-                        <a
-                            href="leave-management.html"
-                            class="action-btn"
-                        >
-                            Review Request
-                        </a>
-
-                    </div>
-
-                </div>
 
 
                 <!-- SUPPLIER -->
-                <div class="notification-item read">
 
-                    <div class="notification-item-icon">
-                        🏭
-                    </div>
-
-                    <div class="notification-item-content">
-
-                        <div class="notification-item-title">
-
-                            <h3>Supplier Payment Due</h3>
-
-                            <span class="notification-badge low-badge">
-                                Low
-                            </span>
-
-                        </div>
-
-                        <p>
-                            ABC Distributors has an outstanding
-                            payment of ₹15,000.
-                        </p>
-
-                        <span class="notification-time">
-                            Yesterday, 5:20 PM
-                        </span>
-
-                    </div>
-
-                    <div class="notification-item-action">
-
-                        <a
-                            href="suppliers.html"
-                            class="action-btn"
-                        >
-                            View Supplier
-                        </a>
-
-                    </div>
-
-                </div>
 
 
                 <!-- PAYROLL -->
-                <div class="notification-item read">
 
-                    <div class="notification-item-icon">
-                        💵
-                    </div>
-
-                    <div class="notification-item-content">
-
-                        <div class="notification-item-title">
-
-                            <h3>Payroll Pending</h3>
-
-                            <span class="notification-badge medium-badge">
-                                Medium
-                            </span>
-
-                        </div>
-
-                        <p>
-                            October payroll for 12 employees
-                            is waiting to be processed.
-                        </p>
-
-                        <span class="notification-time">
-                            Yesterday, 4:10 PM
-                        </span>
-
-                    </div>
-
-                    <div class="notification-item-action">
-
-                        <a
-                            href="payroll.html"
-                            class="action-btn"
-                        >
-                            View Payroll
-                        </a>
-
-                    </div>
-
-                </div>
 
 
                 <!-- SYSTEM -->
-                <div class="notification-item read">
 
-                    <div class="notification-item-icon">
-                        ⚙️
-                    </div>
-
-                    <div class="notification-item-content">
-
-                        <div class="notification-item-title">
-
-                            <h3>System Information</h3>
-
-                            <span class="notification-badge low-badge">
-                                Low
-                            </span>
-
-                        </div>
-
-                        <p>
-                            Your system is currently running in
-                            frontend development mode.
-                        </p>
-
-                        <span class="notification-time">
-                            Yesterday, 9:00 AM
-                        </span>
-
-                    </div>
-
-                    <div class="notification-item-action">
-
-                        <a
-                            href="settings.html"
-                            class="action-btn"
-                        >
-                            View Settings
-                        </a>
-
-                    </div>
-
-                </div>
 
             </div>
 
@@ -684,7 +365,7 @@
                             Low stock, out of stock and expiry alerts.
                         </p>
 
-                        <strong>9 Notifications</strong>
+                        <strong>0 Notifications</strong>
 
                     </div>
 
@@ -705,7 +386,7 @@
                             Customer and supplier payment reminders.
                         </p>
 
-                        <strong>5 Notifications</strong>
+                        <strong>0 Notifications</strong>
 
                     </div>
 
@@ -726,7 +407,7 @@
                             Attendance, leave and payroll notifications.
                         </p>
 
-                        <strong>6 Notifications</strong>
+                        <strong>0 Notifications</strong>
 
                     </div>
 
@@ -747,7 +428,7 @@
                             General system and administrative alerts.
                         </p>
 
-                        <strong>4 Notifications</strong>
+                        <strong>0 Notifications</strong>
 
                     </div>
 
@@ -761,10 +442,7 @@
 
                 <strong>ℹ️ Frontend Mode:</strong>
 
-                Notifications are currently static examples.
-                During Phase 2, JavaScript will generate notifications
-                from inventory, billing, purchase, employee and expense
-                activities and store their status.
+                Notifications are saved in this browser and update from current inventory and payment conditions and recorded system events.
 
             </div>
 

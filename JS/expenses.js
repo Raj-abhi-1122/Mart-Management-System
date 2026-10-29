@@ -29,20 +29,85 @@ function initializeExpensesListPage() {
         const totalMonth = monthExpenses.reduce((sum, e) => sum + (Number(e.amount) || 0), 0);
         const pendingAmount = expenses.reduce((sum, e) => sum + (Number(e.dueAmount) || 0), 0);
         const todayAmount = expenses.filter(e => e.date === today).reduce((sum, e) => sum + (Number(e.amount) || 0), 0);
+        const totalExpenses = expenses.reduce((sum, e) => sum + (Number(e.amount) || 0), 0);
 
         const c0P = cards[0].querySelector("p");
-        if (c0P) c0P.textContent = typeof formatCurrency === "function" ? formatCurrency(totalMonth) : "₹" + totalMonth;
+        if (c0P) c0P.textContent = typeof formatCurrency === "function" ? formatCurrency(totalExpenses) : "₹" + totalExpenses;
 
         const c1P = cards[1].querySelector("p");
-        if (c1P) c1P.textContent = typeof formatCurrency === "function" ? formatCurrency(pendingAmount) : "₹" + pendingAmount;
+        if (c1P) c1P.textContent = typeof formatCurrency === "function" ? formatCurrency(totalMonth) : "₹" + totalMonth;
 
         const c2P = cards[2].querySelector("p");
-        if (c2P) c2P.textContent = typeof formatCurrency === "function" ? formatCurrency(todayAmount) : "₹" + todayAmount;
+        if (c2P) c2P.textContent = typeof formatCurrency === "function" ? formatCurrency(pendingAmount) : "₹" + pendingAmount;
+        const c3P = cards[3]?.querySelector("p");
+        if (c3P) c3P.textContent = typeof formatCurrency === "function" ? formatCurrency(todayAmount) : "₹" + todayAmount;
+        const monthLabel = new Date(`${currentMonth}-01T00:00:00`).toLocaleDateString("en-IN", { month: "long", year: "numeric" });
+        const monthCaption = cards[1].querySelector("span"); if (monthCaption) monthCaption.textContent = monthLabel;
+        const todayCaption = cards[3]?.querySelector("span"); if (todayCaption) todayCaption.textContent = typeof formatDate === "function" ? formatDate(today) : today;
     }
 
     // Records counter
     const countSpan = document.querySelector(".expense-count");
     if (countSpan) countSpan.textContent = `${expenses.length} Records`;
+
+    // Replace the old fixed category, month, and activity examples with saved records.
+    const categoryList = document.querySelector(".expense-dashboard-grid .expense-category-list");
+    if (categoryList) {
+        const totals = new Map();
+        expenses.filter(expense => String(expense.date || "").startsWith(currentMonth)).forEach(expense => {
+            const category = expense.category || "Other";
+            totals.set(category, (totals.get(category) || 0) + (Number(expense.amount) || 0));
+        });
+        categoryList.replaceChildren();
+        const ranked = Array.from(totals.entries()).sort((a, b) => b[1] - a[1]);
+        if (!ranked.length) {
+            const empty = document.createElement("p"); empty.textContent = "No expenses recorded this month."; categoryList.appendChild(empty);
+        } else ranked.forEach(([category, amount]) => {
+            const row = document.createElement("div"); row.className = "expense-category-row";
+            const info = document.createElement("div"); info.className = "expense-category-info";
+            const dot = document.createElement("span"); dot.className = `category-dot ${(category || "").toLowerCase().replace(/[^a-z0-9]+/g, "-")}-dot`;
+            const label = document.createElement("span"); label.textContent = category;
+            const value = document.createElement("strong"); value.textContent = typeof formatCurrency === "function" ? formatCurrency(amount) : `₹${amount.toFixed(2)}`;
+            info.append(dot, label); row.append(info, value); categoryList.appendChild(row);
+        });
+    }
+
+    const monthlyList = document.querySelector(".monthly-expense-list");
+    const monthlyTotal = document.querySelector(".expense-total-box strong");
+    if (monthlyList) {
+        monthlyList.replaceChildren();
+        let fourMonthTotal = 0;
+        const current = new Date(`${currentMonth}-01T00:00:00`);
+        for (let offset = 0; offset < 4; offset++) {
+            const monthDate = new Date(current.getFullYear(), current.getMonth() - offset, 1);
+            const monthKey = `${monthDate.getFullYear()}-${String(monthDate.getMonth() + 1).padStart(2, "0")}`;
+            const amount = expenses.filter(expense => String(expense.date || "").startsWith(monthKey)).reduce((sum, expense) => sum + (Number(expense.amount) || 0), 0);
+            fourMonthTotal += amount;
+            const row = document.createElement("div"); row.className = "monthly-expense-row";
+            const labelWrap = document.createElement("div");
+            const monthLabel = document.createElement("strong"); monthLabel.textContent = monthDate.toLocaleDateString("en-IN", { month: "long", year: "numeric" });
+            const sub = document.createElement("span"); sub.textContent = offset === 0 ? "Current Month" : offset === 1 ? "Previous Month" : `${offset} Months Ago`;
+            const value = document.createElement("strong"); value.textContent = typeof formatCurrency === "function" ? formatCurrency(amount) : `₹${amount.toFixed(2)}`;
+            labelWrap.append(monthLabel, sub); row.append(labelWrap, value); monthlyList.appendChild(row);
+        }
+        if (monthlyTotal) monthlyTotal.textContent = typeof formatCurrency === "function" ? formatCurrency(fourMonthTotal) : `₹${fourMonthTotal.toFixed(2)}`;
+    }
+
+    const activityList = document.querySelector(".expense-activity-list");
+    if (activityList) {
+        activityList.replaceChildren();
+        const recent = expenses.slice().sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")) || String(b.createdAt || "").localeCompare(String(a.createdAt || ""))).slice(0, 5);
+        if (!recent.length) { const empty = document.createElement("p"); empty.textContent = "No expense activity recorded yet."; activityList.appendChild(empty); }
+        recent.forEach(expense => {
+            const row = document.createElement("div"); row.className = "expense-activity-item";
+            const icon = document.createElement("div"); icon.className = `expense-activity-icon ${Number(expense.dueAmount) > 0 ? "pending-icon" : "paid-icon"}`; icon.textContent = Number(expense.dueAmount) > 0 ? "⏳" : "✓";
+            const details = document.createElement("div");
+            const title = document.createElement("strong"); title.textContent = expense.description || "Expense recorded";
+            const meta = document.createElement("span"); meta.textContent = `${expense.expenseNumber || expense.id} • ${typeof formatCurrency === "function" ? formatCurrency(expense.amount) : `₹${Number(expense.amount || 0).toFixed(2)}`} • ${expense.paymentMethod || "Cash"}`;
+            const date = document.createElement("small"); date.textContent = typeof formatDate === "function" ? formatDate(expense.date) : (expense.date || "");
+            details.append(title, meta); row.append(icon, details, date); activityList.appendChild(row);
+        });
+    }
 
     function renderExpenses(filterList = null) {
         const list = filterList !== null ? filterList : expenses;
@@ -108,7 +173,7 @@ function initializeExpensesListPage() {
                 const id = this.getAttribute("data-id");
                 if (confirm("Are you sure you want to delete this expense record?")) {
                     const updated = expenses.filter(e => e.id !== id);
-                    saveExpenses(updated);
+                    if (!saveExpenses(updated)) { alert("Expense could not be deleted because storage did not complete the update."); return; }
                     if (typeof logActivity === "function") {
                         logActivity("Expense Deleted", "Expenses", `Deleted expense record ID ${id}`);
                     }
@@ -194,6 +259,11 @@ function initializeAddExpensePage() {
 
     if (editId) {
         editingExpense = expenses.find(e => e.id === editId);
+        if (!editingExpense) {
+            alert("Expense record not found. No new expense was created.");
+            window.location.href = "expenses.html";
+            return;
+        }
         if (editingExpense) {
             const headerH1 = document.querySelector(".page-header h1");
             if (headerH1) headerH1.textContent = "Edit Expense";
@@ -212,10 +282,12 @@ function initializeAddExpensePage() {
             if (dueAmountInput) dueAmountInput.value = editingExpense.dueAmount || 0;
             if (paymentMethodSelect) paymentMethodSelect.value = editingExpense.paymentMethod || "Cash";
             if (paymentStatusSelect) paymentStatusSelect.value = editingExpense.status || "Paid";
+            if (inputs[8]) inputs[8].value = editingExpense.paymentReference || "";
         }
     } else {
         if (idInput) {
-            const nextNum = expenses.length + 1;
+            let nextNum = expenses.length + 1;
+            while (expenses.some(expense => expense.id === `EXP-${String(nextNum).padStart(3, "0")}` || expense.expenseNumber === `EXP-${String(nextNum).padStart(3, "0")}`)) nextNum++;
             idInput.value = `EXP-${String(nextNum).padStart(3, "0")}`;
             idInput.readOnly = true;
         }
@@ -251,10 +323,11 @@ function initializeAddExpensePage() {
         e.preventDefault();
 
         const amount = Number(totalAmountInput ? totalAmountInput.value : 0);
+        const paidAmount = Number(paidAmountInput ? paidAmountInput.value : amount);
         const category = catSelect ? catSelect.value : "Other";
         const description = descInput ? descInput.value.trim() : "";
 
-        if (!amount || amount <= 0) {
+        if (!Number.isFinite(amount) || amount <= 0) {
             alert("Please enter a valid expense amount.");
             totalAmountInput?.focus();
             return;
@@ -266,11 +339,26 @@ function initializeAddExpensePage() {
             return;
         }
 
+        if (!Number.isFinite(paidAmount) || paidAmount < 0 || paidAmount > amount) {
+            alert("Paid amount must be between zero and the total expense amount.");
+            paidAmountInput?.focus();
+            return;
+        }
+        if (!dateInput?.value || !catSelect?.value || catSelect.value === "Select Category") {
+            alert("Select an expense date and category.");
+            return;
+        }
+
         const id = idInput ? idInput.value.trim() : `EXP-${Date.now()}`;
-        const paid = Number(paidAmountInput ? paidAmountInput.value : amount) || 0;
+        if (expenses.some(expense => (expense.id === id || expense.expenseNumber === id) && expense.id !== editingExpense?.id)) {
+            alert("An expense with this ID already exists.");
+            return;
+        }
+        const paid = paidAmount;
         const due = Math.max(0, amount - paid);
 
         const expData = {
+            ...(editingExpense || {}),
             id: id,
             expenseNumber: id,
             date: dateInput ? dateInput.value : today,
@@ -278,13 +366,15 @@ function initializeAddExpensePage() {
             description: description,
             vendor: vendorInput ? vendorInput.value.trim() : "",
             reference: refInput ? refInput.value.trim() : "",
+            paymentReference: inputs[8] ? inputs[8].value.trim() : "",
             amount: amount,
             paidAmount: paid,
             dueAmount: due,
             paymentMethod: paymentMethodSelect ? paymentMethodSelect.value : "Cash",
-            status: paymentStatusSelect ? paymentStatusSelect.value : (due <= 0 ? "Paid" : "Pending"),
+            status: due <= 0 ? "Paid" : paid > 0 ? "Partial" : "Pending",
             notes: textarea ? textarea.value.trim() : "",
-            createdAt: today
+            createdAt: editingExpense?.createdAt || today,
+            updatedAt: today
         };
 
         if (editingExpense) {
@@ -294,7 +384,10 @@ function initializeAddExpensePage() {
             expenses.push(expData);
         }
 
-        saveExpenses(expenses);
+        if (!saveExpenses(expenses)) {
+            alert("Expense could not be saved. Please check browser storage and try again.");
+            return;
+        }
 
         if (typeof logActivity === "function") {
             logActivity(editingExpense ? "Expense Updated" : "Expense Added", "Expenses", `${editingExpense ? "Updated" : "Recorded"} expense ${id} for ${category}: ₹${amount}.`);
@@ -313,9 +406,15 @@ function initializeExpenseDetailsPage() {
     const expId = urlParams.get("id");
 
     const expenses = getExpenses();
-    const exp = expenses.find(e => (e.id === expId || e.expenseNumber === expId)) || expenses[0];
+    const exp = expenses.find(e => (e.id === expId || e.expenseNumber === expId));
 
-    if (!exp) return;
+    if (!exp) {
+        window.location.replace("expenses.html");
+        return;
+    }
+
+    const editLink = document.getElementById("editExpenseLink");
+    if (editLink) editLink.href = `add-expense.html?id=${encodeURIComponent(exp.id)}`;
 
     const titleH2 = document.querySelector(".expense-detail-header h2");
     if (titleH2) titleH2.textContent = `${exp.expenseNumber || exp.id} - ${exp.category}`;

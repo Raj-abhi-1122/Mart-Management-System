@@ -103,9 +103,15 @@ function initializeBillingListPage() {
     renderBills();
 
     // Filters
-    const searchInput = document.querySelector(".filter-section .search-input");
-    const statusSelect = document.querySelectorAll(".filter-section .filter-select")[0];
-    const dateSelect = document.querySelectorAll(".filter-section .filter-select")[1];
+    const filterContainer = document.querySelector(".filter-section") || document.querySelector(".history-filter");
+    const searchInput = filterContainer?.querySelector(".search-input");
+    const selects = filterContainer ? filterContainer.querySelectorAll(".filter-select") : [];
+    const isHistoryPage = window.location.pathname.includes("bill-history.html");
+    const statusSelect = isHistoryPage ? selects[1] : selects[0];
+    const dateSelect = isHistoryPage ? null : selects[1];
+    const customerSelect = isHistoryPage ? selects[0] : null;
+    const dateInputs = isHistoryPage ? filterContainer.querySelectorAll('input[type="date"]') : [];
+    const filterBtn = filterContainer?.querySelector(".filter-btn");
 
     function applyFilters() {
         const query = searchInput ? searchInput.value.toLowerCase().trim() : "";
@@ -117,6 +123,11 @@ function initializeBillingListPage() {
             const custName = String(b.customerName || "").toLowerCase();
             const matchesSearch = !query || billId.includes(query) || custName.includes(query);
 
+            let matchesCustomer = true;
+            if (customerSelect?.value && customerSelect.value !== "All Customers") {
+                matchesCustomer = (b.customerName || "Walk-in Customer") === customerSelect.value;
+            }
+
             let matchesStatus = true;
             if (statusFilter && statusFilter !== "All Payment Status") {
                 matchesStatus = (b.paymentStatus || "").toLowerCase() === statusFilter.toLowerCase();
@@ -125,9 +136,24 @@ function initializeBillingListPage() {
             let matchesDate = true;
             if (dateFilter === "Today") {
                 matchesDate = b.billDate === today;
+            } else if (dateFilter === "This Month") {
+                matchesDate = String(b.billDate || "").startsWith(today.slice(0, 7));
+            } else if (dateFilter === "This Week") {
+                const start = new Date(`${today}T00:00:00`);
+                const day = (start.getDay() + 6) % 7;
+                start.setDate(start.getDate() - day);
+                const startKey = `${start.getFullYear()}-${String(start.getMonth() + 1).padStart(2, "0")}-${String(start.getDate()).padStart(2, "0")}`;
+                matchesDate = String(b.billDate || "") >= startKey && String(b.billDate || "") <= today;
             }
 
-            return matchesSearch && matchesStatus && matchesDate;
+            if (isHistoryPage && dateInputs.length === 2) {
+                const from = dateInputs[0].value;
+                const to = dateInputs[1].value;
+                if (from) matchesDate = matchesDate && String(b.billDate || "") >= from;
+                if (to) matchesDate = matchesDate && String(b.billDate || "") <= to;
+            }
+
+            return matchesSearch && matchesCustomer && matchesStatus && matchesDate;
         });
 
         renderBills(filtered);
@@ -136,6 +162,9 @@ function initializeBillingListPage() {
     if (searchInput) searchInput.addEventListener("input", applyFilters);
     if (statusSelect) statusSelect.addEventListener("change", applyFilters);
     if (dateSelect) dateSelect.addEventListener("change", applyFilters);
+    if (customerSelect) customerSelect.addEventListener("change", applyFilters);
+    dateInputs.forEach(input => input.addEventListener("change", applyFilters));
+    filterBtn?.addEventListener("click", applyFilters);
 }
 
 /* =========================================================
@@ -153,7 +182,9 @@ function initializeNewBillPage() {
 
     // 1. Auto generate bill number
     const billPrefix = settings?.billing?.invoicePrefix || "BILL";
-    const nextNum = (settings?.billing?.startingNumber || 1001) + bills.length;
+    let nextNum = Number(settings?.billing?.startingNumber) || 1001;
+    const usedBillIds = new Set(bills.flatMap(b => [String(b.id || ""), String(b.billNumber || "")]));
+    while (usedBillIds.has(`${billPrefix}${nextNum}`)) nextNum++;
     const generatedBillId = `${billPrefix}${nextNum}`;
 
     const billNumberInput = billForm.querySelector(".form-grid input[type='text']");
@@ -172,6 +203,10 @@ function initializeNewBillPage() {
             opt.textContent = `${c.name} (${c.phone || "No phone"})`;
             customerSelect.appendChild(opt);
         });
+        const requestedCustomerId = new URLSearchParams(window.location.search).get("customerId");
+        if (requestedCustomerId && customers.some(customer => customer.id === requestedCustomerId)) {
+            customerSelect.value = requestedCustomerId;
+        }
     }
 
     // 3. Bill items table handling
@@ -398,10 +433,7 @@ function initializeNewBillPage() {
                 }
 
                 const product = products.find(p => p.id === prodId);
-                if (settings?.billing?.preventInsufficientStock && product && product.stock < qty) {
-                    alert(`Insufficient stock for ${escapeHtml(product.name)}! Available: ${product.stock}, requested: ${qty}.`);
-                    return;
-                }
+                if (!product || !Number.isFinite(qty) || qty <= 0 || !Number.isFinite(price) || price < 0 || !Number.isFinite(discount) || discount < 0 || discount > qty * price) { alert(`Enter a valid product, quantity, price, and discount in row ${i + 1}.`); return; }
 
                 billItems.push({
                     productId: prodId,
@@ -418,6 +450,15 @@ function initializeNewBillPage() {
                 return;
             }
 
+            const requestedByProduct = new Map();
+            billItems.forEach(item => requestedByProduct.set(item.productId, (requestedByProduct.get(item.productId) || 0) + item.quantity));
+            if (settings?.billing?.preventInsufficientStock) {
+                for (const [productId, quantity] of requestedByProduct) {
+                    const product = products.find(p => p.id === productId);
+                    if (!product || Number(product.stock) < quantity) { alert(`Insufficient stock for ${product?.name || "a selected product"}. Available: ${Number(product?.stock) || 0}, requested: ${quantity}.`); return; }
+                }
+            }
+
             // Customer info
             const selectedCustId = customerSelect ? customerSelect.value : "";
             const customer = customers.find(c => c.id === selectedCustId);
@@ -431,6 +472,7 @@ function initializeNewBillPage() {
             const taxAmount = (subtotal * gstPercentage) / 100;
             const grandTotal = Math.max(0, subtotal - totalDiscount + taxAmount);
             const paid = Number(paidInput ? paidInput.value : grandTotal) || 0;
+            if (!Number.isFinite(paid) || paid < 0 || paid > grandTotal) { alert("Paid amount must be between zero and the bill total."); paidInput?.focus(); return; }
             const due = Math.max(0, grandTotal - paid);
             const paymentMethodSelect = billForm.querySelectorAll(".form-grid select")[1];
             const paymentMethod = paymentMethodSelect ? paymentMethodSelect.value : "Cash";
@@ -458,40 +500,44 @@ function initializeNewBillPage() {
                 createdAt: today
             };
 
-            // 1. Save bill
-            bills.push(newBill);
-            saveBills(bills);
-
-            // 2. Deduct inventory & product stocks
-            const inventory = Storage.get(STORAGE_KEYS.INVENTORY, []);
-            billItems.forEach(item => {
-                const prod = products.find(p => p.id === item.productId);
-                if (prod) {
-                    prod.stock = Math.max(0, Number(prod.stock) - item.quantity);
-                }
-                const inv = inventory.find(i => i.productId === item.productId);
-                if (inv) {
-                    inv.currentStock = Math.max(0, Number(inv.currentStock) - item.quantity);
-                    if (inv.currentStock <= 0) inv.stockStatus = "Out of Stock";
-                    else if (inv.currentStock <= inv.minimumStock) inv.stockStatus = "Low Stock";
-                    else inv.stockStatus = "In Stock";
-                }
-            });
-            Storage.set(STORAGE_KEYS.PRODUCTS, products);
-            Storage.set(STORAGE_KEYS.INVENTORY, inventory);
-
-            // 3. Update customer stats if registered customer
-            if (customer) {
-                customer.totalPurchases = (Number(customer.totalPurchases) || 0) + grandTotal;
-                customer.amountDue = (Number(customer.amountDue) || 0) + due;
-                customer.amountPaid = (Number(customer.amountPaid) || 0) + paid;
-                Storage.set(STORAGE_KEYS.CUSTOMERS, customers);
+            // Commit the bill and all stock/customer effects together.
+            const currentBills = getBills();
+            if (currentBills.some(b => String(b.id || b.billNumber) === generatedBillId)) { alert("This bill number was just used. Reload the page before creating another bill."); return; }
+            currentBills.push(newBill);
+            const currentProducts = Storage.get(STORAGE_KEYS.PRODUCTS, []).map(p => ({ ...p }));
+            const inventory = Storage.get(STORAGE_KEYS.INVENTORY, []).map(i => ({ ...i }));
+            for (const [productId, quantity] of requestedByProduct) {
+                const product = currentProducts.find(p => p.id === productId);
+                if (!product) { alert("A selected product was removed. Reload the page and try again."); return; }
+                if (settings?.billing?.preventInsufficientStock && Number(product.stock) < quantity) { alert(`Stock changed for ${product.name}. Reload and try again.`); return; }
+                product.stock = Math.max(0, (Number(product.stock) || 0) - quantity);
+                let inv = inventory.find(i => i.productId === productId);
+                if (!inv) { inv = { id: `INV-${productId}`, productId, productName: product.name, currentStock: Number(product.stock) + quantity, minimumStock: Number(product.minimumStock) || 0 }; inventory.push(inv); }
+                inv.currentStock = Math.max(0, (Number(inv.currentStock) || 0) - quantity);
+                inv.productName = product.name;
+                inv.stockStatus = inv.currentStock <= 0 ? "Out of Stock" : inv.currentStock <= Number(inv.minimumStock || 0) ? "Low Stock" : "In Stock";
             }
+
+            const entries = [[STORAGE_KEYS.BILLS, currentBills], [STORAGE_KEYS.PRODUCTS, currentProducts], [STORAGE_KEYS.INVENTORY, inventory]];
+            if (customer) {
+                const currentCustomers = Storage.get(STORAGE_KEYS.CUSTOMERS, []).map(c => ({ ...c }));
+                const currentCustomer = currentCustomers.find(c => c.id === selectedCustId);
+                if (!currentCustomer) { alert("The selected customer was removed. Reload and try again."); return; }
+                currentCustomer.totalPurchases = (Number(currentCustomer.totalPurchases) || 0) + grandTotal;
+                currentCustomer.amountDue = (Number(currentCustomer.amountDue) || 0) + due;
+                currentCustomer.amountPaid = (Number(currentCustomer.amountPaid) || 0) + paid;
+                entries.push([STORAGE_KEYS.CUSTOMERS, currentCustomers]);
+            }
+            if (!Storage.setMany(entries)) { alert("Bill could not be saved. No changes were applied; please try again."); return; }
 
             // 4. Log activity
             if (typeof logActivity === "function") {
                 logActivity("Bill Generated", "Billing", `Generated bill ${generatedBillId} for ${customerName} total ₹${grandTotal.toFixed(2)}.`);
             }
+            if (typeof notificationRuleEnabled === "function" && notificationRuleEnabled("newBillNotification")) {
+                addNotification("New Bill Created", `Bill ${generatedBillId} was created for ${customerName} (₹${grandTotal.toFixed(2)}).`, "Billing", "Low", `bill-created:${generatedBillId}`);
+            }
+            if (typeof refreshConditionNotifications === "function") refreshConditionNotifications();
 
             // Disable button to prevent double-save
             generateBtn.disabled = true;
@@ -517,10 +563,10 @@ function initializeBillDetailsPage() {
     const bills = getBills();
     const settings = Storage.get(STORAGE_KEYS.SETTINGS, DEFAULT_SETTINGS);
 
-    const bill = bills.find(b => (b.id === billId || b.billNumber === billId)) || bills[bills.length - 1];
+    const bill = bills.find(b => (b.id === billId || b.billNumber === billId));
 
     if (!bill) {
-        printableBill.innerHTML = `<div style="padding: 40px; text-align:center;">No bill record found.</div>`;
+        window.location.replace("bill-history.html");
         return;
     }
 
