@@ -34,12 +34,33 @@ function generateId(prefix = "ID") {
 */
 
 function formatCurrency(amount) {
+    let curr = "INR";
+    let locale = "en-IN";
+    try {
+        if (typeof Storage !== "undefined" && typeof STORAGE_KEYS !== "undefined" && Storage.exists(STORAGE_KEYS.SETTINGS)) {
+            const s = Storage.get(STORAGE_KEYS.SETTINGS);
+            const rawCurr = s?.store?.currency || "";
+            if (rawCurr.includes("USD")) {
+                curr = "USD";
+                locale = "en-US";
+            } else if (rawCurr.includes("EUR")) {
+                curr = "EUR";
+                locale = "de-DE";
+            } else if (rawCurr.includes("GBP")) {
+                curr = "GBP";
+                locale = "en-GB";
+            } else if (rawCurr) {
+                curr = "INR";
+                locale = "en-IN";
+            }
+        }
+    } catch (e) {}
 
     return new Intl.NumberFormat(
-        "en-IN",
+        locale,
         {
             style: "currency",
-            currency: "INR",
+            currency: curr,
             minimumFractionDigits: 2
         }
     ).format(Number(amount) || 0);
