@@ -160,10 +160,11 @@ function updateNavbarNotifications() {
             if (!badge) {
                 badge = document.createElement("span");
                 badge.className = "notif-badge";
-                badge.style.cssText = "background: #ef4444; color: white; border-radius: 10px; padding: 1px 7px; font-size: 11px; margin-left: 6px; font-weight: bold;";
+                // No inline styles — let CSS class handle positioning & appearance
                 link.appendChild(badge);
             }
-            badge.textContent = unreadCount;
+            badge.textContent = unreadCount > 99 ? "99+" : unreadCount;
+            badge.setAttribute("aria-label", unreadCount + " unread notifications");
         } else if (badge) {
             badge.remove();
         }

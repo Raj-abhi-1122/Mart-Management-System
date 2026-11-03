@@ -478,6 +478,101 @@ document.addEventListener(
    ADD / EDIT PRODUCT FORM
    ========================================================= */
 
+/* =========================================================
+   GENERATE NEXT PRODUCT ID (Task 2)
+   Returns next available PROD-NNN style ID based on
+   the highest numeric suffix in existing product records.
+   ========================================================= */
+
+function generateNextProductId() {
+    var products = getProducts();
+    var numericPattern = /^PROD-(\d+)$/i;
+    var maxNum = 100; // floor so first generated ID is PROD-101
+    products.forEach(function (product) {
+        var match = (product.id || '').match(numericPattern);
+        if (match) {
+            var n = parseInt(match[1], 10);
+            if (n > maxNum) maxNum = n;
+        }
+    });
+    // Re-validate: ensure generated ID doesn't already exist (handles gaps)
+    var candidate = 'PROD-' + (maxNum + 1);
+    var ids = products.map(function(p) { return p.id; });
+    while (ids.indexOf(candidate) !== -1) {
+        maxNum++;
+        candidate = 'PROD-' + (maxNum + 1);
+    }
+    return candidate;
+}
+
+
+/* =========================================================
+   POPULATE SUPPLIER DROPDOWN (Task 1)
+   Loads Active suppliers from LocalStorage into #supplier.
+   Pass selectedSupplierId to pre-select when editing a product.
+   ========================================================= */
+
+function populateSupplierDropdown(selectedSupplierId) {
+    var supplierSelect = document.querySelector('#supplier');
+    if (!supplierSelect) return;
+
+    // Prefer getSuppliers() from suppliers.js if loaded, else direct storage access
+    var allSuppliers = (typeof getSuppliers === 'function')
+        ? getSuppliers()
+        : Storage.get(STORAGE_KEYS.SUPPLIERS, []);
+
+    // Only show Active suppliers; treat missing status as Active
+    var activeSuppliers = allSuppliers.filter(function (s) {
+        return !s.status || s.status === 'Active';
+    });
+
+    // Clear and rebuild options
+    supplierSelect.innerHTML = '';
+
+    if (activeSuppliers.length === 0) {
+        var noOpt = document.createElement('option');
+        noOpt.value = '';
+        noOpt.textContent = 'No suppliers available — add one first';
+        noOpt.disabled = true;
+        noOpt.selected = true;
+        supplierSelect.appendChild(noOpt);
+        return;
+    }
+
+    // Blank placeholder
+    var placeholder = document.createElement('option');
+    placeholder.value = '';
+    placeholder.textContent = 'Select Supplier (Optional)';
+    supplierSelect.appendChild(placeholder);
+
+    activeSuppliers.forEach(function (supplier) {
+        var opt = document.createElement('option');
+        opt.value = supplier.id;
+        // Show company name if available, otherwise name
+        if (supplier.companyName && supplier.companyName !== supplier.name) {
+            opt.textContent = supplier.companyName + ' (' + (supplier.name || supplier.id) + ')';
+        } else {
+            opt.textContent = supplier.name || supplier.companyName || supplier.id;
+        }
+        supplierSelect.appendChild(opt);
+    });
+
+    // Pre-select if editing an existing product
+    if (selectedSupplierId) {
+        supplierSelect.value = selectedSupplierId;
+        // If saved supplier is now inactive/deleted, add a ghost entry
+        if (supplierSelect.value !== selectedSupplierId) {
+            var ghostOpt = document.createElement('option');
+            ghostOpt.value = selectedSupplierId;
+            ghostOpt.textContent = '[Previous supplier — ' + selectedSupplierId + ' (inactive/removed)]';
+            ghostOpt.selected = true;
+            supplierSelect.insertBefore(ghostOpt, supplierSelect.children[1] || null);
+            supplierSelect.value = selectedSupplierId;
+        }
+    }
+}
+
+
 function initializeProductForm() {
 
     const productForm =
@@ -495,6 +590,19 @@ function initializeProductForm() {
 
     const editProductId = new URLSearchParams(window.location.search).get("id");
     localStorage.removeItem("mms_edit_product_id");
+
+
+    // ── Task 2: Auto-generate product ID for NEW products ──────────────────────
+    var _editId = new URLSearchParams(window.location.search).get('id');
+    if (!_editId) {
+        var productIdInput = document.querySelector('#productId');
+        if (productIdInput) productIdInput.value = generateNextProductId();
+    }
+
+    // ── Task 1: Populate supplier dropdown dynamically ─────────────────────────
+    // (supplier pre-selection for edit mode is handled in loadProductForEdit)
+    populateSupplierDropdown(null);
+
 
 
     /*
@@ -585,6 +693,9 @@ function loadProductForEdit(productId) {
 
     document.querySelector("#expiryDate").value =
         product.expiryDate || "";
+
+    // ── Task 1: Set supplier dropdown for edit mode ──────────────────────────────
+    populateSupplierDropdown(product.supplierId || '');
 
 
     document.querySelector("#description").value =
