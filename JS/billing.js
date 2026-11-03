@@ -573,6 +573,17 @@ function initializeBillDetailsPage() {
     // 1. Populate Store Header
     const storeNameH1 = printableBill.querySelector(".shop-info h1");
     if (storeNameH1) storeNameH1.textContent = "🏪 " + (settings?.store?.name || "MART MANAGEMENT SYSTEM");
+    const oldStoreLogo = printableBill.querySelector(".shop-info .invoice-store-logo");
+    oldStoreLogo?.remove();
+    if (settings?.store?.logo && storeNameH1) {
+        const storeLogo = document.createElement("img");
+        storeLogo.className = "invoice-store-logo";
+        storeLogo.src = settings.store.logo;
+        storeLogo.alt = `${settings.store.name || "Store"} logo`;
+        storeLogo.style.cssText = "display:block;max-width:120px;max-height:64px;object-fit:contain;margin:0 auto 8px";
+        storeLogo.onerror = () => storeLogo.remove();
+        storeNameH1.before(storeLogo);
+    }
 
     const storePList = printableBill.querySelectorAll(".shop-info p");
     if (storePList.length >= 4) {

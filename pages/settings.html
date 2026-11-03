@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Settings | Mart Management System</title>
+    <title>Admin Control Center | Mart Management System</title>
 
     <link rel="stylesheet" href="../CSS/style.css">
 </head>
@@ -62,7 +62,7 @@
                     📈 Reports
                 </a>
                 <a href="settings.html" class="menu-item">
-                    ⚙️ Settings
+                    ⚙️ Admin Control Center
                 </a>
                 <a href="notifications.html" class="menu-item">
                     🔔 Notifications
@@ -87,8 +87,8 @@
         <!-- TOP NAVBAR -->
         <header class="top-navbar">
             <div>
-                <h2>Settings</h2>
-                <p>Manage your mart system preferences</p>
+                <h2>Admin Control Center</h2>
+                <p>Manage store identity and supported system preferences</p>
             </div>
 
             <div class="nav-right">
@@ -108,13 +108,27 @@
             <div class="page-header">
 
                 <div>
-                    <h1>⚙️ Settings</h1>
+                    <h1>⚙️ Admin Control Center</h1>
                     <p>
-                        Configure your mart, billing, inventory,
-                        employees and system preferences.
+                        Central access to the existing store, billing, inventory,
+                        employee, notification, backup, and activity settings.
                     </p>
                 </div>
 
+            </div>
+
+            <div class="settings-section admin-security-notice">
+                <div class="section-header"><h2>Account security and access</h2></div>
+                <p>This application currently uses browser LocalStorage and a demo login. The signed-in Owner session gates settings in this browser only; it is not server-enforced authentication and can be changed by someone with browser storage access. Email verification, secure password changes, recovery, and trusted multi-user roles are not available until a backend authentication service is configured.</p>
+                <p><strong>Current account:</strong> <span id="adminCurrentAccount">Loading…</span></p>
+            </div>
+
+            <div class="settings-section">
+                <div class="section-header"><h2>Administration tools</h2></div>
+                <div class="settings-grid admin-tools-grid">
+                    <div class="settings-card"><div class="settings-icon">📋</div><div class="settings-info"><h3>Activity and diagnostics</h3><p>Review recorded changes and current local storage usage.</p><a href="activity-log.html" class="settings-btn">Open Activity Log →</a></div></div>
+                    <div class="settings-card"><div class="settings-icon">👥</div><div class="settings-info"><h3>Employees and access preferences</h3><p>Manage employee records and the existing module preference controls.</p><a href="employee-settings.html" class="settings-btn">Open Employee Settings →</a></div></div>
+                </div>
             </div>
 
 

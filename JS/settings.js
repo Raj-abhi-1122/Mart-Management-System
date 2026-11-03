@@ -44,6 +44,12 @@ function getSettings() {
  */
 function saveSettings(partialSettings, categoryKey) {
     try {
+        const session = typeof Storage !== "undefined" && typeof STORAGE_KEYS !== "undefined"
+            ? Storage.get(STORAGE_KEYS.AUTH_USER, {}) : {};
+        if (!session?.isLoggedIn || !["owner", "admin"].includes(String(session.role || "").toLowerCase())) {
+            console.warn("Settings save blocked: an administrator session is required.");
+            return false;
+        }
         const current = getSettings();
         let updated;
         if (categoryKey) {
@@ -88,6 +94,12 @@ function notifyUser(message, type = "success") {
     }
 }
 
+function hasLocalAdminSession() {
+    const user = typeof Storage !== "undefined" && typeof STORAGE_KEYS !== "undefined"
+        ? Storage.get(STORAGE_KEYS.AUTH_USER, {}) : {};
+    return !!user?.isLoggedIn && ["owner", "admin"].includes(String(user.role || "").toLowerCase());
+}
+
 /**
  * Helper to query input/select/textarea associated with a label text.
  */
@@ -126,6 +138,9 @@ function findCheckboxByText(container, keyword) {
    0. OVERVIEW PAGE (settings.html)
    ========================================================= */
 function initializeSettingsOverviewPage() {
+    const account = Storage.get(STORAGE_KEYS.AUTH_USER, {});
+    const accountLabel = document.getElementById("adminCurrentAccount");
+    if (accountLabel) accountLabel.textContent = account?.email || "No account email is configured";
     const settings = getSettings();
 
     // 1. Live Current Configuration
@@ -207,6 +222,35 @@ function initializeStoreSettingsPage() {
     const regInp = document.getElementById("registration");
     const currencySelect = document.getElementById("currency");
     const invoiceFooterInp = document.getElementById("invoiceFooter");
+    const logoInput = document.getElementById("storeLogo");
+    const logoPreview = document.getElementById("storeLogoPreview");
+    let pendingLogo = store.logo || "";
+    const showLogo = () => {
+        if (!logoPreview) return;
+        logoPreview.replaceChildren();
+        if (pendingLogo) {
+            const img = document.createElement("img");
+            img.src = pendingLogo;
+            img.alt = "Store logo preview";
+            img.onerror = () => { pendingLogo = ""; logoPreview.textContent = "🏪 Logo unavailable"; };
+            logoPreview.appendChild(img);
+        } else logoPreview.textContent = "🏪 No logo selected";
+    };
+    showLogo();
+    logoInput?.addEventListener("change", () => {
+        const file = logoInput.files?.[0];
+        if (!file) return;
+        if (!/^image\/(png|jpeg|webp|svg\+xml)$/.test(file.type) || file.size > 300 * 1024) {
+            logoInput.value = "";
+            notifyUser("Choose a PNG, JPG, WebP, or SVG logo under 300 KB.", "error");
+            return;
+        }
+        const reader = new FileReader();
+        reader.onload = () => { if (typeof reader.result === "string") { pendingLogo = reader.result; showLogo(); } };
+        reader.onerror = () => notifyUser("Could not read the selected logo.", "error");
+        reader.readAsDataURL(file);
+    });
+    document.getElementById("removeStoreLogo")?.addEventListener("click", () => { pendingLogo = ""; if (logoInput) logoInput.value = ""; showLogo(); });
 
     // Populate saved values
     if (storeNameInp) storeNameInp.value = store.name || "My Mart Supermarket";
@@ -267,6 +311,18 @@ function initializeStoreSettingsPage() {
                 storeNameInp?.focus();
                 return;
             }
+            const emailValue = emailInp?.value.trim() || "";
+            if (emailValue && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
+                notifyUser("Enter a valid store email address.", "error");
+                emailInp?.focus();
+                return;
+            }
+            const codeValue = storeCodeInp?.value.trim() || "";
+            if (!codeValue) {
+                notifyUser("Enter a store code.", "error");
+                storeCodeInp?.focus();
+                return;
+            }
 
             // Gather business hours
             const businessHours = {};
@@ -305,6 +361,7 @@ function initializeStoreSettingsPage() {
                 businessHours: Object.keys(businessHours).length ? businessHours : undefined,
                 invoiceFooter: invoiceFooterInp ? invoiceFooterInp.value.trim() : "Thank you for shopping with us. Visit again!"
             };
+            storeData.logo = pendingLogo;
 
             const success = saveSettings(storeData, "store");
             if (success) {
@@ -1115,6 +1172,12 @@ function initializeBackupSettingsPage() {
 if (typeof document !== "undefined") {
     document.addEventListener("DOMContentLoaded", function () {
         const path = (window.location && window.location.pathname) ? window.location.pathname.toLowerCase() : "";
+        const adminSettingsPage = /\/(settings|store-settings|billing-settings|billing-setting|inventory-settings|employee-settings|notification-settings|backup-settings)\.html$/.test(path);
+        if (adminSettingsPage && !hasLocalAdminSession()) {
+            const loginPath = /[\\/]pages[\\/]/i.test(path) ? "../index.html" : "index.html";
+            window.location.replace(loginPath);
+            return;
+        }
 
         if (path.includes("store-settings.html")) {
             initializeStoreSettingsPage();

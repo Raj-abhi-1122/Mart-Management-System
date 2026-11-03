@@ -328,11 +328,29 @@ function syncStoreBranding() {
     if (typeof Storage === "undefined") return;
     const settings = Storage.get(STORAGE_KEYS.SETTINGS, DEFAULT_SETTINGS);
     const storeName = settings?.store?.name || "Mart System";
+    const logo = settings?.store?.logo || "";
 
     const logoHeaders = document.querySelectorAll(".sidebar-logo h2");
     logoHeaders.forEach(header => {
         header.textContent = "🏪 " + storeName;
     });
+    document.querySelectorAll(".sidebar-logo .logo-icon").forEach(icon => {
+        icon.replaceChildren();
+        if (logo) {
+            const image = document.createElement("img");
+            image.src = logo;
+            image.alt = `${storeName} logo`;
+            image.onerror = () => { icon.textContent = "🏪"; };
+            icon.appendChild(image);
+        } else icon.textContent = "🏪";
+    });
+    if (document.querySelector('link[rel="icon"]') || logo) {
+        let favicon = document.querySelector('link[rel="icon"]');
+        if (!favicon) { favicon = document.createElement("link"); favicon.rel = "icon"; document.head.appendChild(favicon); }
+        favicon.href = logo || "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><text y=%2250%22 font-size=%2250%22>🏪</text></svg>";
+    }
+    const title = document.title;
+    if (title && !title.includes(storeName)) document.title = `${title.replace(/\s*[|–-]\s*Mart Management System/i, "")} | ${storeName}`;
 
     const adminBadges = document.querySelectorAll(".admin-info, .user-info");
     const authUser = Storage.get(STORAGE_KEYS.AUTH_USER, {});
@@ -369,9 +387,10 @@ function initializeAdminProfileMenu() {
             const email = settings?.store?.email || user?.email || "";
             const heading = document.createElement("strong"); heading.className = "profile-menu-name"; heading.textContent = name;
             const subheading = document.createElement("span"); subheading.className = "profile-menu-email"; subheading.textContent = email;
-            const profileLink = document.createElement("a"); profileLink.href = "store-settings.html"; profileLink.textContent = "Store and owner profile"; profileLink.setAttribute("role", "menuitem");
-            const settingsLink = document.createElement("a"); settingsLink.href = "settings.html"; settingsLink.textContent = "Settings"; settingsLink.setAttribute("role", "menuitem");
-            menu.append(heading, subheading, profileLink, settingsLink);
+            const isPagesDir = /[\\/]pages[\\/]/i.test(window.location.pathname);
+            const centerLink = document.createElement("a"); centerLink.href = isPagesDir ? "settings.html" : "pages/settings.html"; centerLink.textContent = "Admin Control Center"; centerLink.setAttribute("role", "menuitem");
+            const profileLink = document.createElement("a"); profileLink.href = isPagesDir ? "store-settings.html" : "pages/store-settings.html"; profileLink.textContent = "Store profile and branding"; profileLink.setAttribute("role", "menuitem");
+            menu.append(heading, subheading, centerLink, profileLink);
             wrapper.appendChild(menu);
         }
         const toggle = () => { const open = !menu.hidden; document.querySelectorAll(".admin-profile-menu").forEach(item => { item.hidden = true; }); document.querySelectorAll(".admin-info, .user-info").forEach(item => item.setAttribute("aria-expanded", "false")); menu.hidden = open; badge.setAttribute("aria-expanded", String(!open)); };

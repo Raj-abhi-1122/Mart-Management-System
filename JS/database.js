@@ -790,16 +790,6 @@ function initializeDatabase() {
         Storage.set(STORAGE_KEYS.SETTINGS, DEFAULT_SETTINGS);
     }
 
-    // Default admin user if not set
-    if (!Storage.exists(STORAGE_KEYS.AUTH_USER)) {
-        Storage.set(STORAGE_KEYS.AUTH_USER, {
-            email: "admin@gmail.com",
-            name: "Admin Mart Owner",
-            role: "Owner",
-            isLoggedIn: true
-        });
-    }
-
     console.log("MMS LocalStorage database initialized with complete live data.");
 }
 

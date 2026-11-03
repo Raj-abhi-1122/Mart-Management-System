@@ -5,6 +5,22 @@
 
 const loginForm = document.getElementById("loginForm");
 
+// Reflect saved store identity on the login screen without substituting demo data.
+try {
+    const saved = typeof Storage !== "undefined" ? Storage.get("mms_settings", {}) : {};
+    const store = saved?.store || {};
+    const title = document.querySelector(".login-header h1");
+    if (title && store.name) title.textContent = store.name;
+    if (store.logo) {
+        const mark = document.createElement("img");
+        mark.src = store.logo;
+        mark.alt = `${store.name || "Store"} logo`;
+        mark.style.cssText = "display:block;max-width:96px;max-height:72px;object-fit:contain;margin:0 auto 12px";
+        mark.onerror = () => mark.remove();
+        title?.before(mark);
+    }
+} catch (error) { /* The default login identity remains available if saved branding cannot be read. */ }
+
 if (loginForm) {
     loginForm.addEventListener("submit", function(event) {
         // Prevent default refresh
@@ -46,7 +62,7 @@ if (loginForm) {
             }, 600);
         } else {
             if (message) {
-                message.textContent = "Invalid email or password. (Hint: admin@gmail.com / 1234)";
+                message.textContent = "Invalid email or password.";
                 message.style.color = "#ef4444";
             }
         }
