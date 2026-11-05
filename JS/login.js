@@ -4,6 +4,11 @@
    ========================================================= */
 
 const loginForm = document.getElementById("loginForm");
+const loginThemeMode = document.getElementById("loginThemeMode");
+if (loginThemeMode) {
+    loginThemeMode.value = document.documentElement.dataset.themeMode || "system";
+    loginThemeMode.addEventListener("change", () => window.MMSTheme?.setMode(loginThemeMode.value));
+}
 
 // Reflect saved store identity on the login screen without substituting demo data.
 try {

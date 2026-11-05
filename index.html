@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="JS/theme-early.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -8,6 +9,7 @@
 
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/login.css">
+    <link rel="stylesheet" href="CSS/theme.css">
 </head>
 
 <body>
@@ -15,6 +17,12 @@
     <div class="login-container">
 
         <div class="login-box">
+
+            <label class="login-theme-control">Theme
+                <select id="loginThemeMode" aria-label="Choose theme">
+                    <option value="light">Light</option><option value="dark">Dark</option><option value="system">System</option>
+                </select>
+            </label>
 
             <div class="login-header">
                 <h1>Mart Management System</h1>

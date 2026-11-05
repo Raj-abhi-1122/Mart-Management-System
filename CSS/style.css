@@ -12,9 +12,9 @@
 body {
     font-family: Arial, sans-serif;
 
-    background-color: #f4f6f8;
+    background-color: var(--mms-page-bg);
 
-    color: #222;
+    color: var(--mms-text);
 }
 
 
@@ -91,7 +91,7 @@ select {
 .sidebar-logo p {
     font-size: 13px;
 
-    color: #9ca3af;
+    color: var(--mms-text-muted);
 }
 
 /* Logo icon and text */
@@ -110,7 +110,7 @@ select {
 
 .logo-text p {
     font-size: 11px;
-    color: #9ca3af;
+    color: var(--mms-text-muted);
     margin: 0;
 }
 
@@ -125,13 +125,13 @@ select {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    color: #374151;
+    color: var(--mms-text);
     font-size: 14px;
     font-weight: 500;
     padding: 6px 14px;
     border-radius: 20px;
     text-decoration: none;
-    background: #f9fafb;
+    background: var(--mms-surface-muted);
     border: 1px solid #e5e7eb;
     cursor: pointer;
     position: relative;
@@ -176,9 +176,9 @@ select {
     align-items: center;
     gap: 6px;
     font-size: 13px;
-    color: #374151;
+    color: var(--mms-text);
     font-weight: 500;
-    background: #f9fafb;
+    background: var(--mms-surface-muted);
     padding: 6px 14px;
     border-radius: 20px;
     border: 1px solid #e5e7eb;
@@ -277,7 +277,7 @@ select {
 .top-navbar {
     height: 75px;
 
-    background-color: white;
+    background-color: var(--mms-surface);
 
     border-bottom: 1px solid #e5e7eb;
 
@@ -301,7 +301,7 @@ select {
 .top-navbar p {
     font-size: 13px;
 
-    color: #777;
+    color: var(--mms-text-muted);
 }
 
 
@@ -336,7 +336,7 @@ select {
 
 
 .owner-info small {
-    color: #777;
+    color: var(--mms-text-muted);
 
     margin-top: 3px;
 }
@@ -364,7 +364,7 @@ select {
 
 
 .welcome-section p {
-    color: #777;
+    color: var(--mms-text-muted);
 
     font-size: 14px;
 }
@@ -386,7 +386,7 @@ select {
 
 
 .dashboard-card {
-    background-color: white;
+    background-color: var(--mms-surface);
 
     padding: 20px;
 
@@ -407,7 +407,7 @@ select {
 
     height: 50px;
 
-    background-color: #f3f4f6;
+    background-color: var(--mms-surface-muted);
 
     border-radius: 8px;
 
@@ -422,7 +422,7 @@ select {
 
 
 .card-details p {
-    color: #777;
+    color: var(--mms-text-muted);
 
     font-size: 13px;
 
@@ -449,7 +449,7 @@ select {
 
 
 .dashboard-panel {
-    background-color: white;
+    background-color: var(--mms-surface);
 
     border: 1px solid #e5e7eb;
 
@@ -482,7 +482,7 @@ select {
 
     border-radius: 5px;
 
-    background-color: white;
+    background-color: var(--mms-surface);
 }
 
 
@@ -510,7 +510,7 @@ select {
 
     align-items: center;
 
-    color: #777;
+    color: var(--mms-text-muted);
 }
 
 
@@ -648,7 +648,7 @@ select {
 }
 
 .page-header p {
-    color: #777;
+    color: var(--mms-text-muted);
 
     font-size: 14px;
 }
@@ -684,7 +684,7 @@ select {
 ========================================= */
 
 .product-tools {
-    background-color: white;
+    background-color: var(--mms-surface);
 
     border: 1px solid #e5e7eb;
 
@@ -737,7 +737,7 @@ select {
 
     border-radius: 6px;
 
-    background-color: white;
+    background-color: var(--mms-surface);
 
     outline: none;
 
@@ -750,7 +750,7 @@ select {
 ========================================= */
 
 .table-container {
-    background-color: white;
+    background-color: var(--mms-surface);
 
     border: 1px solid #e5e7eb;
 
@@ -770,7 +770,7 @@ table {
 
 
 thead {
-    background-color: #f9fafb;
+    background-color: var(--mms-surface-muted);
 }
 
 
@@ -797,7 +797,7 @@ td {
 
 
 tbody tr:hover {
-    background-color: #f9fafb;
+    background-color: var(--mms-surface-muted);
 }
 
 
@@ -899,7 +899,7 @@ tbody tr:hover {
 
 
 .pagination button {
-    background-color: white;
+    background-color: var(--mms-surface);
 
     border: 1px solid #ddd;
 
@@ -914,7 +914,7 @@ tbody tr:hover {
 
 
 .pagination button:hover {
-    background-color: #f3f4f6;
+    background-color: var(--mms-surface-muted);
 }
 
 
@@ -933,7 +933,7 @@ tbody tr:hover {
 ========================================= */
 
 .form-container {
-    background-color: white;
+    background-color: var(--mms-surface);
 
     border: 1px solid #e5e7eb;
 
@@ -975,7 +975,7 @@ tbody tr:hover {
 
 
 .section-description {
-    color: #777;
+    color: var(--mms-text-muted);
 
     font-size: 13px;
 
@@ -1031,7 +1031,7 @@ tbody tr:hover {
 
     font-size: 14px;
 
-    background-color: white;
+    background-color: var(--mms-surface);
 }
 
 
@@ -1065,7 +1065,7 @@ tbody tr:hover {
 
 
 .secondary-btn {
-    background-color: white;
+    background-color: var(--mms-surface);
 
     color: #333;
 
@@ -1082,7 +1082,7 @@ tbody tr:hover {
 
 
 .secondary-btn:hover {
-    background-color: #f3f4f6;
+    background-color: var(--mms-surface-muted);
 }
 
 /* =========================================
@@ -1101,7 +1101,7 @@ tbody tr:hover {
 
 
 .inventory-card {
-    background-color: white;
+    background-color: var(--mms-surface);
 
     border: 1px solid #e5e7eb;
 
@@ -1122,7 +1122,7 @@ tbody tr:hover {
 
     height: 50px;
 
-    background-color: #f3f4f6;
+    background-color: var(--mms-surface-muted);
 
     border-radius: 8px;
 
@@ -1139,7 +1139,7 @@ tbody tr:hover {
 .inventory-card p {
     font-size: 13px;
 
-    color: #777;
+    color: var(--mms-text-muted);
 
     margin-bottom: 5px;
 }
@@ -1200,7 +1200,7 @@ tbody tr:hover {
 
 
 .movement-item p {
-    color: #777;
+    color: var(--mms-text-muted);
 
     font-size: 12px;
 
@@ -1301,7 +1301,7 @@ tbody tr:hover {
 ========================================= */
 
 .adjustment-summary {
-    background-color: #f9fafb;
+    background-color: var(--mms-surface-muted);
 
     border: 1px solid #e5e7eb;
 
@@ -1366,7 +1366,7 @@ tbody tr:hover {
 ========================================= */
 
 .adjustment-history {
-    background-color: white;
+    background-color: var(--mms-surface);
 
     border: 1px solid #e5e7eb;
 
@@ -1389,7 +1389,7 @@ tbody tr:hover {
 
 
 .adjustment-history .panel-header p {
-    color: #777;
+    color: var(--mms-text-muted);
 
     font-size: 13px;
 }
@@ -1447,7 +1447,7 @@ tbody tr:hover {
     padding: 12px 20px;
     border: 1px solid #ddd;
     border-radius: 6px;
-    background: white;
+    background: var(--mms-surface);
     font-size: 14px;
     outline: none;
 }
@@ -1456,7 +1456,7 @@ tbody tr:hover {
 /* Supplier table */
 
 .table-container {
-    background: white;
+    background: var(--mms-surface);
     border-radius: 10px;
     overflow-x: auto;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
@@ -1468,7 +1468,7 @@ tbody tr:hover {
 }
 
 .table-container th {
-    background: #f5f7fb;
+    background: var(--mms-surface-muted);
     padding: 15px;
     text-align: left;
     font-size: 14px;
@@ -1529,14 +1529,14 @@ tbody tr:hover {
 
 .pagination button {
     border: 1px solid #ddd;
-    background: white;
+    background: var(--mms-surface);
     padding: 8px 14px;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .pagination button:hover {
-    background: #f3f4f6;
+    background: var(--mms-surface-muted);
 }
 
 .pagination .active-page {
@@ -1552,7 +1552,7 @@ tbody tr:hover {
 .secondary-btn {
     display: inline-block;
     padding: 10px 18px;
-    background: #f3f4f6;
+    background: var(--mms-surface-muted);
     color: #333;
     text-decoration: none;
     border-radius: 6px;
@@ -1566,7 +1566,7 @@ tbody tr:hover {
 
 
 .product-form {
-    background: white;
+    background: var(--mms-surface);
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
@@ -1661,7 +1661,7 @@ tbody tr:hover {
 ========================================= */
 
 .purchase-form {
-    background: white;
+    background: var(--mms-surface);
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
@@ -1688,7 +1688,7 @@ tbody tr:hover {
 
 
 .purchase-table th {
-    background: #f5f7fb;
+    background: var(--mms-surface-muted);
     padding: 14px;
     text-align: left;
     font-size: 14px;
@@ -1847,7 +1847,7 @@ tbody tr:hover {
 ========================================= */
 
 .bill-form {
-    background: white;
+    background: var(--mms-surface);
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
@@ -1866,7 +1866,7 @@ tbody tr:hover {
 
 
 .bill-table th {
-    background: #f5f7fb;
+    background: var(--mms-surface-muted);
     padding: 14px;
     text-align: left;
     font-size: 14px;
@@ -1999,7 +1999,7 @@ tbody tr:hover {
 
 
 .invoice-container {
-    background: white;
+    background: var(--mms-surface);
     max-width: 1000px;
     margin: 0 auto;
     padding: 40px;
@@ -2093,7 +2093,7 @@ tbody tr:hover {
 
 
 .invoice-table th {
-    background: #f3f4f6;
+    background: var(--mms-surface-muted);
     padding: 13px;
     text-align: left;
     font-size: 14px;
@@ -2166,7 +2166,7 @@ tbody tr:hover {
     margin-top: 40px;
     padding-top: 20px;
     border-top: 1px solid #ddd;
-    color: #777;
+    color: var(--mms-text-muted);
     font-size: 13px;
 }
 
@@ -2179,7 +2179,7 @@ tbody tr:hover {
 @media print {
 
     body {
-        background: white;
+        background: var(--mms-surface);
     }
 
 
@@ -2222,7 +2222,7 @@ tbody tr:hover {
     gap: 12px;
     margin: 25px 0;
     padding: 20px;
-    background: white;
+    background: var(--mms-surface);
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
@@ -2299,7 +2299,7 @@ tbody tr:hover {
     gap: 12px;
     margin: 25px 0;
     padding: 20px;
-    background: white;
+    background: var(--mms-surface);
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
@@ -2334,7 +2334,7 @@ tbody tr:hover {
 ========================================= */
 
 .customer-form {
-    background: white;
+    background: var(--mms-surface);
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
@@ -2415,7 +2415,7 @@ tbody tr:hover {
 .employee-title p {
     margin: 0;
 
-    color: #64748b;
+    color: var(--mms-text-muted);
 
     font-size: 14px;
     line-height: 1.6;
@@ -2480,7 +2480,7 @@ tbody tr:hover {
 }
 
 .employee-card {
-    background: #ffffff;
+    background: var(--mms-surface);
 
     border: 1px solid #e5e7eb;
 
@@ -2503,7 +2503,7 @@ tbody tr:hover {
 .employee-card p {
     margin: 0 0 9px 0;
 
-    color: #64748b;
+    color: var(--mms-text-muted);
 
     font-size: 13px;
     font-weight: 500;
@@ -2562,7 +2562,7 @@ tbody tr:hover {
 
     margin-bottom: 24px;
 
-    background: #ffffff;
+    background: var(--mms-surface);
 
     border: 1px solid #e5e7eb;
 
@@ -2591,7 +2591,7 @@ tbody tr:hover {
 
     border-radius: 7px;
 
-    background: #ffffff;
+    background: var(--mms-surface);
 
     transition: 0.2s ease;
 }
@@ -2636,7 +2636,7 @@ tbody tr:hover {
 }
 
 .employee-filter label {
-    color: #64748b;
+    color: var(--mms-text-muted);
 
     font-size: 11px;
     font-weight: 600;
@@ -2657,7 +2657,7 @@ tbody tr:hover {
 
     border-radius: 7px;
 
-    background: #ffffff;
+    background: var(--mms-surface);
 
     color: #334155;
 
@@ -2680,7 +2680,7 @@ tbody tr:hover {
 ============================== */
 
 .employee-table-box {
-    background: #ffffff;
+    background: var(--mms-surface);
 
     border: 1px solid #e5e7eb;
 
@@ -2727,13 +2727,13 @@ tbody tr:hover {
 .employee-count {
     padding: 7px 11px;
 
-    background: #f8fafc;
+    background: var(--mms-surface-muted);
 
     border: 1px solid #e2e8f0;
 
     border-radius: 6px;
 
-    color: #64748b;
+    color: var(--mms-text-muted);
 
     font-size: 12px;
     font-weight: 500;
@@ -2764,11 +2764,11 @@ tbody tr:hover {
 .employee-table thead th {
     padding: 13px 18px;
 
-    background: #f8fafc;
+    background: var(--mms-surface-muted);
 
     border-bottom: 1px solid #e2e8f0;
 
-    color: #64748b;
+    color: var(--mms-text-muted);
 
     font-size: 11px;
     font-weight: 700;
@@ -2790,7 +2790,7 @@ tbody tr:hover {
 
     border-bottom: 1px solid #f1f5f9;
 
-    color: #475569;
+    color: var(--mms-text-muted);
 
     font-size: 13px;
 
@@ -2879,7 +2879,7 @@ tbody tr:hover {
 }
 
 .contact-cell span {
-    color: #475569;
+    color: var(--mms-text-muted);
 
     font-size: 12px;
 }
@@ -2900,13 +2900,13 @@ tbody tr:hover {
 
     padding: 5px 9px;
 
-    background: #f8fafc;
+    background: var(--mms-surface-muted);
 
     border: 1px solid #e2e8f0;
 
     border-radius: 5px;
 
-    color: #475569;
+    color: var(--mms-text-muted);
 
     font-size: 11px;
     font-weight: 500;
@@ -3012,15 +3012,15 @@ tbody tr:hover {
 /* EDIT */
 
 .action-edit {
-    background: #f8fafc;
+    background: var(--mms-surface-muted);
 
     border: 1px solid #e2e8f0;
 
-    color: #475569;
+    color: var(--mms-text-muted);
 }
 
 .action-edit:hover {
-    background: #f1f5f9;
+    background: var(--mms-surface-muted);
 
     border-color: #cbd5e1;
 }
@@ -3067,9 +3067,9 @@ tbody tr:hover {
 
     border-radius: 5px;
 
-    background: #ffffff;
+    background: var(--mms-surface);
 
-    color: #475569;
+    color: var(--mms-text-muted);
 
     font-size: 11px;
 
@@ -3079,7 +3079,7 @@ tbody tr:hover {
 }
 
 .pagination-buttons button:hover:not(:disabled) {
-    background: #f8fafc;
+    background: var(--mms-surface-muted);
 
     border-color: #cbd5e1;
 }
@@ -3095,7 +3095,7 @@ tbody tr:hover {
 .pagination-buttons button:disabled {
     color: #cbd5e1;
 
-    background: #f8fafc;
+    background: var(--mms-surface-muted);
 
     cursor: not-allowed;
 }
@@ -3210,7 +3210,7 @@ tbody tr:hover {
 .employee-form-header p {
     margin: 0;
 
-    color: #64748b;
+    color: var(--mms-text-muted);
 
     font-size: 14px;
     line-height: 1.6;
@@ -3232,9 +3232,9 @@ tbody tr:hover {
 
     border-radius: 7px;
 
-    background: #ffffff;
+    background: var(--mms-surface);
 
-    color: #475569;
+    color: var(--mms-text-muted);
 
     text-decoration: none;
 
@@ -3245,7 +3245,7 @@ tbody tr:hover {
 }
 
 .secondary-btn:hover {
-    background: #f8fafc;
+    background: var(--mms-surface-muted);
 
     border-color: #cbd5e1;
 
@@ -3262,7 +3262,7 @@ tbody tr:hover {
 
     padding: 24px;
 
-    background: #ffffff;
+    background: var(--mms-surface);
 
     border: 1px solid #e5e7eb;
 
@@ -3350,7 +3350,7 @@ tbody tr:hover {
 }
 
 .form-group label {
-    color: #475569;
+    color: var(--mms-text-muted);
 
     font-size: 12px;
     font-weight: 600;
@@ -3378,7 +3378,7 @@ tbody tr:hover {
 
     border-radius: 7px;
 
-    background: #ffffff;
+    background: var(--mms-surface);
 
     color: #334155;
 
@@ -3447,7 +3447,7 @@ tbody tr:hover {
 
     transform: translateY(-50%);
 
-    color: #64748b;
+    color: var(--mms-text-muted);
 
     font-size: 13px;
     font-weight: 600;
@@ -3474,7 +3474,7 @@ tbody tr:hover {
 
     padding: 19px 22px;
 
-    background: #ffffff;
+    background: var(--mms-surface);
 
     border: 1px solid #e5e7eb;
 
@@ -3502,9 +3502,9 @@ tbody tr:hover {
 
     border-radius: 7px;
 
-    background: #ffffff;
+    background: var(--mms-surface);
 
-    color: #475569;
+    color: var(--mms-text-muted);
 
     text-decoration: none;
 
@@ -3515,7 +3515,7 @@ tbody tr:hover {
 }
 
 .cancel-btn:hover {
-    background: #f8fafc;
+    background: var(--mms-surface-muted);
 
     border-color: #cbd5e1;
 }
@@ -3644,7 +3644,7 @@ tbody tr:hover {
 .employee-details-header p {
     margin: 0;
 
-    color: #64748b;
+    color: var(--mms-text-muted);
 
     font-size: 14px;
     line-height: 1.6;
@@ -3709,7 +3709,7 @@ tbody tr:hover {
 
     margin-bottom: 22px;
 
-    background: #ffffff;
+    background: var(--mms-surface);
 
     border: 1px solid #e5e7eb;
 
@@ -3758,13 +3758,13 @@ tbody tr:hover {
 .employee-profile-info p {
     margin: 4px 0;
 
-    color: #64748b;
+    color: var(--mms-text-muted);
 
     font-size: 12px;
 }
 
 .employee-profile-id strong {
-    color: #475569;
+    color: var(--mms-text-muted);
 }
 
 .employee-detail-status {
@@ -3832,7 +3832,7 @@ tbody tr:hover {
 
     padding: 18px;
 
-    background: #ffffff;
+    background: var(--mms-surface);
 
     border: 1px solid #e5e7eb;
 
@@ -3863,7 +3863,7 @@ tbody tr:hover {
 
     margin-bottom: 5px;
 
-    color: #64748b;
+    color: var(--mms-text-muted);
 
     font-size: 11px;
 }
@@ -3897,7 +3897,7 @@ tbody tr:hover {
 ============================== */
 
 .employee-information-card {
-    background: #ffffff;
+    background: var(--mms-surface);
 
     border: 1px solid #e5e7eb;
 
@@ -3948,7 +3948,7 @@ tbody tr:hover {
 
     border-radius: 7px;
 
-    background: #f8fafc;
+    background: var(--mms-surface-muted);
 
     font-size: 15px;
 }
@@ -3980,7 +3980,7 @@ tbody tr:hover {
 }
 
 .employee-info-row span {
-    color: #64748b;
+    color: var(--mms-text-muted);
 
     font-size: 12px;
 }
@@ -4007,7 +4007,7 @@ tbody tr:hover {
 
     padding: 20px;
 
-    background: #ffffff;
+    background: var(--mms-surface);
 
     border: 1px solid #e5e7eb;
 
@@ -4030,9 +4030,9 @@ tbody tr:hover {
 
     border-radius: 6px;
 
-    background: #ffffff;
+    background: var(--mms-surface);
 
-    color: #475569;
+    color: var(--mms-text-muted);
 
     text-decoration: none;
 
@@ -4043,7 +4043,7 @@ tbody tr:hover {
 }
 
 .small-action-btn:hover {
-    background: #f8fafc;
+    background: var(--mms-surface-muted);
 
     border-color: #cbd5e1;
 }
@@ -4063,7 +4063,7 @@ tbody tr:hover {
 
     margin-bottom: 5px;
 
-    color: #64748b;
+    color: var(--mms-text-muted);
 
     font-size: 12px;
 }
@@ -4086,7 +4086,7 @@ tbody tr:hover {
 
     border-radius: 10px;
 
-    background: #f1f5f9;
+    background: var(--mms-surface-muted);
 }
 
 .attendance-progress-fill {
@@ -4115,7 +4115,7 @@ tbody tr:hover {
 .employee-notes-card {
     padding: 20px;
 
-    background: #ffffff;
+    background: var(--mms-surface);
 
     border: 1px solid #e5e7eb;
 
@@ -4135,7 +4135,7 @@ tbody tr:hover {
 .employee-notes-card p {
     margin: 0;
 
-    color: #64748b;
+    color: var(--mms-text-muted);
 
     font-size: 13px;
 
@@ -4259,7 +4259,7 @@ tbody tr:hover {
 .payroll-page-header p {
     margin: 0;
 
-    color: #64748b;
+    color: var(--mms-text-muted);
 
     font-size: 14px;
 
@@ -4282,9 +4282,9 @@ tbody tr:hover {
 
     border-radius: 7px;
 
-    background: #ffffff;
+    background: var(--mms-surface);
 
-    color: #475569;
+    color: var(--mms-text-muted);
 
     font-family: inherit;
 
@@ -4323,7 +4323,7 @@ tbody tr:hover {
 
     padding: 19px;
 
-    background: #ffffff;
+    background: var(--mms-surface);
 
     border: 1px solid #e5e7eb;
 
@@ -4354,7 +4354,7 @@ tbody tr:hover {
 
     margin-bottom: 5px;
 
-    color: #64748b;
+    color: var(--mms-text-muted);
 
     font-size: 11px;
 }
@@ -4384,7 +4384,7 @@ tbody tr:hover {
 .payroll-history-card,
 .salary-calculation-card,
 .employee-attendance-card {
-    background: #ffffff;
+    background: var(--mms-surface);
 
     border: 1px solid #e5e7eb;
 
@@ -4455,7 +4455,7 @@ tbody tr:hover {
 }
 
 .payroll-form-group label {
-    color: #475569;
+    color: var(--mms-text-muted);
 
     font-size: 12px;
     font-weight: 600;
@@ -4474,7 +4474,7 @@ tbody tr:hover {
 
     border-radius: 7px;
 
-    background: #ffffff;
+    background: var(--mms-surface);
 
     color: #334155;
 
@@ -4509,7 +4509,7 @@ tbody tr:hover {
 
     transform: translateY(-50%);
 
-    color: #64748b;
+    color: var(--mms-text-muted);
 
     font-size: 13px;
     font-weight: 600;
@@ -4575,7 +4575,7 @@ tbody tr:hover {
 
     border-radius: 7px;
 
-    background: #f8fafc;
+    background: var(--mms-surface-muted);
 
     font-size: 15px;
 }
@@ -4592,7 +4592,7 @@ tbody tr:hover {
 }
 
 .salary-row span {
-    color: #64748b;
+    color: var(--mms-text-muted);
 
     font-size: 12px;
 }
@@ -4611,7 +4611,7 @@ tbody tr:hover {
 
     padding: 16px 21px;
 
-    background: #f8fafc;
+    background: var(--mms-surface-muted);
 }
 
 .salary-total span {
@@ -4660,7 +4660,7 @@ tbody tr:hover {
 
     margin-bottom: 5px;
 
-    color: #64748b;
+    color: var(--mms-text-muted);
 
     font-size: 12px;
 }
@@ -4676,7 +4676,7 @@ tbody tr:hover {
 .net-salary-card p {
     margin: 0;
 
-    color: #64748b;
+    color: var(--mms-text-muted);
 
     font-size: 11px;
 }
@@ -4692,7 +4692,7 @@ tbody tr:hover {
 
     margin-bottom: 7px;
 
-    color: #64748b;
+    color: var(--mms-text-muted);
 
     font-size: 11px;
 }
@@ -4737,11 +4737,11 @@ tbody tr:hover {
 .payroll-table th {
     padding: 13px 17px;
 
-    background: #f8fafc;
+    background: var(--mms-surface-muted);
 
     border-bottom: 1px solid #e2e8f0;
 
-    color: #64748b;
+    color: var(--mms-text-muted);
 
     font-size: 10px;
     font-weight: 700;
@@ -4760,7 +4760,7 @@ tbody tr:hover {
 
     border-bottom: 1px solid #f1f5f9;
 
-    color: #475569;
+    color: var(--mms-text-muted);
 
     font-size: 12px;
 
@@ -4871,11 +4871,11 @@ tbody tr:hover {
 
     border-radius: 5px;
 
-    background: #f8fafc;
+    background: var(--mms-surface-muted);
 
     border: 1px solid #e2e8f0;
 
-    color: #475569;
+    color: var(--mms-text-muted);
 
     text-decoration: none;
 
@@ -5004,12 +5004,12 @@ tbody tr:hover {
 
 .attendance-page-header h1 {
     font-size: 26px;
-    color: #111827;
+    color: var(--mms-text);
     margin-bottom: 7px;
 }
 
 .attendance-page-header p {
-    color: #6b7280;
+    color: var(--mms-text-muted);
     font-size: 14px;
 }
 
@@ -5064,18 +5064,18 @@ tbody tr:hover {
 }
 
 .attendance-outline-btn {
-    background: white;
-    color: #374151;
+    background: var(--mms-surface);
+    color: var(--mms-text);
     border: 1px solid #d1d5db;
 }
 
 .attendance-outline-btn:hover {
-    background: #f9fafb;
+    background: var(--mms-surface-muted);
 }
 
 .attendance-reset-btn {
-    background: #f3f4f6;
-    color: #374151;
+    background: var(--mms-surface-muted);
+    color: var(--mms-text);
 }
 
 .attendance-reset-btn:hover {
@@ -5093,7 +5093,7 @@ tbody tr:hover {
 }
 
 .attendance-summary-card {
-    background: #ffffff;
+    background: var(--mms-surface);
     border: 1px solid #e5e7eb;
     border-radius: 10px;
     padding: 19px;
@@ -5141,19 +5141,19 @@ tbody tr:hover {
 
 .attendance-summary-card span {
     display: block;
-    color: #6b7280;
+    color: var(--mms-text-muted);
     font-size: 12px;
     margin-bottom: 4px;
 }
 
 .attendance-summary-card h2 {
     font-size: 25px;
-    color: #111827;
+    color: var(--mms-text);
     margin-bottom: 3px;
 }
 
 .attendance-summary-card small {
-    color: #9ca3af;
+    color: var(--mms-text-muted);
     font-size: 11px;
 }
 
@@ -5161,7 +5161,7 @@ tbody tr:hover {
 /* FILTER AREA */
 
 .attendance-filter-card {
-    background: #ffffff;
+    background: var(--mms-surface);
     border: 1px solid #e5e7eb;
     border-radius: 10px;
     padding: 18px;
@@ -5174,7 +5174,7 @@ tbody tr:hover {
 
 .attendance-filter-item label {
     display: block;
-    color: #374151;
+    color: var(--mms-text);
     font-size: 12px;
     font-weight: 600;
     margin-bottom: 7px;
@@ -5187,8 +5187,8 @@ tbody tr:hover {
     padding: 0 11px;
     border: 1px solid #d1d5db;
     border-radius: 7px;
-    background: white;
-    color: #374151;
+    background: var(--mms-surface);
+    color: var(--mms-text);
     font-size: 13px;
     outline: none;
 }
@@ -5203,7 +5203,7 @@ tbody tr:hover {
 /* TABLE CARD */
 
 .attendance-table-card {
-    background: white;
+    background: var(--mms-surface);
     border: 1px solid #e5e7eb;
     border-radius: 10px;
     overflow: hidden;
@@ -5221,12 +5221,12 @@ tbody tr:hover {
 
 .attendance-table-header h2 {
     font-size: 18px;
-    color: #111827;
+    color: var(--mms-text);
     margin-bottom: 4px;
 }
 
 .attendance-table-header p {
-    color: #6b7280;
+    color: var(--mms-text-muted);
     font-size: 12px;
 }
 
@@ -5245,10 +5245,10 @@ tbody tr:hover {
 }
 
 .attendance-management-table th {
-    background: #f9fafb;
+    background: var(--mms-surface-muted);
     padding: 12px 16px;
     text-align: left;
-    color: #6b7280;
+    color: var(--mms-text-muted);
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
@@ -5260,7 +5260,7 @@ tbody tr:hover {
 .attendance-management-table td {
     padding: 14px 16px;
     border-bottom: 1px solid #f0f0f0;
-    color: #374151;
+    color: var(--mms-text);
     font-size: 13px;
     vertical-align: middle;
 }
@@ -5299,13 +5299,13 @@ tbody tr:hover {
 
 .attendance-employee-name {
     font-weight: 600;
-    color: #111827;
+    color: var(--mms-text);
     font-size: 13px;
 }
 
 .attendance-employee-email {
     display: block;
-    color: #9ca3af;
+    color: var(--mms-text-muted);
     font-size: 10px;
     margin-top: 3px;
 }
@@ -5345,8 +5345,8 @@ tbody tr:hover {
 }
 
 .attendance-status-badge.unmarked {
-    background: #f3f4f6;
-    color: #6b7280;
+    background: var(--mms-surface-muted);
+    color: var(--mms-text-muted);
 }
 
 
@@ -5361,8 +5361,8 @@ tbody tr:hover {
 
 .attendance-action-btn {
     border: 1px solid #d1d5db;
-    background: white;
-    color: #374151;
+    background: var(--mms-surface);
+    color: var(--mms-text);
     padding: 6px 9px;
     border-radius: 6px;
     font-size: 11px;
@@ -5371,7 +5371,7 @@ tbody tr:hover {
 }
 
 .attendance-action-btn:hover {
-    background: #f3f4f6;
+    background: var(--mms-surface-muted);
 }
 
 .attendance-action-btn.checkin {
@@ -5405,7 +5405,7 @@ tbody tr:hover {
 }
 
 .attendance-table-footer > span {
-    color: #6b7280;
+    color: var(--mms-text-muted);
     font-size: 12px;
 }
 
@@ -5417,7 +5417,7 @@ tbody tr:hover {
 }
 
 .attendance-legend span {
-    color: #6b7280;
+    color: var(--mms-text-muted);
     font-size: 11px;
     display: flex;
     align-items: center;
@@ -5457,7 +5457,7 @@ tbody tr:hover {
 }
 
 .attendance-info-panel {
-    background: white;
+    background: var(--mms-surface);
     border: 1px solid #e5e7eb;
     border-radius: 10px;
     overflow: hidden;
@@ -5474,12 +5474,12 @@ tbody tr:hover {
 
 .attendance-info-panel-header h2 {
     font-size: 16px;
-    color: #111827;
+    color: var(--mms-text);
     margin-bottom: 4px;
 }
 
 .attendance-info-panel-header p {
-    color: #6b7280;
+    color: var(--mms-text-muted);
     font-size: 11px;
 }
 
@@ -5514,12 +5514,12 @@ tbody tr:hover {
 }
 
 .monthly-stat span {
-    color: #6b7280;
+    color: var(--mms-text-muted);
     font-size: 13px;
 }
 
 .monthly-stat strong {
-    color: #111827;
+    color: var(--mms-text);
     font-size: 14px;
 }
 
@@ -5548,12 +5548,12 @@ tbody tr:hover {
 }
 
 .attendance-rule span {
-    color: #6b7280;
+    color: var(--mms-text-muted);
     font-size: 13px;
 }
 
 .attendance-rule strong {
-    color: #111827;
+    color: var(--mms-text);
     font-size: 13px;
 }
 
@@ -5582,7 +5582,7 @@ tbody tr:hover {
     max-width: 650px;
     max-height: 90vh;
     overflow-y: auto;
-    background: white;
+    background: var(--mms-surface);
     border-radius: 12px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
 }
@@ -5597,12 +5597,12 @@ tbody tr:hover {
 
 .attendance-modal-header h2 {
     font-size: 19px;
-    color: #111827;
+    color: var(--mms-text);
     margin-bottom: 4px;
 }
 
 .attendance-modal-header p {
-    color: #6b7280;
+    color: var(--mms-text-muted);
     font-size: 12px;
 }
 
@@ -5610,7 +5610,7 @@ tbody tr:hover {
     width: 32px;
     height: 32px;
     border: none;
-    background: #f3f4f6;
+    background: var(--mms-surface-muted);
     border-radius: 6px;
     font-size: 22px;
     color: #4b5563;
@@ -5638,7 +5638,7 @@ tbody tr:hover {
 
 .modal-input-group label {
     display: block;
-    color: #374151;
+    color: var(--mms-text);
     font-size: 12px;
     font-weight: 600;
     margin-bottom: 7px;
@@ -5652,10 +5652,10 @@ tbody tr:hover {
     border-radius: 7px;
     padding: 10px 11px;
     font-size: 13px;
-    color: #374151;
+    color: var(--mms-text);
     outline: none;
     font-family: inherit;
-    background: white;
+    background: var(--mms-surface);
 }
 
 .modal-input-group input:focus,
@@ -5665,7 +5665,7 @@ tbody tr:hover {
 }
 
 .modal-input-group input:read-only {
-    background: #f9fafb;
+    background: var(--mms-surface-muted);
 }
 
 .modal-input-group textarea {
@@ -5682,8 +5682,8 @@ tbody tr:hover {
 }
 
 .attendance-cancel-btn {
-    background: #f3f4f6;
-    color: #374151;
+    background: var(--mms-surface-muted);
+    color: var(--mms-text);
 }
 
 .attendance-cancel-btn:hover {
@@ -5705,7 +5705,7 @@ tbody tr:hover {
 .attendance-empty {
     text-align: center;
     padding: 45px 20px !important;
-    color: #9ca3af !important;
+    color: var(--mms-text-muted) !important;
 }
 
 .attendance-empty-icon {
@@ -5715,7 +5715,7 @@ tbody tr:hover {
 
 .attendance-empty strong {
     display: block;
-    color: #6b7280;
+    color: var(--mms-text-muted);
     font-size: 14px;
     margin-bottom: 4px;
 }
@@ -5824,12 +5824,12 @@ tbody tr:hover {
 
 .employee-attendance-header h1 {
     font-size: 25px;
-    color: #111827;
+    color: var(--mms-text);
     margin-bottom: 6px;
 }
 
 .employee-attendance-header p {
-    color: #6b7280;
+    color: var(--mms-text-muted);
     font-size: 13px;
 }
 
@@ -5843,7 +5843,7 @@ tbody tr:hover {
 /* PROFILE */
 
 .employee-attendance-profile {
-    background: #ffffff;
+    background: var(--mms-surface);
     border: 1px solid #e5e7eb;
     border-radius: 10px;
     padding: 23px;
@@ -5875,12 +5875,12 @@ tbody tr:hover {
 
 .employee-profile-name h2 {
     font-size: 20px;
-    color: #111827;
+    color: var(--mms-text);
     margin-bottom: 4px;
 }
 
 .employee-profile-name p {
-    color: #6b7280;
+    color: var(--mms-text-muted);
     font-size: 13px;
     margin-bottom: 8px;
 }
@@ -5905,13 +5905,13 @@ tbody tr:hover {
 
 .profile-info-item span {
     display: block;
-    color: #9ca3af;
+    color: var(--mms-text-muted);
     font-size: 11px;
     margin-bottom: 4px;
 }
 
 .profile-info-item strong {
-    color: #374151;
+    color: var(--mms-text);
     font-size: 13px;
 }
 
@@ -5926,7 +5926,7 @@ tbody tr:hover {
 }
 
 .employee-attendance-stat {
-    background: #ffffff;
+    background: var(--mms-surface);
     border: 1px solid #e5e7eb;
     border-radius: 10px;
     padding: 17px;
@@ -5973,19 +5973,19 @@ tbody tr:hover {
 
 .employee-attendance-stat span {
     display: block;
-    color: #6b7280;
+    color: var(--mms-text-muted);
     font-size: 11px;
     margin-bottom: 4px;
 }
 
 .employee-attendance-stat h2 {
-    color: #111827;
+    color: var(--mms-text);
     font-size: 22px;
     margin-bottom: 3px;
 }
 
 .employee-attendance-stat small {
-    color: #9ca3af;
+    color: var(--mms-text-muted);
     font-size: 10px;
 }
 
@@ -5993,7 +5993,7 @@ tbody tr:hover {
 /* FILTER */
 
 .employee-attendance-filter {
-    background: #ffffff;
+    background: var(--mms-surface);
     border: 1px solid #e5e7eb;
     border-radius: 10px;
     padding: 18px;
@@ -6008,7 +6008,7 @@ tbody tr:hover {
     display: block;
     font-size: 11px;
     font-weight: 600;
-    color: #374151;
+    color: var(--mms-text);
     margin-bottom: 6px;
 }
 
@@ -6020,8 +6020,8 @@ tbody tr:hover {
     border: 1px solid #d1d5db;
     border-radius: 7px;
     font-size: 12px;
-    color: #374151;
-    background: #ffffff;
+    color: var(--mms-text);
+    background: var(--mms-surface);
     outline: none;
 }
 
@@ -6050,7 +6050,7 @@ tbody tr:hover {
 /* COMMON ATTENDANCE CARD */
 
 .employee-attendance-card {
-    background: #ffffff;
+    background: var(--mms-surface);
     border: 1px solid #e5e7eb;
     border-radius: 10px;
     overflow: hidden;
@@ -6067,12 +6067,12 @@ tbody tr:hover {
 
 .employee-attendance-card-header h2 {
     font-size: 16px;
-    color: #111827;
+    color: var(--mms-text);
     margin-bottom: 4px;
 }
 
 .employee-attendance-card-header p {
-    color: #6b7280;
+    color: var(--mms-text-muted);
     font-size: 11px;
 }
 
@@ -6095,14 +6095,14 @@ tbody tr:hover {
     width: 30px;
     height: 30px;
     border: 1px solid #d1d5db;
-    background: white;
+    background: var(--mms-surface);
     border-radius: 5px;
     cursor: pointer;
-    color: #374151;
+    color: var(--mms-text);
 }
 
 .calendar-navigation button:hover {
-    background: #f3f4f6;
+    background: var(--mms-surface-muted);
 }
 
 .attendance-calendar {
@@ -6116,7 +6116,7 @@ tbody tr:hover {
     text-align: center;
     font-size: 10px;
     font-weight: 700;
-    color: #9ca3af;
+    color: var(--mms-text-muted);
     padding: 7px 0;
 }
 
@@ -6128,7 +6128,7 @@ tbody tr:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: #ffffff;
+    background: var(--mms-surface);
 }
 
 .calendar-day:not(.empty):hover {
@@ -6138,7 +6138,7 @@ tbody tr:hover {
 
 .calendar-day span {
     font-size: 11px;
-    color: #374151;
+    color: var(--mms-text);
     font-weight: 600;
 }
 
@@ -6174,8 +6174,8 @@ tbody tr:hover {
 }
 
 .calendar-weekend {
-    background: #f3f4f6;
-    color: #9ca3af;
+    background: var(--mms-surface-muted);
+    color: var(--mms-text-muted);
 }
 
 .calendar-day.empty {
@@ -6198,7 +6198,7 @@ tbody tr:hover {
     display: flex;
     align-items: center;
     gap: 5px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
     font-size: 10px;
 }
 
@@ -6251,7 +6251,7 @@ tbody tr:hover {
 }
 
 .progress-heading strong {
-    color: #111827;
+    color: var(--mms-text);
     font-size: 12px;
 }
 
@@ -6259,7 +6259,7 @@ tbody tr:hover {
     width: 100%;
     height: 7px;
     border-radius: 20px;
-    background: #f3f4f6;
+    background: var(--mms-surface-muted);
     overflow: hidden;
 }
 
@@ -6282,7 +6282,7 @@ tbody tr:hover {
 
 .attendance-progress-item small {
     display: block;
-    color: #9ca3af;
+    color: var(--mms-text-muted);
     font-size: 10px;
     margin-top: 5px;
 }
@@ -6302,12 +6302,12 @@ tbody tr:hover {
 }
 
 .attendance-extra-stats span {
-    color: #6b7280;
+    color: var(--mms-text-muted);
     font-size: 11px;
 }
 
 .attendance-extra-stats strong {
-    color: #111827;
+    color: var(--mms-text);
     font-size: 12px;
 }
 
@@ -6329,8 +6329,8 @@ tbody tr:hover {
 }
 
 .employee-history-table th {
-    background: #f9fafb;
-    color: #6b7280;
+    background: var(--mms-surface-muted);
+    color: var(--mms-text-muted);
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 0.3px;
@@ -6342,12 +6342,12 @@ tbody tr:hover {
 .employee-history-table td {
     padding: 13px 16px;
     font-size: 12px;
-    color: #374151;
+    color: var(--mms-text);
     border-bottom: 1px solid #f0f0f0;
 }
 
 .employee-history-table tbody tr:hover {
-    background: #fafafa;
+    background: var(--mms-surface-muted);
 }
 
 .history-status {
@@ -6382,27 +6382,27 @@ tbody tr:hover {
 /* NOTES */
 
 .attendance-notes-card {
-    background: #ffffff;
+    background: var(--mms-surface);
     border: 1px solid #e5e7eb;
     border-radius: 10px;
     padding: 20px;
 }
 
 .attendance-notes-card h2 {
-    color: #111827;
+    color: var(--mms-text);
     font-size: 16px;
     margin-bottom: 4px;
 }
 
 .attendance-notes-card > div:first-child p {
-    color: #6b7280;
+    color: var(--mms-text-muted);
     font-size: 11px;
 }
 
 .attendance-note-content {
     margin-top: 16px;
     padding: 15px;
-    background: #f9fafb;
+    background: var(--mms-surface-muted);
     border: 1px solid #f0f0f0;
     border-radius: 8px;
     display: flex;
@@ -6424,13 +6424,13 @@ tbody tr:hover {
 
 .attendance-note-content strong {
     display: block;
-    color: #374151;
+    color: var(--mms-text);
     font-size: 13px;
     margin-bottom: 5px;
 }
 
 .attendance-note-content p {
-    color: #6b7280;
+    color: var(--mms-text-muted);
     font-size: 11px;
     line-height: 1.6;
 }
@@ -6517,7 +6517,7 @@ tbody tr:hover {
    ========================================================= */
 
 .leave-filter-box {
-    background: #ffffff;
+    background: var(--mms-surface);
     border: 1px solid #e5e7eb;
     border-radius: 12px;
     padding: 20px;
@@ -6540,7 +6540,7 @@ tbody tr:hover {
 .leave-filter .filter-group label {
     font-size: 13px;
     font-weight: 600;
-    color: #374151;
+    color: var(--mms-text);
 }
 
 .leave-filter select,
@@ -6550,8 +6550,8 @@ tbody tr:hover {
     padding: 0 12px;
     border: 1px solid #d1d5db;
     border-radius: 7px;
-    background: #ffffff;
-    color: #374151;
+    background: var(--mms-surface);
+    color: var(--mms-text);
     font-size: 13px;
     outline: none;
 }
@@ -6591,8 +6591,8 @@ tbody tr:hover {
 }
 
 .leave-table th {
-    background: #f8fafc;
-    color: #475569;
+    background: var(--mms-surface-muted);
+    color: var(--mms-text-muted);
     font-size: 12px;
     font-weight: 700;
     text-align: left;
@@ -6605,12 +6605,12 @@ tbody tr:hover {
     padding: 15px 12px;
     border-bottom: 1px solid #eef0f3;
     font-size: 13px;
-    color: #374151;
+    color: var(--mms-text);
     vertical-align: middle;
 }
 
 .leave-table tbody tr:hover {
-    background: #fafafa;
+    background: var(--mms-surface-muted);
 }
 
 
@@ -6640,7 +6640,7 @@ tbody tr:hover {
 .employee-name-cell strong {
     display: block;
     font-size: 13px;
-    color: #1f2937;
+    color: var(--mms-text);
     margin-bottom: 3px;
 }
 
@@ -6713,7 +6713,7 @@ tbody tr:hover {
     align-items: center;
     padding: 18px 20px;
     border-top: 1px solid #e5e7eb;
-    color: #64748b;
+    color: var(--mms-text-muted);
     font-size: 12px;
 }
 
@@ -6728,15 +6728,15 @@ tbody tr:hover {
     height: 34px;
     padding: 0 10px;
     border: 1px solid #d1d5db;
-    background: #ffffff;
+    background: var(--mms-surface);
     border-radius: 6px;
-    color: #475569;
+    color: var(--mms-text-muted);
     font-size: 12px;
     cursor: pointer;
 }
 
 .pagination-btn:hover {
-    background: #f8fafc;
+    background: var(--mms-surface-muted);
 }
 
 .pagination-btn.active {
@@ -6778,7 +6778,7 @@ tbody tr:hover {
 
 .leave-balance-row > div:first-child strong {
     display: block;
-    color: #1f2937;
+    color: var(--mms-text);
     font-size: 13px;
     margin-bottom: 4px;
 }
@@ -6798,7 +6798,7 @@ tbody tr:hover {
 
 .balance-values span {
     font-size: 11px;
-    color: #64748b;
+    color: var(--mms-text-muted);
 }
 
 .balance-values strong {
@@ -6853,12 +6853,12 @@ tbody tr:hover {
 }
 
 .leave-type-icon.unpaid {
-    background: #f8fafc;
+    background: var(--mms-surface-muted);
 }
 
 .leave-type-item strong {
     display: block;
-    color: #1f2937;
+    color: var(--mms-text);
     font-size: 13px;
     margin-bottom: 3px;
 }
@@ -6921,7 +6921,7 @@ tbody tr:hover {
 
 .leave-activity-item strong {
     display: block;
-    color: #1f2937;
+    color: var(--mms-text);
     font-size: 13px;
     margin-bottom: 4px;
 }
@@ -6996,7 +6996,7 @@ tbody tr:hover {
    ========================================================= */
 
 .attendance-report-filter {
-    background: #ffffff;
+    background: var(--mms-surface);
     border: 1px solid #e5e7eb;
     border-radius: 12px;
     padding: 20px;
@@ -7017,7 +7017,7 @@ tbody tr:hover {
 .report-filter-group label {
     font-size: 13px;
     font-weight: 600;
-    color: #374151;
+    color: var(--mms-text);
 }
 
 .report-filter-group select {
@@ -7028,8 +7028,8 @@ tbody tr:hover {
     border: 1px solid #d1d5db;
     border-radius: 7px;
 
-    background: #ffffff;
-    color: #374151;
+    background: var(--mms-surface);
+    color: var(--mms-text);
 
     font-size: 13px;
     outline: none;
@@ -7080,9 +7080,9 @@ tbody tr:hover {
 }
 
 .attendance-report-table th {
-    background: #f8fafc;
+    background: var(--mms-surface-muted);
 
-    color: #475569;
+    color: var(--mms-text-muted);
 
     font-size: 12px;
     font-weight: 700;
@@ -7102,13 +7102,13 @@ tbody tr:hover {
     border-bottom: 1px solid #eef0f3;
 
     font-size: 13px;
-    color: #374151;
+    color: var(--mms-text);
 
     vertical-align: middle;
 }
 
 .attendance-report-table tbody tr:hover {
-    background: #fafafa;
+    background: var(--mms-surface-muted);
 }
 
 
@@ -7144,7 +7144,7 @@ tbody tr:hover {
 .report-employee strong {
     display: block;
 
-    color: #1f2937;
+    color: var(--mms-text);
 
     font-size: 13px;
 
@@ -7193,7 +7193,7 @@ tbody tr:hover {
 
 .attendance-percentage strong {
     font-size: 11px;
-    color: #374151;
+    color: var(--mms-text);
 }
 
 
@@ -7263,12 +7263,12 @@ tbody tr:hover {
 
 .overview-top span {
     font-size: 13px;
-    color: #475569;
+    color: var(--mms-text-muted);
 }
 
 .overview-top strong {
     font-size: 13px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .overview-progress {
@@ -7343,14 +7343,14 @@ tbody tr:hover {
 
     gap: 10px;
 
-    color: #475569;
+    color: var(--mms-text-muted);
 
     font-size: 13px;
 }
 
 .status-report-item > strong {
     font-size: 14px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .status-dot {
@@ -7391,9 +7391,9 @@ tbody tr:hover {
 }
 
 .late-arrival-table th {
-    background: #f8fafc;
+    background: var(--mms-surface-muted);
 
-    color: #475569;
+    color: var(--mms-text-muted);
 
     font-size: 12px;
     font-weight: 700;
@@ -7414,15 +7414,15 @@ tbody tr:hover {
 
     font-size: 13px;
 
-    color: #374151;
+    color: var(--mms-text);
 }
 
 .late-arrival-table tbody tr:hover {
-    background: #fafafa;
+    background: var(--mms-surface-muted);
 }
 
 .late-arrival-table td strong {
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 
@@ -7492,7 +7492,7 @@ tbody tr:hover {
 
     margin-bottom: 30px;
 
-    background: #f8fafc;
+    background: var(--mms-surface-muted);
 
     border: 1px solid #e2e8f0;
 
@@ -7527,7 +7527,7 @@ tbody tr:hover {
 .report-note p {
     margin: 0;
 
-    color: #64748b;
+    color: var(--mms-text-muted);
 
     font-size: 12px;
 
@@ -7578,7 +7578,7 @@ tbody tr:hover {
    ========================================================= */
 
 .expense-filter-box {
-    background: #ffffff;
+    background: var(--mms-surface);
     border: 1px solid #e5e7eb;
     border-radius: 12px;
     padding: 20px;
@@ -7601,7 +7601,7 @@ tbody tr:hover {
 .expense-filter-group label {
     font-size: 13px;
     font-weight: 600;
-    color: #374151;
+    color: var(--mms-text);
 }
 
 .expense-filter-group input,
@@ -7611,8 +7611,8 @@ tbody tr:hover {
     padding: 0 12px;
     border: 1px solid #d1d5db;
     border-radius: 7px;
-    background: #ffffff;
-    color: #374151;
+    background: var(--mms-surface);
+    color: var(--mms-text);
     font-size: 13px;
     outline: none;
 }
@@ -7649,8 +7649,8 @@ tbody tr:hover {
 .expense-count {
     padding: 6px 12px;
     border-radius: 20px;
-    background: #f1f5f9;
-    color: #64748b;
+    background: var(--mms-surface-muted);
+    color: var(--mms-text-muted);
     font-size: 11px;
     font-weight: 600;
 }
@@ -7661,8 +7661,8 @@ tbody tr:hover {
 }
 
 .expense-table th {
-    background: #f8fafc;
-    color: #475569;
+    background: var(--mms-surface-muted);
+    color: var(--mms-text-muted);
     font-size: 12px;
     font-weight: 700;
     text-align: left;
@@ -7675,16 +7675,16 @@ tbody tr:hover {
     padding: 15px 12px;
     border-bottom: 1px solid #eef0f3;
     font-size: 13px;
-    color: #374151;
+    color: var(--mms-text);
     vertical-align: middle;
 }
 
 .expense-table tbody tr:hover {
-    background: #fafafa;
+    background: var(--mms-surface-muted);
 }
 
 .expense-table td strong {
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 
@@ -7786,8 +7786,8 @@ tbody tr:hover {
 }
 
 .expense-action.edit {
-    background: #f8fafc;
-    color: #475569;
+    background: var(--mms-surface-muted);
+    color: var(--mms-text-muted);
 }
 
 .expense-action.edit:hover {
@@ -7803,7 +7803,7 @@ tbody tr:hover {
     align-items: center;
     padding: 18px 20px;
     border-top: 1px solid #e5e7eb;
-    color: #64748b;
+    color: var(--mms-text-muted);
     font-size: 12px;
 }
 
@@ -7847,7 +7847,7 @@ tbody tr:hover {
     display: flex;
     align-items: center;
     gap: 10px;
-    color: #475569;
+    color: var(--mms-text-muted);
     font-size: 13px;
 }
 
@@ -7883,7 +7883,7 @@ tbody tr:hover {
 
 .expense-category-row > strong {
     font-size: 13px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 
@@ -7908,7 +7908,7 @@ tbody tr:hover {
 
 .monthly-expense-row div strong {
     display: block;
-    color: #1f2937;
+    color: var(--mms-text);
     font-size: 13px;
     margin-bottom: 3px;
 }
@@ -7929,17 +7929,17 @@ tbody tr:hover {
     align-items: center;
     margin-top: 14px;
     padding: 13px 14px;
-    background: #f8fafc;
+    background: var(--mms-surface-muted);
     border-radius: 8px;
 }
 
 .expense-total-box span {
-    color: #64748b;
+    color: var(--mms-text-muted);
     font-size: 12px;
 }
 
 .expense-total-box strong {
-    color: #1f2937;
+    color: var(--mms-text);
     font-size: 14px;
 }
 
@@ -7991,7 +7991,7 @@ tbody tr:hover {
 
 .expense-activity-item strong {
     display: block;
-    color: #1f2937;
+    color: var(--mms-text);
     font-size: 13px;
     margin-bottom: 4px;
 }
@@ -8016,7 +8016,7 @@ tbody tr:hover {
     gap: 12px;
     padding: 16px 18px;
     margin-bottom: 30px;
-    background: #f8fafc;
+    background: var(--mms-surface-muted);
     border: 1px solid #e2e8f0;
     border-radius: 10px;
 }
@@ -8041,7 +8041,7 @@ tbody tr:hover {
 
 .expense-note p {
     margin: 0;
-    color: #64748b;
+    color: var(--mms-text-muted);
     font-size: 12px;
     line-height: 1.6;
 }
@@ -8107,7 +8107,7 @@ tbody tr:hover {
 }
 
 .form-section {
-    background: #ffffff;
+    background: var(--mms-surface);
     border: 1px solid #e5e7eb;
     border-radius: 12px;
     padding: 24px;
@@ -8122,7 +8122,7 @@ tbody tr:hover {
 .form-section-header h2 {
     margin: 0 0 5px;
     font-size: 17px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .form-section-header p {
@@ -8149,7 +8149,7 @@ tbody tr:hover {
 }
 
 .form-group label {
-    color: #374151;
+    color: var(--mms-text);
     font-size: 13px;
     font-weight: 600;
 }
@@ -8167,8 +8167,8 @@ tbody tr:hover {
     border: 1px solid #d1d5db;
     border-radius: 7px;
 
-    background: #ffffff;
-    color: #374151;
+    background: var(--mms-surface);
+    color: var(--mms-text);
 
     font-size: 13px;
     outline: none;
@@ -8195,8 +8195,8 @@ tbody tr:hover {
 }
 
 .form-group input[readonly] {
-    background: #f8fafc;
-    color: #64748b;
+    background: var(--mms-surface-muted);
+    color: var(--mms-text-muted);
 }
 
 
@@ -8212,7 +8212,7 @@ tbody tr:hover {
     position: absolute;
     left: 12px;
 
-    color: #64748b;
+    color: var(--mms-text-muted);
     font-size: 13px;
     font-weight: 600;
 
@@ -8227,7 +8227,7 @@ tbody tr:hover {
 /* ================= EXPENSE SUMMARY ================= */
 
 .expense-form-summary {
-    background: #f8fafc;
+    background: var(--mms-surface-muted);
     border: 1px solid #e2e8f0;
     border-radius: 12px;
     padding: 22px 24px;
@@ -8240,7 +8240,7 @@ tbody tr:hover {
 .form-summary-header h2 {
     margin: 0;
     font-size: 17px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .expense-summary-grid {
@@ -8250,7 +8250,7 @@ tbody tr:hover {
 }
 
 .expense-summary-item {
-    background: #ffffff;
+    background: var(--mms-surface);
     border: 1px solid #e5e7eb;
     border-radius: 8px;
     padding: 15px;
@@ -8258,13 +8258,13 @@ tbody tr:hover {
 
 .expense-summary-item span {
     display: block;
-    color: #64748b;
+    color: var(--mms-text-muted);
     font-size: 11px;
     margin-bottom: 6px;
 }
 
 .expense-summary-item strong {
-    color: #1f2937;
+    color: var(--mms-text);
     font-size: 16px;
 }
 
@@ -8293,8 +8293,8 @@ tbody tr:hover {
     border: 1px solid #d1d5db;
     border-radius: 7px;
 
-    background: #ffffff;
-    color: #475569;
+    background: var(--mms-surface);
+    color: var(--mms-text-muted);
 
     text-decoration: none;
 
@@ -8303,7 +8303,7 @@ tbody tr:hover {
 }
 
 .cancel-btn:hover {
-    background: #f8fafc;
+    background: var(--mms-surface-muted);
 }
 
 
@@ -8317,7 +8317,7 @@ tbody tr:hover {
     padding: 16px 18px;
     margin-bottom: 30px;
 
-    background: #f8fafc;
+    background: var(--mms-surface-muted);
 
     border: 1px solid #e2e8f0;
     border-radius: 10px;
@@ -8336,7 +8336,7 @@ tbody tr:hover {
 .expense-form-note p {
     margin: 0;
 
-    color: #64748b;
+    color: var(--mms-text-muted);
 
     font-size: 12px;
 
@@ -8395,7 +8395,7 @@ tbody tr:hover {
 }
 
 .details-card {
-    background: #ffffff;
+    background: var(--mms-surface);
     border-radius: 12px;
     padding: 24px;
     margin-bottom: 20px;
@@ -8413,13 +8413,13 @@ tbody tr:hover {
 .details-card-header h3 {
     margin: 0;
     font-size: 18px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .details-card-header p {
     margin: 5px 0 0;
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 
@@ -8448,12 +8448,12 @@ tbody tr:hover {
 .expense-profile h2 {
     margin: 0 0 5px;
     font-size: 21px;
-    color: #111827;
+    color: var(--mms-text);
 }
 
 .expense-profile p {
     margin: 0 0 8px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
     font-size: 13px;
 }
 
@@ -8506,12 +8506,12 @@ tbody tr:hover {
 
 .detail-item span {
     font-size: 12px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .detail-item strong {
     font-size: 14px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 
@@ -8534,7 +8534,7 @@ tbody tr:hover {
 
 .amount-detail span {
     font-size: 14px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .amount-detail strong {
@@ -8542,7 +8542,7 @@ tbody tr:hover {
 }
 
 .amount-total {
-    color: #111827;
+    color: var(--mms-text);
 }
 
 .amount-paid {
@@ -8571,7 +8571,7 @@ tbody tr:hover {
 
 .description-box,
 .notes-box {
-    background: #f9fafb;
+    background: var(--mms-surface-muted);
     border: 1px solid #e5e7eb;
     border-radius: 8px;
     padding: 18px;
@@ -8595,7 +8595,7 @@ tbody tr:hover {
     padding: 16px;
     border: 1px solid #e5e7eb;
     border-radius: 10px;
-    background: #f9fafb;
+    background: var(--mms-surface-muted);
 }
 
 .attachment-icon {
@@ -8616,12 +8616,12 @@ tbody tr:hover {
 .attachment-info h4 {
     margin: 0 0 5px;
     font-size: 14px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .attachment-info p {
     margin: 0;
-    color: #6b7280;
+    color: var(--mms-text-muted);
     font-size: 12px;
 }
 
@@ -8670,20 +8670,20 @@ tbody tr:hover {
 .activity-content strong {
     display: block;
     font-size: 14px;
-    color: #1f2937;
+    color: var(--mms-text);
     margin-bottom: 5px;
 }
 
 .activity-content p {
     margin: 0 0 5px;
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
     line-height: 1.5;
 }
 
 .activity-content span {
     font-size: 11px;
-    color: #9ca3af;
+    color: var(--mms-text-muted);
 }
 
 
@@ -8706,7 +8706,7 @@ tbody tr:hover {
 
 .expense-details-note p {
     margin: 0;
-    color: #374151;
+    color: var(--mms-text);
     font-size: 13px;
     line-height: 1.6;
 }
@@ -8748,7 +8748,7 @@ tbody tr:hover {
    ========================================================= */
 
 .report-filter-card {
-    background: #ffffff;
+    background: var(--mms-surface);
     border: 1px solid #e5e7eb;
     border-radius: 12px;
     padding: 22px;
@@ -8763,13 +8763,13 @@ tbody tr:hover {
 .report-filter-title h3 {
     margin: 0 0 5px;
     font-size: 17px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .report-filter-title p {
     margin: 0;
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .report-filter-grid {
@@ -8828,13 +8828,13 @@ tbody tr:hover {
 
 .report-summary-cards .summary-card span {
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .report-summary-cards .summary-card h2 {
     margin: 5px 0;
     font-size: 22px;
-    color: #111827;
+    color: var(--mms-text);
 }
 
 .report-summary-cards .summary-card small {
@@ -8859,13 +8859,13 @@ tbody tr:hover {
 .section-title h2 {
     margin: 0 0 5px;
     font-size: 20px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .section-title p {
     margin: 0;
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 
@@ -8881,7 +8881,7 @@ tbody tr:hover {
 .report-module-card {
     display: flex;
     gap: 18px;
-    background: #ffffff;
+    background: var(--mms-surface);
     border: 1px solid #e5e7eb;
     border-radius: 12px;
     padding: 22px;
@@ -8936,14 +8936,14 @@ tbody tr:hover {
 .report-module-content h3 {
     margin: 0 0 7px;
     font-size: 17px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .report-module-content p {
     margin: 0 0 15px;
     font-size: 13px;
     line-height: 1.6;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .report-module-stats {
@@ -8957,12 +8957,12 @@ tbody tr:hover {
     flex-direction: column;
     gap: 4px;
     font-size: 11px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .report-module-stats strong {
     font-size: 14px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .report-view-btn {
@@ -9007,12 +9007,12 @@ tbody tr:hover {
 
 .performance-row span {
     font-size: 12px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .performance-row strong {
     font-size: 13px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .performance-bar {
@@ -9078,12 +9078,12 @@ tbody tr:hover {
 
 .payment-report-item span {
     font-size: 12px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .payment-report-item strong {
     font-size: 14px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .payment-percentage {
@@ -9114,7 +9114,7 @@ tbody tr:hover {
 
 .report-information p {
     margin: 0;
-    color: #374151;
+    color: var(--mms-text);
     font-size: 13px;
     line-height: 1.6;
 }
@@ -9212,13 +9212,13 @@ tbody tr:hover {
 
 .sales-report-summary .summary-card span {
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .sales-report-summary .summary-card h2 {
     margin: 5px 0;
     font-size: 22px;
-    color: #111827;
+    color: var(--mms-text);
 }
 
 .sales-report-summary .summary-card small {
@@ -9240,8 +9240,8 @@ tbody tr:hover {
 }
 
 .sales-report-table th {
-    background: #f9fafb;
-    color: #6b7280;
+    background: var(--mms-surface-muted);
+    color: var(--mms-text-muted);
     font-size: 12px;
     font-weight: 600;
     text-align: left;
@@ -9258,20 +9258,20 @@ tbody tr:hover {
 }
 
 .sales-report-table td strong {
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .sales-report-table tbody tr:hover {
-    background: #fafafa;
+    background: var(--mms-surface-muted);
 }
 
 .sales-report-table .table-total {
-    background: #f8fafc;
+    background: var(--mms-surface-muted);
 }
 
 .sales-report-table .table-total td {
     border-bottom: none;
-    color: #111827;
+    color: var(--mms-text);
 }
 
 
@@ -9313,7 +9313,7 @@ tbody tr:hover {
 
 .sales-payment-row > div:first-child strong {
     font-size: 14px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .sales-progress {
@@ -9347,7 +9347,7 @@ tbody tr:hover {
 .sales-payment-row > b {
     font-size: 12px;
     text-align: right;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 
@@ -9377,12 +9377,12 @@ tbody tr:hover {
 
 .sales-stat-row span {
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .sales-stat-row strong {
     font-size: 14px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 
@@ -9471,13 +9471,13 @@ tbody tr:hover {
 
 .purchase-report-summary .summary-card span {
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .purchase-report-summary .summary-card h2 {
     margin: 5px 0;
     font-size: 22px;
-    color: #111827;
+    color: var(--mms-text);
 }
 
 .purchase-report-summary .summary-card small {
@@ -9563,12 +9563,12 @@ tbody tr:hover {
 
 .supplier-info strong {
     font-size: 13px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .supplier-info span {
     font-size: 11px;
-    color: #9ca3af;
+    color: var(--mms-text-muted);
 }
 
 .supplier-amount {
@@ -9580,12 +9580,12 @@ tbody tr:hover {
 
 .supplier-amount strong {
     font-size: 14px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .supplier-amount span {
     font-size: 11px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .supplier-total {
@@ -9597,12 +9597,12 @@ tbody tr:hover {
 
 .supplier-total span {
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .supplier-total strong {
     font-size: 16px;
-    color: #111827;
+    color: var(--mms-text);
 }
 
 
@@ -9632,12 +9632,12 @@ tbody tr:hover {
 
 .purchase-stat-row span {
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .purchase-stat-row strong {
     font-size: 14px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .purchase-stat-row .purchase-due {
@@ -9688,17 +9688,17 @@ tbody tr:hover {
 
 .purchase-payment-box span {
     font-size: 12px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .purchase-payment-box strong {
     font-size: 17px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .purchase-payment-box small {
     font-size: 11px;
-    color: #9ca3af;
+    color: var(--mms-text-muted);
 }
 
 
@@ -9791,13 +9791,13 @@ tbody tr:hover {
 
 .inventory-report-summary .summary-card span {
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .inventory-report-summary .summary-card h2 {
     margin: 5px 0;
     font-size: 22px;
-    color: #111827;
+    color: var(--mms-text);
 }
 
 .inventory-report-summary .summary-card small {
@@ -9829,17 +9829,17 @@ tbody tr:hover {
 
 .inventory-value-main span {
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .inventory-value-main strong {
     font-size: 30px;
-    color: #111827;
+    color: var(--mms-text);
 }
 
 .inventory-value-main small {
     font-size: 11px;
-    color: #9ca3af;
+    color: var(--mms-text-muted);
 }
 
 .inventory-value-details {
@@ -9856,12 +9856,12 @@ tbody tr:hover {
 
 .inventory-value-details span {
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .inventory-value-details strong {
     font-size: 14px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .inventory-value-details .inventory-profit {
@@ -9896,7 +9896,7 @@ tbody tr:hover {
 
 .stock-health-row strong {
     font-size: 15px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .stock-dot {
@@ -9932,8 +9932,8 @@ tbody tr:hover {
 }
 
 .inventory-report-table th {
-    background: #f9fafb;
-    color: #6b7280;
+    background: var(--mms-surface-muted);
+    color: var(--mms-text-muted);
     font-size: 12px;
     font-weight: 600;
     text-align: left;
@@ -9950,11 +9950,11 @@ tbody tr:hover {
 }
 
 .inventory-report-table td strong {
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .inventory-report-table tbody tr:hover {
-    background: #fafafa;
+    background: var(--mms-surface-muted);
 }
 
 
@@ -10064,12 +10064,12 @@ tbody tr:hover {
 
 .category-inventory-value strong {
     font-size: 14px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .category-inventory-value span {
     font-size: 11px;
-    color: #9ca3af;
+    color: var(--mms-text-muted);
 }
 
 
@@ -10099,12 +10099,12 @@ tbody tr:hover {
 
 .inventory-stat-row span {
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .inventory-stat-row strong {
     font-size: 14px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 
@@ -10227,13 +10227,13 @@ tbody tr:hover {
 
 .expense-report-summary .summary-card span {
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .expense-report-summary .summary-card h2 {
     margin: 5px 0;
     font-size: 22px;
-    color: #111827;
+    color: var(--mms-text);
 }
 
 .expense-report-summary .summary-card small {
@@ -10255,8 +10255,8 @@ tbody tr:hover {
 }
 
 .expense-report-table th {
-    background: #f9fafb;
-    color: #6b7280;
+    background: var(--mms-surface-muted);
+    color: var(--mms-text-muted);
     font-size: 12px;
     font-weight: 600;
     text-align: left;
@@ -10273,15 +10273,15 @@ tbody tr:hover {
 }
 
 .expense-report-table td strong {
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .expense-report-table tbody tr:hover {
-    background: #fafafa;
+    background: var(--mms-surface-muted);
 }
 
 .expense-report-table .table-total {
-    background: #f8fafc;
+    background: var(--mms-surface-muted);
 }
 
 .expense-report-table .table-total td {
@@ -10354,12 +10354,12 @@ tbody tr:hover {
 
 .expense-category-info strong {
     font-size: 13px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .expense-category-info span:not(.expense-category-dot) {
     font-size: 11px;
-    color: #9ca3af;
+    color: var(--mms-text-muted);
 }
 
 .expense-category-dot {
@@ -10401,12 +10401,12 @@ tbody tr:hover {
 
 .expense-category-amount strong {
     font-size: 14px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .expense-category-amount span {
     font-size: 11px;
-    color: #9ca3af;
+    color: var(--mms-text-muted);
 }
 
 .expense-category-total {
@@ -10418,12 +10418,12 @@ tbody tr:hover {
 
 .expense-category-total span {
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .expense-category-total strong {
     font-size: 16px;
-    color: #111827;
+    color: var(--mms-text);
 }
 
 
@@ -10453,12 +10453,12 @@ tbody tr:hover {
 
 .expense-stat-row span {
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .expense-stat-row strong {
     font-size: 14px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .expense-stat-row .expense-due {
@@ -10509,17 +10509,17 @@ tbody tr:hover {
 
 .expense-payment-box span {
     font-size: 12px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .expense-payment-box strong {
     font-size: 17px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .expense-payment-box small {
     font-size: 11px;
-    color: #9ca3af;
+    color: var(--mms-text-muted);
 }
 
 
@@ -10607,13 +10607,13 @@ tbody tr:hover {
 
 .profit-summary-cards .summary-card span {
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .profit-summary-cards .summary-card h2 {
     margin: 5px 0;
     font-size: 22px;
-    color: #111827;
+    color: var(--mms-text);
 }
 
 .profit-summary-cards .summary-card small {
@@ -10662,12 +10662,12 @@ tbody tr:hover {
 .profit-section-title span {
     font-size: 15px;
     font-weight: 700;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .profit-section-title strong {
     font-size: 15px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .profit-line {
@@ -10678,7 +10678,7 @@ tbody tr:hover {
 
 .profit-line span {
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .profit-line span:last-child {
@@ -10706,7 +10706,7 @@ tbody tr:hover {
 
 .profit-total strong {
     font-size: 15px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .revenue-total strong {
@@ -10806,12 +10806,12 @@ tbody tr:hover {
 
 .margin-row span {
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .margin-row strong {
     font-size: 13px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .margin-bar {
@@ -10866,12 +10866,12 @@ tbody tr:hover {
 
 .financial-stat-row span {
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .financial-stat-row strong {
     font-size: 14px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .financial-positive {
@@ -10893,8 +10893,8 @@ tbody tr:hover {
 }
 
 .profit-report-table th {
-    background: #f9fafb;
-    color: #6b7280;
+    background: var(--mms-surface-muted);
+    color: var(--mms-text-muted);
     font-size: 12px;
     font-weight: 600;
     text-align: left;
@@ -10915,7 +10915,7 @@ tbody tr:hover {
 }
 
 .profit-report-table tbody tr:hover {
-    background: #fafafa;
+    background: var(--mms-surface-muted);
 }
 
 
@@ -10945,12 +10945,12 @@ tbody tr:hover {
 
 .revenue-cost-row span {
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .revenue-cost-row strong {
     font-size: 13px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .revenue-cost-bar {
@@ -11002,12 +11002,12 @@ tbody tr:hover {
 
 .profit-trend-row span {
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .profit-trend-row strong {
     font-size: 14px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .profit-trend-row b {
@@ -11082,7 +11082,7 @@ tbody tr:hover {
 }
 
 .settings-card {
-    background: #ffffff;
+    background: var(--mms-surface);
     border: 1px solid #e5e7eb;
     border-radius: 12px;
     padding: 24px;
@@ -11104,7 +11104,7 @@ tbody tr:hover {
     height: 55px;
 
     border-radius: 12px;
-    background: #f1f5f9;
+    background: var(--mms-surface-muted);
 
     display: flex;
     align-items: center;
@@ -11123,7 +11123,7 @@ tbody tr:hover {
 
     font-size: 18px;
     font-weight: 600;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .settings-info p {
@@ -11131,7 +11131,7 @@ tbody tr:hover {
 
     font-size: 14px;
     line-height: 1.6;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .settings-btn {
@@ -11162,7 +11162,7 @@ tbody tr:hover {
 ===================================================== */
 
 .settings-section {
-    background: #ffffff;
+    background: var(--mms-surface);
 
     border: 1px solid #e5e7eb;
     border-radius: 12px;
@@ -11181,7 +11181,7 @@ tbody tr:hover {
     margin: 0;
 
     font-size: 18px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 
@@ -11209,14 +11209,14 @@ tbody tr:hover {
     display: block;
 
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 
     margin-bottom: 7px;
 }
 
 .system-info-item strong {
     font-size: 14px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 
@@ -11245,12 +11245,12 @@ tbody tr:hover {
 
 .configuration-row span {
     font-size: 14px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .configuration-row strong {
     font-size: 14px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 
@@ -11305,7 +11305,7 @@ tbody tr:hover {
 ===================================================== */
 
 .form-section {
-    background: #ffffff;
+    background: var(--mms-surface);
     border: 1px solid #e5e7eb;
     border-radius: 12px;
     margin-top: 22px;
@@ -11320,12 +11320,12 @@ tbody tr:hover {
 .form-section-header h2 {
     margin: 0 0 6px;
     font-size: 18px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .form-section-header p {
     margin: 0;
-    color: #6b7280;
+    color: var(--mms-text-muted);
     font-size: 13px;
 }
 
@@ -11349,7 +11349,7 @@ tbody tr:hover {
     margin-bottom: 8px;
     font-size: 14px;
     font-weight: 600;
-    color: #374151;
+    color: var(--mms-text);
 }
 
 .form-group input,
@@ -11363,11 +11363,11 @@ tbody tr:hover {
     border: 1px solid #d1d5db;
     border-radius: 7px;
 
-    background: #ffffff;
+    background: var(--mms-surface);
 
     font-family: inherit;
     font-size: 14px;
-    color: #1f2937;
+    color: var(--mms-text);
 
     outline: none;
 
@@ -11415,7 +11415,7 @@ tbody tr:hover {
 .day-name {
     font-size: 14px;
     font-weight: 600;
-    color: #374151;
+    color: var(--mms-text);
 }
 
 .hours-row input[type="time"] {
@@ -11437,7 +11437,7 @@ tbody tr:hover {
 .hours-row span {
     text-align: center;
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .checkbox-label {
@@ -11556,7 +11556,7 @@ tbody tr:hover {
     border: 1px solid #e5e7eb;
     border-radius: 9px;
 
-    background: #fafafa;
+    background: var(--mms-surface-muted);
 
     cursor: pointer;
 
@@ -11565,7 +11565,7 @@ tbody tr:hover {
 
 .payment-option:hover {
     border-color: #2563eb;
-    background: #f8faff;
+    background: var(--mms-surface-muted);
 }
 
 .payment-option input {
@@ -11577,7 +11577,7 @@ tbody tr:hover {
 .payment-option span {
     font-size: 14px;
     font-weight: 500;
-    color: #374151;
+    color: var(--mms-text);
 }
 
 
@@ -11693,13 +11693,13 @@ tbody tr:hover {
 .inventory-rule strong {
     font-size: 14px;
     font-weight: 600;
-    color: #374151;
+    color: var(--mms-text);
 }
 
 .inventory-rule span {
     font-size: 13px;
     line-height: 1.5;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 
@@ -11741,13 +11741,13 @@ tbody tr:hover {
 .permission-header {
     padding: 15px 24px;
 
-    background: #f8fafc;
+    background: var(--mms-surface-muted);
 
     border-bottom: 1px solid #e5e7eb;
 
     font-size: 13px;
     font-weight: 700;
-    color: #374151;
+    color: var(--mms-text);
 }
 
 .permission-header span:not(:first-child) {
@@ -11837,13 +11837,13 @@ tbody tr:hover {
 .notification-rule strong {
     font-size: 14px;
     font-weight: 600;
-    color: #374151;
+    color: var(--mms-text);
 }
 
 .notification-rule span {
     font-size: 13px;
     line-height: 1.5;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 
@@ -11874,7 +11874,7 @@ tbody tr:hover {
     margin-top: 22px;
     padding: 24px;
 
-    background: #ffffff;
+    background: var(--mms-surface);
 
     border: 1px solid #e5e7eb;
     border-radius: 12px;
@@ -11891,7 +11891,7 @@ tbody tr:hover {
     flex-shrink: 0;
 
     border-radius: 12px;
-    background: #f1f5f9;
+    background: var(--mms-surface-muted);
 
     font-size: 30px;
 }
@@ -11904,14 +11904,14 @@ tbody tr:hover {
     margin: 0 0 5px;
 
     font-size: 18px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .backup-status-content > p {
     margin: 0 0 15px;
 
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .backup-details {
@@ -11927,12 +11927,12 @@ tbody tr:hover {
 
 .backup-details span {
     font-size: 12px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .backup-details strong {
     font-size: 13px;
-    color: #374151;
+    color: var(--mms-text);
 }
 
 
@@ -11962,7 +11962,7 @@ tbody tr:hover {
     border: 1px solid #e5e7eb;
     border-radius: 9px;
 
-    background: #fafafa;
+    background: var(--mms-surface-muted);
 
     cursor: pointer;
 
@@ -11971,7 +11971,7 @@ tbody tr:hover {
 
 .data-option:hover {
     border-color: #2563eb;
-    background: #f8faff;
+    background: var(--mms-surface-muted);
 }
 
 .data-option input {
@@ -11993,13 +11993,13 @@ tbody tr:hover {
 
 .data-option strong {
     font-size: 14px;
-    color: #374151;
+    color: var(--mms-text);
 }
 
 .data-option span {
     font-size: 12px;
     line-height: 1.5;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .data-export-actions {
@@ -12034,7 +12034,7 @@ tbody tr:hover {
 
     border-radius: 10px;
 
-    background: #fafafa;
+    background: var(--mms-surface-muted);
 }
 
 .restore-icon {
@@ -12047,7 +12047,7 @@ tbody tr:hover {
     margin: 0 0 8px;
 
     font-size: 17px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .restore-area p {
@@ -12058,7 +12058,7 @@ tbody tr:hover {
     font-size: 13px;
     line-height: 1.5;
 
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .restore-area input[type="file"] {
@@ -12106,13 +12106,13 @@ tbody tr:hover {
 
 .data-management-item strong {
     font-size: 14px;
-    color: #374151;
+    color: var(--mms-text);
 }
 
 .data-management-item span {
     font-size: 13px;
     line-height: 1.5;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .danger-item strong {
@@ -12126,7 +12126,7 @@ tbody tr:hover {
 
     border-radius: 7px;
 
-    background: #ffffff;
+    background: var(--mms-surface);
 
     color: #dc2626;
 
@@ -12169,12 +12169,12 @@ tbody tr:hover {
 
 .database-status-row span {
     font-size: 14px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .database-status-row strong {
     font-size: 14px;
-    color: #374151;
+    color: var(--mms-text);
 }
 
 .database-offline {
@@ -12301,7 +12301,7 @@ tbody tr:hover {
 ===================================================== */
 
 .notification-panel {
-    background: #ffffff;
+    background: var(--mms-surface);
 
     border: 1px solid #e5e7eb;
     border-radius: 12px;
@@ -12326,14 +12326,14 @@ tbody tr:hover {
     margin: 0 0 5px;
 
     font-size: 18px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .notification-panel-header p {
     margin: 0;
 
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .notification-count {
@@ -12402,7 +12402,7 @@ tbody tr:hover {
 
     border-radius: 10px;
 
-    background: #f1f5f9;
+    background: var(--mms-surface-muted);
 
     font-size: 21px;
 }
@@ -12427,7 +12427,7 @@ tbody tr:hover {
     font-size: 15px;
     font-weight: 600;
 
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .notification-item-content p {
@@ -12437,12 +12437,12 @@ tbody tr:hover {
 
     line-height: 1.5;
 
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .notification-time {
     font-size: 11px;
-    color: #9ca3af;
+    color: var(--mms-text-muted);
 }
 
 .notification-item-action {
@@ -12531,7 +12531,7 @@ tbody tr:hover {
 
     padding: 20px;
 
-    background: #ffffff;
+    background: var(--mms-surface);
 
     border: 1px solid #e5e7eb;
 
@@ -12558,7 +12558,7 @@ tbody tr:hover {
 
     border-radius: 10px;
 
-    background: #f1f5f9;
+    background: var(--mms-surface-muted);
 
     font-size: 21px;
 }
@@ -12568,7 +12568,7 @@ tbody tr:hover {
 
     font-size: 15px;
 
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .notification-category-card p {
@@ -12578,7 +12578,7 @@ tbody tr:hover {
 
     line-height: 1.5;
 
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .notification-category-card strong {
@@ -12687,7 +12687,7 @@ tbody tr:hover {
 .activity-panel {
     margin-top: 25px;
 
-    background: #ffffff;
+    background: var(--mms-surface);
 
     border: 1px solid #e5e7eb;
     border-radius: 12px;
@@ -12710,14 +12710,14 @@ tbody tr:hover {
     margin: 0 0 5px;
 
     font-size: 18px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .activity-panel-header p {
     margin: 0;
 
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .activity-count {
@@ -12753,7 +12753,7 @@ tbody tr:hover {
 .activity-table th {
     padding: 14px 18px;
 
-    background: #f8fafc;
+    background: var(--mms-surface-muted);
 
     border-bottom: 1px solid #e5e7eb;
 
@@ -12762,7 +12762,7 @@ tbody tr:hover {
     font-size: 12px;
     font-weight: 700;
 
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .activity-table td {
@@ -12776,11 +12776,11 @@ tbody tr:hover {
 }
 
 .activity-table tbody tr:hover {
-    background: #fafafa;
+    background: var(--mms-surface-muted);
 }
 
 .activity-table td strong {
-    color: #374151;
+    color: var(--mms-text);
 }
 
 
@@ -12839,8 +12839,8 @@ tbody tr:hover {
 }
 
 .activity-type.settings {
-    background: #f1f5f9;
-    color: #475569;
+    background: var(--mms-surface-muted);
+    color: var(--mms-text-muted);
 }
 
 .activity-type.login {
@@ -12878,7 +12878,7 @@ tbody tr:hover {
 .activity-timeline-section {
     margin-top: 25px;
 
-    background: #ffffff;
+    background: var(--mms-surface);
 
     border: 1px solid #e5e7eb;
     border-radius: 12px;
@@ -12896,14 +12896,14 @@ tbody tr:hover {
     margin: 0 0 5px;
 
     font-size: 18px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .activity-timeline-section .section-header p {
     margin: 0;
 
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .activity-timeline {
@@ -12946,7 +12946,7 @@ tbody tr:hover {
 
     border-radius: 50%;
 
-    background: #f1f5f9;
+    background: var(--mms-surface-muted);
 
     font-size: 18px;
 
@@ -12963,19 +12963,19 @@ tbody tr:hover {
 
 .timeline-content strong {
     font-size: 14px;
-    color: #374151;
+    color: var(--mms-text);
 }
 
 .timeline-content p {
     margin: 0;
 
     font-size: 13px;
-    color: #6b7280;
+    color: var(--mms-text-muted);
 }
 
 .timeline-content span {
     font-size: 11px;
-    color: #9ca3af;
+    color: var(--mms-text-muted);
 }
 
 
@@ -13052,7 +13052,7 @@ tbody tr:hover {
 /* Settings Section */
 
 .settings-section {
-    background: #ffffff;
+    background: var(--mms-surface);
     border: 1px solid #e5e7eb;
     border-radius: 12px;
     padding: 24px;
@@ -13072,12 +13072,12 @@ tbody tr:hover {
 .settings-section-header h2 {
     margin: 0 0 6px;
     font-size: 19px;
-    color: #1f2937;
+    color: var(--mms-text);
 }
 
 .settings-section-header p {
     margin: 0;
-    color: #6b7280;
+    color: var(--mms-text-muted);
     font-size: 13px;
 }
 
@@ -13102,7 +13102,7 @@ tbody tr:hover {
 .form-group label {
     font-size: 14px;
     font-weight: 600;
-    color: #374151;
+    color: var(--mms-text);
 }
 
 
@@ -13115,8 +13115,8 @@ tbody tr:hover {
     padding: 11px 13px;
     border: 1px solid #d1d5db;
     border-radius: 7px;
-    background: #ffffff;
-    color: #1f2937;
+    background: var(--mms-surface);
+    color: var(--mms-text);
     font-size: 14px;
     outline: none;
     transition: 0.2s ease;
@@ -13137,13 +13137,13 @@ tbody tr:hover {
     border: 1px solid #d1d5db;
     border-radius: 7px;
     overflow: hidden;
-    background: #ffffff;
+    background: var(--mms-surface);
 }
 
 .input-with-prefix span {
     padding: 11px 13px;
-    background: #f3f4f6;
-    color: #374151;
+    background: var(--mms-surface-muted);
+    color: var(--mms-text);
     font-weight: 600;
     border-right: 1px solid #d1d5db;
 }
@@ -13170,13 +13170,13 @@ tbody tr:hover {
     padding: 14px;
     border: 1px solid #e5e7eb;
     border-radius: 8px;
-    background: #f9fafb;
+    background: var(--mms-surface-muted);
     cursor: pointer;
     transition: 0.2s ease;
 }
 
 .checkbox-item:hover {
-    background: #f3f4f6;
+    background: var(--mms-surface-muted);
 }
 
 .checkbox-item input {
@@ -13187,7 +13187,7 @@ tbody tr:hover {
 
 .checkbox-item span {
     font-size: 14px;
-    color: #374151;
+    color: var(--mms-text);
     font-weight: 500;
 }
 
@@ -13207,12 +13207,12 @@ tbody tr:hover {
     padding: 16px;
     border: 1px solid #e5e7eb;
     border-radius: 8px;
-    background: #f9fafb;
+    background: var(--mms-surface-muted);
     cursor: pointer;
 }
 
 .checkbox-row:hover {
-    background: #f3f4f6;
+    background: var(--mms-surface-muted);
 }
 
 .checkbox-row input {
@@ -13229,12 +13229,12 @@ tbody tr:hover {
 }
 
 .checkbox-row strong {
-    color: #374151;
+    color: var(--mms-text);
     font-size: 14px;
 }
 
 .checkbox-row span {
-    color: #6b7280;
+    color: var(--mms-text-muted);
     font-size: 13px;
     line-height: 1.5;
 }
@@ -13271,8 +13271,8 @@ tbody tr:hover {
 }
 
 .settings-actions .btn-secondary {
-    background: #f3f4f6;
-    color: #374151;
+    background: var(--mms-surface-muted);
+    color: var(--mms-text);
     border: 1px solid #d1d5db;
 }
 
@@ -13384,15 +13384,15 @@ tbody tr:hover {
     padding: 12px;
     border: 1px solid #e5e7eb;
     border-radius: 10px;
-    background: #fff;
+    background: var(--mms-surface);
     box-shadow: 0 12px 28px rgba(15, 23, 42, .18);
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 .admin-profile-menu[hidden] { display: none; }
-.admin-profile-menu .profile-menu-name { color: #111827; padding: 3px 8px 0; }
-.admin-profile-menu .profile-menu-email { color: #6b7280; font-size: 12px; padding: 0 8px 8px; overflow-wrap: anywhere; }
+.admin-profile-menu .profile-menu-name { color: var(--mms-text); padding: 3px 8px 0; }
+.admin-profile-menu .profile-menu-email { color: var(--mms-text-muted); font-size: 12px; padding: 0 8px 8px; overflow-wrap: anywhere; }
 .admin-profile-menu a,
 .admin-profile-menu button {
     display: block;
@@ -13401,24 +13401,43 @@ tbody tr:hover {
     border: 0;
     border-radius: 6px;
     background: transparent;
-    color: #374151;
+    color: var(--mms-text);
     text-align: left;
     text-decoration: none;
     font: inherit;
     cursor: pointer;
 }
 .admin-profile-menu a:hover,
-.admin-profile-menu button:hover { background: #f3f4f6; }
+.admin-profile-menu button:hover { background: var(--mms-surface-muted); }
 
 .sidebar-logo .logo-icon img { width: 100%; height: 100%; object-fit: contain; border-radius: inherit; }
 .store-branding-editor { display: grid; gap: 10px; margin: 0 0 22px; max-width: 520px; }
-.store-logo-preview { width: 180px; height: 110px; border: 1px dashed #cbd5e1; border-radius: 10px; display: grid; place-items: center; color: #64748b; overflow: hidden; background: #f8fafc; }
+.store-logo-preview { width: 180px; height: 110px; border: 1px dashed #cbd5e1; border-radius: 10px; display: grid; place-items: center; color: var(--mms-text-muted); overflow: hidden; background: var(--mms-surface-muted); }
 .store-logo-preview img { max-width: 100%; max-height: 100%; object-fit: contain; }
-.store-branding-editor small { color: #64748b; }
+.store-branding-editor small { color: var(--mms-text-muted); }
 .admin-security-notice { border-left: 4px solid #d97706; }
 .admin-security-notice p { line-height: 1.6; }
 .admin-tools-grid { margin-top: 14px; }
-.payroll-data-note { margin: 0; color: #6b7280; font-size: 13px; text-align: right; }
+.product-category-manager { margin-bottom: 22px; }
+.product-category-form { display: flex; flex-wrap: wrap; align-items: end; gap: 10px; margin-bottom: 16px; }
+.product-category-form label { flex-basis: 100%; font-weight: 600; }
+.product-category-form input[type="text"] { min-width: min(280px, 100%); flex: 1; }
+.product-category-list { display: grid; gap: 8px; margin-top: 12px; }
+.product-category-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; border-bottom: 1px solid #e5e7eb; padding: 10px 0; }
+.product-category-row strong { margin-right: auto; }
+.category-active, .category-inactive { border-radius: 999px; padding: 3px 9px; font-size: 12px; background: #dcfce7; color: #166534; }
+.category-inactive { background: var(--mms-surface-muted); color: var(--mms-text-muted); }
+.receipt-upload-section { border: 1px solid #e5e7eb; border-radius: 12px; padding: 18px; }
+.receipt-status { color: var(--mms-text-muted); overflow-wrap: anywhere; }
+.receipt-preview img { display: block; max-width: min(100%, 420px); max-height: 300px; object-fit: contain; margin: 10px 0; border: 1px solid #e5e7eb; border-radius: 8px; }
+.receipt-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.receipt-viewer-dialog { width: min(900px, 94vw); max-width: 94vw; max-height: 92vh; border: 0; border-radius: 12px; padding: 16px; box-shadow: 0 20px 60px #0004; }
+.receipt-viewer-dialog::backdrop { background: #0f172a99; }
+.receipt-viewer-dialog header { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 12px; overflow-wrap: anywhere; }
+.receipt-viewer-dialog > img { display: block; max-width: 100%; max-height: 72vh; object-fit: contain; margin: 12px auto; }
+.receipt-viewer-dialog iframe { width: 100%; height: min(72vh, 720px); border: 1px solid #e5e7eb; }
+@media (max-width: 600px) { .product-category-form { align-items: stretch; } .product-category-row { align-items: flex-start; } .receipt-viewer-dialog { padding: 12px; } }
+.payroll-data-note { margin: 0; color: var(--mms-text-muted); font-size: 13px; text-align: right; }
 
 /* Shared responsive and keyboard-accessible application shell */
 :root {

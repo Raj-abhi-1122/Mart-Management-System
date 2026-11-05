@@ -223,7 +223,10 @@ function initializeInventoryReportsPage() {
     if (selects[0]) {
         const products = Storage.get(STORAGE_KEYS.PRODUCTS, []); const current = selects[0].value;
         selects[0].replaceChildren(new Option("All Categories", "All Categories"));
-        Array.from(new Set(products.map(product => product.category).filter(Boolean))).sort().forEach(category => selects[0].appendChild(new Option(category, category)));
+        const productCategoryNames = typeof getProductCategories === "function"
+            ? getProductCategories({ includeInactive: true }).map(item => item.name)
+            : Array.from(new Set(products.map(product => product.category).filter(Boolean)));
+        productCategoryNames.sort((a, b) => a.localeCompare(b)).forEach(category => selects[0].appendChild(new Option(category, category)));
         if (Array.from(selects[0].options).some(option => option.value === current)) selects[0].value = current;
     }
     function update() {
@@ -253,6 +256,29 @@ function initializeInventoryReportsPage() {
         const stockValue = filtered.reduce((sum, product) => sum + (Number(product.stock) || 0) * (Number(basis === "Selling Price" ? product.sellingPrice : product.purchasePrice) || 0), 0);
         const valueText = document.querySelector(".inventory-value-main strong");
         if (valueText) valueText.textContent = money(stockValue);
+        const categoryList = document.querySelector(".category-inventory-list");
+        if (categoryList) {
+            const valuesByCategory = new Map();
+            filtered.forEach(product => {
+                const label = product.category || "Uncategorized";
+                const value = (Number(product.stock) || 0) * (Number(basis === "Selling Price" ? product.sellingPrice : product.purchasePrice) || 0);
+                valuesByCategory.set(label, (valuesByCategory.get(label) || 0) + value);
+            });
+            categoryList.replaceChildren();
+            const entries = Array.from(valuesByCategory.entries()).sort((a, b) => b[1] - a[1]);
+            if (!entries.length) { const empty = document.createElement("p"); empty.textContent = "No inventory categories to show."; categoryList.appendChild(empty); }
+            entries.forEach(([name, value]) => {
+                const row = document.createElement("div"); row.className = "category-inventory-row";
+                const categoryName = document.createElement("div"); categoryName.className = "category-name";
+                const dot = document.createElement("span"); dot.className = `category-dot ${name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+                const label = document.createElement("span"); label.textContent = name;
+                categoryName.append(dot, label);
+                const amount = document.createElement("div"); amount.className = "category-inventory-value";
+                const total = document.createElement("strong"); total.textContent = money(value);
+                const share = document.createElement("span"); share.textContent = `${stockValue ? (value / stockValue * 100).toFixed(1) : "0.0"}%`;
+                amount.append(total, share); row.append(categoryName, amount); categoryList.appendChild(row);
+            });
+        }
         const productMeta = new Map(products.map(product => [product.id, product]));
         const asOfDate = date?.value || today;
         const movements = [];

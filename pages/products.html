@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-
+    <script src="../JS/theme-early.js"></script>
     <meta charset="UTF-8">
 
     <meta
@@ -13,6 +13,7 @@
     <title>Products - Mart Management System</title>
 
     <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/theme.css">
 
 </head>
 
@@ -153,6 +154,23 @@
                 </div>
 
 
+                <section class="content-card product-category-manager" aria-labelledby="categoryManagerHeading">
+                    <div class="content-card-header">
+                        <div><h2 id="categoryManagerHeading">Product Categories</h2><p>Manage categories used by products and inventory views.</p></div>
+                    </div>
+                    <form id="productCategoryForm" class="product-category-form">
+                        <input type="hidden" id="productCategoryEditId">
+                        <label for="productCategoryName">Category name</label>
+                        <input id="productCategoryName" type="text" maxlength="40" required placeholder="For example, Dairy Products">
+                        <button type="submit" class="primary-btn">Save Category</button>
+                        <button type="button" id="cancelProductCategoryEdit" class="secondary-btn" hidden>Cancel</button>
+                    </form>
+                    <label for="productCategorySearch">Search categories</label>
+                    <input id="productCategorySearch" type="search" placeholder="Search category names">
+                    <div id="productCategoryList" class="product-category-list" aria-live="polite"></div>
+                </section>
+
+
 
                 <!-- SEARCH AND FILTER -->
 
@@ -176,26 +194,6 @@
 
                     <option value="All Categories">
                         All Categories
-                    </option>
-
-                    <option value="Grocery">
-                        Grocery
-                    </option>
-
-                    <option value="Beverages">
-                        Beverages
-                    </option>
-
-                    <option value="Personal Care">
-                        Personal Care
-                    </option>
-
-                    <option value="Household">
-                        Household
-                    </option>
-
-                    <option value="Electronics">
-                        Electronics
                     </option>
 
                  </select>
@@ -305,6 +303,7 @@
     <script src="../JS/storage.js"></script>
     <script src="../JS/utils.js"></script>
     <script src="../JS/database.js"></script>
+    <script src="../JS/categories.js"></script>
     <script src="../JS/products.js"></script>
     <script src="../JS/main.js"></script>
 

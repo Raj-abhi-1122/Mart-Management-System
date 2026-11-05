@@ -1,12 +1,14 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="../JS/theme-early.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Add Expense - Mart Management System</title>
 
     <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/theme.css">
 </head>
 
 <body>
@@ -403,6 +405,22 @@
 
                     </div>
 
+                </div>
+
+
+                <div class="form-section receipt-upload-section">
+                    <div class="form-section-header"><div><h2>Upload Receipt / Payment Proof</h2><p>Optional for this expense workflow. Files stay in this browser profile.</p></div></div>
+                    <div class="form-group">
+                        <label for="expenseReceipt">Receipt file (JPG, PNG, WebP, or PDF; up to 5 MB)</label>
+                        <input type="file" id="expenseReceipt" accept="image/jpeg,image/png,image/webp,application/pdf,.jpg,.jpeg,.png,.webp,.pdf">
+                        <p id="expenseReceiptStatus" class="receipt-status" aria-live="polite">No receipt selected.</p>
+                        <div id="expenseReceiptPreview" class="receipt-preview"></div>
+                        <div class="receipt-actions">
+                            <button type="button" id="clearSelectedReceipt" class="secondary-btn" hidden>Remove selected file</button>
+                            <button type="button" id="removeSavedReceipt" class="secondary-btn" hidden>Remove saved receipt</button>
+                        </div>
+                    </div>
+                    <p id="expensePayerDisplay" class="receipt-status"></p>
                 </div>
 
 

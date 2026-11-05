@@ -1,12 +1,14 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="../JS/theme-early.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Expense Details - Mart Management System</title>
 
     <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/theme.css">
 </head>
 
 <body>
@@ -332,22 +334,9 @@
                 </div>
 
 
-                <div class="attachment-box">
-
-                    <div class="attachment-icon">
-                        📄
-                    </div>
-
-                    <div class="attachment-info">
-
-                        <h4>No receipt attached</h4>
-
-                        <p>
-                            Receipt uploads are not stored by the current expense data model.
-                        </p>
-
-                    </div>
-
+                <div class="attachment-box" id="expenseReceiptDetails" aria-live="polite">
+                    <div class="attachment-icon">📄</div>
+                    <div class="attachment-info"><h4>Loading receipt status…</h4><p>Checking the saved attachment.</p></div>
                 </div>
 
             </div>

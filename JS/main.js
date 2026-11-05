@@ -321,6 +321,82 @@ function highlightActiveSidebarMenu() {
     });
 }
 
+function organizeSidebarNavigation() {
+    document.querySelectorAll(".sidebar-menu").forEach(nav => {
+        if (nav.dataset.organized) return;
+        nav.dataset.organized = "true";
+        const groups = [
+            ["Overview", ["dashboard.html"]],
+            ["Inventory", ["products.html", "inventory.html"]],
+            ["Purchasing", ["suppliers.html", "purchases.html"]],
+            ["Sales", ["billing.html", "customers.html"]],
+            ["Team", ["employees.html", "attendance.html"]],
+            ["Finance & Reports", ["expenses.html", "reports.html"]],
+            ["Administration", ["settings.html", "notifications.html", "activity-log.html"]]
+        ];
+        const anchors = Array.from(nav.querySelectorAll(":scope > .menu-item"));
+        groups.forEach(([label, pages]) => {
+            const links = anchors.filter(link => pages.includes((link.getAttribute("href") || "").split("/").pop()));
+            if (!links.length) return;
+            const section = document.createElement("section");
+            section.className = "sidebar-nav-group";
+            const button = document.createElement("button");
+            button.type = "button"; button.className = "sidebar-group-toggle"; button.textContent = label;
+            button.setAttribute("aria-expanded", "true");
+            const items = document.createElement("div"); items.className = "sidebar-nav-items";
+            links.forEach(link => items.appendChild(link));
+            button.addEventListener("click", () => {
+                const expanded = button.getAttribute("aria-expanded") === "true";
+                button.setAttribute("aria-expanded", String(!expanded)); items.hidden = expanded;
+            });
+            section.append(button, items); nav.appendChild(section);
+        });
+    });
+}
+
+function initializeGlobalAppearanceControls() {
+    const navRight = document.querySelector(".top-navbar .nav-right");
+    if (navRight && !navRight.querySelector(".theme-picker")) {
+        const picker = document.createElement("div"); picker.className = "theme-picker";
+        const trigger = document.createElement("button"); trigger.type = "button"; trigger.setAttribute("aria-haspopup", "true"); trigger.setAttribute("aria-expanded", "false");
+        const options = document.createElement("div"); options.className = "theme-options"; options.setAttribute("role", "menu"); options.hidden = true;
+        const label = mode => `Theme: ${mode[0].toUpperCase()}${mode.slice(1)}`;
+        const currentMode = () => document.documentElement.dataset.themeMode || "system";
+        const refresh = () => {
+            trigger.textContent = `◐ ${label(currentMode())}`;
+            options.querySelectorAll("button").forEach(button => button.setAttribute("aria-checked", String(button.dataset.mode === currentMode())));
+        };
+        ["light", "dark", "system"].forEach(mode => {
+            const option = document.createElement("button"); option.type = "button"; option.dataset.mode = mode; option.setAttribute("role", "menuitemradio"); option.textContent = label(mode);
+            option.addEventListener("click", () => {
+                if (!window.MMSTheme?.setMode(mode)) {
+                    if (typeof showToast === "function") showToast("Could not save the theme preference in this browser.", "error");
+                    return;
+                }
+                refresh(); options.hidden = true; trigger.setAttribute("aria-expanded", "false");
+            });
+            options.appendChild(option);
+        });
+        trigger.addEventListener("click", () => { options.hidden = !options.hidden; trigger.setAttribute("aria-expanded", String(!options.hidden)); });
+        document.addEventListener("click", event => { if (!picker.contains(event.target)) { options.hidden = true; trigger.setAttribute("aria-expanded", "false"); } });
+        document.addEventListener("keydown", event => { if (event.key === "Escape" && !options.hidden) { options.hidden = true; trigger.setAttribute("aria-expanded", "false"); trigger.focus(); } });
+        picker.append(trigger, options); navRight.prepend(picker); refresh();
+    }
+
+    const sidebar = document.querySelector(".sidebar");
+    const firstHeader = document.querySelector(".top-navbar > div:first-child");
+    if (sidebar && firstHeader && !firstHeader.querySelector(".sidebar-mobile-trigger")) {
+        const trigger = document.createElement("button"); trigger.type = "button"; trigger.className = "sidebar-mobile-trigger"; trigger.textContent = "☰"; trigger.setAttribute("aria-label", "Open navigation"); trigger.setAttribute("aria-expanded", "false");
+        firstHeader.prepend(trigger);
+        const overlay = document.createElement("button"); overlay.type = "button"; overlay.className = "sidebar-overlay"; overlay.hidden = true; overlay.setAttribute("aria-label", "Close navigation"); document.body.appendChild(overlay);
+        const close = () => { sidebar.classList.remove("sidebar-open"); overlay.hidden = true; trigger.setAttribute("aria-expanded", "false"); document.body.classList.remove("sidebar-drawer-open"); };
+        trigger.addEventListener("click", () => { const open = !sidebar.classList.contains("sidebar-open"); sidebar.classList.toggle("sidebar-open", open); overlay.hidden = !open; trigger.setAttribute("aria-expanded", String(open)); document.body.classList.toggle("sidebar-drawer-open", open); });
+        overlay.addEventListener("click", close);
+        sidebar.querySelectorAll("a").forEach(link => link.addEventListener("click", close));
+        document.addEventListener("keydown", event => { if (event.key === "Escape" && sidebar.classList.contains("sidebar-open")) { close(); trigger.focus(); } });
+    }
+}
+
 /**
  * Synchronize store branding in header
  */
@@ -456,7 +532,10 @@ function initializeTablePagination() {
             state.page = Math.min(Math.max(1, state.page), totalPages);
             container.hidden = totalPages <= 1;
             state.rows.forEach((row, index) => { row.hidden = index < (state.page - 1) * pageSize || index >= state.page * pageSize; });
-            const counter = container.parentElement?.querySelector("span") || container.querySelector("span");
+            const counter = container.closest(".expense-pagination")?.querySelector("span")
+                || container.closest(".employee-pagination")?.querySelector("span")
+                || container.closest(".leave-pagination")?.querySelector("span")
+                || container.querySelector("[data-page-counter]");
             if (counter) {
                 const start = state.rows.length ? (state.page - 1) * pageSize + 1 : 0;
                 const end = Math.min(state.page * pageSize, state.rows.length);
@@ -507,7 +586,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Sidebar active state
+    organizeSidebarNavigation();
     highlightActiveSidebarMenu();
+    initializeGlobalAppearanceControls();
 
     // Store branding sync
     syncStoreBranding();

@@ -924,6 +924,14 @@ function saveProductFromForm() {
         window.location.href = "products.html";
         return;
     }
+    const availableCategory = typeof getProductCategories === "function"
+        ? getProductCategories({ includeInactive: true }).find(item => item.name.toLocaleLowerCase() === String(category).trim().replace(/\s+/g, " ").toLocaleLowerCase())
+        : { name: category, active: true };
+    if (!availableCategory || (!availableCategory.active && category !== editingProduct?.category)) {
+        alert("Select an active product category. Existing products may keep their current inactive category until you change it.");
+        document.querySelector("#category")?.focus();
+        return;
+    }
 
     const suppliers = Storage.get(STORAGE_KEYS.SUPPLIERS, []);
     if (supplier && !suppliers.some(item => item.id === supplier)) {

@@ -240,9 +240,9 @@ function initializeStoreSettingsPage() {
     logoInput?.addEventListener("change", () => {
         const file = logoInput.files?.[0];
         if (!file) return;
-        if (!/^image\/(png|jpeg|webp|svg\+xml)$/.test(file.type) || file.size > 300 * 1024) {
+        if (!/^image\/(png|jpeg|webp)$/.test(file.type) || file.size > 300 * 1024) {
             logoInput.value = "";
-            notifyUser("Choose a PNG, JPG, WebP, or SVG logo under 300 KB.", "error");
+            notifyUser("Choose a PNG, JPG, or WebP logo under 300 KB.", "error");
             return;
         }
         const reader = new FileReader();
@@ -374,6 +374,45 @@ function initializeStoreSettingsPage() {
             }
         });
     }
+}
+
+function initializeSidebarAppearanceSettings() {
+    const section = document.querySelector(".appearance-settings-panel");
+    if (!section) return;
+    const defaults = { background: "#1f2937", text: "#d1d5db", icon: "#d1d5db", activeBackground: "#4b5563", activeText: "#ffffff", hoverBackground: "#374151", border: "#374151" };
+    const presets = {
+        default: defaults,
+        ocean: { background: "#123047", text: "#dbeafe", icon: "#93c5fd", activeBackground: "#1d4ed8", activeText: "#ffffff", hoverBackground: "#1e40af", border: "#1e3a5f" },
+        forest: { background: "#18352c", text: "#d1fae5", icon: "#86efac", activeBackground: "#166534", activeText: "#ffffff", hoverBackground: "#14532d", border: "#24483a" }
+    };
+    const inputIds = { background: "sidebarBackground", text: "sidebarText", icon: "sidebarIcon", activeBackground: "sidebarActiveBackground", activeText: "sidebarActiveText", hoverBackground: "sidebarHoverBackground", border: "sidebarBorder" };
+    const current = getSettings().appearance || {};
+    const saved = Object.assign({}, defaults, current.sidebar || {});
+    const preset = document.getElementById("sidebarPreset");
+    const preview = document.getElementById("sidebarAppearancePreview");
+    const values = () => Object.fromEntries(Object.entries(inputIds).map(([key, id]) => [key, document.getElementById(id)?.value || defaults[key]]));
+    const updatePreview = () => {
+        const colors = values();
+        if (preview) Object.entries({ background: "--mms-sidebar-bg", text: "--mms-sidebar-text", icon: "--mms-sidebar-icon", activeBackground: "--mms-sidebar-active-bg", activeText: "--mms-sidebar-active-text", hoverBackground: "--mms-sidebar-hover-bg", border: "--mms-sidebar-border" }).forEach(([key, variable]) => preview.style.setProperty(variable, colors[key]));
+    };
+    Object.entries(inputIds).forEach(([key, id]) => { const input = document.getElementById(id); if (input) { input.value = saved[key]; input.addEventListener("input", () => { if (preset) preset.value = "custom"; updatePreview(); }); } });
+    const presetValues = Object.keys(presets).find(name => Object.keys(defaults).every(key => saved[key].toLowerCase() === presets[name][key].toLowerCase())) || "custom";
+    if (preset) { preset.value = presetValues; preset.addEventListener("change", () => { const colors = presets[preset.value]; if (colors) Object.entries(inputIds).forEach(([key, id]) => { const input = document.getElementById(id); if (input) input.value = colors[key]; }); updatePreview(); }); }
+    updatePreview();
+    document.getElementById("saveSidebarAppearance")?.addEventListener("click", () => {
+        const success = saveSettings({ sidebar: values() }, "appearance");
+        if (success) { if (window.MMSTheme) window.MMSTheme.apply(getSettings()); notifyUser("Sidebar appearance saved.", "success"); }
+        else notifyUser("Could not save sidebar appearance. Sign in as an administrator and try again.", "error");
+    });
+    document.getElementById("resetSidebarAppearance")?.addEventListener("click", () => {
+        Object.entries(inputIds).forEach(([key, id]) => { const input = document.getElementById(id); if (input) input.value = defaults[key]; });
+        if (preset) preset.value = "default";
+        updatePreview();
+        if (saveSettings({ sidebar: defaults }, "appearance")) {
+            if (window.MMSTheme) window.MMSTheme.apply(getSettings());
+            notifyUser("Sidebar colors reset to the classic preset.", "success");
+        } else notifyUser("Could not reset sidebar colors. Sign in as an administrator and try again.", "error");
+    });
 }
 
 
@@ -1181,6 +1220,7 @@ if (typeof document !== "undefined") {
 
         if (path.includes("store-settings.html")) {
             initializeStoreSettingsPage();
+            initializeSidebarAppearanceSettings();
         } else if (path.includes("billing-settings.html") || path.includes("billing-setting.html")) {
             initializeBillingSettingsPage();
         } else if (path.includes("inventory-settings.html")) {

@@ -11,6 +11,115 @@ function saveExpenses(expenses) {
     return Storage.set(STORAGE_KEYS.EXPENSES, expenses);
 }
 
+const EXPENSE_RECEIPT_DB = "mms_expense_receipts";
+const EXPENSE_RECEIPT_STORE = "receipts";
+const EXPENSE_RECEIPT_MAX_BYTES = 5 * 1024 * 1024;
+let expenseReceiptModalUrl = "";
+
+function openExpenseReceiptDb() {
+    return new Promise((resolve, reject) => {
+        if (!window.indexedDB) { reject(new Error("This browser does not support persistent receipt storage.")); return; }
+        const request = indexedDB.open(EXPENSE_RECEIPT_DB, 1);
+        request.onupgradeneeded = () => {
+            const db = request.result;
+            if (!db.objectStoreNames.contains(EXPENSE_RECEIPT_STORE)) {
+                const store = db.createObjectStore(EXPENSE_RECEIPT_STORE, { keyPath: "id" });
+                store.createIndex("expenseId", "expenseId", { unique: false });
+            }
+        };
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error || new Error("Could not open receipt storage."));
+        request.onblocked = () => reject(new Error("Receipt storage is busy in another page. Close other MMS tabs and try again."));
+    });
+}
+
+async function inspectExpenseReceipt(file) {
+    if (!file || file.size <= 0 || file.size > EXPENSE_RECEIPT_MAX_BYTES) throw new Error("Choose a non-empty receipt file no larger than 5 MB.");
+    const name = String(file.name || "receipt").toLowerCase();
+    const bytes = new Uint8Array(await file.slice(0, 16).arrayBuffer());
+    const starts = (signature, offset = 0) => signature.every((byte, index) => bytes[offset + index] === byte);
+    let type = "";
+    if (starts([0x25, 0x50, 0x44, 0x46, 0x2d])) type = "application/pdf";
+    else if (starts([0xff, 0xd8, 0xff])) type = "image/jpeg";
+    else if (starts([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a])) type = "image/png";
+    else if (starts([0x52, 0x49, 0x46, 0x46]) && String.fromCharCode(...bytes.slice(8, 12)) === "WEBP") type = "image/webp";
+    const ext = name.includes(".") ? name.split(".").pop() : "";
+    const allowed = { jpg: "image/jpeg", jpeg: "image/jpeg", png: "image/png", webp: "image/webp", pdf: "application/pdf" };
+    if (!type || allowed[ext] !== type || (file.type && file.type !== type)) throw new Error("The receipt must be a valid JPG, PNG, WebP, or PDF file.");
+    return { type, size: file.size };
+}
+
+async function storeExpenseReceipt(file, expenseId) {
+    const info = await inspectExpenseReceipt(file);
+    const db = await openExpenseReceiptDb();
+    const id = `receipt-${expenseId}-${typeof generateId === "function" ? generateId("FILE") : Date.now()}`;
+    const safeName = String(file.name || "receipt").replace(/[\\/:*?"<>|\u0000-\u001f]/g, "_").slice(0, 120) || "receipt";
+    const record = { id, expenseId, name: safeName, type: info.type, size: info.size, blob: file.slice(0, file.size, info.type), createdAt: new Date().toISOString() };
+    await new Promise((resolve, reject) => {
+        const tx = db.transaction(EXPENSE_RECEIPT_STORE, "readwrite");
+        tx.objectStore(EXPENSE_RECEIPT_STORE).put(record);
+        tx.oncomplete = resolve;
+        tx.onerror = () => reject(tx.error || new Error("Receipt could not be saved."));
+        tx.onabort = () => reject(tx.error || new Error("Receipt save was cancelled."));
+    }).finally(() => db.close());
+    return record;
+}
+
+async function getExpenseReceipt(receiptId) {
+    if (!receiptId) return null;
+    const db = await openExpenseReceiptDb();
+    return new Promise((resolve, reject) => {
+        const tx = db.transaction(EXPENSE_RECEIPT_STORE, "readonly");
+        const request = tx.objectStore(EXPENSE_RECEIPT_STORE).get(receiptId);
+        request.onsuccess = () => resolve(request.result || null);
+        request.onerror = () => reject(request.error || new Error("Could not read the receipt."));
+        tx.oncomplete = () => db.close();
+        tx.onerror = () => { db.close(); reject(tx.error || new Error("Could not read the receipt.")); };
+    });
+}
+
+async function deleteExpenseReceipt(receiptId) {
+    if (!receiptId) return true;
+    const db = await openExpenseReceiptDb();
+    return new Promise((resolve, reject) => {
+        const tx = db.transaction(EXPENSE_RECEIPT_STORE, "readwrite");
+        tx.objectStore(EXPENSE_RECEIPT_STORE).delete(receiptId);
+        tx.oncomplete = () => { db.close(); resolve(true); };
+        tx.onerror = () => { db.close(); reject(tx.error || new Error("Could not remove the receipt.")); };
+        tx.onabort = () => { db.close(); reject(tx.error || new Error("Receipt removal was cancelled.")); };
+    });
+}
+
+function showExpenseReceiptError(message) {
+    if (typeof showToast === "function") showToast(message, "error"); else alert(message);
+}
+
+function canAccessExpenseReceipt() {
+    const user = typeof Storage !== "undefined" ? Storage.get(STORAGE_KEYS.AUTH_USER, {}) : {};
+    return !!user?.isLoggedIn && ["owner", "admin", "manager", "employee"].includes(String(user.role || "").toLowerCase());
+}
+
+async function showExpenseReceipt(receiptRef) {
+    if (!canAccessExpenseReceipt()) { showExpenseReceiptError("Sign in with an authorized account to view expense receipts."); return; }
+    try {
+        const receipt = await getExpenseReceipt(receiptRef);
+        if (!receipt?.blob) { showExpenseReceiptError("Attachment Unavailable: the saved receipt file could not be found in this browser."); return; }
+        document.getElementById("expenseReceiptViewer")?.remove();
+        if (expenseReceiptModalUrl) URL.revokeObjectURL(expenseReceiptModalUrl);
+        expenseReceiptModalUrl = URL.createObjectURL(receipt.blob);
+        const dialog = document.createElement("dialog"); dialog.id = "expenseReceiptViewer"; dialog.className = "receipt-viewer-dialog";
+        const header = document.createElement("header");
+        const heading = document.createElement("strong"); heading.textContent = receipt.name;
+        const close = document.createElement("button"); close.type = "button"; close.className = "secondary-btn"; close.textContent = "Close"; close.addEventListener("click", () => dialog.close());
+        header.append(heading, close); dialog.appendChild(header);
+        const link = document.createElement("a"); link.href = expenseReceiptModalUrl; link.target = "_blank"; link.rel = "noopener noreferrer"; link.textContent = "Open in a separate tab"; link.className = "action-btn"; dialog.appendChild(link);
+        if (receipt.type.startsWith("image/")) { const image = document.createElement("img"); image.src = expenseReceiptModalUrl; image.alt = `Receipt: ${receipt.name}`; dialog.appendChild(image); }
+        else { const frame = document.createElement("iframe"); frame.src = expenseReceiptModalUrl; frame.title = `PDF receipt: ${receipt.name}`; dialog.appendChild(frame); }
+        dialog.addEventListener("close", () => { dialog.remove(); if (expenseReceiptModalUrl) URL.revokeObjectURL(expenseReceiptModalUrl); expenseReceiptModalUrl = ""; });
+        document.body.appendChild(dialog); dialog.showModal();
+    } catch (error) { showExpenseReceiptError(error.message || "Receipt storage is unavailable in this browser."); }
+}
+
 /* =========================================================
    1. EXPENSES LIST PAGE (expenses.html)
    ========================================================= */
@@ -116,7 +225,7 @@ function initializeExpensesListPage() {
         if (list.length === 0) {
             tableBody.innerHTML = `
                 <tr>
-                    <td colspan="8" style="text-align: center; padding: 30px; color: #6b7280;">
+                <td colspan="9" style="text-align: center; padding: 30px; color: #6b7280;">
                         No expenses found. Click "+ Add Expense" to record business expenses.
                     </td>
                 </tr>
@@ -153,6 +262,7 @@ function initializeExpensesListPage() {
                 <td>
                     <span class="status ${statusClass}">${status}</span>
                 </td>
+                <td class="expense-receipt-cell">${exp.receiptRef ? "Checking…" : "No Receipt"}</td>
                 <td>
                     <a href="expense-details.html?id=${exp.id}" class="action-btn" style="text-decoration:none; margin-right:4px;">
                         View
@@ -166,14 +276,28 @@ function initializeExpensesListPage() {
                 </td>
             `;
             tableBody.appendChild(tr);
+            if (exp.receiptRef) {
+                const cell = tr.querySelector(".expense-receipt-cell");
+                const statusText = document.createElement("span"); statusText.textContent = "Checking…";
+                const view = document.createElement("button"); view.type = "button"; view.className = "action-btn"; view.textContent = "View"; view.disabled = true;
+                view.addEventListener("click", () => showExpenseReceipt(exp.receiptRef));
+                cell.replaceChildren(statusText, view);
+                getExpenseReceipt(exp.receiptRef).then(receipt => {
+                    if (!tr.isConnected) return;
+                    statusText.textContent = receipt ? `Receipt Attached${receipt.name ? `: ${receipt.name}` : ""}` : "Attachment Unavailable";
+                    view.disabled = !receipt;
+                }).catch(() => { statusText.textContent = "Attachment Unavailable"; });
+            }
         });
 
         tableBody.querySelectorAll(".delete-exp-btn").forEach(btn => {
-            btn.addEventListener("click", function() {
+            btn.addEventListener("click", async function() {
                 const id = this.getAttribute("data-id");
                 if (confirm("Are you sure you want to delete this expense record?")) {
+                    const removed = expenses.find(e => e.id === id);
                     const updated = expenses.filter(e => e.id !== id);
                     if (!saveExpenses(updated)) { alert("Expense could not be deleted because storage did not complete the update."); return; }
+                    if (removed?.receiptRef) { try { await deleteExpenseReceipt(removed.receiptRef); } catch (error) { console.warn("Deleted expense receipt cleanup failed:", error); } }
                     if (typeof logActivity === "function") {
                         logActivity("Expense Deleted", "Expenses", `Deleted expense record ID ${id}`);
                     }
@@ -235,7 +359,7 @@ function initializeAddExpensePage() {
     const editId = urlParams.get("id");
     const today = typeof getToday === "function" ? getToday() : new Date().toISOString().split("T")[0];
 
-    const inputs = form.querySelectorAll("input");
+    const inputs = form.querySelectorAll("input:not([type='file'])");
     const selects = form.querySelectorAll("select");
     const textarea = form.querySelector("textarea");
 
@@ -254,6 +378,14 @@ function initializeAddExpensePage() {
     const dueAmountInput = inputs[7]; // Due
     const paymentMethodSelect = selects[1]; // Method
     const paymentStatusSelect = selects[2]; // Status
+    const receiptInput = document.getElementById("expenseReceipt");
+    const receiptStatus = document.getElementById("expenseReceiptStatus");
+    const receiptPreview = document.getElementById("expenseReceiptPreview");
+    const clearSelectedReceipt = document.getElementById("clearSelectedReceipt");
+    const removeSavedReceipt = document.getElementById("removeSavedReceipt");
+    let selectedReceiptFile = null;
+    let removeExistingReceipt = false;
+    let selectedReceiptUrl = "";
 
     let editingExpense = null;
 
@@ -294,6 +426,80 @@ function initializeAddExpensePage() {
         if (dateInput) dateInput.value = today;
     }
 
+    const authUser = Storage.get(STORAGE_KEYS.AUTH_USER, {});
+    const payerDisplay = document.getElementById("expensePayerDisplay");
+    if (payerDisplay) payerDisplay.textContent = editingExpense?.payerName
+        ? `Paid by / recorded for: ${editingExpense.payerName}`
+        : authUser?.isLoggedIn && (authUser.name || authUser.email)
+        ? `Paid by / recorded for: ${authUser.name || authUser.email}`
+        : "Payer identity is not available in this session.";
+
+    async function renderSavedReceipt() {
+        if (!editingExpense?.receiptRef || removeExistingReceipt) return;
+        try {
+            const savedReceipt = await getExpenseReceipt(editingExpense.receiptRef);
+            if (!savedReceipt) { receiptStatus.textContent = "Attachment Unavailable: saved file not found in this browser."; return; }
+            receiptStatus.textContent = `Existing receipt: ${savedReceipt.name} (${savedReceipt.type}, ${(savedReceipt.size / 1024).toFixed(0)} KB). It stays attached unless you replace or remove it.`;
+            const view = document.createElement("button"); view.type = "button"; view.className = "action-btn"; view.textContent = "View saved receipt";
+            view.addEventListener("click", () => showExpenseReceipt(editingExpense.receiptRef));
+            receiptPreview.replaceChildren(view);
+            removeSavedReceipt.hidden = false;
+        } catch (error) {
+            receiptStatus.textContent = "Attachment Unavailable: receipt storage could not be opened.";
+        }
+    }
+    if (editingExpense?.receiptRef) {
+        receiptStatus.textContent = "Checking saved receipt…";
+        renderSavedReceipt();
+    }
+
+    receiptInput?.addEventListener("change", async () => {
+        const file = receiptInput.files?.[0];
+        if (!file) return;
+        if (!canAccessExpenseReceipt()) {
+            receiptInput.value = "";
+            receiptStatus.textContent = "An authorized account is required to attach payment proof.";
+            showExpenseReceiptError("Sign in with an authorized account to attach payment proof.");
+            return;
+        }
+        try {
+            const info = await inspectExpenseReceipt(file);
+            selectedReceiptFile = file;
+            removeExistingReceipt = false;
+            receiptStatus.textContent = `Selected: ${file.name} (${info.type}, ${(info.size / 1024).toFixed(0)} KB).`;
+            if (selectedReceiptUrl) URL.revokeObjectURL(selectedReceiptUrl);
+            selectedReceiptUrl = URL.createObjectURL(file);
+            receiptPreview.replaceChildren();
+            if (info.type.startsWith("image/")) {
+                const image = document.createElement("img"); image.src = selectedReceiptUrl; image.alt = `Preview of ${file.name}`; receiptPreview.appendChild(image);
+            } else {
+                const pdfLabel = document.createElement("p"); pdfLabel.textContent = `PDF receipt selected: ${file.name}`; receiptPreview.appendChild(pdfLabel);
+            }
+            clearSelectedReceipt.hidden = false;
+            removeSavedReceipt.hidden = !editingExpense?.receiptRef;
+        } catch (error) {
+            receiptInput.value = "";
+            selectedReceiptFile = null;
+            receiptStatus.textContent = error.message;
+            showExpenseReceiptError(error.message);
+        }
+    });
+
+    clearSelectedReceipt?.addEventListener("click", () => {
+        selectedReceiptFile = null; receiptInput.value = ""; clearSelectedReceipt.hidden = true;
+        if (selectedReceiptUrl) URL.revokeObjectURL(selectedReceiptUrl);
+        selectedReceiptUrl = "";
+        receiptPreview.replaceChildren();
+        if (editingExpense?.receiptRef && !removeExistingReceipt) renderSavedReceipt();
+        else receiptStatus.textContent = "No receipt selected.";
+    });
+    removeSavedReceipt?.addEventListener("click", () => {
+        if (!editingExpense?.receiptRef || !window.confirm("Remove this receipt from the expense when you save these changes?")) return;
+        removeExistingReceipt = true;
+        receiptStatus.textContent = "Saved receipt will be removed when you save the expense.";
+        receiptPreview.replaceChildren(); removeSavedReceipt.hidden = true;
+    });
+
     // Auto calculate due amount
     if (totalAmountInput && paidAmountInput && dueAmountInput) {
         function recalcDue() {
@@ -319,7 +525,7 @@ function initializeAddExpensePage() {
         });
     }
 
-    form.addEventListener("submit", function (e) {
+    form.addEventListener("submit", async function (e) {
         e.preventDefault();
 
         const amount = Number(totalAmountInput ? totalAmountInput.value : 0);
@@ -357,6 +563,7 @@ function initializeAddExpensePage() {
         const paid = paidAmount;
         const due = Math.max(0, amount - paid);
 
+        const oldReceiptRef = editingExpense?.receiptRef || "";
         const expData = {
             ...(editingExpense || {}),
             id: id,
@@ -373,20 +580,53 @@ function initializeAddExpensePage() {
             paymentMethod: paymentMethodSelect ? paymentMethodSelect.value : "Cash",
             status: due <= 0 ? "Paid" : paid > 0 ? "Partial" : "Pending",
             notes: textarea ? textarea.value.trim() : "",
-            createdAt: editingExpense?.createdAt || today,
+            createdAt: editingExpense?.createdAt || new Date().toISOString(),
             updatedAt: today
         };
 
-        if (editingExpense) {
-            const index = expenses.findIndex(e => e.id === editingExpense.id);
-            if (index !== -1) expenses[index] = expData;
-        } else {
-            expenses.push(expData);
+        if (!editingExpense && authUser?.isLoggedIn && (authUser.name || authUser.email)) {
+            expData.payerId = authUser.id || authUser.userId || authUser.email || "";
+            expData.payerName = authUser.name || authUser.email;
         }
 
-        if (!saveExpenses(expenses)) {
-            alert("Expense could not be saved. Please check browser storage and try again.");
+        const submitButton = form.querySelector("button[type='submit']");
+        if (submitButton) submitButton.disabled = true;
+        let newReceiptRef = "";
+        try {
+            if (selectedReceiptFile) {
+                const savedReceipt = await storeExpenseReceipt(selectedReceiptFile, id);
+                newReceiptRef = savedReceipt.id;
+                expData.receiptRef = savedReceipt.id;
+                expData.receiptName = savedReceipt.name;
+                expData.receiptType = savedReceipt.type;
+                expData.receiptSize = savedReceipt.size;
+            } else if (removeExistingReceipt) {
+                delete expData.receiptRef;
+                delete expData.receiptName;
+                delete expData.receiptType;
+                delete expData.receiptSize;
+            }
+
+            if (editingExpense) {
+                const index = expenses.findIndex(e => e.id === editingExpense.id);
+                if (index !== -1) expenses[index] = expData;
+            } else expenses.push(expData);
+
+            if (!saveExpenses(expenses)) {
+                if (newReceiptRef) { try { await deleteExpenseReceipt(newReceiptRef); } catch (_) {} }
+                alert("Expense could not be saved. Please check browser storage and try again.");
+                return;
+            }
+            if ((removeExistingReceipt || newReceiptRef) && oldReceiptRef && oldReceiptRef !== newReceiptRef) {
+                try { await deleteExpenseReceipt(oldReceiptRef); } catch (error) { console.warn("Old receipt cleanup failed after expense save:", error); }
+            }
+        } catch (error) {
+            if (newReceiptRef) { try { await deleteExpenseReceipt(newReceiptRef); } catch (_) {} }
+            receiptStatus.textContent = `Receipt was not saved: ${error.message || "storage error"}`;
+            showExpenseReceiptError(error.message || "Expense receipt could not be saved.");
             return;
+        } finally {
+            if (submitButton) submitButton.disabled = false;
         }
 
         if (typeof logActivity === "function") {
@@ -434,6 +674,38 @@ function initializeExpenseDetailsPage() {
         if (label?.includes("Status")) val.textContent = exp.status || "Paid";
         if (label?.includes("Reference")) val.textContent = exp.reference || "-";
     });
+
+    const payerGrid = document.querySelector(".detail-info-grid");
+    if (payerGrid && exp.payerName) {
+        const payer = document.createElement("div"); payer.className = "detail-item";
+        const label = document.createElement("span"); label.textContent = "Recorded By";
+        const value = document.createElement("strong"); value.textContent = exp.payerName;
+        payer.append(label, value); payerGrid.appendChild(payer);
+    }
+
+    const receiptPanel = document.getElementById("expenseReceiptDetails");
+    if (receiptPanel) {
+        receiptPanel.replaceChildren();
+        const icon = document.createElement("div"); icon.className = "attachment-icon"; icon.textContent = "📄";
+        const info = document.createElement("div"); info.className = "attachment-info";
+        const heading = document.createElement("h4");
+        const description = document.createElement("p");
+        info.append(heading, description);
+        receiptPanel.append(icon, info);
+        if (!exp.receiptRef) {
+            heading.textContent = "No Receipt"; description.textContent = "No payment proof is attached to this expense.";
+        } else {
+            heading.textContent = "Checking receipt…"; description.textContent = "Receipt files are stored in this browser profile.";
+            getExpenseReceipt(exp.receiptRef).then(receipt => {
+                if (!receipt) { heading.textContent = "Attachment Unavailable"; description.textContent = "The receipt file is missing from this browser's local receipt storage."; return; }
+                heading.textContent = "Receipt Attached";
+                description.textContent = `${receipt.name} · ${receipt.type} · ${(receipt.size / 1024).toFixed(0)} KB`;
+                const view = document.createElement("button"); view.type = "button"; view.className = "primary-btn"; view.textContent = "View Receipt";
+                view.addEventListener("click", () => showExpenseReceipt(exp.receiptRef));
+                receiptPanel.appendChild(view);
+            }).catch(() => { heading.textContent = "Attachment Unavailable"; description.textContent = "Receipt storage could not be opened in this browser."; });
+        }
+    }
 }
 
 /* =========================================================

@@ -5,6 +5,7 @@
 
 const STORAGE_KEYS = {
     PRODUCTS: "mms_products",
+    PRODUCT_CATEGORIES: "mms_product_categories",
     INVENTORY: "mms_inventory",
     STOCK_ADJUSTMENTS: "mms_stock_adjustments",
     SUPPLIERS: "mms_suppliers",

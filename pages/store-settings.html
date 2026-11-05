@@ -1,12 +1,14 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="../JS/theme-early.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Store Settings | Mart Management System</title>
 
     <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/theme.css">
 </head>
 
 <body>
@@ -142,8 +144,8 @@
                 <div class="form-group store-branding-editor">
                     <label for="storeLogo">Store logo</label>
                     <div id="storeLogoPreview" class="store-logo-preview" aria-live="polite">🏪 No logo selected</div>
-                    <input type="file" id="storeLogo" accept="image/png,image/jpeg,image/webp,image/svg+xml">
-                    <small>PNG, JPG, WebP, or SVG. Maximum 300 KB. The logo is stored in this browser with the other settings.</small>
+                    <input type="file" id="storeLogo" accept="image/png,image/jpeg,image/webp">
+                    <small>PNG, JPG, or WebP. Maximum 300 KB. The logo is stored in this browser with the other settings.</small>
                     <button type="button" class="secondary-btn" id="removeStoreLogo">Remove logo</button>
                 </div>
 
@@ -691,14 +693,36 @@
             <!-- DEVELOPMENT NOTE -->
             <div class="info-note">
 
-                <strong>ℹ️ Frontend Mode:</strong>
+                <strong>ℹ️ Frontend storage:</strong>
 
-                Store details are saved locally in this browser.
-                Save functionality, validation and persistent storage
-                will be implemented during the JavaScript phase.
+                Store details and the logo are saved in this browser profile.
+                They are not synchronized to a server or other devices.
 
             </div>
 
+        </section>
+
+        <section class="page-content appearance-settings-panel" aria-labelledby="sidebarAppearanceTitle">
+            <div class="form-section">
+                <div class="form-section-header">
+                    <h2 id="sidebarAppearanceTitle">🎨 Sidebar Appearance</h2>
+                    <p>Choose a preset or adjust the sidebar colors. Preview changes here before saving.</p>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group"><label for="sidebarPreset">Color preset</label><select id="sidebarPreset"><option value="default">Classic</option><option value="ocean">Ocean</option><option value="forest">Forest</option><option value="custom">Custom</option></select></div>
+                    <div class="form-group"><label for="sidebarBackground">Sidebar background</label><input type="color" id="sidebarBackground" value="#1f2937"></div>
+                    <div class="form-group"><label for="sidebarText">Navigation text</label><input type="color" id="sidebarText" value="#d1d5db"></div>
+                    <div class="form-group"><label for="sidebarIcon">Navigation icons</label><input type="color" id="sidebarIcon" value="#d1d5db"></div>
+                    <div class="form-group"><label for="sidebarActiveBackground">Active item background</label><input type="color" id="sidebarActiveBackground" value="#4b5563"></div>
+                    <div class="form-group"><label for="sidebarActiveText">Active item text</label><input type="color" id="sidebarActiveText" value="#ffffff"></div>
+                    <div class="form-group"><label for="sidebarHoverBackground">Hover background</label><input type="color" id="sidebarHoverBackground" value="#374151"></div>
+                    <div class="form-group"><label for="sidebarBorder">Sidebar border</label><input type="color" id="sidebarBorder" value="#374151"></div>
+                </div>
+                <div class="sidebar-appearance-preview" id="sidebarAppearancePreview" aria-label="Sidebar color preview">
+                    <strong>Mart System</strong><div class="menu-item">📊 Dashboard</div><div class="menu-item active">📦 Products</div><div class="menu-item">🧾 Billing</div>
+                </div>
+                <div class="form-actions"><button type="button" class="primary-btn" id="saveSidebarAppearance">Save sidebar appearance</button><button type="button" class="secondary-btn" id="resetSidebarAppearance">Reset colors</button></div>
+            </div>
         </section>
 
     </main>
