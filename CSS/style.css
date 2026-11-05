@@ -12513,7 +12513,7 @@ tbody tr:hover {
 ===================================================== */
 
 .notification-categories {
-    display: grid;
+    display: inline-grid;
 
     grid-template-columns: repeat(4, 1fr);
 
@@ -12525,7 +12525,7 @@ tbody tr:hover {
 .notification-category-card {
     display: flex;
 
-    align-items: flex-start;
+    align-items: inline;
 
     gap: 14px;
 
